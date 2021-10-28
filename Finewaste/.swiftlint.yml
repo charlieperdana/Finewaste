@@ -1,0 +1,21 @@
+# Rules
+enabled_rules:
+  - force_unwrapping
+  - file_name
+
+# Excluded folders
+excluded:
+  - Pods
+  - FinewasteTests
+  - FinewasteUITests
+
+# Custom rules
+file_length:
+  warning: 300
+  error: 400
+type_name:
+  min_length: 4
+  max_length:
+    warning: 40
+    error: 50
+    

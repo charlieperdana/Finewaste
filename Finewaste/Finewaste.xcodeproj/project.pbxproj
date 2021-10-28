@@ -118,10 +118,10 @@
 			isa = PBXGroup;
 			children = (
 				7D074D08272846260010C4F4 /* GoogleService-Info.plist */,
-				5572C6892728152900601A69 /* FinewasteApp.swift */,
 				5572C68B2728152900601A69 /* ContentView.swift */,
-				5572C68D2728152C00601A69 /* Assets.xcassets */,
+				5572C6892728152900601A69 /* FinewasteApp.swift */,
 				5572C6922728152C00601A69 /* Persistence.swift */,
+				5572C68D2728152C00601A69 /* Assets.xcassets */,
 				5572C6942728152C00601A69 /* Finewaste.xcdatamodeld */,
 				5572C68F2728152C00601A69 /* Preview Content */,
 			);
@@ -174,6 +174,7 @@
 				5572C6832728152900601A69 /* Frameworks */,
 				5572C6842728152900601A69 /* Resources */,
 				7F1E69D6D81AD8C4924931FC /* [CP] Embed Pods Frameworks */,
+				7D074D0C272852C80010C4F4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -312,6 +313,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		7D074D0C272852C80010C4F4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		7F1E69D6D81AD8C4924931FC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -502,7 +520,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Finewaste/Preview Content\"";
-				DEVELOPMENT_TEAM = ND4DZWJCVY;
+				DEVELOPMENT_TEAM = 6QH35NFSG6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -533,7 +551,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Finewaste/Preview Content\"";
-				DEVELOPMENT_TEAM = ND4DZWJCVY;
+				DEVELOPMENT_TEAM = 6QH35NFSG6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

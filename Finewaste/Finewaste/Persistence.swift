@@ -7,6 +7,8 @@
 
 import CoreData
 
+// swiftlint:disable all
+
 struct PersistenceController {
     static let shared = PersistenceController()
 
