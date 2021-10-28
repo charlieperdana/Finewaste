@@ -1,2 +1,2 @@
-# Finewaste
+# FineWaste
 Macro Challenge
