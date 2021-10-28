@@ -16,6 +16,8 @@
 		5572C6A02728152C00601A69 /* FinewasteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C69F2728152C00601A69 /* FinewasteTests.swift */; };
 		5572C6AA2728152C00601A69 /* FinewasteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6A92728152C00601A69 /* FinewasteUITests.swift */; };
 		5572C6AC2728152C00601A69 /* FinewasteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6AB2728152C00601A69 /* FinewasteUITestsLaunchTests.swift */; };
+		7D074D09272846260010C4F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D074D08272846260010C4F4 /* GoogleService-Info.plist */; };
+		974DD9ADAE3429C896D20222 /* Pods_Finewaste.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5231D242E97A6378582A26D /* Pods_Finewaste.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31A721380256AA037E7CAE8D /* Pods-Finewaste.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finewaste.release.xcconfig"; path = "Target Support Files/Pods-Finewaste/Pods-Finewaste.release.xcconfig"; sourceTree = "<group>"; };
 		5572C6862728152900601A69 /* Finewaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finewaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5572C6892728152900601A69 /* FinewasteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteApp.swift; sourceTree = "<group>"; };
 		5572C68B2728152900601A69 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +51,10 @@
 		5572C6A52728152C00601A69 /* FinewasteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinewasteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5572C6A92728152C00601A69 /* FinewasteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteUITests.swift; sourceTree = "<group>"; };
 		5572C6AB2728152C00601A69 /* FinewasteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7D074D08272846260010C4F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7D074D0A272846940010C4F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D5231D242E97A6378582A26D /* Pods_Finewaste.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finewaste.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFE8D9274D283EAA1EAD4DAA /* Pods-Finewaste.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finewaste.debug.xcconfig"; path = "Target Support Files/Pods-Finewaste/Pods-Finewaste.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				974DD9ADAE3429C896D20222 /* Pods_Finewaste.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FD67218DA6996132C6B13F9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EFE8D9274D283EAA1EAD4DAA /* Pods-Finewaste.debug.xcconfig */,
+				31A721380256AA037E7CAE8D /* Pods-Finewaste.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		5572C67D2728152900601A69 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +99,8 @@
 				5572C69E2728152C00601A69 /* FinewasteTests */,
 				5572C6A82728152C00601A69 /* FinewasteUITests */,
 				5572C6872728152900601A69 /* Products */,
+				3FD67218DA6996132C6B13F9 /* Pods */,
+				A7F9E69F0CFAB35C1BEB4203 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,10 +117,11 @@
 		5572C6882728152900601A69 /* Finewaste */ = {
 			isa = PBXGroup;
 			children = (
-				5572C6892728152900601A69 /* FinewasteApp.swift */,
+				7D074D08272846260010C4F4 /* GoogleService-Info.plist */,
 				5572C68B2728152900601A69 /* ContentView.swift */,
-				5572C68D2728152C00601A69 /* Assets.xcassets */,
+				5572C6892728152900601A69 /* FinewasteApp.swift */,
 				5572C6922728152C00601A69 /* Persistence.swift */,
+				5572C68D2728152C00601A69 /* Assets.xcassets */,
 				5572C6942728152C00601A69 /* Finewaste.xcdatamodeld */,
 				5572C68F2728152C00601A69 /* Preview Content */,
 			);
@@ -111,6 +131,7 @@
 		5572C68F2728152C00601A69 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				7D074D0A272846940010C4F4 /* GoogleService-Info.plist */,
 				5572C6902728152C00601A69 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -133,6 +154,14 @@
 			path = FinewasteUITests;
 			sourceTree = "<group>";
 		};
+		A7F9E69F0CFAB35C1BEB4203 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5231D242E97A6378582A26D /* Pods_Finewaste.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,9 +169,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5572C6AF2728152D00601A69 /* Build configuration list for PBXNativeTarget "Finewaste" */;
 			buildPhases = (
+				74273DA656A5BB4C60EC7F7F /* [CP] Check Pods Manifest.lock */,
 				5572C6822728152900601A69 /* Sources */,
 				5572C6832728152900601A69 /* Frameworks */,
 				5572C6842728152900601A69 /* Resources */,
+				7F1E69D6D81AD8C4924931FC /* [CP] Embed Pods Frameworks */,
+				7D074D0C272852C80010C4F4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -239,6 +271,7 @@
 			files = (
 				5572C6912728152C00601A69 /* Preview Assets.xcassets in Resources */,
 				5572C68E2728152C00601A69 /* Assets.xcassets in Resources */,
+				7D074D09272846260010C4F4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +290,65 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		74273DA656A5BB4C60EC7F7F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Finewaste-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D074D0C272852C80010C4F4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		7F1E69D6D81AD8C4924931FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Finewaste/Pods-Finewaste-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Finewaste/Pods-Finewaste-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Finewaste/Pods-Finewaste-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5572C6822728152900601A69 /* Sources */ = {
@@ -421,13 +513,14 @@
 		};
 		5572C6B02728152D00601A69 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFE8D9274D283EAA1EAD4DAA /* Pods-Finewaste.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Finewaste/Preview Content\"";
-				DEVELOPMENT_TEAM = ND4DZWJCVY;
+				DEVELOPMENT_TEAM = 6QH35NFSG6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -451,13 +544,14 @@
 		};
 		5572C6B12728152D00601A69 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31A721380256AA037E7CAE8D /* Pods-Finewaste.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Finewaste/Preview Content\"";
-				DEVELOPMENT_TEAM = ND4DZWJCVY;
+				DEVELOPMENT_TEAM = 6QH35NFSG6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
