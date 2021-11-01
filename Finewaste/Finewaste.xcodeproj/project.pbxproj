@@ -694,7 +694,6 @@
 		};
 		5572C6B32728152D00601A69 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91615283BDD8D1B26DF96862 /* Pods-FinewasteTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -720,7 +719,6 @@
 		};
 		5572C6B42728152D00601A69 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2DF683434FDB618D22EE5487 /* Pods-FinewasteTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
