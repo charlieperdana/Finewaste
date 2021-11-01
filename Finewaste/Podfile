@@ -29,5 +29,5 @@ end
 
 target 'FinewasteTests' do
   inherit! :search_paths
-
+  pod 'Firebase/Storage'
 end
