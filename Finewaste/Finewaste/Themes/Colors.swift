@@ -18,5 +18,5 @@ struct Colors {
     static let PlaceholderGray = Color("PlaceholderGray")
     static let Red = Color("Red")
     static let RedOverlay = Color("RedOverlay")
-    static let Turqoise = Color("Turqoise")
+    static let Turqoise = Color("Turquoise")
 }
