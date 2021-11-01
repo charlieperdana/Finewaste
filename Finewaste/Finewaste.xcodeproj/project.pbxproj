@@ -147,7 +147,7 @@
 			children = (
 				7DDD22CA273037F400250B35 /* Info.plist */,
 				7DDD22A42730374A00250B35 /* Resources */,
-				7DDD22A1272FD82400250B35 /* Network */,
+				7DDD22A1272FD82400250B35 /* Repositories */,
 				7DDD229C272FD58E00250B35 /* Themes */,
 				7DDD2294272FD54600250B35 /* Modules */,
 				7DDD2291272FD52900250B35 /* Models */,
@@ -247,12 +247,12 @@
 			path = Themes;
 			sourceTree = "<group>";
 		};
-		7DDD22A1272FD82400250B35 /* Network */ = {
+		7DDD22A1272FD82400250B35 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
 				7DDD22A2272FD84200250B35 /* ProjectRepository.swift */,
 			);
-			path = Network;
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		7DDD22A42730374A00250B35 /* Resources */ = {
