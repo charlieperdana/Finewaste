@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000B7D3C2731342F0066BDD8 /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000B7D3B2731342F0066BDD8 /* AddProjectView.swift */; };
 		5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6892728152900601A69 /* FinewasteApp.swift */; };
 		5572C68C2728152900601A69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C68B2728152900601A69 /* ContentView.swift */; };
 		5572C68E2728152C00601A69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C68D2728152C00601A69 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		000B7D3B2731342F0066BDD8 /* AddProjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddProjectView.swift; path = ../../../../../../../../Desktop/AddProjectView.swift; sourceTree = "<group>"; };
 		2DF683434FDB618D22EE5487 /* Pods-FinewasteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinewasteTests.release.xcconfig"; path = "Target Support Files/Pods-FinewasteTests/Pods-FinewasteTests.release.xcconfig"; sourceTree = "<group>"; };
 		31A721380256AA037E7CAE8D /* Pods-Finewaste.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finewaste.release.xcconfig"; path = "Target Support Files/Pods-Finewaste/Pods-Finewaste.release.xcconfig"; sourceTree = "<group>"; };
 		5572C6862728152900601A69 /* Finewaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finewaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		000B7D38273133D60066BDD8 /* Add Project */ = {
+			isa = PBXGroup;
+			children = (
+				000B7D3A2731341C0066BDD8 /* View */,
+				000B7D39273134160066BDD8 /* ViewModel */,
+			);
+			path = "Add Project";
+			sourceTree = "<group>";
+		};
+		000B7D39273134160066BDD8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		000B7D3A2731341C0066BDD8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				000B7D3B2731342F0066BDD8 /* AddProjectView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3FD67218DA6996132C6B13F9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +241,7 @@
 		7DDD2294272FD54600250B35 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				000B7D38273133D60066BDD8 /* Add Project */,
 				7DDD2295272FD54900250B35 /* Login */,
 			);
 			path = Modules;
@@ -519,6 +546,7 @@
 				5572C68C2728152900601A69 /* ContentView.swift in Sources */,
 				7DDD22CC27303CF100250B35 /* Fonts.swift in Sources */,
 				7DDD2293272FD53500250B35 /* Project.swift in Sources */,
+				000B7D3C2731342F0066BDD8 /* AddProjectView.swift in Sources */,
 				5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */,
 				55B6040F273047FC00631004 /* UserInfo.swift in Sources */,
 				55B6040D272FEA6800631004 /* LoginViewModel.swift in Sources */,
