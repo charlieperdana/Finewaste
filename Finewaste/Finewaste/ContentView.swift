@@ -9,10 +9,16 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-
+    @AppStorage("log_status") var logStatus = false
     var body: some View {
-        Text("Totebag Project")
-            .font(Fonts.poppinsTitle2())
+        
+        ZStack {
+            if logStatus {
+                HomeView() }
+            else {
+                LoginView()
+            }
+        }
     }
 }
 

@@ -1,5 +1,5 @@
 # Rules
-enabled_rules:
+opt_in_rules:
   - force_unwrapping
   - file_name
 
@@ -18,4 +18,8 @@ type_name:
   max_length:
     warning: 40
     error: 50
+    
+disabled_rules: # rule identifiers to exclude from running
+    - trailing_whitespace
+    - vertical_whitespace
     
