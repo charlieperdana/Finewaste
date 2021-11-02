@@ -23,6 +23,10 @@
 		7DDD229E272FD5A500250B35 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD229D272FD5A500250B35 /* Colors.swift */; };
 		7DDD22A0272FD5C500250B35 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DDD229F272FD5C500250B35 /* Colors.xcassets */; };
 		7DDD22A3272FD84200250B35 /* ProjectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22A2272FD84200250B35 /* ProjectRepository.swift */; };
+		7DDD22BD2730376B00250B35 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7DDD22AB2730376A00250B35 /* Poppins-SemiBold.ttf */; };
+		7DDD22C32730376B00250B35 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7DDD22B12730376A00250B35 /* Poppins-Regular.ttf */; };
+		7DDD22C92730376B00250B35 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7DDD22B72730376B00250B35 /* Poppins-Bold.ttf */; };
+		7DDD22CC27303CF100250B35 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22CB27303CF100250B35 /* Fonts.swift */; };
 		974DD9ADAE3429C896D20222 /* Pods_Finewaste.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5231D242E97A6378582A26D /* Pods_Finewaste.framework */; };
 		9BA7ED631B646FA0F837F1D5 /* libPods-FinewasteTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE954DF169C517F60F430A9B /* libPods-FinewasteTests.a */; };
 /* End PBXBuildFile section */
@@ -67,6 +71,11 @@
 		7DDD229D272FD5A500250B35 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7DDD229F272FD5C500250B35 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		7DDD22A2272FD84200250B35 /* ProjectRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRepository.swift; sourceTree = "<group>"; };
+		7DDD22AB2730376A00250B35 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		7DDD22B12730376A00250B35 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		7DDD22B72730376B00250B35 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		7DDD22CA273037F400250B35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7DDD22CB27303CF100250B35 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		91615283BDD8D1B26DF96862 /* Pods-FinewasteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinewasteTests.debug.xcconfig"; path = "Target Support Files/Pods-FinewasteTests/Pods-FinewasteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5231D242E97A6378582A26D /* Pods_Finewaste.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finewaste.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE954DF169C517F60F430A9B /* libPods-FinewasteTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FinewasteTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,7 +145,9 @@
 		5572C6882728152900601A69 /* Finewaste */ = {
 			isa = PBXGroup;
 			children = (
-				7DDD22A1272FD82400250B35 /* Network */,
+				7DDD22CA273037F400250B35 /* Info.plist */,
+				7DDD22A42730374A00250B35 /* Resources */,
+				7DDD22A1272FD82400250B35 /* Repositories */,
 				7DDD229C272FD58E00250B35 /* Themes */,
 				7DDD2294272FD54600250B35 /* Modules */,
 				7DDD2291272FD52900250B35 /* Models */,
@@ -231,16 +242,35 @@
 			isa = PBXGroup;
 			children = (
 				7DDD229D272FD5A500250B35 /* Colors.swift */,
+				7DDD22CB27303CF100250B35 /* Fonts.swift */,
 			);
 			path = Themes;
 			sourceTree = "<group>";
 		};
-		7DDD22A1272FD82400250B35 /* Network */ = {
+		7DDD22A1272FD82400250B35 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
 				7DDD22A2272FD84200250B35 /* ProjectRepository.swift */,
 			);
-			path = Network;
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		7DDD22A42730374A00250B35 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7DDD22A52730375400250B35 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7DDD22A52730375400250B35 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7DDD22B72730376B00250B35 /* Poppins-Bold.ttf */,
+				7DDD22B12730376A00250B35 /* Poppins-Regular.ttf */,
+				7DDD22AB2730376A00250B35 /* Poppins-SemiBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		A7F9E69F0CFAB35C1BEB4203 /* Frameworks */ = {
@@ -360,8 +390,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DDD22C92730376B00250B35 /* Poppins-Bold.ttf in Resources */,
 				5572C6912728152C00601A69 /* Preview Assets.xcassets in Resources */,
+				7DDD22C32730376B00250B35 /* Poppins-Regular.ttf in Resources */,
 				7DDD22A0272FD5C500250B35 /* Colors.xcassets in Resources */,
+				7DDD22BD2730376B00250B35 /* Poppins-SemiBold.ttf in Resources */,
 				5572C68E2728152C00601A69 /* Assets.xcassets in Resources */,
 				7D074D09272846260010C4F4 /* GoogleService-Info.plist in Resources */,
 			);
@@ -475,6 +508,7 @@
 				7DDD22A3272FD84200250B35 /* ProjectRepository.swift in Sources */,
 				5572C6932728152C00601A69 /* Persistence.swift in Sources */,
 				5572C68C2728152900601A69 /* ContentView.swift in Sources */,
+				7DDD22CC27303CF100250B35 /* Fonts.swift in Sources */,
 				7DDD2293272FD53500250B35 /* Project.swift in Sources */,
 				5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */,
 				7DDD229B272FD56E00250B35 /* LoginViewModel.swift in Sources */,
@@ -642,6 +676,7 @@
 				DEVELOPMENT_TEAM = 6QH35NFSG6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Finewaste/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -673,6 +708,7 @@
 				DEVELOPMENT_TEAM = 6QH35NFSG6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Finewaste/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
