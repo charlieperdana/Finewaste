@@ -14,18 +14,16 @@ target 'Finewaste' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Finewaste
-  # add the Firebase pod for Google Analytics
+  # Firebase related pods
   pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
 
+  # Pod for coding convention
   pod 'SwiftLint'
 
+  # Pod for image caching
   pod 'SDWebImageSwiftUI'
-  
-  pod 'Introspect'
-	
 end
 
 target 'FinewasteTests' do
