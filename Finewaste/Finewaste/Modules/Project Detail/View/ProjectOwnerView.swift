@@ -6,10 +6,23 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ProjectOwnerView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            WebImage(url: URL(string: "https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"))
+                .resizable()
+                .frame(width: 44, height: 44)
+                .clipShape(Circle())
+            Text("DonateforCycle.id")
+                .font(Fonts.poppinsCallout())
+            Spacer()
+            FinewasteButton(text: "Chat", size: .small, isEnabled: true) {
+                // Navigate to chat view
+            }
+        }
+        .padding(.all, 16)
     }
 }
 
