@@ -12,18 +12,26 @@ struct LoginView: View {
     @EnvironmentObject var userInfo: UserInfo
     
     @StateObject var loginData = LoginViewModel()
+    @State private var email = ""
+    @State private var fullname = ""
     
     var body: some View {
-        VStack {  
+        VStack(spacing:20) {
             Image("loginImage")
+            Text("Create a Profile")
+                .font(Fonts.poppinsTitle())
+                .foregroundColor(Colors.Turqoise)
             Text("Sign in to add or contribute to project")
+                .font(Fonts.poppinsBody())
+                .foregroundColor(Colors.DarkGray)
 
             SignInWithAppleButton { (request) in
                 
 //                requesting parameters from apple login
-                loginData.nonce = randomNonceString()
+                loginData.nonce = LoginHelper.randomNonceString()
                 request.requestedScopes = [.email, .fullName]
-                request.nonce = sha256(loginData.nonce)
+                request.nonce = LoginHelper.sha256(loginData.nonce)
+                
             } onCompletion: { (result) in
                 
 //                getting error or success
@@ -36,13 +44,15 @@ struct LoginView: View {
                         return
                     }
                     loginData.authenticate(credential: credential)
+                    
+                
+                    
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
             }
             .signInWithAppleButtonStyle(.black)
             .frame(height: 55)
-            .clipShape(Capsule())
             .padding(.horizontal, 40)
             
 

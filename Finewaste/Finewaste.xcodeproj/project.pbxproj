@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		207254929765DBB3440BBCA6 /* libPods-FinewasteTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE954DF169C517F60F430A9B /* libPods-FinewasteTests.a */; };
+		551DD88727329E7A00E550AF /* LoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD88627329E7A00E550AF /* LoginHelper.swift */; };
+		551DD8892732A2DF00E550AF /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD8882732A2DF00E550AF /* Users.swift */; };
+		551DD88D273302C300E550AF /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD88C273302C300E550AF /* ProjectViewModel.swift */; };
+		551DD8902733037E00E550AF /* MainProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD88F2733037E00E550AF /* MainProjectView.swift */; };
 		5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6892728152900601A69 /* FinewasteApp.swift */; };
 		5572C68C2728152900601A69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C68B2728152900601A69 /* ContentView.swift */; };
 		5572C68E2728152C00601A69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C68D2728152C00601A69 /* Assets.xcassets */; };
@@ -21,6 +26,7 @@
 		55B6040D272FEA6800631004 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B6040C272FEA6800631004 /* LoginViewModel.swift */; };
 		55B6040F273047FC00631004 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B6040E273047FC00631004 /* UserInfo.swift */; };
 		55B6044C27304F0300631004 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B6044B27304F0300631004 /* HomeView.swift */; };
+		55B604572731302F00631004 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B604562731302F00631004 /* OnboardingView.swift */; };
 		7DDD2293272FD53500250B35 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD2292272FD53500250B35 /* Project.swift */; };
 		7DDD229E272FD5A500250B35 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD229D272FD5A500250B35 /* Colors.swift */; };
 		7DDD22A0272FD5C500250B35 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DDD229F272FD5C500250B35 /* Colors.xcassets */; };
@@ -30,7 +36,6 @@
 		7DDD22C92730376B00250B35 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7DDD22B72730376B00250B35 /* Poppins-Bold.ttf */; };
 		7DDD22CC27303CF100250B35 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22CB27303CF100250B35 /* Fonts.swift */; };
 		974DD9ADAE3429C896D20222 /* Pods_Finewaste.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5231D242E97A6378582A26D /* Pods_Finewaste.framework */; };
-		9BA7ED631B646FA0F837F1D5 /* libPods-FinewasteTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE954DF169C517F60F430A9B /* libPods-FinewasteTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,10 @@
 /* Begin PBXFileReference section */
 		2DF683434FDB618D22EE5487 /* Pods-FinewasteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinewasteTests.release.xcconfig"; path = "Target Support Files/Pods-FinewasteTests/Pods-FinewasteTests.release.xcconfig"; sourceTree = "<group>"; };
 		31A721380256AA037E7CAE8D /* Pods-Finewaste.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finewaste.release.xcconfig"; path = "Target Support Files/Pods-Finewaste/Pods-Finewaste.release.xcconfig"; sourceTree = "<group>"; };
+		551DD88627329E7A00E550AF /* LoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHelper.swift; sourceTree = "<group>"; };
+		551DD8882732A2DF00E550AF /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		551DD88C273302C300E550AF /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
+		551DD88F2733037E00E550AF /* MainProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProjectView.swift; sourceTree = "<group>"; };
 		5572C6862728152900601A69 /* Finewaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finewaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5572C6892728152900601A69 /* FinewasteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteApp.swift; sourceTree = "<group>"; };
 		5572C68B2728152900601A69 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +80,7 @@
 		55B6040E273047FC00631004 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		55B6044B27304F0300631004 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		55B6045327305A0400631004 /* Finewaste.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Finewaste.entitlements; sourceTree = "<group>"; };
+		55B604562731302F00631004 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		7D074D0A272846940010C4F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7DDD2292272FD53500250B35 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		7DDD229D272FD5A500250B35 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -100,7 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BA7ED631B646FA0F837F1D5 /* libPods-FinewasteTests.a in Frameworks */,
+				207254929765DBB3440BBCA6 /* libPods-FinewasteTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +133,39 @@
 				2DF683434FDB618D22EE5487 /* Pods-FinewasteTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		551DD88527329E6200E550AF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				551DD88627329E7A00E550AF /* LoginHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		551DD88A273302A200E550AF /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				551DD88E2733036500E550AF /* View */,
+				551DD88B273302AF00E550AF /* ViewModel */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		551DD88B273302AF00E550AF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				551DD88C273302C300E550AF /* ProjectViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		551DD88E2733036500E550AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				551DD88F2733037E00E550AF /* MainProjectView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5572C67D2728152900601A69 = {
@@ -150,6 +193,7 @@
 		5572C6882728152900601A69 /* Finewaste */ = {
 			isa = PBXGroup;
 			children = (
+				551DD88527329E6200E550AF /* Helpers */,
 				55B6045327305A0400631004 /* Finewaste.entitlements */,
 				55B60408272FE99900631004 /* GoogleService-Info.plist */,
 				7DDD22CA273037F400250B35 /* Info.plist */,
@@ -195,6 +239,22 @@
 			path = FinewasteUITests;
 			sourceTree = "<group>";
 		};
+		55B6045427312FD700631004 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				55B6045527312FE400631004 /* View */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		55B6045527312FE400631004 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55B604562731302F00631004 /* OnboardingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7DDD2290272FD4C100250B35 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +268,7 @@
 			children = (
 				7DDD2292272FD53500250B35 /* Project.swift */,
 				55B6040E273047FC00631004 /* UserInfo.swift */,
+				551DD8882732A2DF00E550AF /* Users.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -215,6 +276,8 @@
 		7DDD2294272FD54600250B35 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				551DD88A273302A200E550AF /* Projects */,
+				55B6045427312FD700631004 /* Onboarding */,
 				7DDD2295272FD54900250B35 /* Login */,
 			);
 			path = Modules;
@@ -514,13 +577,18 @@
 				5572C6962728152C00601A69 /* Finewaste.xcdatamodeld in Sources */,
 				7DDD22A3272FD84200250B35 /* ProjectRepository.swift in Sources */,
 				55B6040B272FEA4700631004 /* LoginView.swift in Sources */,
+				551DD88D273302C300E550AF /* ProjectViewModel.swift in Sources */,
 				5572C6932728152C00601A69 /* Persistence.swift in Sources */,
 				55B6044C27304F0300631004 /* HomeView.swift in Sources */,
 				5572C68C2728152900601A69 /* ContentView.swift in Sources */,
+				551DD8902733037E00E550AF /* MainProjectView.swift in Sources */,
+				551DD8892732A2DF00E550AF /* Users.swift in Sources */,
 				7DDD22CC27303CF100250B35 /* Fonts.swift in Sources */,
 				7DDD2293272FD53500250B35 /* Project.swift in Sources */,
 				5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */,
 				55B6040F273047FC00631004 /* UserInfo.swift in Sources */,
+				551DD88727329E7A00E550AF /* LoginHelper.swift in Sources */,
+				55B604572731302F00631004 /* OnboardingView.swift in Sources */,
 				55B6040D272FEA6800631004 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

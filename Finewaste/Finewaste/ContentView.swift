@@ -14,7 +14,9 @@ struct ContentView: View {
         
         ZStack {
             if logStatus {
-                HomeView() }
+//                HomeView()
+                OnboardingView()
+            }
             else {
                 LoginView()
             }
