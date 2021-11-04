@@ -13,6 +13,7 @@ struct Colors {
     
     static let DarkGray = Color("DarkGray")
     static let Gray = Color("Gray")
+    static let ProgressBarGray = Color("ProgressBarEmpty")
     static let GreenOvelay = Color("GreenOverlay")
     static let Pink = Color("Pink")
     static let PlaceholderGray = Color("PlaceholderGray")
