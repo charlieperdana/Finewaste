@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		000B7D3C2731342F0066BDD8 /* AddProjectViewAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000B7D3B2731342F0066BDD8 /* AddProjectViewAbout.swift */; };
 		00C18B552732988E000C1103 /* DeliveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C18B542732988E000C1103 /* DeliveryView.swift */; };
 		00C18B57273298C5000C1103 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C18B56273298C5000C1103 /* MaterialView.swift */; };
 		00E77048273259D900C9C299 /* AddProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E77047273259D900C9C299 /* AddProjectViewModel.swift */; };
 		00E7704A27327AC300C9C299 /* showImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E7704927327AC300C9C299 /* showImagePicker.swift */; };
+		00F2BC9F2733C78D00E95798 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F2BC9E2733C78D00E95798 /* AboutView.swift */; };
+		00FE22CA2733DBEB00EF306A /* AddMaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE22C92733DBEB00EF306A /* AddMaterialView.swift */; };
 		5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6892728152900601A69 /* FinewasteApp.swift */; };
 		5572C68C2728152900601A69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C68B2728152900601A69 /* ContentView.swift */; };
 		5572C68E2728152C00601A69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C68D2728152C00601A69 /* Assets.xcassets */; };
@@ -56,11 +57,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		000B7D3B2731342F0066BDD8 /* AddProjectViewAbout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddProjectViewAbout.swift; path = ../../../../../../../../Desktop/AddProjectViewAbout.swift; sourceTree = "<group>"; };
 		00C18B542732988E000C1103 /* DeliveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryView.swift; sourceTree = "<group>"; };
 		00C18B56273298C5000C1103 /* MaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		00E77047273259D900C9C299 /* AddProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectViewModel.swift; sourceTree = "<group>"; };
 		00E7704927327AC300C9C299 /* showImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showImagePicker.swift; sourceTree = "<group>"; };
+		00F2BC9E2733C78D00E95798 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		00FE22C92733DBEB00EF306A /* AddMaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaterialView.swift; sourceTree = "<group>"; };
 		2DF683434FDB618D22EE5487 /* Pods-FinewasteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinewasteTests.release.xcconfig"; path = "Target Support Files/Pods-FinewasteTests/Pods-FinewasteTests.release.xcconfig"; sourceTree = "<group>"; };
 		31A721380256AA037E7CAE8D /* Pods-Finewaste.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finewaste.release.xcconfig"; path = "Target Support Files/Pods-Finewaste/Pods-Finewaste.release.xcconfig"; sourceTree = "<group>"; };
 		5572C6862728152900601A69 /* Finewaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finewaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,9 +147,10 @@
 		000B7D3A2731341C0066BDD8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				000B7D3B2731342F0066BDD8 /* AddProjectViewAbout.swift */,
+				00F2BC9E2733C78D00E95798 /* AboutView.swift */,
 				00C18B56273298C5000C1103 /* MaterialView.swift */,
 				00C18B542732988E000C1103 /* DeliveryView.swift */,
+				00FE22C92733DBEB00EF306A /* AddMaterialView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 			files = (
 				00E77048273259D900C9C299 /* AddProjectViewModel.swift in Sources */,
 				7DDD229E272FD5A500250B35 /* Colors.swift in Sources */,
+				00F2BC9F2733C78D00E95798 /* AboutView.swift in Sources */,
 				00C18B552732988E000C1103 /* DeliveryView.swift in Sources */,
 				5572C6962728152C00601A69 /* Finewaste.xcdatamodeld in Sources */,
 				7DDD22A3272FD84200250B35 /* ProjectRepository.swift in Sources */,
@@ -560,10 +564,10 @@
 				5572C68C2728152900601A69 /* ContentView.swift in Sources */,
 				7DDD22CC27303CF100250B35 /* Fonts.swift in Sources */,
 				7DDD2293272FD53500250B35 /* Project.swift in Sources */,
-				000B7D3C2731342F0066BDD8 /* AddProjectViewAbout.swift in Sources */,
 				5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */,
 				55B6040F273047FC00631004 /* UserInfo.swift in Sources */,
 				55B6040D272FEA6800631004 /* LoginViewModel.swift in Sources */,
+				00FE22CA2733DBEB00EF306A /* AddMaterialView.swift in Sources */,
 				00E7704A27327AC300C9C299 /* showImagePicker.swift in Sources */,
 				00C18B57273298C5000C1103 /* MaterialView.swift in Sources */,
 			);

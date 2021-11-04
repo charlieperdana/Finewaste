@@ -18,7 +18,7 @@ struct FinewasteApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AboutView()
         }
     }
 }
