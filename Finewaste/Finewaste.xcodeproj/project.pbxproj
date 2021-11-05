@@ -13,7 +13,6 @@
 		00E7704A27327AC300C9C299 /* showImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E7704927327AC300C9C299 /* showImagePicker.swift */; };
 		00F2BC9F2733C78D00E95798 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F2BC9E2733C78D00E95798 /* AboutView.swift */; };
 		00FE22CA2733DBEB00EF306A /* AddMaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE22C92733DBEB00EF306A /* AddMaterialView.swift */; };
-		207254929765DBB3440BBCA6 /* libPods-FinewasteTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE954DF169C517F60F430A9B /* libPods-FinewasteTests.a */; };
 		551DD88727329E7A00E550AF /* LoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD88627329E7A00E550AF /* LoginHelper.swift */; };
 		551DD8892732A2DF00E550AF /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD8882732A2DF00E550AF /* Users.swift */; };
 		551DD88D273302C300E550AF /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD88C273302C300E550AF /* ProjectViewModel.swift */; };
@@ -64,6 +63,7 @@
 		7DDD22FC2732C30900250B35 /* ProjectDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22FB2732C30900250B35 /* ProjectDescriptionView.swift */; };
 		7DDD23012732CC4900250B35 /* ProjectUpdateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD23002732CC4900250B35 /* ProjectUpdateCard.swift */; };
 		974DD9ADAE3429C896D20222 /* Pods_Finewaste.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5231D242E97A6378582A26D /* Pods_Finewaste.framework */; };
+		AC84CD62D6147B378199808A /* Pods_FinewasteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4256E325940C78D4FE7ABFB /* Pods_FinewasteTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,8 +148,8 @@
 		7DDD22FB2732C30900250B35 /* ProjectDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDescriptionView.swift; sourceTree = "<group>"; };
 		7DDD23002732CC4900250B35 /* ProjectUpdateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdateCard.swift; sourceTree = "<group>"; };
 		91615283BDD8D1B26DF96862 /* Pods-FinewasteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinewasteTests.debug.xcconfig"; path = "Target Support Files/Pods-FinewasteTests/Pods-FinewasteTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C4256E325940C78D4FE7ABFB /* Pods_FinewasteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinewasteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5231D242E97A6378582A26D /* Pods_Finewaste.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finewaste.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE954DF169C517F60F430A9B /* libPods-FinewasteTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FinewasteTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE8D9274D283EAA1EAD4DAA /* Pods-Finewaste.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finewaste.debug.xcconfig"; path = "Target Support Files/Pods-Finewaste/Pods-Finewaste.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,7 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				207254929765DBB3440BBCA6 /* libPods-FinewasteTests.a in Frameworks */,
+				AC84CD62D6147B378199808A /* Pods_FinewasteTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,7 +528,7 @@
 			isa = PBXGroup;
 			children = (
 				D5231D242E97A6378582A26D /* Pods_Finewaste.framework */,
-				EE954DF169C517F60F430A9B /* libPods-FinewasteTests.a */,
+				C4256E325940C78D4FE7ABFB /* Pods_FinewasteTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1036,29 +1036,6 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"FirebaseCore-library\"",
-					"-l\"FirebaseCoreDiagnostics-library\"",
-					"-l\"FirebaseStorage\"",
-					"-l\"GTMSessionFetcher-library\"",
-					"-l\"GoogleDataTransport-library\"",
-					"-l\"GoogleUtilities-Environment-Logger\"",
-					"-l\"PromisesObjC-library\"",
-					"-l\"nanopb-library\"",
-					"-l\"z\"",
-					"-framework",
-					"\"CoreTelephony\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"UIKit\"",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = WeTheX.FinewasteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -1085,29 +1062,6 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"FirebaseCore-library\"",
-					"-l\"FirebaseCoreDiagnostics-library\"",
-					"-l\"FirebaseStorage\"",
-					"-l\"GTMSessionFetcher-library\"",
-					"-l\"GoogleDataTransport-library\"",
-					"-l\"GoogleUtilities-Environment-Logger\"",
-					"-l\"PromisesObjC-library\"",
-					"-l\"nanopb-library\"",
-					"-l\"z\"",
-					"-framework",
-					"\"CoreTelephony\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"UIKit\"",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = WeTheX.FinewasteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
