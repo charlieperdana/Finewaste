@@ -11,6 +11,7 @@ import Firebase
 @main
 struct FinewasteApp: App {
     let persistenceController = PersistenceController.shared
+    @State private var test = 0
 
     init() {
         FirebaseApp.configure()
@@ -18,6 +19,8 @@ struct FinewasteApp: App {
 
     var body: some Scene {
         WindowGroup {
+//            ProjectDetailView()
+//                .foregroundColor(Colors.DarkGray)
             ContentView()
         }
     }
