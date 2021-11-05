@@ -60,7 +60,7 @@ struct MainProjectView: View {
                     
                     
                     
-                    Button(action: {
+                    Button(action:    {
                         
                         let newUser = Users(id: self.uuidUser, name: fullname, username: self.usernameUser, description: "", productService: [""], createdProduct: 0, donatedWaste: 0, location: Location(latitude: 0.0, longitude: 0.0), isBusiness: false)
 //                        model.addData(fullname: fullname, username: username, uuid: uuid)

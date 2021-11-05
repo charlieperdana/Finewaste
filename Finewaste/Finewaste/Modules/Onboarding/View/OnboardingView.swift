@@ -11,7 +11,7 @@ struct OnboardingView: View {
     @State private var username: String = ""
     @State private var warningOne: String = "Username must be unique"
     @State private var warningTwo: String = "Username cannot be longer than 15 characters"
-    @State private var warningThree: String = "Username can only contain alphanumeric characters (letter A-Z, numbers 0-9) with exception of underschores."
+    @State private var warningThree: String = "Username can only contain alphanumeric characters (letter a-z, numbers 0-9) with exception of underschores."
     
     @State private var isWarningOne = 0
     @State private var isWarningTwo = 0
@@ -21,9 +21,11 @@ struct OnboardingView: View {
     @State var imageNameTwo = "circle"
     @State var imageNameThree = "circle"
     
-    var existingUsername = "Charlie"
+    @ObservedObject var userModel = UserViewModel()
     
-    @AppStorage("username_user") var usernameUser = ""
+    @State var showMainProject = false
+    
+    @AppStorage("uuid_user") var uuidUser = ""
     
     var body: some View {
         NavigationView {
@@ -48,25 +50,29 @@ struct OnboardingView: View {
                                 imageNameTwo = "circle"
                                 imageNameThree = "circle"
                             } else {
-                                if $0 == existingUsername {
-                                    self.warningOne = "Someone already use this username"
-                                    isWarningOne = 1
-                                    imageNameOne = "xmark.circle"
-                                } else {
-                                    self.warningOne = "No one already use this username"
-                                    isWarningOne = 2
-                                    imageNameOne = "checkmark.circle"
+                                
+                                userModel.checkUsername(username: $0) { result in
+                                    if result{
+                                        self.warningOne = "Someone already use this username"
+                                        isWarningOne = 1
+                                        imageNameOne = "xmark.circle"
+                                    } else {
+                                        self.warningOne = "No one already use this username"
+                                        isWarningOne = 2
+                                        imageNameOne = "checkmark.circle"
+                                    }
+                                    
                                 }
                                 
                                 if $0.count > 15 {
                                     self.isWarningTwo = 1
                                     imageNameTwo = "xmark.circle"
-                                } else{
+                                } else {
                                     self.isWarningTwo = 2
                                     imageNameTwo = "checkmark.circle"
                                 }
                                 
-
+                                
                                 if ($0.range(of: "^[a-zA-Z0-9_]*$", options:.regularExpression) != nil){
                                     self.isWarningThree = 2
                                     imageNameThree = "checkmark.circle"
@@ -75,11 +81,11 @@ struct OnboardingView: View {
                                     imageNameThree = "xmark.circle"
                                 }
                             }
-
-                            self.usernameUser = $0 
+                            
                         }
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .textCase(.lowercase)
+                        .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .font(Fonts.poppinsSubheadline())
                 }
@@ -124,24 +130,26 @@ struct OnboardingView: View {
                 
                 
                 Button(action: {
-                   
+                    let newUser = Users(id: self.uuidUser, name: "", username: self.username, description: "", productService: [""], createdProduct: 0, donatedWaste: 0, location: Location(latitude: 0.0, longitude: 0.0), isBusiness: false)
+                    
+                    userModel.addData(newUser: newUser)
+                    self.showMainProject = true
                 }) {
-                    NavigationLink(destination: MainProjectView()) {
-                        HStack {
-                            Spacer()
-                            Text("Start")
-                                .font(Font.headline)
-                                .multilineTextAlignment(.center)
-                            Spacer()
-                            
-                        }
-                        .padding()
-                        .foregroundColor(Colors.White)
-                        .background(Colors.Turqoise)
-                    .cornerRadius(13)
+                    HStack {
+                        Spacer()
+                        Text("Start")
+                            .font(Font.headline)
+                            .multilineTextAlignment(.center)
+                        Spacer()
+                        
                     }
+                    .padding()
+                    .foregroundColor(Colors.White)
+                    .background(Colors.Turqoise)
+                    .cornerRadius(13)
                 }
                 
+                NavigationLink(destination: MainProjectView(), isActive: $showMainProject) {}
             }
             .padding()
         }
@@ -152,9 +160,9 @@ struct WarningTextModifier: ViewModifier {
     
     var isSet: Int
     
-//    0 = kosong
-//    1 = true
-//    2 = false
+    //    0 = kosong
+    //    1 = true
+    //    2 = false
     
     func body(content: Content) -> some View {
         Group {

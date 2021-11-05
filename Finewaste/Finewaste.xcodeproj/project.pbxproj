@@ -12,6 +12,7 @@
 		551DD8892732A2DF00E550AF /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD8882732A2DF00E550AF /* Users.swift */; };
 		551DD88D273302C300E550AF /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD88C273302C300E550AF /* ProjectViewModel.swift */; };
 		551DD8902733037E00E550AF /* MainProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD88F2733037E00E550AF /* MainProjectView.swift */; };
+		551DD8932735144500E550AF /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD8922735144500E550AF /* OnboardingViewModel.swift */; };
 		5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6892728152900601A69 /* FinewasteApp.swift */; };
 		5572C68C2728152900601A69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C68B2728152900601A69 /* ContentView.swift */; };
 		5572C68E2728152C00601A69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C68D2728152C00601A69 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		551DD8882732A2DF00E550AF /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		551DD88C273302C300E550AF /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		551DD88F2733037E00E550AF /* MainProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProjectView.swift; sourceTree = "<group>"; };
+		551DD8922735144500E550AF /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		5572C6862728152900601A69 /* Finewaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finewaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5572C6892728152900601A69 /* FinewasteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteApp.swift; sourceTree = "<group>"; };
 		5572C68B2728152900601A69 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -168,6 +170,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		551DD8912735142D00E550AF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				551DD8922735144500E550AF /* OnboardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5572C67D2728152900601A69 = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +252,7 @@
 		55B6045427312FD700631004 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				551DD8912735142D00E550AF /* ViewModel */,
 				55B6045527312FE400631004 /* View */,
 			);
 			path = Onboarding;
@@ -586,6 +597,7 @@
 				7DDD22CC27303CF100250B35 /* Fonts.swift in Sources */,
 				7DDD2293272FD53500250B35 /* Project.swift in Sources */,
 				5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */,
+				551DD8932735144500E550AF /* OnboardingViewModel.swift in Sources */,
 				55B6040F273047FC00631004 /* UserInfo.swift in Sources */,
 				551DD88727329E7A00E550AF /* LoginHelper.swift in Sources */,
 				55B604572731302F00631004 /* OnboardingView.swift in Sources */,

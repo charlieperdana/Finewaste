@@ -1,33 +1,31 @@
 //
-//  ProjectViewModel.swift
+//  OnboardingViewModel.swift
 //  Finewaste
 //
-//  Created by charlie siagian on 04/11/21.
+//  Created by charlie siagian on 05/11/21.
 //
 
 import Foundation
 import Firebase
 import SwiftUI
 
-class ProjectViewModel: ObservableObject {
-    
+
+class UserViewModel: ObservableObject {
     @Published var list = [Users]()
+    
+    let db = Firestore.firestore()
     
     
     func getData() {
-        
-        let db = Firestore.firestore()
         
         db.collection("users").getDocuments { snapshot, error in
             
             if error ==  nil {
                 
                 if let snapshot = snapshot {
-                    
                     DispatchQueue.main.async {
                         
                         self.list = snapshot.documents.map { docs in
-                            
                             
                             return Users(id: docs.documentID,
                                          name: docs["name"] as? String ?? "",
@@ -45,6 +43,8 @@ class ProjectViewModel: ObservableObject {
             }
             else {
                 
+                print(error)
+                
             }
         }
         
@@ -52,9 +52,7 @@ class ProjectViewModel: ObservableObject {
     
     func addData(newUser: Users) {
         
-        let db = Firestore.firestore()
         
-        let username = newUser.username
         let uuid = newUser.id
         
         db.collection("users").document(uuid).setData(["name":newUser.name,
@@ -66,7 +64,6 @@ class ProjectViewModel: ObservableObject {
                                                        "location":GeoPoint(latitude: newUser.location.latitude,longitude: newUser.location.longitude),
                                                        "isBusiness":newUser.isBusiness]) { error in
             
-            
             if error == nil {
                 
                 self.getData()
@@ -76,4 +73,24 @@ class ProjectViewModel: ObservableObject {
             }
         }
     }
+    
+    func checkUsername(username: String, completion: @escaping (Bool) -> Void) {
+        
+        let collectionUser = db.collection("users")
+
+        collectionUser.whereField("username", isEqualTo: username).getDocuments { (snapshot, err) in
+            if let err = err {
+                print("Error getting document: \(err)")
+            } else if (snapshot?.isEmpty)! {
+                completion(false)
+            } else {
+                for document in (snapshot?.documents)! {
+                    if document.data()["username"] != nil {
+                        completion(true)
+                    }
+                }
+            }
+        }
+    }
+    
 }

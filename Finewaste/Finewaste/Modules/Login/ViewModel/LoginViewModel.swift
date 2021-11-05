@@ -15,8 +15,6 @@ class LoginViewModel: ObservableObject {
     @AppStorage("log_status") var logStatus = false
     @AppStorage("uuid_user") var uuidUser = ""
     
-
-    
     let auth = Auth.auth()
     
     var isSignedIn : Bool{
@@ -26,7 +24,7 @@ class LoginViewModel: ObservableObject {
     
     func authenticate(credential: ASAuthorizationAppleIDCredential) {
         
-//        getting token
+//        ambil token
         guard let token = credential.identityToken else {
             print("error with firebase")
             
@@ -48,10 +46,10 @@ class LoginViewModel: ObservableObject {
                 print(error.localizedDescription)
                 return
             }
-
-//            User berhasil login ke firebase
+            
+//            sukses
             print("Logged In Success")
-//            sukses login trus ke home coba
+
             self.uuidUser = result?.user.uid ?? ""
             withAnimation(.easeInOut) {
                 self.logStatus = true
