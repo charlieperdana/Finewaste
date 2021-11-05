@@ -29,6 +29,9 @@
 		55B6044C27304F0300631004 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B6044B27304F0300631004 /* HomeView.swift */; };
 		7D339EC52733D3CE0023BFDB /* ImageGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D339EC42733D3CE0023BFDB /* ImageGalleryView.swift */; };
 		7D339EC92733D6240023BFDB /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D339EC82733D6240023BFDB /* NavigationBackButton.swift */; };
+		7D9143492734F9A700B89F98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9143482734F9A700B89F98 /* User.swift */; };
+		7D91434B2734FA9D00B89F98 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91434A2734FA9D00B89F98 /* Conversation.swift */; };
+		7D91434D273507DA00B89F98 /* Contribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91434C273507DA00B89F98 /* Contribution.swift */; };
 		7DDD2293272FD53500250B35 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD2292272FD53500250B35 /* Project.swift */; };
 		7DDD229E272FD5A500250B35 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD229D272FD5A500250B35 /* Colors.swift */; };
 		7DDD22A0272FD5C500250B35 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DDD229F272FD5C500250B35 /* Colors.xcassets */; };
@@ -104,6 +107,9 @@
 		7D074D0A272846940010C4F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D339EC42733D3CE0023BFDB /* ImageGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryView.swift; sourceTree = "<group>"; };
 		7D339EC82733D6240023BFDB /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
+		7D9143482734F9A700B89F98 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7D91434A2734FA9D00B89F98 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		7D91434C273507DA00B89F98 /* Contribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contribution.swift; sourceTree = "<group>"; };
 		7DDD2292272FD53500250B35 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		7DDD229D272FD5A500250B35 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7DDD229F272FD5C500250B35 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -285,6 +291,9 @@
 			children = (
 				7DDD2292272FD53500250B35 /* Project.swift */,
 				55B6040E273047FC00631004 /* UserInfo.swift */,
+				7D9143482734F9A700B89F98 /* User.swift */,
+				7D91434A2734FA9D00B89F98 /* Conversation.swift */,
+				7D91434C273507DA00B89F98 /* Contribution.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -682,12 +691,14 @@
 				7DDD22FC2732C30900250B35 /* ProjectDescriptionView.swift in Sources */,
 				7DDD22A3272FD84200250B35 /* ProjectRepository.swift in Sources */,
 				55B6040B272FEA4700631004 /* LoginView.swift in Sources */,
+				7D91434B2734FA9D00B89F98 /* Conversation.swift in Sources */,
 				5572C6932728152C00601A69 /* Persistence.swift in Sources */,
 				7DDD23012732CC4900250B35 /* ProjectUpdateCard.swift in Sources */,
 				55B6044C27304F0300631004 /* HomeView.swift in Sources */,
 				7DDD22DA2730EBBA00250B35 /* ProjectDetailView.swift in Sources */,
 				55B6044C27304F0300631004 /* HomeView.swift in Sources */,
 				5572C68C2728152900601A69 /* ContentView.swift in Sources */,
+				7D9143492734F9A700B89F98 /* User.swift in Sources */,
 				7DDD22F627319FB700250B35 /* ProjectImageCarouselView.swift in Sources */,
 				7DDD22E32731136F00250B35 /* FinewasteButton.swift in Sources */,
 				7DDD22FA2732C23600250B35 /* ProjectOwnerView.swift in Sources */,
@@ -697,6 +708,7 @@
 				7DDD22E12730EC7800250B35 /* ProjectNavigationBar.swift in Sources */,
 				7DDD22F82732767800250B35 /* ImagePageIndicatorView.swift in Sources */,
 				7DDD22F427318CF900250B35 /* ProjectStoryView.swift in Sources */,
+				7D91434D273507DA00B89F98 /* Contribution.swift in Sources */,
 				7DDD22F027313E1F00250B35 /* FinewasteOutlineButton.swift in Sources */,
 				7DDD22EE273137D700250B35 /* ProjectUpdateView.swift in Sources */,
 				5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */,
