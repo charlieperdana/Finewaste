@@ -6,25 +6,27 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ProjectImageCarouselView: View {
-    @GestureState private var translation: CGFloat = 0
+    var images: [String]
     
     @State private var currentPage = 0
-    private let maxPage = 5
     
     var body: some View {
         ZStack {
             TabView(selection: $currentPage) {
-                ForEach(0..<maxPage, id: \.self) { _ in
-                    Image("exampleImage")
+                ForEach(0..<images.count, id: \.self) { index in
+                    WebImage(url: URL(string: images[index]))
+                        .resizable()
+                        .aspectRatio(CGSize(width: 1, height: 1), contentMode: .fit)
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
             
             VStack {
                 Spacer()
-                ImagePageIndicatorView(currentPage: $currentPage, maximumPage: maxPage)
+                ImagePageIndicatorView(currentPage: $currentPage, maximumPage: images.count)
                     .onTapGesture {}
             }
             .padding()
@@ -34,6 +36,6 @@ struct ProjectImageCarouselView: View {
 
 struct ProjectImageCarouselView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectImageCarouselView()
+        ProjectImageCarouselView(images: [])
     }
 }
