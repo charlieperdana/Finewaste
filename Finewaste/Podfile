@@ -26,9 +26,8 @@ target 'Finewaste' do
 
   # Pod for image caching
   pod 'SDWebImageSwiftUI'
-end
 
-target 'FinewasteTests' do
-  inherit! :search_paths
-  pod 'Firebase/Storage'
+  target 'FinewasteTests' do
+    inherit! :search_paths
+  end
 end
