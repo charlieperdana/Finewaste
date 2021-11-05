@@ -14,13 +14,14 @@ struct FinewasteApp: App {
     @State private var test = 0
 
     init() {
-//        FirebaseApp.configure()
+        FirebaseApp.configure()
     }
 
     var body: some Scene {
         WindowGroup {
-            ProjectDetailView()
-                .foregroundColor(Colors.DarkGray)
+//            ProjectDetailView()
+//                .foregroundColor(Colors.DarkGray)
+            ContentView()
         }
     }
 }
