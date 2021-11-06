@@ -98,7 +98,7 @@ struct ProjectDetailView: View {
                     .coordinateSpace(name: "scroll")
                     
                     VStack {
-                        ProjectNavigationBar(navBarOpacity: min(opacity, 1.0))
+                        ProjectNavigationBar(navBarOpacity: opacity)
                         Spacer()
                     }
                     
@@ -111,8 +111,8 @@ struct ProjectDetailView: View {
                     .padding([.leading, .trailing])
                 }
                 .edgesIgnoringSafeArea(.top)
+                .navigationBarHidden(true)
             }
-            .navigationBarHidden(true)
         } else {
             Text("Loading..")
         }
