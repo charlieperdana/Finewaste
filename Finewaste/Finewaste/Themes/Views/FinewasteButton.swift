@@ -29,6 +29,7 @@ struct FinewasteButton: View {
             }
             .modifier(FinewasteButtonSize(size: size))
         }
+        .disabled(!isEnabled)
     }
 }
 

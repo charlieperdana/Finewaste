@@ -6,39 +6,40 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ImageGalleryView: View {
     var updatePostedDate: String
-    var images: [String]
+    var images: [URL]
     
-    @State private var currentImage: String
+    @State private var currentImage = URL(string: "")
     
-    init(updatePostedDate: String, images: [String]) {
+    init(updatePostedDate: String, images: [URL], chosenIndex: Int) {
         self.updatePostedDate = updatePostedDate
         self.images = images
-        
-        self.currentImage = images[0]
+        self._currentImage = State(wrappedValue: images[chosenIndex])
     }
     
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
-                Image(self.currentImage)
+                WebImage(url: self.currentImage)
                     .resizable()
                     .aspectRatio(CGSize(width: 1, height: 1), contentMode: .fit)
                 Spacer()
                 
-                HStack(spacing: 4) {
-                    ForEach(images, id: \.self) { imageName in
-                        Image(imageName)
-                            .resizable()
-                            .frame(width: 67, height: 67)
-                            .onTapGesture {
-                                self.currentImage = imageName
-                            }
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 4) {
+                        ForEach(images, id: \.self) { imageUrl in
+                            WebImage(url: imageUrl)
+                                .resizable()
+                                .frame(width: 67, height: 67)
+                                .onTapGesture {
+                                    self.currentImage = imageUrl
+                                }
+                        }
+                        Spacer()
                     }
-                    Spacer()
                 }
             }
         }
@@ -59,6 +60,6 @@ struct ImageGalleryView: View {
 
 struct ImageGalleryView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageGalleryView(updatePostedDate: "", images: [])
+        ImageGalleryView(updatePostedDate: "", images: [], chosenIndex: 0)
     }
 }

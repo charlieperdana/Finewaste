@@ -19,4 +19,15 @@ final class TimestampHelper {
         
         return Int(days)
     }
+    
+    func timestampToStringDate(timestamp: Timestamp) -> String {
+        let seconds = timestamp.seconds
+        
+        let date = Date(timeIntervalSince1970: TimeInterval(seconds))
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d MMMM yyyy "
+        
+        return formatter.string(from: date)
+    }
 }
