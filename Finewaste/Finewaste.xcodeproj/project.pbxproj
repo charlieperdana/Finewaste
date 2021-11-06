@@ -33,11 +33,22 @@
 		55B6040F273047FC00631004 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B6040E273047FC00631004 /* UserInfo.swift */; };
 		55B6044C27304F0300631004 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B6044B27304F0300631004 /* HomeView.swift */; };
 		55B604572731302F00631004 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B604562731302F00631004 /* OnboardingView.swift */; };
+		7D0200C22736356500D3BB44 /* CLLocation+fetchShortLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200C12736356500D3BB44 /* CLLocation+fetchShortLocation.swift */; };
+		7D0200C627366EF900D3BB44 /* ContributionMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200C527366EF900D3BB44 /* ContributionMaterial.swift */; };
+		7D0200C82736703D00D3BB44 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200C72736703D00D3BB44 /* Message.swift */; };
+		7D0200CC2736707600D3BB44 /* ProjectMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200CB2736707600D3BB44 /* ProjectMaterial.swift */; };
+		7D0200CE2736708D00D3BB44 /* ProjectUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200CD2736708D00D3BB44 /* ProjectUpdate.swift */; };
+		7D0200D32736C2F800D3BB44 /* ContributionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200D22736C2F800D3BB44 /* ContributionRepository.swift */; };
+		7D0200D52736C74500D3BB44 /* ContributionMaterialRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200D42736C74500D3BB44 /* ContributionMaterialRepository.swift */; };
+		7D0200D82736D11C00D3BB44 /* CloudFunctionTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200D72736D11C00D3BB44 /* CloudFunctionTrigger.swift */; };
+		7D0200DA2736D6B900D3BB44 /* TimestampHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200D92736D6B900D3BB44 /* TimestampHelper.swift */; };
 		7D339EC52733D3CE0023BFDB /* ImageGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D339EC42733D3CE0023BFDB /* ImageGalleryView.swift */; };
 		7D339EC92733D6240023BFDB /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D339EC82733D6240023BFDB /* NavigationBackButton.swift */; };
 		7D9143492734F9A700B89F98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9143482734F9A700B89F98 /* User.swift */; };
 		7D91434B2734FA9D00B89F98 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91434A2734FA9D00B89F98 /* Conversation.swift */; };
 		7D91434D273507DA00B89F98 /* Contribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91434C273507DA00B89F98 /* Contribution.swift */; };
+		7D91434F273590C700B89F98 /* ProjectMaterialRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91434E273590C700B89F98 /* ProjectMaterialRepository.swift */; };
+		7D914351273596E100B89F98 /* ProjectStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D914350273596E100B89F98 /* ProjectStatusViewModel.swift */; };
 		7DDD2293272FD53500250B35 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD2292272FD53500250B35 /* Project.swift */; };
 		7DDD229E272FD5A500250B35 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD229D272FD5A500250B35 /* Colors.swift */; };
 		7DDD22A0272FD5C500250B35 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DDD229F272FD5C500250B35 /* Colors.xcassets */; };
@@ -51,7 +62,6 @@
 		7DDD22E12730EC7800250B35 /* ProjectNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22E02730EC7800250B35 /* ProjectNavigationBar.swift */; };
 		7DDD22E32731136F00250B35 /* FinewasteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22E22731136F00250B35 /* FinewasteButton.swift */; };
 		7DDD22E62731140C00250B35 /* FinewasteButtonSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22E52731140C00250B35 /* FinewasteButtonSize.swift */; };
-		7DDD22EA27312D7800250B35 /* ProjectContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22E927312D7800250B35 /* ProjectContentView.swift */; };
 		7DDD22EC273137A700250B35 /* ProjectAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22EB273137A700250B35 /* ProjectAboutView.swift */; };
 		7DDD22EE273137D700250B35 /* ProjectUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22ED273137D700250B35 /* ProjectUpdateView.swift */; };
 		7DDD22F027313E1F00250B35 /* FinewasteOutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22EF27313E1F00250B35 /* FinewasteOutlineButton.swift */; };
@@ -60,7 +70,7 @@
 		7DDD22F627319FB700250B35 /* ProjectImageCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22F527319FB700250B35 /* ProjectImageCarouselView.swift */; };
 		7DDD22F82732767800250B35 /* ImagePageIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22F72732767800250B35 /* ImagePageIndicatorView.swift */; };
 		7DDD22FA2732C23600250B35 /* ProjectOwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22F92732C23600250B35 /* ProjectOwnerView.swift */; };
-		7DDD22FC2732C30900250B35 /* ProjectDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22FB2732C30900250B35 /* ProjectDescriptionView.swift */; };
+		7DDD22FC2732C30900250B35 /* ProjectStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22FB2732C30900250B35 /* ProjectStatusView.swift */; };
 		7DDD23012732CC4900250B35 /* ProjectUpdateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD23002732CC4900250B35 /* ProjectUpdateCard.swift */; };
 		974DD9ADAE3429C896D20222 /* Pods_Finewaste.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5231D242E97A6378582A26D /* Pods_Finewaste.framework */; };
 		AC84CD62D6147B378199808A /* Pods_FinewasteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4256E325940C78D4FE7ABFB /* Pods_FinewasteTests.framework */; };
@@ -116,12 +126,23 @@
 		55B6044B27304F0300631004 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		55B6045327305A0400631004 /* Finewaste.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Finewaste.entitlements; sourceTree = "<group>"; };
 		55B604562731302F00631004 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		7D0200C12736356500D3BB44 /* CLLocation+fetchShortLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+fetchShortLocation.swift"; sourceTree = "<group>"; };
+		7D0200C527366EF900D3BB44 /* ContributionMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionMaterial.swift; sourceTree = "<group>"; };
+		7D0200C72736703D00D3BB44 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		7D0200CB2736707600D3BB44 /* ProjectMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMaterial.swift; sourceTree = "<group>"; };
+		7D0200CD2736708D00D3BB44 /* ProjectUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdate.swift; sourceTree = "<group>"; };
+		7D0200D22736C2F800D3BB44 /* ContributionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionRepository.swift; sourceTree = "<group>"; };
+		7D0200D42736C74500D3BB44 /* ContributionMaterialRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionMaterialRepository.swift; sourceTree = "<group>"; };
+		7D0200D72736D11C00D3BB44 /* CloudFunctionTrigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFunctionTrigger.swift; sourceTree = "<group>"; };
+		7D0200D92736D6B900D3BB44 /* TimestampHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampHelper.swift; sourceTree = "<group>"; };
 		7D074D0A272846940010C4F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D339EC42733D3CE0023BFDB /* ImageGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryView.swift; sourceTree = "<group>"; };
 		7D339EC82733D6240023BFDB /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
 		7D9143482734F9A700B89F98 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7D91434A2734FA9D00B89F98 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		7D91434C273507DA00B89F98 /* Contribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contribution.swift; sourceTree = "<group>"; };
+		7D91434E273590C700B89F98 /* ProjectMaterialRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMaterialRepository.swift; sourceTree = "<group>"; };
+		7D914350273596E100B89F98 /* ProjectStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatusViewModel.swift; sourceTree = "<group>"; };
 		7DDD2292272FD53500250B35 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		7DDD229D272FD5A500250B35 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7DDD229F272FD5C500250B35 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -136,7 +157,6 @@
 		7DDD22E02730EC7800250B35 /* ProjectNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectNavigationBar.swift; sourceTree = "<group>"; };
 		7DDD22E22731136F00250B35 /* FinewasteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteButton.swift; sourceTree = "<group>"; };
 		7DDD22E52731140C00250B35 /* FinewasteButtonSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteButtonSize.swift; sourceTree = "<group>"; };
-		7DDD22E927312D7800250B35 /* ProjectContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentView.swift; sourceTree = "<group>"; };
 		7DDD22EB273137A700250B35 /* ProjectAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectAboutView.swift; sourceTree = "<group>"; };
 		7DDD22ED273137D700250B35 /* ProjectUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdateView.swift; sourceTree = "<group>"; };
 		7DDD22EF27313E1F00250B35 /* FinewasteOutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteOutlineButton.swift; sourceTree = "<group>"; };
@@ -145,7 +165,7 @@
 		7DDD22F527319FB700250B35 /* ProjectImageCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectImageCarouselView.swift; sourceTree = "<group>"; };
 		7DDD22F72732767800250B35 /* ImagePageIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePageIndicatorView.swift; sourceTree = "<group>"; };
 		7DDD22F92732C23600250B35 /* ProjectOwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOwnerView.swift; sourceTree = "<group>"; };
-		7DDD22FB2732C30900250B35 /* ProjectDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDescriptionView.swift; sourceTree = "<group>"; };
+		7DDD22FB2732C30900250B35 /* ProjectStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatusView.swift; sourceTree = "<group>"; };
 		7DDD23002732CC4900250B35 /* ProjectUpdateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdateCard.swift; sourceTree = "<group>"; };
 		91615283BDD8D1B26DF96862 /* Pods-FinewasteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinewasteTests.debug.xcconfig"; path = "Target Support Files/Pods-FinewasteTests/Pods-FinewasteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4256E325940C78D4FE7ABFB /* Pods_FinewasteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinewasteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +244,8 @@
 			isa = PBXGroup;
 			children = (
 				551DD88627329E7A00E550AF /* LoginHelper.swift */,
+				7D0200C12736356500D3BB44 /* CLLocation+fetchShortLocation.swift */,
+				7D0200D92736D6B900D3BB44 /* TimestampHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -286,6 +308,7 @@
 		5572C6882728152900601A69 /* Finewaste */ = {
 			isa = PBXGroup;
 			children = (
+				7D0200D62736D10900D3BB44 /* Networking */,
 				551DD88527329E6200E550AF /* Helpers */,
 				55B6045327305A0400631004 /* Finewaste.entitlements */,
 				55B60408272FE99900631004 /* GoogleService-Info.plist */,
@@ -349,6 +372,42 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7D0200C92736704A00D3BB44 /* Contribution */ = {
+			isa = PBXGroup;
+			children = (
+				7D91434C273507DA00B89F98 /* Contribution.swift */,
+				7D0200C527366EF900D3BB44 /* ContributionMaterial.swift */,
+			);
+			path = Contribution;
+			sourceTree = "<group>";
+		};
+		7D0200CA2736705400D3BB44 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				7D91434A2734FA9D00B89F98 /* Conversation.swift */,
+				7D0200C72736703D00D3BB44 /* Message.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		7D0200CF273670B000D3BB44 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				7DDD2292272FD53500250B35 /* Project.swift */,
+				7D0200CB2736707600D3BB44 /* ProjectMaterial.swift */,
+				7D0200CD2736708D00D3BB44 /* ProjectUpdate.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		7D0200D62736D10900D3BB44 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7D0200D72736D11C00D3BB44 /* CloudFunctionTrigger.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		7DDD2290272FD4C100250B35 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,12 +419,12 @@
 		7DDD2291272FD52900250B35 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7DDD2292272FD53500250B35 /* Project.swift */,
+				7D0200CF273670B000D3BB44 /* Project */,
 				55B6040E273047FC00631004 /* UserInfo.swift */,
 				551DD8882732A2DF00E550AF /* Users.swift */,
 				7D9143482734F9A700B89F98 /* User.swift */,
-				7D91434A2734FA9D00B89F98 /* Conversation.swift */,
-				7D91434C273507DA00B89F98 /* Contribution.swift */,
+				7D0200CA2736705400D3BB44 /* Chat */,
+				7D0200C92736704A00D3BB44 /* Contribution */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -423,6 +482,9 @@
 			isa = PBXGroup;
 			children = (
 				7DDD22A2272FD84200250B35 /* ProjectRepository.swift */,
+				7D91434E273590C700B89F98 /* ProjectMaterialRepository.swift */,
+				7D0200D22736C2F800D3BB44 /* ContributionRepository.swift */,
+				7D0200D42736C74500D3BB44 /* ContributionMaterialRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -459,8 +521,7 @@
 			children = (
 				7DDD22FD2732C3DB00250B35 /* About */,
 				7DDD22FF2732C40C00250B35 /* ImageCarousel */,
-				7DDD22E927312D7800250B35 /* ProjectContentView.swift */,
-				7DDD22FB2732C30900250B35 /* ProjectDescriptionView.swift */,
+				7DDD22FB2732C30900250B35 /* ProjectStatusView.swift */,
 				7DDD22D92730EBBA00250B35 /* ProjectDetailView.swift */,
 				7DDD22E02730EC7800250B35 /* ProjectNavigationBar.swift */,
 				7DDD22F92732C23600250B35 /* ProjectOwnerView.swift */,
@@ -473,6 +534,7 @@
 			isa = PBXGroup;
 			children = (
 				7DDD22DB2730EBC300250B35 /* ProjectDetailViewModel.swift */,
+				7D914350273596E100B89F98 /* ProjectStatusViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -753,23 +815,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DDD22EA27312D7800250B35 /* ProjectContentView.swift in Sources */,
 				7DDD22E62731140C00250B35 /* FinewasteButtonSize.swift in Sources */,
 				7DDD22DC2730EBC300250B35 /* ProjectDetailViewModel.swift in Sources */,
 				00E77048273259D900C9C299 /* AddProjectViewModel.swift in Sources */,
 				7DDD229E272FD5A500250B35 /* Colors.swift in Sources */,
+				7D0200DA2736D6B900D3BB44 /* TimestampHelper.swift in Sources */,
 				00F2BC9F2733C78D00E95798 /* AboutView.swift in Sources */,
 				00C18B552732988E000C1103 /* DeliveryView.swift in Sources */,
 				5572C6962728152C00601A69 /* Finewaste.xcdatamodeld in Sources */,
+				7D0200C82736703D00D3BB44 /* Message.swift in Sources */,
 				7DDD22F227318C7C00250B35 /* ProjectMaterialRequirementView.swift in Sources */,
-				7DDD22FC2732C30900250B35 /* ProjectDescriptionView.swift in Sources */,
+				7DDD22FC2732C30900250B35 /* ProjectStatusView.swift in Sources */,
 				7DDD22A3272FD84200250B35 /* ProjectRepository.swift in Sources */,
+				7D914351273596E100B89F98 /* ProjectStatusViewModel.swift in Sources */,
 				55B6040B272FEA4700631004 /* LoginView.swift in Sources */,
 				551DD88D273302C300E550AF /* ProjectViewModel.swift in Sources */,
 				7D91434B2734FA9D00B89F98 /* Conversation.swift in Sources */,
 				5572C6932728152C00601A69 /* Persistence.swift in Sources */,
+				7D0200CE2736708D00D3BB44 /* ProjectUpdate.swift in Sources */,
 				7DDD23012732CC4900250B35 /* ProjectUpdateCard.swift in Sources */,
 				55B6044C27304F0300631004 /* HomeView.swift in Sources */,
+				7D0200D82736D11C00D3BB44 /* CloudFunctionTrigger.swift in Sources */,
 				7DDD22DA2730EBBA00250B35 /* ProjectDetailView.swift in Sources */,
 				55B6044C27304F0300631004 /* HomeView.swift in Sources */,
 				5572C68C2728152900601A69 /* ContentView.swift in Sources */,
@@ -777,17 +843,23 @@
 				551DD8892732A2DF00E550AF /* Users.swift in Sources */,
 				7D9143492734F9A700B89F98 /* User.swift in Sources */,
 				7DDD22F627319FB700250B35 /* ProjectImageCarouselView.swift in Sources */,
+				7D0200C627366EF900D3BB44 /* ContributionMaterial.swift in Sources */,
 				7DDD22E32731136F00250B35 /* FinewasteButton.swift in Sources */,
 				7DDD22FA2732C23600250B35 /* ProjectOwnerView.swift in Sources */,
 				7DDD22CC27303CF100250B35 /* Fonts.swift in Sources */,
+				7D91434F273590C700B89F98 /* ProjectMaterialRepository.swift in Sources */,
+				7D0200D32736C2F800D3BB44 /* ContributionRepository.swift in Sources */,
 				7DDD22EC273137A700250B35 /* ProjectAboutView.swift in Sources */,
 				7DDD2293272FD53500250B35 /* Project.swift in Sources */,
+				7D0200D52736C74500D3BB44 /* ContributionMaterialRepository.swift in Sources */,
+				7D0200CC2736707600D3BB44 /* ProjectMaterial.swift in Sources */,
 				7DDD22E12730EC7800250B35 /* ProjectNavigationBar.swift in Sources */,
 				7DDD22F82732767800250B35 /* ImagePageIndicatorView.swift in Sources */,
 				7DDD22F427318CF900250B35 /* ProjectStoryView.swift in Sources */,
 				7D91434D273507DA00B89F98 /* Contribution.swift in Sources */,
 				7DDD22F027313E1F00250B35 /* FinewasteOutlineButton.swift in Sources */,
 				7DDD22EE273137D700250B35 /* ProjectUpdateView.swift in Sources */,
+				7D0200C22736356500D3BB44 /* CLLocation+fetchShortLocation.swift in Sources */,
 				5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */,
 				551DD8932735144500E550AF /* OnboardingViewModel.swift in Sources */,
 				55B6040F273047FC00631004 /* UserInfo.swift in Sources */,

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import CoreLocation
 
 @main
 struct FinewasteApp: App {
@@ -19,9 +20,8 @@ struct FinewasteApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            ProjectDetailView()
-//                .foregroundColor(Colors.DarkGray)
-            ContentView()
+            ProjectDetailView(projectId: "dummyData")
+                .foregroundColor(Colors.DarkGray)
         }
     }
 }
