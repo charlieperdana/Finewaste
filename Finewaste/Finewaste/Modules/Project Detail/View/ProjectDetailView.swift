@@ -104,11 +104,16 @@ struct ProjectDetailView: View {
                     
                     VStack {
                         Spacer()
-                        FinewasteButton(text: "Contribute", size: .fullWidth, isEnabled: true) {
-                            
+                        ZStack(alignment:. top) {
+                            Color.white
+                                .frame(height: 78)
+                            FinewasteButton(text: "Contribute", size: .fullWidth, isEnabled: true) {
+                                
+                            }
+                            .padding([.leading, .trailing])
                         }
                     }
-                    .padding([.leading, .trailing])
+                    .edgesIgnoringSafeArea(.all)
                 }
                 .edgesIgnoringSafeArea(.top)
                 .navigationBarHidden(true)
