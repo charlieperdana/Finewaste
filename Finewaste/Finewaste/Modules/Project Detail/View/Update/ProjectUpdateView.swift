@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProjectUpdateView: View {
     @StateObject private var viewModel: ProjectUpdateViewModel
+    @State private var isShowingPostUpdateModal = false
     
     init(projectId: String) {
         _viewModel = StateObject(wrappedValue: ProjectUpdateViewModel(projectId: projectId))
@@ -16,6 +17,13 @@ struct ProjectUpdateView: View {
     
     var body: some View {
         VStack(spacing: 16) {
+            FinewasteButtonOutline(text: "Post Update", size: .fullWidth, isEnabled: true) {
+                isShowingPostUpdateModal = true
+            }
+            .sheet(isPresented: $isShowingPostUpdateModal) {
+                PostProjectUpdateView(projectId: viewModel.projectId)
+            }
+            
             ForEach(viewModel.projectUpdates, id: \.id) { update in
                 ZStack {
                     ProjectUpdateCard(update: update)
