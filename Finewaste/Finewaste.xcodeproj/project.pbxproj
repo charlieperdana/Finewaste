@@ -44,6 +44,8 @@
 		7D0200DA2736D6B900D3BB44 /* TimestampHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200D92736D6B900D3BB44 /* TimestampHelper.swift */; };
 		7D0200DC2736DBE300D3BB44 /* ProjectUpdateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200DB2736DBE300D3BB44 /* ProjectUpdateRepository.swift */; };
 		7D0200DE2736DD5200D3BB44 /* ProjectUpdateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200DD2736DD5200D3BB44 /* ProjectUpdateViewModel.swift */; };
+		7D0200E12737762700D3BB44 /* View+retrieveScrollPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200E02737762700D3BB44 /* View+retrieveScrollPosition.swift */; };
+		7D0200E72737838000D3BB44 /* FinewasteButtonOutline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200E62737838000D3BB44 /* FinewasteButtonOutline.swift */; };
 		7D339EC52733D3CE0023BFDB /* ImageGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D339EC42733D3CE0023BFDB /* ImageGalleryView.swift */; };
 		7D339EC92733D6240023BFDB /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D339EC82733D6240023BFDB /* NavigationBackButton.swift */; };
 		7D9143492734F9A700B89F98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9143482734F9A700B89F98 /* User.swift */; };
@@ -62,11 +64,11 @@
 		7DDD22DA2730EBBA00250B35 /* ProjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22D92730EBBA00250B35 /* ProjectDetailView.swift */; };
 		7DDD22DC2730EBC300250B35 /* ProjectDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22DB2730EBC300250B35 /* ProjectDetailViewModel.swift */; };
 		7DDD22E12730EC7800250B35 /* ProjectNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22E02730EC7800250B35 /* ProjectNavigationBar.swift */; };
-		7DDD22E32731136F00250B35 /* FinewasteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22E22731136F00250B35 /* FinewasteButton.swift */; };
+		7DDD22E32731136F00250B35 /* FinewasteButtonFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22E22731136F00250B35 /* FinewasteButtonFill.swift */; };
 		7DDD22E62731140C00250B35 /* FinewasteButtonSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22E52731140C00250B35 /* FinewasteButtonSize.swift */; };
 		7DDD22EC273137A700250B35 /* ProjectAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22EB273137A700250B35 /* ProjectAboutView.swift */; };
 		7DDD22EE273137D700250B35 /* ProjectUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22ED273137D700250B35 /* ProjectUpdateView.swift */; };
-		7DDD22F027313E1F00250B35 /* FinewasteOutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22EF27313E1F00250B35 /* FinewasteOutlineButton.swift */; };
+		7DDD22F027313E1F00250B35 /* FinewasteRoundedOutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22EF27313E1F00250B35 /* FinewasteRoundedOutlineButton.swift */; };
 		7DDD22F227318C7C00250B35 /* ProjectMaterialRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22F127318C7C00250B35 /* ProjectMaterialRequirementView.swift */; };
 		7DDD22F427318CF900250B35 /* ProjectStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22F327318CF900250B35 /* ProjectStoryView.swift */; };
 		7DDD22F627319FB700250B35 /* ProjectImageCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22F527319FB700250B35 /* ProjectImageCarouselView.swift */; };
@@ -139,6 +141,8 @@
 		7D0200D92736D6B900D3BB44 /* TimestampHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampHelper.swift; sourceTree = "<group>"; };
 		7D0200DB2736DBE300D3BB44 /* ProjectUpdateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdateRepository.swift; sourceTree = "<group>"; };
 		7D0200DD2736DD5200D3BB44 /* ProjectUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdateViewModel.swift; sourceTree = "<group>"; };
+		7D0200E02737762700D3BB44 /* View+retrieveScrollPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+retrieveScrollPosition.swift"; sourceTree = "<group>"; };
+		7D0200E62737838000D3BB44 /* FinewasteButtonOutline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteButtonOutline.swift; sourceTree = "<group>"; };
 		7D074D0A272846940010C4F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D339EC42733D3CE0023BFDB /* ImageGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryView.swift; sourceTree = "<group>"; };
 		7D339EC82733D6240023BFDB /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
@@ -159,11 +163,11 @@
 		7DDD22D92730EBBA00250B35 /* ProjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailView.swift; sourceTree = "<group>"; };
 		7DDD22DB2730EBC300250B35 /* ProjectDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewModel.swift; sourceTree = "<group>"; };
 		7DDD22E02730EC7800250B35 /* ProjectNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectNavigationBar.swift; sourceTree = "<group>"; };
-		7DDD22E22731136F00250B35 /* FinewasteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteButton.swift; sourceTree = "<group>"; };
+		7DDD22E22731136F00250B35 /* FinewasteButtonFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteButtonFill.swift; sourceTree = "<group>"; };
 		7DDD22E52731140C00250B35 /* FinewasteButtonSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteButtonSize.swift; sourceTree = "<group>"; };
 		7DDD22EB273137A700250B35 /* ProjectAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectAboutView.swift; sourceTree = "<group>"; };
 		7DDD22ED273137D700250B35 /* ProjectUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdateView.swift; sourceTree = "<group>"; };
-		7DDD22EF27313E1F00250B35 /* FinewasteOutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteOutlineButton.swift; sourceTree = "<group>"; };
+		7DDD22EF27313E1F00250B35 /* FinewasteRoundedOutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteRoundedOutlineButton.swift; sourceTree = "<group>"; };
 		7DDD22F127318C7C00250B35 /* ProjectMaterialRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMaterialRequirementView.swift; sourceTree = "<group>"; };
 		7DDD22F327318CF900250B35 /* ProjectStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStoryView.swift; sourceTree = "<group>"; };
 		7DDD22F527319FB700250B35 /* ProjectImageCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectImageCarouselView.swift; sourceTree = "<group>"; };
@@ -248,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				551DD88627329E7A00E550AF /* LoginHelper.swift */,
-				7D0200C12736356500D3BB44 /* CLLocation+fetchShortLocation.swift */,
 				7D0200D92736D6B900D3BB44 /* TimestampHelper.swift */,
 			);
 			path = Helpers;
@@ -312,6 +315,7 @@
 		5572C6882728152900601A69 /* Finewaste */ = {
 			isa = PBXGroup;
 			children = (
+				7D0200DF2737760600D3BB44 /* Extensions */,
 				7D0200D62736D10900D3BB44 /* Networking */,
 				551DD88527329E6200E550AF /* Helpers */,
 				55B6045327305A0400631004 /* Finewaste.entitlements */,
@@ -410,6 +414,15 @@
 				7D0200D72736D11C00D3BB44 /* CloudFunctionTrigger.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		7D0200DF2737760600D3BB44 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7D0200C12736356500D3BB44 /* CLLocation+fetchShortLocation.swift */,
+				7D0200E02737762700D3BB44 /* View+retrieveScrollPosition.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		7DDD2290272FD4C100250B35 /* Application */ = {
@@ -548,9 +561,10 @@
 		7DDD22DD2730EC5500250B35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7DDD22E22731136F00250B35 /* FinewasteButton.swift */,
-				7DDD22EF27313E1F00250B35 /* FinewasteOutlineButton.swift */,
+				7DDD22E22731136F00250B35 /* FinewasteButtonFill.swift */,
+				7DDD22EF27313E1F00250B35 /* FinewasteRoundedOutlineButton.swift */,
 				7D339EC82733D6240023BFDB /* NavigationBackButton.swift */,
+				7D0200E62737838000D3BB44 /* FinewasteButtonOutline.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -852,8 +866,9 @@
 				7D9143492734F9A700B89F98 /* User.swift in Sources */,
 				7DDD22F627319FB700250B35 /* ProjectImageCarouselView.swift in Sources */,
 				7D0200C627366EF900D3BB44 /* ContributionMaterial.swift in Sources */,
-				7DDD22E32731136F00250B35 /* FinewasteButton.swift in Sources */,
+				7DDD22E32731136F00250B35 /* FinewasteButtonFill.swift in Sources */,
 				7DDD22FA2732C23600250B35 /* ProjectOwnerView.swift in Sources */,
+				7D0200E72737838000D3BB44 /* FinewasteButtonOutline.swift in Sources */,
 				7DDD22CC27303CF100250B35 /* Fonts.swift in Sources */,
 				7D91434F273590C700B89F98 /* ProjectMaterialRepository.swift in Sources */,
 				7D0200D32736C2F800D3BB44 /* ContributionRepository.swift in Sources */,
@@ -865,8 +880,9 @@
 				7DDD22F82732767800250B35 /* ImagePageIndicatorView.swift in Sources */,
 				7DDD22F427318CF900250B35 /* ProjectStoryView.swift in Sources */,
 				7D91434D273507DA00B89F98 /* Contribution.swift in Sources */,
-				7DDD22F027313E1F00250B35 /* FinewasteOutlineButton.swift in Sources */,
+				7DDD22F027313E1F00250B35 /* FinewasteRoundedOutlineButton.swift in Sources */,
 				7DDD22EE273137D700250B35 /* ProjectUpdateView.swift in Sources */,
+				7D0200E12737762700D3BB44 /* View+retrieveScrollPosition.swift in Sources */,
 				7D0200C22736356500D3BB44 /* CLLocation+fetchShortLocation.swift in Sources */,
 				5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */,
 				551DD8932735144500E550AF /* OnboardingViewModel.swift in Sources */,

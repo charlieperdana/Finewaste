@@ -8,14 +8,6 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct ViewOffsetKey: PreferenceKey {
-    typealias Value = CGFloat
-    static var defaultValue = CGFloat.zero
-    static func reduce(value: inout Value, nextValue: () -> Value) {
-        value += nextValue()
-    }
-}
-
 private enum ProjectContentType: String, CaseIterable {
     case about = "About"
     case update = "Update"
@@ -24,10 +16,6 @@ private enum ProjectContentType: String, CaseIterable {
 struct ProjectDetailView: View {
     @State var opacity = 0.0
 
-    private var halfWidth: CGFloat {
-        UIScreen.main.bounds.width * 0.5
-    }
-    
     @State private var selectedContentView = ProjectContentType.about.rawValue
     private var contentTypes = ProjectContentType.allCases.map {
         $0.rawValue
@@ -47,12 +35,7 @@ struct ProjectDetailView: View {
                         VStack(alignment: .leading, spacing: 0) {
                             ProjectImageCarouselView(images: project.images ?? [])
                                 .aspectRatio(CGSize(width: 1, height: 1), contentMode: .fit)
-                                .background(GeometryReader {
-                                    Color.clear.preference(
-                                        key: ViewOffsetKey.self,
-                                        value: -$0.frame(in: .named("scroll")).origin.y
-                                    )
-                                })
+                                .trackScrollPosition(coordinateSpace: .named("scrollPosition"))
                             
                             ProjectOwnerView()
                             Divider()
@@ -91,28 +74,31 @@ struct ProjectDetailView: View {
                             }
                             .padding([.leading, .trailing])
                         }
-                        .onPreferenceChange(ViewOffsetKey.self) { value in
-                            self.opacity = value / self.halfWidth
-                        }
                     }
-                    .coordinateSpace(name: "scroll")
+                    .coordinateSpace(name: "scrollPosition")
+                    .getScrollPosition($opacity)
                     
                     VStack {
-                        ProjectNavigationBar(navBarOpacity: min(opacity, 1.0))
+                        ProjectNavigationBar(navBarOpacity: opacity)
                         Spacer()
                     }
                     
                     VStack {
                         Spacer()
-                        FinewasteButton(text: "Contribute", size: .fullWidth, isEnabled: true) {
-                            
+                        ZStack(alignment:. top) {
+                            Color.white
+                                .frame(height: 78)
+                            FinewasteButtonFill(text: "Contribute", size: .fullWidth, isEnabled: true) {
+                                
+                            }
+                            .padding([.leading, .trailing])
                         }
                     }
-                    .padding([.leading, .trailing])
+                    .edgesIgnoringSafeArea(.all)
                 }
                 .edgesIgnoringSafeArea(.top)
+                .navigationBarHidden(true)
             }
-            .navigationBarHidden(true)
         } else {
             Text("Loading..")
         }

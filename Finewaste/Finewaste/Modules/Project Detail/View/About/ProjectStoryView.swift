@@ -28,7 +28,7 @@ struct ProjectStoryView: View {
                 .font(Fonts.poppinsSubheadline())
                 .lineLimit(lineLimit)
             
-            FinewasteOutlineButton(
+            FinewasteRoundedOutlineButton(
                 text: buttonText,
                 size: .fullWidth) {
                     
