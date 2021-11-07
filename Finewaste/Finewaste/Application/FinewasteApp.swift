@@ -21,7 +21,9 @@ struct FinewasteApp: App {
         WindowGroup {
 //            ProjectDetailView()
 //                .foregroundColor(Colors.DarkGray)
-            ContentView()
+//            ContentView()
+//            MainProjectView()
+            DashboardView()
         }
     }
 }

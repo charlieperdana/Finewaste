@@ -27,12 +27,16 @@
 		5572C6A02728152C00601A69 /* FinewasteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C69F2728152C00601A69 /* FinewasteTests.swift */; };
 		5572C6AA2728152C00601A69 /* FinewasteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6A92728152C00601A69 /* FinewasteUITests.swift */; };
 		5572C6AC2728152C00601A69 /* FinewasteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6AB2728152C00601A69 /* FinewasteUITestsLaunchTests.swift */; };
+		559B6E9E2736D29A003FD6AC /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559B6E9D2736D29A003FD6AC /* SearchBarView.swift */; };
+		559B6EA02737B6D3003FD6AC /* FloatingTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559B6E9F2737B6D3003FD6AC /* FloatingTabBarView.swift */; };
 		55B60409272FE99900631004 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55B60408272FE99900631004 /* GoogleService-Info.plist */; };
 		55B6040B272FEA4700631004 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B6040A272FEA4700631004 /* LoginView.swift */; };
 		55B6040D272FEA6800631004 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B6040C272FEA6800631004 /* LoginViewModel.swift */; };
 		55B6040F273047FC00631004 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B6040E273047FC00631004 /* UserInfo.swift */; };
 		55B6044C27304F0300631004 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B6044B27304F0300631004 /* HomeView.swift */; };
 		55B604572731302F00631004 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B604562731302F00631004 /* OnboardingView.swift */; };
+		55FE15792738452700B24F2D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE15782738452700B24F2D /* DashboardView.swift */; };
+		55FE157B27384E1400B24F2D /* ProjectGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE157A27384E1400B24F2D /* ProjectGridView.swift */; };
 		7D339EC52733D3CE0023BFDB /* ImageGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D339EC42733D3CE0023BFDB /* ImageGalleryView.swift */; };
 		7D339EC92733D6240023BFDB /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D339EC82733D6240023BFDB /* NavigationBackButton.swift */; };
 		7D9143492734F9A700B89F98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9143482734F9A700B89F98 /* User.swift */; };
@@ -109,6 +113,8 @@
 		5572C6A52728152C00601A69 /* FinewasteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinewasteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5572C6A92728152C00601A69 /* FinewasteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteUITests.swift; sourceTree = "<group>"; };
 		5572C6AB2728152C00601A69 /* FinewasteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		559B6E9D2736D29A003FD6AC /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		559B6E9F2737B6D3003FD6AC /* FloatingTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingTabBarView.swift; sourceTree = "<group>"; };
 		55B60408272FE99900631004 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		55B6040A272FEA4700631004 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		55B6040C272FEA6800631004 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -116,6 +122,8 @@
 		55B6044B27304F0300631004 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		55B6045327305A0400631004 /* Finewaste.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Finewaste.entitlements; sourceTree = "<group>"; };
 		55B604562731302F00631004 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		55FE15782738452700B24F2D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		55FE157A27384E1400B24F2D /* ProjectGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectGridView.swift; sourceTree = "<group>"; };
 		7D074D0A272846940010C4F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D339EC42733D3CE0023BFDB /* ImageGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryView.swift; sourceTree = "<group>"; };
 		7D339EC82733D6240023BFDB /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
@@ -249,6 +257,9 @@
 			isa = PBXGroup;
 			children = (
 				551DD88F2733037E00E550AF /* MainProjectView.swift */,
+				559B6E9D2736D29A003FD6AC /* SearchBarView.swift */,
+				559B6E9F2737B6D3003FD6AC /* FloatingTabBarView.swift */,
+				55FE157A27384E1400B24F2D /* ProjectGridView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,6 +360,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		55FE15762738451200B24F2D /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				55FE15772738451B00B24F2D /* View */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		55FE15772738451B00B24F2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55FE15782738452700B24F2D /* DashboardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7DDD2290272FD4C100250B35 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +400,7 @@
 		7DDD2294272FD54600250B35 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				55FE15762738451200B24F2D /* Dashboard */,
 				551DD88A273302A200E550AF /* Projects */,
 				55B6045427312FD700631004 /* Onboarding */,
 				7DDD22D62730EBA600250B35 /* Project Detail */,
@@ -753,6 +781,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55FE157B27384E1400B24F2D /* ProjectGridView.swift in Sources */,
 				7DDD22EA27312D7800250B35 /* ProjectContentView.swift in Sources */,
 				7DDD22E62731140C00250B35 /* FinewasteButtonSize.swift in Sources */,
 				7DDD22DC2730EBC300250B35 /* ProjectDetailViewModel.swift in Sources */,
@@ -760,6 +789,7 @@
 				7DDD229E272FD5A500250B35 /* Colors.swift in Sources */,
 				00F2BC9F2733C78D00E95798 /* AboutView.swift in Sources */,
 				00C18B552732988E000C1103 /* DeliveryView.swift in Sources */,
+				559B6E9E2736D29A003FD6AC /* SearchBarView.swift in Sources */,
 				5572C6962728152C00601A69 /* Finewaste.xcdatamodeld in Sources */,
 				7DDD22F227318C7C00250B35 /* ProjectMaterialRequirementView.swift in Sources */,
 				7DDD22FC2732C30900250B35 /* ProjectDescriptionView.swift in Sources */,
@@ -783,6 +813,7 @@
 				7DDD22EC273137A700250B35 /* ProjectAboutView.swift in Sources */,
 				7DDD2293272FD53500250B35 /* Project.swift in Sources */,
 				7DDD22E12730EC7800250B35 /* ProjectNavigationBar.swift in Sources */,
+				55FE15792738452700B24F2D /* DashboardView.swift in Sources */,
 				7DDD22F82732767800250B35 /* ImagePageIndicatorView.swift in Sources */,
 				7DDD22F427318CF900250B35 /* ProjectStoryView.swift in Sources */,
 				7D91434D273507DA00B89F98 /* Contribution.swift in Sources */,
@@ -798,6 +829,7 @@
 				7D339EC52733D3CE0023BFDB /* ImageGalleryView.swift in Sources */,
 				00FE22CA2733DBEB00EF306A /* AddMaterialView.swift in Sources */,
 				00E7704A27327AC300C9C299 /* showImagePicker.swift in Sources */,
+				559B6EA02737B6D3003FD6AC /* FloatingTabBarView.swift in Sources */,
 				00C18B57273298C5000C1103 /* MaterialView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
