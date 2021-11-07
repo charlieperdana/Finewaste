@@ -88,7 +88,7 @@ struct ProjectDetailView: View {
                         ZStack(alignment:. top) {
                             Color.white
                                 .frame(height: 78)
-                            FinewasteButton(text: "Contribute", size: .fullWidth, isEnabled: true) {
+                            FinewasteButtonFill(text: "Contribute", size: .fullWidth, isEnabled: true) {
                                 
                             }
                             .padding([.leading, .trailing])
