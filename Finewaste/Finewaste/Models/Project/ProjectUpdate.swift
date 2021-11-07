@@ -15,4 +15,9 @@ struct ProjectUpdate: Codable, Identifiable {
     @ServerTimestamp var createdDate: Timestamp?
     var description: String?
     var images: [String]?
+    
+    init(projectId: String, description: String) {
+        self.projectId = projectId
+        self.description = description
+    }
 }
