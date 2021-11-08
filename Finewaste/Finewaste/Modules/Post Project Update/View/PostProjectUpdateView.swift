@@ -14,6 +14,8 @@ struct PostProjectUpdateView: View {
     @State private var projectUpdateText = ""
     @State private var selectedImages = [UIImage]()
     
+    @State private var showDismissAlert = false
+    
     init(projectId: String) {
         self._viewModel = StateObject(wrappedValue: PostProjectUpdateViewModel(projectId: projectId))
     }
@@ -42,7 +44,11 @@ struct PostProjectUpdateView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        self.presentationMode.wrappedValue.dismiss()
+                        if !projectUpdateText.isEmpty || selectedImages.count > 0 {
+                            self.showDismissAlert = true
+                        } else {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
                     } label: {
                         Text("Cancel")
                             .foregroundColor(Colors.Turqoise)
@@ -51,11 +57,21 @@ struct PostProjectUpdateView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         viewModel.postUpdate(updateDescription: projectUpdateText, images: selectedImages)
+                        self.presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Post")
                             .foregroundColor(Colors.Turqoise)
                     }
                 }
+            }
+            .alert(isPresented: $showDismissAlert) {
+                Alert(title: Text("Unsaved Changes"),
+                      message: Text("Are you sure you want to discard the changes? Your changes will be lost."),
+                      primaryButton: .destructive(Text("Discard"), action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }),
+                      secondaryButton: .cancel()
+                )
             }
         }
     }
