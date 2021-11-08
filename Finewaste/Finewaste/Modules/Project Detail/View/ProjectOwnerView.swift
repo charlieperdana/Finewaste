@@ -18,7 +18,7 @@ struct ProjectOwnerView: View {
             Text("DonateforCycle.id")
                 .font(Fonts.poppinsCallout())
             Spacer()
-            FinewasteButton(text: "Chat", size: .small, isEnabled: true) {
+            FinewasteButtonFill(text: "Chat", size: .small, isEnabled: true) {
                 // Navigate to chat view
             }
         }

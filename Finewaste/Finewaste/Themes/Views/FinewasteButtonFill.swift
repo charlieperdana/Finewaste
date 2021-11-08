@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FinewasteButton: View {
+struct FinewasteButtonFill: View {
     var text: String
     var size: FinewasteButtonStyle
     var isEnabled: Bool
@@ -20,7 +20,7 @@ struct FinewasteButton: View {
     var body: some View {
         Button(action: onButtonTap) {
             ZStack {
-                RoundedRectangle(cornerRadius: 13.0)
+                RoundedRectangle(cornerRadius: 10.0)
                     .fill(strokeColor)
 
                 Text(text)
@@ -29,11 +29,12 @@ struct FinewasteButton: View {
             }
             .modifier(FinewasteButtonSize(size: size))
         }
+        .disabled(!isEnabled)
     }
 }
 
-struct FinewasteButton_Previews: PreviewProvider {
+struct FinewasteButtonFill_Previews: PreviewProvider {
     static var previews: some View {
-        FinewasteButton(text: "Chat", size: .fullWidth, isEnabled: false, onButtonTap: {})
+        FinewasteButtonFill(text: "Chat", size: .fullWidth, isEnabled: false, onButtonTap: {})
     }
 }

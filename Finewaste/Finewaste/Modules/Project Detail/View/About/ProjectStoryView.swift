@@ -12,7 +12,8 @@ struct ProjectStoryView: View {
     private var buttonText: String {
         lineLimit == 3 ? "Read More" : "Read Less"
     }
-    private var projectDesc = """
+    
+    var projectDesc = """
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet nisl suscipit adipiscing bibendum est ultricies.
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet nisl suscipit adipiscing bibendum est ultricies.
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.
@@ -27,7 +28,7 @@ struct ProjectStoryView: View {
                 .font(Fonts.poppinsSubheadline())
                 .lineLimit(lineLimit)
             
-            FinewasteOutlineButton(
+            FinewasteRoundedOutlineButton(
                 text: buttonText,
                 size: .fullWidth) {
                     
