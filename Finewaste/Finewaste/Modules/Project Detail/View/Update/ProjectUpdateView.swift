@@ -20,15 +20,15 @@ struct ProjectUpdateView: View {
             FinewasteButtonOutline(text: "Post Update", size: .fullWidth, isEnabled: true) {
                 isShowingPostUpdateModal = true
             }
-            .sheet(isPresented: $isShowingPostUpdateModal) {
-                PostProjectUpdateView(projectId: viewModel.projectId)
-            }
             
             ForEach(viewModel.projectUpdates, id: \.id) { update in
                 ZStack {
                     ProjectUpdateCard(update: update)
                 }
             }
+        }
+        .sheet(isPresented: $isShowingPostUpdateModal) {
+            PostProjectUpdateView(projectId: viewModel.projectId)
         }
     }
 }
