@@ -62,10 +62,10 @@ struct FloatingTabBarView: View {
                 Text("Profile").font(Fonts.poppinsCaption2()).foregroundColor(self.selected == 3 ? Colors.Turqoise : Colors.DarkGray)
             }
         }
-        .padding(.vertical, 25)
-        .padding(.horizontal, 35)
+        .padding(.vertical, 5)
+        .padding(.horizontal, 20)
         .background(Colors.White)
-        .clipShape(Capsule())
+//        .clipShape(Capsule())
     }
 }
 

@@ -27,6 +27,9 @@ struct MainProjectView: View {
     @State var searchText = ""
     @State var isSearching = false
     
+    @State var project = Project()
+    
+    
     
     var body: some View {
         
@@ -36,18 +39,19 @@ struct MainProjectView: View {
                     
                     SearchBarView(searchText: $searchText,isSearching: $isSearching)
                     
-//                    List(model.list) { item in
-//                        Text(item.username)
+//                    List(model.listProject) { item in
+//
 //                    }
                     
-//                    ForEach(model.list) { item in
-//                        Text(item.username)
+//                    ForEach(model.listProject){project in
+//                        Text(project.projectName!)
 //                    }
                     
 //                    ForEach((1...10), id: \.self) {
 //                        Text("\($0)…")
 //                    }
 
+//                    ProjectGridView(project: $project)
                     ProjectGridView()
                     
                     Divider()
@@ -64,22 +68,22 @@ struct MainProjectView: View {
                         
                         
                         
-                        Button(action:    {
-                            
-                            let newUser = Users(id: self.uuidUser, name: fullname, username: self.usernameUser, description: "", productService: [""], createdProduct: 0, donatedWaste: 0, location: Location(latitude: 0.0, longitude: 0.0), isBusiness: false)
-                            
-                            model.addData(newUser: newUser)
-                            
-                            fullname = ""
-                            username = ""
-                            uid = ""
-                            
-                            
-                            
-                        }, label: {
-                            
-                            Text("Add New User")
-                        })
+//                        Button(action:    {
+//
+//                            let newUser = Users(id: self.uuidUser, name: fullname, username: self.usernameUser, description: "", productService: [""], createdProduct: 0, donatedWaste: 0, location: Location(latitude: 0.0, longitude: 0.0), isBusiness: false)
+//
+//                            model.addData(newUser: newUser)
+//
+//                            fullname = ""
+//                            username = ""
+//                            uid = ""
+//
+//
+//
+//                        }, label: {
+//
+//                            Text("Add New User")
+//                        })
                     }
                     
                     .padding()
@@ -116,7 +120,8 @@ struct MainProjectView: View {
     }
     
     init() {
-        model.getData()
+        model.getProjectData()
+//        project = model.listProject[0]
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Poppins-SemiBold", size: 28)!]
     }
 }

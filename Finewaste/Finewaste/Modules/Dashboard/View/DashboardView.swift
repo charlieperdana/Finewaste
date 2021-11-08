@@ -10,7 +10,8 @@ import SwiftUI
 struct DashboardView: View {
     @State var selected = 0
     var body: some View {
-        ZStack(alignment: .bottom) {
+//        ZStack(alignment: .bottom) {
+        VStack{
             VStack{
                 if self.selected == 0 {
                     MainProjectView()
