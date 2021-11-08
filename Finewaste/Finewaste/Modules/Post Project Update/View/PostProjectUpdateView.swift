@@ -22,23 +22,36 @@ struct PostProjectUpdateView: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 24) {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Update Story")
-                        .font(Fonts.poppinsCallout())
-                    FinewasteTextField(placeholder: "Tell us your project update", text: $projectUpdateText)
+            ZStack {
+                VStack(spacing: 24) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Update Story")
+                            .font(Fonts.poppinsCallout())
+                        FinewasteTextField(placeholder: "Tell us your project update", text: $projectUpdateText)
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Product Image Reference")
+                            .font(Fonts.poppinsCallout())
+                        FinewasteImagePicker(selectedImages: $selectedImages)
+                    }
+                    
+                    Spacer()
                 }
+                .padding()
                 
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Product Image Reference")
-                        .font(Fonts.poppinsCallout())
-                    FinewasteImagePicker(selectedImages: $selectedImages)
+                if viewModel.postingUpdate {
+                    PostUploadIndicator(currentProgress: Double(viewModel.uploadedImages) / Double(viewModel.totalImages)) {
+                        viewModel.cancelPostUpdate()
+                    }
+                    .onChange(of: viewModel.uploadedImages) { val in
+                        if val == viewModel.totalImages {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                    }
                 }
-                
-                Spacer()
             }
-            .padding()
-    
+            
             .navigationTitle("Post Update")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -57,7 +70,6 @@ struct PostProjectUpdateView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         viewModel.postUpdate(updateDescription: projectUpdateText, images: selectedImages)
-                        self.presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Post")
                             .foregroundColor(Colors.Turqoise)
