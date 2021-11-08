@@ -8,92 +8,97 @@
 import SwiftUI
 
 struct MaterialView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @State var showNextPage = false
+    @State var showSheet = false
+    
+    var project = Project()
+    
     var body: some View {
-        VStack {
-            NavigationView {
-                Text("")
-                    .font(Fonts.poppinsHeadline())
-                    .navigationBarTitle("Add Material")
-                    .navigationBarTitleDisplayMode(.inline)
-                    .navigationBarItems(leading:
-                                            Button(action: {
-                        print("close tapped")
-                    }) {
-                        Image(systemName: "chevron.left")
+        NavigationView {
+            VStack {
+                Spacer().frame(height: 24)
+                ZStack {
+                    HStack(spacing: 0) {
+                        Image(systemName: "1.circle.fill")
+                            .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .foregroundColor(Colors.Turqoise)
-                    })
-            }.frame(maxHeight: 42)
-            Spacer().frame(height: 24)
-            ZStack{
-                HStack(spacing: 0) {
-                    Image(systemName: "1.circle.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 26.0, height: 28.0)
+                            .frame(width: 26.0, height: 28.0)
+                            .foregroundColor(Colors.RedOverlay)
+                        Rectangle()
+                            .fill(Colors.RedOverlay)
+                            .frame(width: 80, height: 5)
+                        Image(systemName: "2.circle.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 26.0, height: 28.0)
+                            .foregroundColor(Colors.Red)
+                        Rectangle()
+                            .fill(Colors.Gray)
+                            .frame(width: 80, height: 5)
+                        Image(systemName: "3.circle.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 26.0, height: 28.0)
+                            .foregroundColor(Colors.Gray)
+                    }
+                    Text("About")
                         .foregroundColor(Colors.RedOverlay)
-                    Rectangle()
-                        .fill(Colors.RedOverlay)
-                        .frame(width: 80, height: 5)
-                    Image(systemName: "2.circle.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 26.0, height: 28.0)
+                        .font(Fonts.poppinsFootnote())
+                        .bold()
+                        .offset(x: -106, y: 30)
+                    Text("Material")
                         .foregroundColor(Colors.Red)
-                    Rectangle()
-                        .fill(Colors.Gray)
-                        .frame(width: 80, height: 5)
-                    Image(systemName: "3.circle.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 26.0, height: 28.0)
+                        .font(Fonts.poppinsFootnote())
+                        .bold()
+                        .offset(y: 30)
+                    Text("Delivery")
                         .foregroundColor(Colors.Gray)
+                        .font(Fonts.poppinsFootnote())
+                        .bold()
+                        .offset(x: 106, y: 30)
                 }
-                Text("About")
-                    .foregroundColor(Colors.RedOverlay)
-                    .font(Fonts.poppinsFootnote())
-                    .bold()
-                    .offset(x: -106, y: 30)
-                Text("Material")
-                    .foregroundColor(Colors.Red)
-                    .font(Fonts.poppinsFootnote())
-                    .bold()
-                    .offset(y: 30)
-                Text("Delivery")
-                    .foregroundColor(Colors.Gray)
-                    .font(Fonts.poppinsFootnote())
-                    .bold()
-                    .offset(x: 106, y: 30)
-            }
-            Spacer().frame(height: 32)
-            Button(action: {
-                print("button add material tapped")
-            }) {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Colors.Gray)
-                        .frame(width: 358, height: 44)
-                        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                    Text("Add Material")
+                Spacer().frame(height: 40)
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Denim")
+                            .font(Fonts.poppinsBody())
+                        Text("No bleach stains, good condition")
+                            .font(Fonts.poppinsCaption())
+                    }.padding()
+                    Spacer()
+                    Button(action: {
+                        print("Edit tapped")
+                    }) {
+                        Text("Edit")
+                            .foregroundColor(Colors.Turqoise)
+                            .font(Fonts.poppinsHeadline())
+                    }.padding()
+                }.overlay(RoundedRectangle(cornerRadius: 10)
+                            .stroke(Colors.Turqoise, lineWidth: 1))
+                FinewasteOutlineButton(text: "Add New Material", size: .fullWidth) {
+                    self.showSheet = true
+                }
+                .sheet(isPresented: $showSheet) {
+                    AddMaterialView()
+                }
+                Spacer()
+                FinewasteButton(text: "Next", size: .fullWidth, isEnabled: true) {
+                    print("Next tapped")
+                }
+            }.font(Fonts.poppinsHeadline())
+                .navigationBarTitle("Add Material")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarItems(leading:
+                                        Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "chevron.left")
+                        .aspectRatio(contentMode: .fit)
                         .foregroundColor(Colors.Turqoise)
-                        .font(Fonts.poppinsHeadline())
-                }
-            }
-            Spacer()
-            Button(action: {
-                print("button next tapped")
-            }) {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Colors.Gray)
-                        .frame(width: 358, height: 44)
-                        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                    Text("Next")
-                        .foregroundColor(Colors.White)
-                        .font(Fonts.poppinsHeadline())
-                }
-            }
-        }
+                })
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+        }.navigationBarHidden(true)
     }
 }
 

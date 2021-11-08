@@ -19,9 +19,7 @@ struct FinewasteApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            ProjectDetailView()
-//                .foregroundColor(Colors.DarkGray)
-            ContentView()
+            AboutView()
         }
     }
 }

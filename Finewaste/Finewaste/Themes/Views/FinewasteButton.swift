@@ -28,7 +28,7 @@ struct FinewasteButton: View {
                     .foregroundColor(Colors.White)
             }
             .modifier(FinewasteButtonSize(size: size))
-        }
+        }.disabled(!isEnabled)
     }
 }
 
