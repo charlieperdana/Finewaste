@@ -14,7 +14,7 @@ struct AddImageView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Colors.Gray, lineWidth: 1)
-                .frame(width: 120, height: 120)
+                .frame(width: 100, height: 100)
             Image(systemName: "plus.viewfinder")
                 .foregroundColor(Colors.Turqoise)
                 .font(.system(size: 25).bold())

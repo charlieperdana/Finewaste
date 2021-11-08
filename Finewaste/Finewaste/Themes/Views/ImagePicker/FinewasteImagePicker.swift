@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FinewasteImagePicker: View {
     var items: [GridItem] {
-        Array(repeating: .init(.fixed(120)), count: 3)
+        Array(repeating: .init(.fixed(100), spacing: 16), count: 3)
     }
     
     @Binding var selectedImages: [UIImage]
@@ -19,18 +19,27 @@ struct FinewasteImagePicker: View {
     @State private var imageSource: UIImagePickerController.SourceType = .camera
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            LazyVGrid(columns: items, spacing: 13) {
-                ForEach(0..<selectedImages.count + 1, id: \.self) { index in
-                    if index == 0 {
-                        AddImageView {
-                            self.showActionSheet = true
-                        }
-                    } else {
+        LazyVGrid(columns: items, alignment: .leading, spacing: 13) {
+            ForEach(0..<selectedImages.count + 1, id: \.self) { index in
+                if index == 0 {
+                    AddImageView {
+                        self.showActionSheet = true
+                    }
+                } else {
+                    ZStack(alignment: .topTrailing) {
                         Image(uiImage: selectedImages[index - 1])
                             .resizable()
-                            .frame(width: 120, height: 120)
+                            .frame(width: 100, height: 100)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
+                        Button {
+                            self.removeImage(at: index - 1)
+                        } label: {
+                            Image("deleteIcon")
+                                .foregroundColor(Colors.Red)
+                                .font(.system(size: 17))
+                                .zIndex(1)
+                        }
+                        .offset(x: 7, y: -5)
                     }
                 }
             }
@@ -52,6 +61,12 @@ struct FinewasteImagePicker: View {
                 }),
                 ActionSheet.Button.cancel()
             ])
+        }
+    }
+    
+    private func removeImage(at index: Int) {
+        withAnimation {
+            self.selectedImages.remove(at: index)
         }
     }
 }
