@@ -30,7 +30,7 @@ struct ProjectNavigationBar: View {
                             .font(.system(size: 23).weight(.medium))
                     }
                 }
-                .offset(x: -7 * navBarOpacity, y: -3 * navBarOpacity)
+                .offset(x: -15 * min(1, navBarOpacity), y: -3 * min(1, navBarOpacity))
                 Spacer()
             }
             .padding(.top)
