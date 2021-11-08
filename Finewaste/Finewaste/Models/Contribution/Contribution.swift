@@ -12,16 +12,7 @@ import FirebaseFirestoreSwift
 struct Contribution: Codable, Identifiable {
     @DocumentID var id: String?
     var contributor: String?
-    var post: String?
-    var materials: [ContributionMaterial]?
-    var images: [String]?
-    var deliveryType: Int?
+    var projectId: String?
+    var deliveryType: String??
     var location: GeoPoint?
-}
-
-struct ContributionMaterial: Codable, Identifiable {
-    @DocumentID var id: String?
-    var name: String?
-    var quantity: Int?
-    var images: [String]?
 }
