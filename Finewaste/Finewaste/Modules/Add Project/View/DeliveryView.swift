@@ -84,7 +84,7 @@ struct DeliveryView: View {
                         .frame(height: 200)
                 }
                 Spacer()
-                FinewasteButton(text: "Add Project", size: .fullWidth, isEnabled: true) {
+                FinewasteButtonFill(text: "Add Project", size: .fullWidth, isEnabled: true) {
                     print("Add project tapped")
                 }
             }

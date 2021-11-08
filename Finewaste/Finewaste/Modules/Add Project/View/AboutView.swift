@@ -6,6 +6,24 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+
+struct newProject {
+    var projectName: String?
+    var projectDesc: String?
+    var deadline: Timestamp?
+    var images: [String]?
+    var deliveryType: [String]?
+    var location: GeoPoint?
+    var newMaterial: [newMaterial]?
+}
+
+struct newMaterial {
+    var materialName: String?
+    var materialTarget: Int?
+    var allowOverlimit: Bool?
+    var materialPrerequisite: [String]?
+}
 
 struct AboutView: View {
     @State var projectName: String = ""
@@ -119,13 +137,13 @@ struct AboutView: View {
                     }
                 }
                 Spacer()
-                FinewasteButton(text: "Next", size: .fullWidth, isEnabled: isFieldFilled) {
+                FinewasteButtonFill(text: "Next", size: .fullWidth, isEnabled: isFieldFilled) {
                     project.projectName = projectName
                     project.description = projectDescription
-                    project.deadline = selectedDate
+                    project.deadline = Timestamp(seconds: Int64(selectedDate.timeIntervalSince1970), nanoseconds: 0)
                     self.showNextPage = true
                 }
-                NavigationLink(destination: MaterialView(), isActive: $showNextPage) {}
+                NavigationLink(destination: MaterialView(project: project), isActive: $showNextPage) {}
             }
             .navigationBarTitle("Project Detail")
             .navigationBarTitleDisplayMode(.inline)

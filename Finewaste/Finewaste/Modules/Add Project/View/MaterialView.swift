@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct MaterialView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var showNextPage = false
     @State var showSheet = false
     
-    var project = Project()
+    @State var project: Project
+    
+    init(project: Project) {
+        self._project = State(wrappedValue: project)
+    }
     
     var body: some View {
         NavigationView {
@@ -76,14 +81,14 @@ struct MaterialView: View {
                     }.padding()
                 }.overlay(RoundedRectangle(cornerRadius: 10)
                             .stroke(Colors.Turqoise, lineWidth: 1))
-                FinewasteOutlineButton(text: "Add New Material", size: .fullWidth) {
+                FinewasteRoundedOutlineButton(text: "Add New Material", size: .fullWidth) {
                     self.showSheet = true
                 }
                 .sheet(isPresented: $showSheet) {
                     AddMaterialView()
                 }
                 Spacer()
-                FinewasteButton(text: "Next", size: .fullWidth, isEnabled: true) {
+                FinewasteButtonFill(text: "Next", size: .fullWidth, isEnabled: true) {
                     print("Next tapped")
                 }
             }.font(Fonts.poppinsHeadline())
@@ -104,6 +109,6 @@ struct MaterialView: View {
 
 struct MaterialView_Previews: PreviewProvider {
     static var previews: some View {
-        MaterialView()
+        MaterialView(project: Project.init())
     }
 }
