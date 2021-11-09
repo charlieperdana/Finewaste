@@ -37,7 +37,7 @@ struct MainProjectView: View {
             ScrollView {
                 VStack {
                     
-                    SearchBarView(searchText: $searchText,isSearching: $isSearching)
+                    SearchBarView(searchText: $searchText, isSearching: $isSearching)
                     
 //                    List(model.listProject) { item in
 //
@@ -52,41 +52,23 @@ struct MainProjectView: View {
 //                    }
 
 //                    ProjectGridView(project: $project)
-                    ProjectGridView()
+                    ProjectGridView(listProject: $model.listProject)
                     
-                    Divider()
-                    
-                    VStack(spacing:5){
-                        TextField("Username", text: $username)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                        
-                        TextField("Fullname", text: $fullname)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                        
-                        TextField("UUID", text: $uid)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                        
-                        
-                        
-//                        Button(action:    {
+//                    Divider()
 //
-//                            let newUser = Users(id: self.uuidUser, name: fullname, username: self.usernameUser, description: "", productService: [""], createdProduct: 0, donatedWaste: 0, location: Location(latitude: 0.0, longitude: 0.0), isBusiness: false)
+//                    VStack(spacing:5){
+//                        TextField("Username", text: $username)
+//                            .textFieldStyle(RoundedBorderTextFieldStyle())
 //
-//                            model.addData(newUser: newUser)
+//                        TextField("Fullname", text: $fullname)
+//                            .textFieldStyle(RoundedBorderTextFieldStyle())
 //
-//                            fullname = ""
-//                            username = ""
-//                            uid = ""
+//                        TextField("UUID", text: $uid)
+//                            .textFieldStyle(RoundedBorderTextFieldStyle())
 //
+//                    }
 //
-//
-//                        }, label: {
-//
-//                            Text("Add New User")
-//                        })
-                    }
-                    
-                    .padding()
+//                    .padding()
                     
                     
                     
@@ -121,7 +103,7 @@ struct MainProjectView: View {
     
     init() {
         model.getProjectData()
-//        project = model.listProject[0]
+
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Poppins-SemiBold", size: 28)!]
     }
 }

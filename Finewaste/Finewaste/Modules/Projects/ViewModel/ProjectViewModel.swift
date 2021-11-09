@@ -13,12 +13,20 @@ class ProjectViewModel: ObservableObject {
     
     @Published var listProject = [Project]()
     
+    @Published var items = 0..<20
+    
+    let database = Firestore.firestore()
+    
+    @Published var contribution = 0
+    @Published var target = 0
+    
+    @Published var listProjectMaterial = [ProjectMaterial]()
     
     func getProjectData() {
         
-        let db = Firestore.firestore()
         
-        db.collection("projects").getDocuments { snapshot, error in
+        
+        database.collection("projects").getDocuments { snapshot, error in
             
             if error ==  nil {
                 
@@ -51,5 +59,88 @@ class ProjectViewModel: ObservableObject {
         }
         
     }
+    
+    
+    func getNumberOfContribution(projectId: String, completion: @escaping (Int) -> Void) {
+        
+        
+        database.collection("contributions").whereField("projectId", isEqualTo: projectId).getDocuments { snapshot, error in
+            if error ==  nil {
+                if let snapshot = snapshot {
+                    DispatchQueue.main.async {
+                        
+                        completion(snapshot.documents.count)
+                        
+                    }
+                    
+                } else {
+                    print("error")
+                }
+            }
+            
+        }
+        
+    }
+    
+    func getTotalNeeded(projectId: String) {
+        
+        
+        database.collection("projectMaterials").whereField("projectId", isEqualTo: projectId).getDocuments { snapshot, error in
+            if error ==  nil {
+                if let snapshot = snapshot {
+                    DispatchQueue.main.async {
+                        
+                        
+                        
+                        self.listProjectMaterial = snapshot.documents.map { docs in
+                            
+                            
+                            return ProjectMaterial(id: docs.documentID, materialName: docs["materialName"] as? String ?? "",
+                                                   target: docs["target"] as? Int ?? 0,
+                                                   strictLimitation: docs["strictLimitation"] as? Bool ?? false,
+                                                   prerequisite: docs["prerequisite"] as? [String] ?? [""])
+                            
+                        }
+                        
+                       
+                        
+                        
+                    }
+                    
+                } else {
+                    print("error")
+                }
+            }
+            
+        }
+       
+    }
+    
+    func getProgesssOfContribution(projectId: String) -> Int {
+        
+        var progress = 0
+        var needed = 0
+       
+        
+        self.getNumberOfContribution(projectId: projectId) { contribution in
+            self.contribution = contribution
+        }
+        
+         self.getTotalNeeded(projectId: projectId)
+        
+        listProjectMaterial.forEach { material in
+           
+            needed +=  (material.target ?? 0)
+
+        }
+        
+
+        
+        
+        progress =  needed - self.contribution
+        
+        return progress
+    }
+    
     
 }
