@@ -15,7 +15,7 @@ struct AddMaterialView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    var project = Project()
+    @EnvironmentObject var newProject: NewProject
     
     var isFieldFilled: Bool {
         !materialNeeded.isEmpty && !materialRequirement.isEmpty && !materialQuantity.isEmpty
@@ -37,9 +37,10 @@ struct AddMaterialView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     Text("Material target quantity")
                         .font(Fonts.poppinsCallout())
-                    TextField("e.g. Denim", text: $materialQuantity)
+                    TextField("e.g. 25 pcs", text: $materialQuantity)
                         .font(Fonts.poppinsSubheadline())
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .keyboardType(.numberPad)
                     HStack {
                         Text("Receive more than target")
                             .font(Fonts.poppinsFootnote())
@@ -60,7 +61,10 @@ struct AddMaterialView: View {
                     .font(Fonts.poppinsBody())
                     .foregroundColor(Colors.Turqoise)
             }), trailing: Button(action: {
-                print("add tapped")
+                let requirements = materialRequirement.components(separatedBy: ",")
+                let target = Int(self.materialQuantity) ?? 0
+                newProject.newMaterial.append(NewMaterial(name: materialNeeded, target: target, limit: isReceivingMore, requirements: requirements))
+                presentationMode.wrappedValue.dismiss()
             }, label: {
                 if isFieldFilled {
                     Text("Add")

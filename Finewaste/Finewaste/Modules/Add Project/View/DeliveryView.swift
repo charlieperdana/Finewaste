@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct DeliveryView: View {
+    @Environment(\.presentationMode) var presentationMode
     @State var deliveryOption: String = ""
     @State var projectAddress: String = ""
     
-    var project = Project()
+    @EnvironmentObject var newProject: NewProject
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack(spacing: 32) {
                 Spacer().frame(height: 24)
-                ZStack{
+                ZStack {
                     HStack(spacing: 0) {
                         Image(systemName: "1.circle.fill")
                             .resizable()
@@ -93,7 +94,7 @@ struct DeliveryView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading:
                                     Button(action: {
-                print("close tapped")
+                self.presentationMode.wrappedValue.dismiss()
             }) {
                 Image(systemName: "chevron.left")
                     .aspectRatio(contentMode: .fit)

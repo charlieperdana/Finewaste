@@ -8,38 +8,44 @@
 import SwiftUI
 import FirebaseFirestore
 
-struct newProject {
+class NewProject:ObservableObject {
     var projectName: String?
     var projectDesc: String?
     var deadline: Timestamp?
-    var images: [String]?
+    var images: [UIImage]?
     var deliveryType: [String]?
     var location: GeoPoint?
-    var newMaterial: [newMaterial]?
+    @Published var newMaterial = [NewMaterial]()
 }
 
-struct newMaterial {
-    var materialName: String?
-    var materialTarget: Int?
+class NewMaterial:ObservableObject {
+    init(name: String, target: Int, limit: Bool, requirements: [String]) {
+        materialName = name
+        materialTarget = target
+        allowOverlimit = limit
+        materialPrerequisite = requirements
+    }
+    @Published var materialName: String?
+    @Published var materialTarget: Int?
     var allowOverlimit: Bool?
-    var materialPrerequisite: [String]?
+    @Published var materialPrerequisite: [String]?
 }
 
 struct AboutView: View {
     @State var projectName: String = ""
     @State var projectDescription: String = ""
     @State var selectedDate = Date()
-    @State var image = UIImage()
+    @State var images = [UIImage]()
     
     @State var showSheet = false
     @State var showNextPage = false
     
-    @State var project = Project()
+    @StateObject var newProject = NewProject()
     
     var minimumCloseDate = Calendar.current.date(byAdding: .day, value: 7, to: Date()) ?? Date()
     
     var isFieldFilled:Bool {
-        !projectName.isEmpty && !projectDescription.isEmpty
+        !projectName.isEmpty && !projectDescription.isEmpty && !images.isEmpty
     }
     
     var body: some View {
@@ -118,32 +124,17 @@ struct AboutView: View {
                     }
                     Text("Product Image Reference")
                         .font(Fonts.poppinsCallout())
-                    HStack {
-                        Button(action: {
-                            self.showSheet = true
-                        }) {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(Colors.Gray)
-                                    .frame(width: 100, height: 100)
-                                Image(systemName: "plus.viewfinder")
-                                    .frame(width: 30, height: 30, alignment: .center)
-                                    .foregroundColor(Colors.Turqoise)
-                            }
-                        }
-                        .sheet(isPresented: $showSheet) {
-                            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
-                        }
-                    }
+                    FinewasteImagePicker(selectedImages: $images)
                 }
                 Spacer()
                 FinewasteButtonFill(text: "Next", size: .fullWidth, isEnabled: isFieldFilled) {
-                    project.projectName = projectName
-                    project.description = projectDescription
-                    project.deadline = Timestamp(seconds: Int64(selectedDate.timeIntervalSince1970), nanoseconds: 0)
+                    newProject.projectName = projectName
+                    newProject.projectDesc = projectDescription
+                    newProject.deadline = Timestamp(seconds: Int64(selectedDate.timeIntervalSince1970), nanoseconds: 0)
+                    newProject.images = images
                     self.showNextPage = true
                 }
-                NavigationLink(destination: MaterialView(project: project), isActive: $showNextPage) {}
+                NavigationLink(destination: MaterialView().environmentObject(newProject), isActive: $showNextPage) {}
             }
             .navigationBarTitle("Project Detail")
             .navigationBarTitleDisplayMode(.inline)

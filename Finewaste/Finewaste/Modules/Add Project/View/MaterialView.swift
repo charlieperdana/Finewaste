@@ -13,11 +13,9 @@ struct MaterialView: View {
     @State var showNextPage = false
     @State var showSheet = false
     
-    @State var project: Project
+    @EnvironmentObject var newProject: NewProject
     
-    init(project: Project) {
-        self._project = State(wrappedValue: project)
-    }
+    @State var showDeliveryPage = false
     
     var body: some View {
         NavigationView {
@@ -64,23 +62,27 @@ struct MaterialView: View {
                         .offset(x: 106, y: 30)
                 }
                 Spacer().frame(height: 40)
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Denim")
-                            .font(Fonts.poppinsBody())
-                        Text("No bleach stains, good condition")
-                            .font(Fonts.poppinsCaption())
-                    }.padding()
-                    Spacer()
-                    Button(action: {
-                        print("Edit tapped")
-                    }) {
-                        Text("Edit")
-                            .foregroundColor(Colors.Turqoise)
-                            .font(Fonts.poppinsHeadline())
-                    }.padding()
-                }.overlay(RoundedRectangle(cornerRadius: 10)
-                            .stroke(Colors.Turqoise, lineWidth: 1))
+                if newProject.newMaterial.count > 0 {
+                    ForEach(newProject.newMaterial, id: \.materialName) { data in
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(data.materialName ?? "")
+                                    .font(Fonts.poppinsBody())
+                                Text((data.materialPrerequisite?.joined(separator: ", ")) ?? "")
+                                    .font(Fonts.poppinsCaption())
+                            }.padding()
+                            Spacer()
+                            Button(action: {
+                                print(data.materialName)
+                            }) {
+                                Text("Edit")
+                                    .foregroundColor(Colors.Turqoise)
+                                    .font(Fonts.poppinsHeadline())
+                            }.padding()
+                        }.overlay(RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Colors.Turqoise, lineWidth: 1))
+                    }
+                }
                 FinewasteRoundedOutlineButton(text: "Add New Material", size: .fullWidth) {
                     self.showSheet = true
                 }
@@ -88,9 +90,10 @@ struct MaterialView: View {
                     AddMaterialView()
                 }
                 Spacer()
-                FinewasteButtonFill(text: "Next", size: .fullWidth, isEnabled: true) {
-                    print("Next tapped")
+                FinewasteButtonFill(text: "Next", size: .fullWidth, isEnabled: newProject.newMaterial.count > 0) {
+                    self.showDeliveryPage = true
                 }
+                NavigationLink(destination: DeliveryView().environmentObject(newProject), isActive: $showDeliveryPage) {}
             }.font(Fonts.poppinsHeadline())
                 .navigationBarTitle("Add Material")
                 .navigationBarTitleDisplayMode(.inline)
@@ -109,6 +112,6 @@ struct MaterialView: View {
 
 struct MaterialView_Previews: PreviewProvider {
     static var previews: some View {
-        MaterialView(project: Project.init())
+        MaterialView()
     }
 }
