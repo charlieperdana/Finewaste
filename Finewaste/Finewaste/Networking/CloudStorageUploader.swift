@@ -13,8 +13,11 @@ final class CloudStorageUploader {
     private var dataToUpload: [Data]
     private var uploadedUrls = [String]()
     
-    init(toUpload: [Data]) {
+    private var onUploaded: () -> Void
+    
+    init(toUpload: [Data], onUploadedHandler: @escaping () -> Void) {
         self.dataToUpload = toUpload
+        self.onUploaded = onUploadedHandler
     }
     
     private func upload(index: Int, path: String, completion: @escaping () -> Void) {
@@ -35,6 +38,7 @@ final class CloudStorageUploader {
                 }
                 
                 self.uploadedUrls.append(url.absoluteString)
+                self.onUploaded()
                 upload(index: index + 1, path: path, completion: completion)
             }
         }
@@ -43,6 +47,23 @@ final class CloudStorageUploader {
     func startUpload(atPath path: String, completion: @escaping ([String]) -> Void) {
         upload(index: 0, path: path) {
             completion(self.uploadedUrls)
+        }
+    }
+    
+    func canceUpload() {
+        if let task = self.uploadTask {
+            task.cancel()
+            
+            for url in self.uploadedUrls {
+                let storageRef = storage.storage.reference(forURL: url)
+                storageRef.delete { error in
+                    if error != nil {
+                        // Error occured
+                    } else {
+                        // File deleted
+                    }
+                }
+            }
         }
     }
 }

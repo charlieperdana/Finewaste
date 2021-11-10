@@ -18,8 +18,7 @@ struct ProjectImageCarouselView: View {
             TabView(selection: $currentPage) {
                 ForEach(0..<images.count, id: \.self) { index in
                     WebImage(url: URL(string: images[index]))
-                        .resizable()
-                        .aspectRatio(CGSize(width: 1, height: 1), contentMode: .fit)
+                        .centerWidthCrop()
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))

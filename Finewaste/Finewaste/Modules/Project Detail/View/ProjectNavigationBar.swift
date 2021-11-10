@@ -22,15 +22,15 @@ struct ProjectNavigationBar: View {
                 } label: {
                     ZStack {
                         Circle()
-                            .fill(Colors.Gray)
+                            .fill(Colors.White)
                             .frame(width: 44, height: 44)
-                            .opacity(min(0.4, 1 - navBarOpacity))
+                            .opacity(min(0.7, 1 - navBarOpacity))
                         Image(systemName: "chevron.backward")
                             .foregroundColor(Colors.Turqoise)
-                            .font(.system(size: 23))
+                            .font(.system(size: 23).weight(.medium))
                     }
                 }
-                .offset(x: -7 * navBarOpacity, y: -3 * navBarOpacity)
+                .offset(x: -15 * min(1, navBarOpacity), y: -3 * min(1, navBarOpacity))
                 Spacer()
             }
             .padding(.top)
