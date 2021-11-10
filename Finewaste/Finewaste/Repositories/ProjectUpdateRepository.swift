@@ -13,6 +13,8 @@ final class ProjectUpdateRepository: ObservableObject {
     private let store = Firestore.firestore()
     @Published var projectUpdates = [ProjectUpdate]()
     
+    private var uploader: CloudStorageUploader?
+    
     init() {
         
     }
@@ -38,12 +40,12 @@ final class ProjectUpdateRepository: ObservableObject {
             }
     }
     
-    func post(update: ProjectUpdate, images: [Data]) {
+    func post(update: ProjectUpdate, images: [Data], onUpdate: @escaping () -> Void) {
         let ref = store.collection(path).document()
         var updatedProject = update
         
-        let uploader = CloudStorageUploader(toUpload: images)
-        uploader.startUpload(atPath: "\(path)/\(ref.documentID)") { imageLinks in
+        uploader = CloudStorageUploader(toUpload: images, onUploadedHandler: onUpdate)
+        uploader?.startUpload(atPath: "\(path)/\(ref.documentID)") { imageLinks in
             updatedProject.images = imageLinks
             
             do {
@@ -53,6 +55,12 @@ final class ProjectUpdateRepository: ObservableObject {
             } catch {
                 
             }
+        }
+    }
+    
+    func cancelUpload() {
+        if let uploader = self.uploader {
+            uploader.canceUpload()
         }
     }
 }

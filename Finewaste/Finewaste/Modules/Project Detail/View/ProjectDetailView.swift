@@ -23,6 +23,8 @@ struct ProjectDetailView: View {
     
     @StateObject private var viewModel: ProjectDetailViewModel
     
+    @State private var isPresentingAddContribution = false
+    
     init(projectId: String) {
         _viewModel = StateObject(wrappedValue: ProjectDetailViewModel(projectId: projectId))
     }
@@ -89,7 +91,7 @@ struct ProjectDetailView: View {
                             Color.white
                                 .frame(height: 78)
                             FinewasteButtonFill(text: "Contribute", size: .fullWidth, isEnabled: true) {
-                                
+                                isPresentingAddContribution = true
                             }
                             .padding([.leading, .trailing])
                         }
@@ -98,6 +100,9 @@ struct ProjectDetailView: View {
                 }
                 .edgesIgnoringSafeArea(.top)
                 .navigationBarHidden(true)
+            }
+            .fullScreenCover(isPresented: $isPresentingAddContribution) {
+                AddContributionView(projectId: viewModel.projectId)
             }
         } else {
             Text("Loading..")

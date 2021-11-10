@@ -55,6 +55,28 @@
 		7D0200FA2737C56F00D3BB44 /* CloudStorageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200F92737C56F00D3BB44 /* CloudStorageUploader.swift */; };
 		7D339EC52733D3CE0023BFDB /* ImageGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D339EC42733D3CE0023BFDB /* ImageGalleryView.swift */; };
 		7D339EC92733D6240023BFDB /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D339EC82733D6240023BFDB /* NavigationBackButton.swift */; };
+		7D6DD4AA273956590023E163 /* Image+centerWidthCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4A9273956590023E163 /* Image+centerWidthCrop.swift */; };
+		7D6DD4AC27396DE60023E163 /* PostUploadIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4AB27396DE60023E163 /* PostUploadIndicator.swift */; };
+		7D6DD4B1273A63500023E163 /* AddContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4B0273A63500023E163 /* AddContributionView.swift */; };
+		7D6DD4B3273A66530023E163 /* PaginationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4B2273A66530023E163 /* PaginationView.swift */; };
+		7D6DD4B6273A75A50023E163 /* StepBullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4B5273A75A50023E163 /* StepBullet.swift */; };
+		7D6DD4B8273A7DE20023E163 /* SelectMaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4B7273A7DE20023E163 /* SelectMaterialView.swift */; };
+		7D6DD4BA273A7DEF0023E163 /* SetDeliveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4B9273A7DEF0023E163 /* SetDeliveryView.swift */; };
+		7D6DD4BD273A86EF0023E163 /* NewContributionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4BC273A86EF0023E163 /* NewContributionModel.swift */; };
+		7D6DD4BF273AA3F20023E163 /* FinewasteMaterialCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4BE273AA3F20023E163 /* FinewasteMaterialCard.swift */; };
+		7D6DD4C1273AB2680023E163 /* StepBulletColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4C0273AB2680023E163 /* StepBulletColor.swift */; };
+		7D6DD4C5273AB42B0023E163 /* AddContributionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4C4273AB42B0023E163 /* AddContributionViewModel.swift */; };
+		7D6DD4C7273AB5C00023E163 /* SelectMaterialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4C6273AB5C00023E163 /* SelectMaterialViewModel.swift */; };
+		7D6DD4C9273AC3FE0023E163 /* EditContributionMaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4C8273AC3FE0023E163 /* EditContributionMaterialView.swift */; };
+		7D6DD4CC273ADAAE0023E163 /* FinewastePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4CB273ADAAE0023E163 /* FinewastePicker.swift */; };
+		7D6DD4CE273ADB4B0023E163 /* PickerDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4CD273ADB4B0023E163 /* PickerDataList.swift */; };
+		7D6DD4D1273B73910023E163 /* SetDeliveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4D0273B73910023E163 /* SetDeliveryViewModel.swift */; };
+		7D6DD4D4273B81EE0023E163 /* LocationAddressField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4D3273B81EE0023E163 /* LocationAddressField.swift */; };
+		7D6DD4D8273B84390023E163 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4D7273B84390023E163 /* MapView.swift */; };
+		7D6DD4DA273B84650023E163 /* FinewasteMapPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4D9273B84650023E163 /* FinewasteMapPicker.swift */; };
+		7D6DD4DC273B95940023E163 /* MapPinPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4DB273B95940023E163 /* MapPinPointView.swift */; };
+		7D6DD4DE273B974E0023E163 /* CircleNavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4DD273B974E0023E163 /* CircleNavigationBackButton.swift */; };
+		7D6DD4E0273B9B610023E163 /* CircleCurrentLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4DF273B9B610023E163 /* CircleCurrentLocationButton.swift */; };
 		7D9143492734F9A700B89F98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9143482734F9A700B89F98 /* User.swift */; };
 		7D91434B2734FA9D00B89F98 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91434A2734FA9D00B89F98 /* Conversation.swift */; };
 		7D91434D273507DA00B89F98 /* Contribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91434C273507DA00B89F98 /* Contribution.swift */; };
@@ -160,6 +182,28 @@
 		7D074D0A272846940010C4F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D339EC42733D3CE0023BFDB /* ImageGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryView.swift; sourceTree = "<group>"; };
 		7D339EC82733D6240023BFDB /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
+		7D6DD4A9273956590023E163 /* Image+centerWidthCrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+centerWidthCrop.swift"; sourceTree = "<group>"; };
+		7D6DD4AB27396DE60023E163 /* PostUploadIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUploadIndicator.swift; sourceTree = "<group>"; };
+		7D6DD4B0273A63500023E163 /* AddContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContributionView.swift; sourceTree = "<group>"; };
+		7D6DD4B2273A66530023E163 /* PaginationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationView.swift; sourceTree = "<group>"; };
+		7D6DD4B5273A75A50023E163 /* StepBullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBullet.swift; sourceTree = "<group>"; };
+		7D6DD4B7273A7DE20023E163 /* SelectMaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMaterialView.swift; sourceTree = "<group>"; };
+		7D6DD4B9273A7DEF0023E163 /* SetDeliveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDeliveryView.swift; sourceTree = "<group>"; };
+		7D6DD4BC273A86EF0023E163 /* NewContributionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContributionModel.swift; sourceTree = "<group>"; };
+		7D6DD4BE273AA3F20023E163 /* FinewasteMaterialCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteMaterialCard.swift; sourceTree = "<group>"; };
+		7D6DD4C0273AB2680023E163 /* StepBulletColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBulletColor.swift; sourceTree = "<group>"; };
+		7D6DD4C4273AB42B0023E163 /* AddContributionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContributionViewModel.swift; sourceTree = "<group>"; };
+		7D6DD4C6273AB5C00023E163 /* SelectMaterialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMaterialViewModel.swift; sourceTree = "<group>"; };
+		7D6DD4C8273AC3FE0023E163 /* EditContributionMaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContributionMaterialView.swift; sourceTree = "<group>"; };
+		7D6DD4CB273ADAAE0023E163 /* FinewastePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewastePicker.swift; sourceTree = "<group>"; };
+		7D6DD4CD273ADB4B0023E163 /* PickerDataList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDataList.swift; sourceTree = "<group>"; };
+		7D6DD4D0273B73910023E163 /* SetDeliveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDeliveryViewModel.swift; sourceTree = "<group>"; };
+		7D6DD4D3273B81EE0023E163 /* LocationAddressField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAddressField.swift; sourceTree = "<group>"; };
+		7D6DD4D7273B84390023E163 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		7D6DD4D9273B84650023E163 /* FinewasteMapPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteMapPicker.swift; sourceTree = "<group>"; };
+		7D6DD4DB273B95940023E163 /* MapPinPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinPointView.swift; sourceTree = "<group>"; };
+		7D6DD4DD273B974E0023E163 /* CircleNavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleNavigationBackButton.swift; sourceTree = "<group>"; };
+		7D6DD4DF273B9B610023E163 /* CircleCurrentLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCurrentLocationButton.swift; sourceTree = "<group>"; };
 		7D9143482734F9A700B89F98 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7D91434A2734FA9D00B89F98 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		7D91434C273507DA00B89F98 /* Contribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contribution.swift; sourceTree = "<group>"; };
@@ -436,6 +480,7 @@
 			children = (
 				7D0200C12736356500D3BB44 /* CLLocation+fetchShortLocation.swift */,
 				7D0200E02737762700D3BB44 /* View+retrieveScrollPosition.swift */,
+				7D6DD4A9273956590023E163 /* Image+centerWidthCrop.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -475,6 +520,92 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		7D6DD4AD273A62760023E163 /* Add Contribution */ = {
+			isa = PBXGroup;
+			children = (
+				7D6DD4BB273A826E0023E163 /* Model */,
+				7D6DD4AF273A63470023E163 /* ViewModel */,
+				7D6DD4AE273A63420023E163 /* View */,
+			);
+			path = "Add Contribution";
+			sourceTree = "<group>";
+		};
+		7D6DD4AE273A63420023E163 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7D6DD4B0273A63500023E163 /* AddContributionView.swift */,
+				7D6DD4B7273A7DE20023E163 /* SelectMaterialView.swift */,
+				7D6DD4B9273A7DEF0023E163 /* SetDeliveryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7D6DD4AF273A63470023E163 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7D6DD4C4273AB42B0023E163 /* AddContributionViewModel.swift */,
+				7D6DD4C6273AB5C00023E163 /* SelectMaterialViewModel.swift */,
+				7D6DD4D0273B73910023E163 /* SetDeliveryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7D6DD4B4273A758E0023E163 /* StepIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				7D6DD4B2273A66530023E163 /* PaginationView.swift */,
+				7D6DD4B5273A75A50023E163 /* StepBullet.swift */,
+			);
+			path = StepIndicator;
+			sourceTree = "<group>";
+		};
+		7D6DD4BB273A826E0023E163 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D6DD4BC273A86EF0023E163 /* NewContributionModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7D6DD4CA273ADA8C0023E163 /* FinewastePicker */ = {
+			isa = PBXGroup;
+			children = (
+				7D6DD4CB273ADAAE0023E163 /* FinewastePicker.swift */,
+				7D6DD4CD273ADB4B0023E163 /* PickerDataList.swift */,
+			);
+			path = FinewastePicker;
+			sourceTree = "<group>";
+		};
+		7D6DD4CF273B60CD0023E163 /* FinewasteMaterialCard */ = {
+			isa = PBXGroup;
+			children = (
+				7D6DD4C8273AC3FE0023E163 /* EditContributionMaterialView.swift */,
+				7D6DD4BE273AA3F20023E163 /* FinewasteMaterialCard.swift */,
+			);
+			path = FinewasteMaterialCard;
+			sourceTree = "<group>";
+		};
+		7D6DD4D2273B81C40023E163 /* FinewasteMapPicker */ = {
+			isa = PBXGroup;
+			children = (
+				7D6DD4E1273B9C000023E163 /* MapPintPointView */,
+				7D6DD4D3273B81EE0023E163 /* LocationAddressField.swift */,
+				7D6DD4D7273B84390023E163 /* MapView.swift */,
+				7D6DD4D9273B84650023E163 /* FinewasteMapPicker.swift */,
+			);
+			path = FinewasteMapPicker;
+			sourceTree = "<group>";
+		};
+		7D6DD4E1273B9C000023E163 /* MapPintPointView */ = {
+			isa = PBXGroup;
+			children = (
+				7D6DD4DB273B95940023E163 /* MapPinPointView.swift */,
+				7D6DD4DD273B974E0023E163 /* CircleNavigationBackButton.swift */,
+				7D6DD4DF273B9B610023E163 /* CircleCurrentLocationButton.swift */,
+			);
+			path = MapPintPointView;
+			sourceTree = "<group>";
+		};
 		7DDD2290272FD4C100250B35 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,6 +630,7 @@
 		7DDD2294272FD54600250B35 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7D6DD4AD273A62760023E163 /* Add Contribution */,
 				7D0200E9273784DB00D3BB44 /* Post Project Update */,
 				551DD88A273302A200E550AF /* Projects */,
 				55B6045427312FD700631004 /* Onboarding */,
@@ -612,12 +744,17 @@
 		7DDD22DD2730EC5500250B35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7D6DD4D2273B81C40023E163 /* FinewasteMapPicker */,
+				7D6DD4CF273B60CD0023E163 /* FinewasteMaterialCard */,
+				7D6DD4CA273ADA8C0023E163 /* FinewastePicker */,
+				7D6DD4B4273A758E0023E163 /* StepIndicator */,
 				7DDD22E22731136F00250B35 /* FinewasteButtonFill.swift */,
 				7DDD22EF27313E1F00250B35 /* FinewasteRoundedOutlineButton.swift */,
 				7D339EC82733D6240023BFDB /* NavigationBackButton.swift */,
 				7D0200E62737838000D3BB44 /* FinewasteButtonOutline.swift */,
 				7D0200ED273790A900D3BB44 /* FinewasteTextField.swift */,
 				7D0200F12737A75D00D3BB44 /* ImagePicker */,
+				7D6DD4AB27396DE60023E163 /* PostUploadIndicator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -626,6 +763,7 @@
 			isa = PBXGroup;
 			children = (
 				7DDD22E52731140C00250B35 /* FinewasteButtonSize.swift */,
+				7D6DD4C0273AB2680023E163 /* StepBulletColor.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -889,29 +1027,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DDD22E62731140C00250B35 /* FinewasteButtonSize.swift in Sources */,
+				7D6DD4C9273AC3FE0023E163 /* EditContributionMaterialView.swift in Sources */,
 				7D0200DE2736DD5200D3BB44 /* ProjectUpdateViewModel.swift in Sources */,
 				7DDD22DC2730EBC300250B35 /* ProjectDetailViewModel.swift in Sources */,
+				7D6DD4DE273B974E0023E163 /* CircleNavigationBackButton.swift in Sources */,
 				00E77048273259D900C9C299 /* AddProjectViewModel.swift in Sources */,
 				7D0200EE273790A900D3BB44 /* FinewasteTextField.swift in Sources */,
 				7DDD229E272FD5A500250B35 /* Colors.swift in Sources */,
+				7D6DD4DC273B95940023E163 /* MapPinPointView.swift in Sources */,
 				7D0200FA2737C56F00D3BB44 /* CloudStorageUploader.swift in Sources */,
 				7D0200DA2736D6B900D3BB44 /* TimestampHelper.swift in Sources */,
+				7D6DD4B8273A7DE20023E163 /* SelectMaterialView.swift in Sources */,
+				7D6DD4BF273AA3F20023E163 /* FinewasteMaterialCard.swift in Sources */,
 				00F2BC9F2733C78D00E95798 /* AboutView.swift in Sources */,
+				7D6DD4B3273A66530023E163 /* PaginationView.swift in Sources */,
 				00C18B552732988E000C1103 /* DeliveryView.swift in Sources */,
 				5572C6962728152C00601A69 /* Finewaste.xcdatamodeld in Sources */,
+				7D6DD4C5273AB42B0023E163 /* AddContributionViewModel.swift in Sources */,
 				7D0200C82736703D00D3BB44 /* Message.swift in Sources */,
+				7D6DD4AA273956590023E163 /* Image+centerWidthCrop.swift in Sources */,
+				7D6DD4C1273AB2680023E163 /* StepBulletColor.swift in Sources */,
 				7DDD22F227318C7C00250B35 /* ProjectMaterialRequirementView.swift in Sources */,
 				7DDD22FC2732C30900250B35 /* ProjectStatusView.swift in Sources */,
+				7D6DD4BA273A7DEF0023E163 /* SetDeliveryView.swift in Sources */,
 				7DDD22A3272FD84200250B35 /* ProjectRepository.swift in Sources */,
 				7D914351273596E100B89F98 /* ProjectStatusViewModel.swift in Sources */,
 				55B6040B272FEA4700631004 /* LoginView.swift in Sources */,
 				551DD88D273302C300E550AF /* ProjectViewModel.swift in Sources */,
 				7D91434B2734FA9D00B89F98 /* Conversation.swift in Sources */,
+				7D6DD4B1273A63500023E163 /* AddContributionView.swift in Sources */,
 				5572C6932728152C00601A69 /* Persistence.swift in Sources */,
 				7D0200CE2736708D00D3BB44 /* ProjectUpdate.swift in Sources */,
 				7DDD23012732CC4900250B35 /* ProjectUpdateCard.swift in Sources */,
 				55B6044C27304F0300631004 /* HomeView.swift in Sources */,
+				7D6DD4E0273B9B610023E163 /* CircleCurrentLocationButton.swift in Sources */,
 				7D0200DC2736DBE300D3BB44 /* ProjectUpdateRepository.swift in Sources */,
+				7D6DD4AC27396DE60023E163 /* PostUploadIndicator.swift in Sources */,
 				7D0200EC2737850B00D3BB44 /* PostProjectUpdateView.swift in Sources */,
 				7D0200D82736D11C00D3BB44 /* CloudFunctionTrigger.swift in Sources */,
 				7DDD22DA2730EBBA00250B35 /* ProjectDetailView.swift in Sources */,
@@ -923,6 +1074,7 @@
 				551DD8892732A2DF00E550AF /* Users.swift in Sources */,
 				7D9143492734F9A700B89F98 /* User.swift in Sources */,
 				7DDD22F627319FB700250B35 /* ProjectImageCarouselView.swift in Sources */,
+				7D6DD4B6273A75A50023E163 /* StepBullet.swift in Sources */,
 				7D0200C627366EF900D3BB44 /* ContributionMaterial.swift in Sources */,
 				7DDD22E32731136F00250B35 /* FinewasteButtonFill.swift in Sources */,
 				7DDD22FA2732C23600250B35 /* ProjectOwnerView.swift in Sources */,
@@ -932,22 +1084,30 @@
 				7D0200D32736C2F800D3BB44 /* ContributionRepository.swift in Sources */,
 				7DDD22EC273137A700250B35 /* ProjectAboutView.swift in Sources */,
 				7DDD2293272FD53500250B35 /* Project.swift in Sources */,
+				7D6DD4CE273ADB4B0023E163 /* PickerDataList.swift in Sources */,
 				7D0200D52736C74500D3BB44 /* ContributionMaterialRepository.swift in Sources */,
 				7D0200CC2736707600D3BB44 /* ProjectMaterial.swift in Sources */,
 				7DDD22E12730EC7800250B35 /* ProjectNavigationBar.swift in Sources */,
 				7DDD22F82732767800250B35 /* ImagePageIndicatorView.swift in Sources */,
+				7D6DD4BD273A86EF0023E163 /* NewContributionModel.swift in Sources */,
 				7DDD22F427318CF900250B35 /* ProjectStoryView.swift in Sources */,
 				7D91434D273507DA00B89F98 /* Contribution.swift in Sources */,
 				7DDD22F027313E1F00250B35 /* FinewasteRoundedOutlineButton.swift in Sources */,
+				7D6DD4D4273B81EE0023E163 /* LocationAddressField.swift in Sources */,
 				7DDD22EE273137D700250B35 /* ProjectUpdateView.swift in Sources */,
 				7D0200E12737762700D3BB44 /* View+retrieveScrollPosition.swift in Sources */,
+				7D6DD4C7273AB5C00023E163 /* SelectMaterialViewModel.swift in Sources */,
+				7D6DD4CC273ADAAE0023E163 /* FinewastePicker.swift in Sources */,
+				7D6DD4DA273B84650023E163 /* FinewasteMapPicker.swift in Sources */,
 				7D0200C22736356500D3BB44 /* CLLocation+fetchShortLocation.swift in Sources */,
 				7D0200F52737A86B00D3BB44 /* NativeImagePicker.swift in Sources */,
 				7D0200F32737A76D00D3BB44 /* AddImageView.swift in Sources */,
 				5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */,
 				551DD8932735144500E550AF /* OnboardingViewModel.swift in Sources */,
 				55B6040F273047FC00631004 /* UserInfo.swift in Sources */,
+				7D6DD4D1273B73910023E163 /* SetDeliveryViewModel.swift in Sources */,
 				551DD88727329E7A00E550AF /* LoginHelper.swift in Sources */,
+				7D6DD4D8273B84390023E163 /* MapView.swift in Sources */,
 				55B604572731302F00631004 /* OnboardingView.swift in Sources */,
 				55B6040D272FEA6800631004 /* LoginViewModel.swift in Sources */,
 				7D339EC92733D6240023BFDB /* NavigationBackButton.swift in Sources */,
