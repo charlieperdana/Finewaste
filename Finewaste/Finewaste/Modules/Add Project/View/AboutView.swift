@@ -9,12 +9,12 @@ import SwiftUI
 import FirebaseFirestore
 
 class NewProject: ObservableObject {
-    var projectName: String?
-    var projectDesc: String?
-    var deadline: Timestamp?
-    var images: [UIImage]?
-    var deliveryType: [String]?
-    var location: GeoPoint?
+    var projectName: String = ""
+    var projectDesc: String = ""
+    var deadline: Timestamp = Timestamp(seconds: 0, nanoseconds: 0)
+    var images: [UIImage] = []
+    var deliveryType: [String] = []
+    var location: GeoPoint = GeoPoint(latitude: 0, longitude: 0)
     @Published var newMaterial = [NewMaterial]()
 }
 
@@ -25,10 +25,10 @@ class NewMaterial: ObservableObject {
         allowOverlimit = limit
         materialPrerequisite = requirements
     }
-    @Published var materialName: String?
-    @Published var materialTarget: Int?
-    var allowOverlimit: Bool?
-    @Published var materialPrerequisite: [String]?
+    @Published var materialName: String = ""
+    @Published var materialTarget: Int = 0
+    var allowOverlimit: Bool = false
+    @Published var materialPrerequisite: [String] = []
 }
 
 struct AboutView: View {
@@ -96,10 +96,7 @@ struct AboutView: View {
                 VStack(alignment: .leading) {
                     Text("Project Name")
                         .font(Fonts.poppinsCallout())
-                    TextField("e.g. Denim totebag", text: $projectName)
-                        .font(Fonts.poppinsSubheadline())
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    
+                    FinewasteTextField(placeholder: "e.g. Denim totebag", text: $projectName)
                     HStack {
                         Spacer()
                         Text("\(projectName.count)/30")
@@ -108,9 +105,7 @@ struct AboutView: View {
                     }
                     Text("What do you want to make?")
                         .font(Fonts.poppinsCallout())
-                    TextField("Describe product you want to make", text: $projectDescription)
-                        .font(Fonts.poppinsSubheadline())
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    FinewasteTextField(placeholder: "Describe product you want to make", text: $projectDescription)
                     HStack {
                         Spacer()
                         Text("\(projectDescription.count)/500")

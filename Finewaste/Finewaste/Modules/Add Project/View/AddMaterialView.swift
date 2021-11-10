@@ -13,10 +13,22 @@ struct AddMaterialView: View {
     @State var materialQuantity: String = ""
     @State var isReceivingMore: Bool = false
     
+    init(selectedMaterial: NewMaterial, editMaterial: Bool) {
+        self.selectedMaterial = selectedMaterial
+        self.editMaterial = editMaterial
+        if editMaterial {
+            self._materialNeeded = State(wrappedValue: selectedMaterial.materialName)
+            self._materialRequirement = State(wrappedValue: selectedMaterial.materialPrerequisite.joined(separator: ","))
+            self._materialQuantity = State(wrappedValue: String(selectedMaterial.materialTarget))
+            self._isReceivingMore = State(wrappedValue: selectedMaterial.allowOverlimit)
+        }
+    }
+    
     @Environment(\.presentationMode) var presentationMode
     
     @EnvironmentObject var newProject: NewProject
-    @EnvironmentObject var editMaterial: NewMaterial
+    var selectedMaterial: NewMaterial
+    var editMaterial: Bool = false
     
     var isFieldFilled: Bool {
         !materialNeeded.isEmpty && !materialRequirement.isEmpty && !materialQuantity.isEmpty
@@ -28,19 +40,13 @@ struct AddMaterialView: View {
                 VStack(alignment: .leading) {
                     Text("What kind of material do you need?")
                         .font(Fonts.poppinsCallout())
-                    TextField(editMaterial.materialName ?? "e.g. Denim", text: $materialNeeded)
-                        .font(Fonts.poppinsSubheadline())
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    FinewasteTextField(placeholder: "e.g. Denim", text: $materialNeeded)
                     Text("Material Requirement")
                         .font(Fonts.poppinsCallout())
-                    TextField(editMaterial.materialPrerequisite?.joined(separator: ", ") ?? "e.g. No big stains, good condition", text: $materialRequirement)
-                        .font(Fonts.poppinsSubheadline())
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    FinewasteTextField(placeholder: "e.g. No big stains, good condition", text: $materialRequirement)
                     Text("Material target quantity")
                         .font(Fonts.poppinsCallout())
-                    TextField("e.g. 25 pcs", text: $materialQuantity)
-                        .font(Fonts.poppinsSubheadline())
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    FinewasteTextField(placeholder: "e.g. 25 pcs", text: $materialQuantity)
                         .keyboardType(.numberPad)
                     HStack {
                         Text("Receive more than target")
@@ -64,7 +70,14 @@ struct AddMaterialView: View {
             }), trailing: Button(action: {
                 let requirements = materialRequirement.components(separatedBy: ",")
                 let target = Int(self.materialQuantity) ?? 0
-                newProject.newMaterial.append(NewMaterial(name: materialNeeded, target: target, limit: isReceivingMore, requirements: requirements))
+                if editMaterial {
+                    selectedMaterial.materialName = materialNeeded
+                    selectedMaterial.materialTarget = target
+                    selectedMaterial.allowOverlimit = isReceivingMore
+                    selectedMaterial.materialPrerequisite = requirements
+                } else {
+                    newProject.newMaterial.append(NewMaterial(name: materialNeeded, target: target, limit: isReceivingMore, requirements: requirements))
+                }
                 presentationMode.wrappedValue.dismiss()
             }, label: {
                 if isFieldFilled {
@@ -85,6 +98,6 @@ struct AddMaterialView: View {
 
 struct AddMaterialView_Previews: PreviewProvider {
     static var previews: some View {
-        AddMaterialView()
+        AddMaterialView(selectedMaterial: NewMaterial(name: "", target: 0, limit: false, requirements: []), editMaterial: false)
     }
 }

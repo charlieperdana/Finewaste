@@ -61,27 +61,13 @@ struct DeliveryView: View {
                 VStack(alignment: .leading) {
                     Text("Delivery Option")
                         .font(Fonts.poppinsCallout())
-                    HStack {
-                        TextField("Choose delivery option", text: $deliveryOption)
-                            .font(Fonts.poppinsSubheadline())
-                        Image(systemName: "chevron.right")
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 8)
-                            .foregroundColor(Colors.Gray)
-                    }
-                    Divider()
-                        .frame(height: 1, alignment: .center)
-                        .background(Colors.Gray)
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -16))
+                    Spacer().frame(height: 16)
+                    FinewastePicker(placeholder: "Choose delivery option", selectedData: $deliveryOption, dataToChoose: [])
                     Text("Project Address")
                         .font(Fonts.poppinsCallout())
                     Text("Your full address will not be shown on the project")
                         .font(Fonts.poppinsFootnote())
-                    TextField("Type your address here..", text: $projectAddress)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .font(Fonts.poppinsSubheadline())
-                    RoundedRectangle(cornerRadius: 10)
-                        .frame(height: 200)
+                    FinewasteMapPicker()
                 }
                 Spacer()
                 FinewasteButtonFill(text: "Add Project", size: .fullWidth, isEnabled: true) {

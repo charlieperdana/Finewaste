@@ -14,9 +14,12 @@ struct MaterialView: View {
     @State var showSheet = false
     
     @EnvironmentObject var newProject: NewProject
-    @StateObject var editMaterial = [NewMaterial]()
+    
+    @State var selectedMaterial = NewMaterial(name: "", target: 0, limit: false, requirements: [])
     
     @State var showDeliveryPage = false
+    
+    @State var editMaterial = false
     
     var body: some View {
         NavigationView {
@@ -66,17 +69,15 @@ struct MaterialView: View {
                     ForEach(newProject.newMaterial, id: \.materialName) { data in
                         HStack {
                             VStack(alignment: .leading) {
-                                Text(data.materialName ?? "")
+                                Text(data.materialName)
                                     .font(Fonts.poppinsBody())
-                                Text((data.materialPrerequisite?.joined(separator: ", ")) ?? "")
+                                Text((data.materialPrerequisite.joined(separator: ", ")))
                                     .font(Fonts.poppinsCaption())
                             }.padding()
                             Spacer()
                             Button(action: {
-                                editMaterial.materialName = data.materialName
-                                editMaterial.materialTarget = data.materialTarget
-                                editMaterial.materialPrerequisite = data.materialPrerequisite
-                                editMaterial.allowOverlimit = data.allowOverlimit
+                                selectedMaterial = data
+                                editMaterial = true
                                 self.showSheet = true
                             }) {
                                 Text("Edit")
@@ -88,10 +89,11 @@ struct MaterialView: View {
                     }
                 }
                 FinewasteRoundedOutlineButton(text: "Add New Material", size: .fullWidth) {
+                    editMaterial = false
                     self.showSheet = true
                 }
                 .sheet(isPresented: $showSheet) {
-                    AddMaterialView().environmentObject(editMaterial)
+                    AddMaterialView(selectedMaterial: selectedMaterial, editMaterial: editMaterial)
                 }
                 Spacer()
                 FinewasteButtonFill(text: "Next", size: .fullWidth, isEnabled: newProject.newMaterial.count > 0) {
