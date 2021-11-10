@@ -37,6 +37,7 @@ struct AddMaterialView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Spacer().frame(height: 16)
                 VStack(alignment: .leading) {
                     Text("What kind of material do you need?")
                         .font(Fonts.poppinsCallout())
@@ -48,6 +49,7 @@ struct AddMaterialView: View {
                         .font(Fonts.poppinsCallout())
                     FinewasteTextField(placeholder: "e.g. 25 pcs", text: $materialQuantity)
                         .keyboardType(.numberPad)
+                    Spacer().frame(height: 16)
                     HStack {
                         Text("Receive more than target")
                             .font(Fonts.poppinsFootnote())

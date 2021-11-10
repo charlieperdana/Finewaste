@@ -14,6 +14,12 @@ struct DeliveryView: View {
     
     @EnvironmentObject var newProject: NewProject
     
+    @State var showAlert = false
+    
+    var isFieldFilled: Bool {
+        !deliveryOption.isEmpty && !projectAddress.isEmpty
+    }
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 32) {
@@ -62,7 +68,8 @@ struct DeliveryView: View {
                     Text("Delivery Option")
                         .font(Fonts.poppinsCallout())
                     Spacer().frame(height: 16)
-                    FinewastePicker(placeholder: "Choose delivery option", selectedData: $deliveryOption, dataToChoose: [])
+                    FinewastePicker(placeholder: "Choose delivery option", selectedData: $deliveryOption, dataToChoose: ["Drop off", "Pick up", "Drop off or pick up"])
+                    Spacer().frame(height: 24)
                     Text("Project Address")
                         .font(Fonts.poppinsCallout())
                     Text("Your full address will not be shown on the project")
@@ -70,7 +77,7 @@ struct DeliveryView: View {
                     FinewasteMapPicker()
                 }
                 Spacer()
-                FinewasteButtonFill(text: "Add Project", size: .fullWidth, isEnabled: true) {
+                FinewasteButtonFill(text: "Add Project", size: .fullWidth, isEnabled: isFieldFilled) {
                     print("Add project tapped")
                 }
             }
@@ -79,11 +86,21 @@ struct DeliveryView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading:
                                     Button(action: {
-                self.presentationMode.wrappedValue.dismiss()
+                self.showAlert = true
             }) {
                 Image(systemName: "chevron.left")
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(Colors.Turqoise)
+            })
+            .alert(isPresented: $showAlert, content: {
+                Alert(title: Text("Unsaved Change"),
+                      message: Text("Are you sure you want to discard the changes? Your changes will be lost."),
+                      primaryButton: .default(Text("Cancel")
+                                                .foregroundColor(Colors.Turqoise)),
+                      secondaryButton: .destructive(Text("Discard"), action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                })
+                )
             })
             .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
         }.navigationBarHidden(true)

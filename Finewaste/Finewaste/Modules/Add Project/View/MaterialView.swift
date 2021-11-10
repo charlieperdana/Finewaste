@@ -10,15 +10,16 @@ import FirebaseFirestore
 
 struct MaterialView: View {
     @Environment(\.presentationMode) var presentationMode
+    
     @State var showNextPage = false
     @State var showSheet = false
+    @State var showAlert = false
     
     @EnvironmentObject var newProject: NewProject
     
     @State var selectedMaterial = NewMaterial(name: "", target: 0, limit: false, requirements: [])
     
     @State var showDeliveryPage = false
-    
     @State var editMaterial = false
     
     var body: some View {
@@ -105,11 +106,21 @@ struct MaterialView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(leading:
                                         Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
+                    self.showAlert = true
                 }) {
                     Image(systemName: "chevron.left")
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(Colors.Turqoise)
+                })
+                .alert(isPresented: $showAlert, content: {
+                    Alert(title: Text("Unsaved Change"),
+                          message: Text("Are you sure you want to discard the changes? Your changes will be lost."),
+                          primaryButton: .default(Text("Cancel")
+                                                    .foregroundColor(Colors.Turqoise)),
+                          secondaryButton: .destructive(Text("Discard"), action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    })
+                    )
                 })
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
         }.navigationBarHidden(true)
