@@ -40,39 +40,9 @@ struct MainProjectView: View {
                     
                     SearchBarView(searchText: $searchText, isSearching: $isSearching)
                     
-//                    List(model.listProject) { item in
-//
-//                    }
-                    
-//                    ForEach(model.listProject){project in
-//                        Text(project.projectName!)
-//                    }
-                    
-//                    ForEach((1...10), id: \.self) {
-//                        Text("\($0)…")
-//                    }
-
-//                    ProjectGridView(project: $project)
-                    ProjectGridView(model: model)
-                    
-//                    Divider()
-//
-//                    VStack(spacing:5){
-//                        TextField("Username", text: $username)
-//                            .textFieldStyle(RoundedBorderTextFieldStyle())
-//
-//                        TextField("Fullname", text: $fullname)
-//                            .textFieldStyle(RoundedBorderTextFieldStyle())
-//
-//                        TextField("UUID", text: $uid)
-//                            .textFieldStyle(RoundedBorderTextFieldStyle())
-//
-//                    }
-//
-//                    .padding()
-                    
-                    
-                    
+                    ProjectGridView(model: model,searchText: $searchText)
+            
+                
                 }
                 .navigationBarTitle(Text("Projects").font(Fonts.poppinsTitle()))
                 .toolbar {

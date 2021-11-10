@@ -41,6 +41,7 @@ struct DashboardView: View {
                 }
             }
             
+            Divider()
             FloatingTabBarView(selected: $selected)
         }
     }

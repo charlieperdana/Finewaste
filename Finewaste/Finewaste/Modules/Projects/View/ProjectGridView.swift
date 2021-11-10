@@ -11,9 +11,9 @@ import FirebaseFirestoreSwift
 import FirebaseFirestore
 
 struct ProjectGridView: View {
-//    @Binding var listProject : [Project]
     
     @ObservedObject var model: ProjectViewModel
+    @Binding var searchText : String
     
     var body: some View {
         LazyVGrid(columns: [
@@ -21,7 +21,7 @@ struct ProjectGridView: View {
             GridItem(.flexible(minimum: 100, maximum: 200))
             
         ], alignment: .leading, spacing: 12, content: {
-            ForEach(model.listProject){ project in
+            ForEach((model.listProject).filter({"\($0)".contains(searchText) || searchText.isEmpty})){ project in
                 ZStack {
                     RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Colors.White).shadow(color: Colors.DropShadow, radius: 2, x: 2, y: 1)
                     
@@ -30,11 +30,11 @@ struct ProjectGridView: View {
                         
                         WebImage(url: URL(string: (project.images?[0]) ?? ""))
                             .resizable()
-                            .frame(width: 170, height: 200, alignment: .center)
+                            .frame(width: 170, height: 170, alignment: .center)
                             .scaledToFill()
+                            .clipped()
                             .cornerRadius(10, corners: [.topLeft, .topRight])
                         
-                        //                        Text(project.projectName!)
                         Text(project.projectName ?? "")  .font(Fonts.poppinsSubheadline())
                             .foregroundColor(Colors.DarkGray)
                             .padding(5)
@@ -44,12 +44,8 @@ struct ProjectGridView: View {
                         
                         
                         
-                        
-                        
                         VStack (alignment: .leading, spacing: 4){
                             
-                            
-//                                                        let contribution = model.getProgesssOfContribution(projectId: project.id ?? "")
                             let contribution = (model.projectTarget[project.id ?? ""] ?? (contribution:0, target:0) ).contribution
                             
                             let target = (model.projectTarget[project.id ?? ""] ?? (contribution:0, target:0) ).target
@@ -60,7 +56,7 @@ struct ProjectGridView: View {
                                 .foregroundColor(Colors.Red)
                                 .font(Fonts.poppinsCaption())
                             
-                            ProgressView(value: 0.5, total: 1)
+                            ProgressView(value: (Double(contribution)/Double(target)).isNaN ? 0 : Double(contribution)/Double(target), total: 1)
                                 .scaleEffect(x: 1, y: 1, anchor: .center)
                                 .accentColor(Colors.Red)
                                 .font(Fonts.poppinsCallout())
@@ -90,12 +86,9 @@ extension View {
 struct ProjectGridView_Previews: PreviewProvider {
     @State static var listProject = [Project(id: "", poster: "", projectName: "cinta", description: "", deadline: 0, neededMaterials: [ProjectMaterial()], images: [""], deliveryType: [""], location: GeoPoint(latitude: 0.0, longitude: 0.0), updates: [ProjectUpdate()])]
     
-    
-//    var model = ProjectViewModel()
+    @State static var searchText = ""
     
     static var previews: some View {
-        //        ProjectGridView(project: $project)
-//        ProjectGridView(listProject: $listProject)
-        ProjectGridView(model: ProjectViewModel())
+        ProjectGridView(model: ProjectViewModel(),searchText: $searchText)
     }
 }

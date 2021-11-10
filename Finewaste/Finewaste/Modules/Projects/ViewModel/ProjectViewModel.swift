@@ -52,7 +52,7 @@ class ProjectViewModel: ObservableObject {
                             }
                             
                         
-                            self.getTotalNeededX(projectId: docs.documentID) { targets in
+                            self.getTotalNeeded(projectId: docs.documentID) { targets in
                                 self.projectTarget[docs.documentID]?.target = targets
                                 print("Target: \(targets)")
                             }
@@ -68,12 +68,6 @@ class ProjectViewModel: ObservableObject {
                                            deliveryType: docs["deliveryType"] as? [String] ?? [""],
                                            location: docs["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0),
                                            updates: docs["updates"] as? [ProjectUpdate] ?? [ProjectUpdate()])
-                            
-                          
-                            
-                            
-                            
-                            
                             
                         }
                     }
@@ -109,41 +103,8 @@ class ProjectViewModel: ObservableObject {
         
     }
     
-    func getTotalNeeded(projectId: String) {
-        
-        
-        database.collection("projectMaterials").whereField("projectId", isEqualTo: projectId).getDocuments { snapshot, error in
-            if error ==  nil {
-                if let snapshot = snapshot {
-                    DispatchQueue.main.async {
-                        
-                        
-                        
-                        self.listProjectMaterial = snapshot.documents.map { docs in
-                            
-                            
-                            return ProjectMaterial(id: docs.documentID, materialName: docs["materialName"] as? String ?? "",
-                                                   target: docs["target"] as? Int ?? 0,
-                                                   strictLimitation: docs["strictLimitation"] as? Bool ?? false,
-                                                   prerequisite: docs["prerequisite"] as? [String] ?? [""])
-                            
-                        }
-                        
-                       
-                        
-                        
-                    }
-                    
-                } else {
-                    print("error")
-                }
-            }
-            
-        }
-       
-    }
     
-    func getTotalNeededX(projectId: String, completion: @escaping (Int) -> Void){
+    func getTotalNeeded(projectId: String, completion: @escaping (Int) -> Void){
         
         
         database.collection("projectMaterials").whereField("projectId", isEqualTo: projectId).getDocuments { snapshot, error in
@@ -174,33 +135,6 @@ class ProjectViewModel: ObservableObject {
             
         }
        
-    }
-    
-    func getProgesssOfContribution(projectId: String) -> Int {
-        
-        var progress = 0
-        var needed = 0
-
-        
-        self.getNumberOfContribution(projectId: projectId) { contribution in
-            self.contribution = contribution
-        }
-        
-         self.getTotalNeeded(projectId: projectId)
-        
-        listProjectMaterial.forEach { material in
-           
-            needed +=  (material.target ?? 0)
-
-        }
-    
-        progress =  needed - self.contribution
-        
-        self.listProjectMaterial = [ProjectMaterial]()
-        self.contribution = 0
-        
-        
-        return progress
     }
     
     
