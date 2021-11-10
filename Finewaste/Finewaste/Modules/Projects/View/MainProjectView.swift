@@ -10,7 +10,8 @@ import Firebase
 
 struct MainProjectView: View {
     
-    @ObservedObject var model = ProjectViewModel()
+//    @ObservedObject var model = ProjectViewModel()
+    @StateObject var model = ProjectViewModel()
     
     @AppStorage("log_status") var logStatus = false
     
@@ -52,7 +53,7 @@ struct MainProjectView: View {
 //                    }
 
 //                    ProjectGridView(project: $project)
-                    ProjectGridView(listProject: $model.listProject)
+                    ProjectGridView(model: model)
                     
 //                    Divider()
 //
@@ -102,7 +103,7 @@ struct MainProjectView: View {
     }
     
     init() {
-        model.getProjectData()
+//        model.getProjectData()
 
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Poppins-SemiBold", size: 28)!]
     }

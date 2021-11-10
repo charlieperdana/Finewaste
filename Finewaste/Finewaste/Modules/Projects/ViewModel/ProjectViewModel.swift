@@ -22,6 +22,12 @@ class ProjectViewModel: ObservableObject {
     
     @Published var listProjectMaterial = [ProjectMaterial]()
     
+    @Published var projectTarget = [String:(contribution:Int,target:Int)]()
+    
+    init(){
+        self.getProjectData()
+    }
+    
     func getProjectData() {
         
         
@@ -37,6 +43,21 @@ class ProjectViewModel: ObservableObject {
                         self.listProject = snapshot.documents.map { docs in
                             
                             
+                            self.projectTarget[docs.documentID] = (contribution:0,target:0)
+                            
+                           
+                            self.getNumberOfContribution(projectId: docs.documentID) { contribute in
+                                self.projectTarget[docs.documentID]?.contribution = contribute
+                                print("Contribute: \(contribute)")
+                            }
+                            
+                        
+                            self.getTotalNeededX(projectId: docs.documentID) { targets in
+                                self.projectTarget[docs.documentID]?.target = targets
+                                print("Target: \(targets)")
+                            }
+                            
+                            
                             return Project(id: docs.documentID,
                                            poster: docs["poster"] as? String ?? "",
                                            projectName: docs["projectName"] as? String ?? "",
@@ -47,6 +68,12 @@ class ProjectViewModel: ObservableObject {
                                            deliveryType: docs["deliveryType"] as? [String] ?? [""],
                                            location: docs["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0),
                                            updates: docs["updates"] as? [ProjectUpdate] ?? [ProjectUpdate()])
+                            
+                          
+                            
+                            
+                            
+                            
                             
                         }
                     }
@@ -116,11 +143,44 @@ class ProjectViewModel: ObservableObject {
        
     }
     
+    func getTotalNeededX(projectId: String, completion: @escaping (Int) -> Void){
+        
+        
+        database.collection("projectMaterials").whereField("projectId", isEqualTo: projectId).getDocuments { snapshot, error in
+            if error ==  nil {
+                if let snapshot = snapshot {
+                    DispatchQueue.main.async {
+                        
+                        var target = 0
+                        
+                        snapshot.documents.forEach { docs in
+                            
+                            
+                             target += docs["target"] as? Int ?? 0
+                            
+                            
+                        }
+                        
+                        
+                        completion(target)
+                        
+                        
+                    }
+                    
+                } else {
+                    print("error")
+                }
+            }
+            
+        }
+       
+    }
+    
     func getProgesssOfContribution(projectId: String) -> Int {
         
         var progress = 0
         var needed = 0
-       
+
         
         self.getNumberOfContribution(projectId: projectId) { contribution in
             self.contribution = contribution
@@ -133,11 +193,12 @@ class ProjectViewModel: ObservableObject {
             needed +=  (material.target ?? 0)
 
         }
-        
-
-        
-        
+    
         progress =  needed - self.contribution
+        
+        self.listProjectMaterial = [ProjectMaterial]()
+        self.contribution = 0
+        
         
         return progress
     }

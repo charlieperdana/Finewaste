@@ -11,48 +11,52 @@ import FirebaseFirestoreSwift
 import FirebaseFirestore
 
 struct ProjectGridView: View {
-    @Binding var listProject : [Project]
+//    @Binding var listProject : [Project]
     
-    @ObservedObject var model = ProjectViewModel()
+    @ObservedObject var model: ProjectViewModel
     
     var body: some View {
         LazyVGrid(columns: [
             GridItem(.flexible(minimum: 100, maximum: 200), spacing: 20, alignment: .top),
             GridItem(.flexible(minimum: 100, maximum: 200))
-
+            
         ], alignment: .leading, spacing: 12, content: {
-            ForEach(listProject){ project in
+            ForEach(model.listProject){ project in
                 ZStack {
-                    RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Colors.White).shadow(color: Colors.DropShadow, radius: 2, x: 1, y: 1)
+                    RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Colors.White).shadow(color: Colors.DropShadow, radius: 2, x: 2, y: 1)
+                    
                     
                     VStack(alignment: .leading, spacing: 4) {
                         
                         WebImage(url: URL(string: (project.images?[0]) ?? ""))
                             .resizable()
-                            .scaledToFit()
+                            .frame(width: 170, height: 200, alignment: .center)
+                            .scaledToFill()
                             .cornerRadius(10, corners: [.topLeft, .topRight])
                         
-//                        Text(project.projectName!)
+                        //                        Text(project.projectName!)
                         Text(project.projectName ?? "")  .font(Fonts.poppinsSubheadline())
-                            .foregroundColor(Colors.DarkGray).padding(5)
+                            .foregroundColor(Colors.DarkGray)
+                            .padding(5)
+                            
                         
                         Spacer()
                         
-                    
+                        
+                        
                         
                         
                         VStack (alignment: .leading, spacing: 4){
                             
-//                            let contribution = model.getNumberOfContribution(projectId: project.id ?? "")
-//                            var contr = 0
-//                            let needed = total - contribution
                             
-                            let contribution = model.getProgesssOfContribution(projectId: project.id ?? "")
+//                                                        let contribution = model.getProgesssOfContribution(projectId: project.id ?? "")
+                            let contribution = (model.projectTarget[project.id ?? ""] ?? (contribution:0, target:0) ).contribution
                             
-//                            let needed = project.neededMaterials![1].target
-                        
+                            let target = (model.projectTarget[project.id ?? ""] ?? (contribution:0, target:0) ).target
                             
-                            Text("\(contribution) pcs more in 8 days")
+                            let progress = target - contribution
+                            
+                            Text("\(progress) pcs more in 8 days")
                                 .foregroundColor(Colors.Red)
                                 .font(Fonts.poppinsCaption())
                             
@@ -61,13 +65,19 @@ struct ProjectGridView: View {
                                 .accentColor(Colors.Red)
                                 .font(Fonts.poppinsCallout())
                         }.padding(8)
-                       
+                        
                         
                     }
+                    //                    .fixedSize()
+                    
                 }
-               
+                .fixedSize()
+                //                .frame(maxHeight: 200)
+                
             }
+            
         }).padding(.horizontal)
+        
     }
 }
 
@@ -79,8 +89,13 @@ extension View {
 
 struct ProjectGridView_Previews: PreviewProvider {
     @State static var listProject = [Project(id: "", poster: "", projectName: "cinta", description: "", deadline: 0, neededMaterials: [ProjectMaterial()], images: [""], deliveryType: [""], location: GeoPoint(latitude: 0.0, longitude: 0.0), updates: [ProjectUpdate()])]
+    
+    
+//    var model = ProjectViewModel()
+    
     static var previews: some View {
-//        ProjectGridView(project: $project)
-        ProjectGridView(listProject: $listProject)
+        //        ProjectGridView(project: $project)
+//        ProjectGridView(listProject: $listProject)
+        ProjectGridView(model: ProjectViewModel())
     }
 }
