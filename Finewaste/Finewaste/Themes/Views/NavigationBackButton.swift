@@ -13,8 +13,8 @@ struct NavigationBackButton: View {
     var body: some View {
         Button(action: onBackButtonTapped) {
             Image(systemName: "chevron.left")
+                .foregroundColor(Colors.Turqoise)
         }
-        .accentColor(Colors.Turqoise)
     }
     
     private func onBackButtonTapped() {
