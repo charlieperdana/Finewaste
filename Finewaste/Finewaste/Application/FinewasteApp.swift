@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import CoreLocation
 
 @main
 struct FinewasteApp: App {
@@ -24,6 +25,8 @@ struct FinewasteApp: App {
 //            ContentView()
 //            MainProjectView()
             DashboardView()
+            // ProjectDetailView(projectId: "dummyData")
+            //     .foregroundColor(Colors.DarkGray)
         }
     }
 }

@@ -84,7 +84,7 @@ extension View {
 }
 
 struct ProjectGridView_Previews: PreviewProvider {
-    @State static var listProject = [Project(id: "", poster: "", projectName: "cinta", description: "", deadline: 0, neededMaterials: [ProjectMaterial()], images: [""], deliveryType: [""], location: GeoPoint(latitude: 0.0, longitude: 0.0), updates: [ProjectUpdate()])]
+//    @State static var listProject = [Project(id: "", poster: "", projectName: "cinta", description: "", deadline: 0, neededMaterials: [ProjectMaterial()], images: [""], deliveryType: [""], location: GeoPoint(latitude: 0.0, longitude: 0.0), updates: [ProjectUpdate()])]
     
     @State static var searchText = ""
     

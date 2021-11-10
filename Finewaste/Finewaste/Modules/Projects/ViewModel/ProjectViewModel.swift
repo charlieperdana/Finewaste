@@ -62,12 +62,10 @@ class ProjectViewModel: ObservableObject {
                                            poster: docs["poster"] as? String ?? "",
                                            projectName: docs["projectName"] as? String ?? "",
                                            description: docs["description"] as? String ?? "",
-                                           deadline: docs["deadline"] as? Int ?? 0,
-                                           neededMaterials: docs["neededMaterials"] as? [ProjectMaterial] ?? [ProjectMaterial()],
+                                           deadline: docs["deadline"] as? Timestamp ?? Timestamp(date: Date(timeIntervalSince1970: 0)),
                                            images: docs["images"] as? [String] ?? [""],
                                            deliveryType: docs["deliveryType"] as? [String] ?? [""],
-                                           location: docs["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0),
-                                           updates: docs["updates"] as? [ProjectUpdate] ?? [ProjectUpdate()])
+                                           location: docs["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0))
                             
                         }
                     }

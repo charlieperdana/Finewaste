@@ -43,6 +43,10 @@ struct Fonts {
     static func poppinsFootnote() -> Font {
         return .custom("Poppins-Regular", size: 13, relativeTo: .footnote)
     }
+    
+    static func poppinsFootnoteBold() -> Font {
+        return .custom("Poppins-Bold", size: 13, relativeTo: .footnote)
+    }
 
     static func poppinsCaption() -> Font {
         return .custom("Poppins-Regular", size: 12, relativeTo: .caption)

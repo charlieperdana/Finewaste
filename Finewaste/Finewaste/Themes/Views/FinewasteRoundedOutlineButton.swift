@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FinewasteOutlineButton: View {
+struct FinewasteRoundedOutlineButton: View {
     var text: String
     var size: FinewasteButtonStyle
     var onButtonTap: () -> Void
@@ -29,7 +29,7 @@ struct FinewasteOutlineButton: View {
 
 struct FinewasteOutlineButton_Previews: PreviewProvider {
     static var previews: some View {
-        FinewasteOutlineButton(text: "", size: .fullWidth) {
+        FinewasteRoundedOutlineButton(text: "", size: .fullWidth) {
 
         }
     }
