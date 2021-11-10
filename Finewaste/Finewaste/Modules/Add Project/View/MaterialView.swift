@@ -14,13 +14,13 @@ struct MaterialView: View {
     @State var showSheet = false
     
     @EnvironmentObject var newProject: NewProject
+    @StateObject var editMaterial = [NewMaterial]()
     
     @State var showDeliveryPage = false
     
     var body: some View {
         NavigationView {
-            VStack {
-                Spacer().frame(height: 24)
+            VStack(spacing: 32) {
                 ZStack {
                     HStack(spacing: 0) {
                         Image(systemName: "1.circle.fill")
@@ -48,20 +48,20 @@ struct MaterialView: View {
                     Text("About")
                         .foregroundColor(Colors.RedOverlay)
                         .font(Fonts.poppinsFootnote())
-                        .bold()
+                        .fontWeight(.semibold)
                         .offset(x: -106, y: 30)
                     Text("Material")
                         .foregroundColor(Colors.Red)
                         .font(Fonts.poppinsFootnote())
-                        .bold()
+                        .fontWeight(.semibold)
                         .offset(y: 30)
                     Text("Delivery")
                         .foregroundColor(Colors.Gray)
                         .font(Fonts.poppinsFootnote())
-                        .bold()
+                        .fontWeight(.semibold)
                         .offset(x: 106, y: 30)
                 }
-                Spacer().frame(height: 40)
+                Spacer().frame(height: 0)
                 if newProject.newMaterial.count > 0 {
                     ForEach(newProject.newMaterial, id: \.materialName) { data in
                         HStack {
@@ -73,7 +73,11 @@ struct MaterialView: View {
                             }.padding()
                             Spacer()
                             Button(action: {
-                                print(data.materialName)
+                                editMaterial.materialName = data.materialName
+                                editMaterial.materialTarget = data.materialTarget
+                                editMaterial.materialPrerequisite = data.materialPrerequisite
+                                editMaterial.allowOverlimit = data.allowOverlimit
+                                self.showSheet = true
                             }) {
                                 Text("Edit")
                                     .foregroundColor(Colors.Turqoise)
@@ -87,7 +91,7 @@ struct MaterialView: View {
                     self.showSheet = true
                 }
                 .sheet(isPresented: $showSheet) {
-                    AddMaterialView()
+                    AddMaterialView().environmentObject(editMaterial)
                 }
                 Spacer()
                 FinewasteButtonFill(text: "Next", size: .fullWidth, isEnabled: newProject.newMaterial.count > 0) {

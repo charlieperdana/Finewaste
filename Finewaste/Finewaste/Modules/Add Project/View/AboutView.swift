@@ -8,7 +8,7 @@
 import SwiftUI
 import FirebaseFirestore
 
-class NewProject:ObservableObject {
+class NewProject: ObservableObject {
     var projectName: String?
     var projectDesc: String?
     var deadline: Timestamp?
@@ -18,7 +18,7 @@ class NewProject:ObservableObject {
     @Published var newMaterial = [NewMaterial]()
 }
 
-class NewMaterial:ObservableObject {
+class NewMaterial: ObservableObject {
     init(name: String, target: Int, limit: Bool, requirements: [String]) {
         materialName = name
         materialTarget = target
@@ -50,8 +50,8 @@ struct AboutView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Spacer().frame(height: 24)
+            VStack(spacing: 32) {
+//                Spacer().frame(height: 24)
                 ZStack {
                     HStack(spacing: 0) {
                         Image(systemName: "1.circle.fill")
@@ -79,20 +79,20 @@ struct AboutView: View {
                     Text("About")
                         .foregroundColor(Colors.Red)
                         .font(Fonts.poppinsFootnote())
-                        .bold()
+                        .fontWeight(.semibold)
                         .offset(x: -106, y: 30)
                     Text("Material")
                         .foregroundColor(Colors.Gray)
                         .font(Fonts.poppinsFootnote())
-                        .bold()
+                        .fontWeight(.semibold)
                         .offset(y: 30)
                     Text("Delivery")
                         .foregroundColor(Colors.Gray)
                         .font(Fonts.poppinsFootnote())
-                        .bold()
+                        .fontWeight(.semibold)
                         .offset(x: 106, y: 30)
                 }
-                Spacer().frame(height: 40)
+                Spacer().frame(height: 0)
                 VStack(alignment: .leading) {
                     Text("Project Name")
                         .font(Fonts.poppinsCallout())

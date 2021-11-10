@@ -17,7 +17,6 @@ struct DeliveryView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 32) {
-                Spacer().frame(height: 24)
                 ZStack {
                     HStack(spacing: 0) {
                         Image(systemName: "1.circle.fill")
@@ -45,20 +44,20 @@ struct DeliveryView: View {
                     Text("About")
                         .foregroundColor(Colors.RedOverlay)
                         .font(Fonts.poppinsFootnote())
-                        .bold()
+                        .fontWeight(.semibold)
                         .offset(x: -106, y: 30)
                     Text("Material")
                         .foregroundColor(Colors.RedOverlay)
                         .font(Fonts.poppinsFootnote())
-                        .bold()
+                        .fontWeight(.semibold)
                         .offset(y: 30)
                     Text("Delivery")
                         .foregroundColor(Colors.Red)
                         .font(Fonts.poppinsFootnote())
-                        .bold()
+                        .fontWeight(.semibold)
                         .offset(x: 106, y: 30)
                 }
-                Spacer().frame(height: 32)
+                Spacer().frame(height: 0)
                 VStack(alignment: .leading) {
                     Text("Delivery Option")
                         .font(Fonts.poppinsCallout())

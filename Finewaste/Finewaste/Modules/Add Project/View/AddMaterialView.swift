@@ -16,6 +16,7 @@ struct AddMaterialView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @EnvironmentObject var newProject: NewProject
+    @EnvironmentObject var editMaterial: NewMaterial
     
     var isFieldFilled: Bool {
         !materialNeeded.isEmpty && !materialRequirement.isEmpty && !materialQuantity.isEmpty
@@ -27,12 +28,12 @@ struct AddMaterialView: View {
                 VStack(alignment: .leading) {
                     Text("What kind of material do you need?")
                         .font(Fonts.poppinsCallout())
-                    TextField("e.g. Denim", text: $materialNeeded)
+                    TextField(editMaterial.materialName ?? "e.g. Denim", text: $materialNeeded)
                         .font(Fonts.poppinsSubheadline())
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     Text("Material Requirement")
                         .font(Fonts.poppinsCallout())
-                    TextField("e.g. No big stains, good condition", text: $materialRequirement)
+                    TextField(editMaterial.materialPrerequisite?.joined(separator: ", ") ?? "e.g. No big stains, good condition", text: $materialRequirement)
                         .font(Fonts.poppinsSubheadline())
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     Text("Material target quantity")
