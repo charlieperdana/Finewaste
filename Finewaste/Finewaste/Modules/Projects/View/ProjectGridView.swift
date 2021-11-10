@@ -15,6 +15,8 @@ struct ProjectGridView: View {
     @ObservedObject var model: ProjectViewModel
     @Binding var searchText : String
     
+    var index = 0
+    
     var body: some View {
         LazyVGrid(columns: [
             GridItem(.flexible(minimum: 100, maximum: 200), spacing: 20, alignment: .top),
@@ -52,7 +54,10 @@ struct ProjectGridView: View {
                             
                             let progress = target - contribution
                             
-                            Text("\(progress) pcs more in 8 days")
+                            let deadline = (model.daysToDeadline[project.id ?? ""] ?? 0 )
+                            
+                            
+                            Text("\(progress) pcs more in \(deadline) days")
                                 .foregroundColor(Colors.Red)
                                 .font(Fonts.poppinsCaption())
                             

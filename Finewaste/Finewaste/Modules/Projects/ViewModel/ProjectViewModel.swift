@@ -24,6 +24,9 @@ class ProjectViewModel: ObservableObject {
     
     @Published var projectTarget = [String:(contribution:Int,target:Int)]()
     
+    @Published var daysToDeadline = [String:(Int)]()
+    
+    
     init(){
         self.getProjectData()
     }
@@ -57,6 +60,12 @@ class ProjectViewModel: ObservableObject {
                                 print("Target: \(targets)")
                             }
                             
+                            self.daysToDeadline[docs.documentID] = 0
+                            
+                            self.getDeadline(deadline: (docs["deadline"] as? Timestamp) ?? Timestamp(date: Date(timeIntervalSince1970: 0))) { deadline in
+                                self.daysToDeadline[docs.documentID] = deadline
+                            }
+                       
                             
                             return Project(id: docs.documentID,
                                            poster: docs["poster"] as? String ?? "",
@@ -76,6 +85,8 @@ class ProjectViewModel: ObservableObject {
                 
             }
         }
+        
+        print("Count: \(self.daysToDeadline.count)")
         
     }
     
@@ -131,6 +142,21 @@ class ProjectViewModel: ObservableObject {
                 }
             }
             
+        }
+       
+    }
+    
+    func getDeadline(deadline: Timestamp, completion: @escaping (Int) -> Void){
+        
+
+        CloudFunctionTrigger.shared.getServerTime { serverTime in
+            guard let projectDeadline = deadline as? Timestamp else {
+                return
+            }
+           
+            
+            completion(TimestampHelper.shared.daysBetween(date1: projectDeadline, date2: serverTime))
+           
         }
        
     }
