@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FinewasteContributionStatusCard: View {
+    var id: String
     var projectName: String
     var user: String
     var createdDate: String
@@ -64,6 +65,6 @@ struct FinewasteContributionStatusCard: View {
 
 struct FinewasteContributionStatusCard_Previews: PreviewProvider {
     static var previews: some View {
-        FinewasteContributionStatusCard(projectName: "Denim material for totebag", user: "Putri_240", createdDate: "26 October 2021, 19:05", dueDate: "28 October 2021", status: true)
+        FinewasteContributionStatusCard(id: "", projectName: "Denim material for totebag", user: "Putri_240", createdDate: "26 October 2021, 19:05", dueDate: "28 October 2021", status: true)
     }
 }
