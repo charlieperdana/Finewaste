@@ -1,24 +1,19 @@
 //
-//  ProjectViewModel.swift
+//  MyContributeProjectViewModel.swift
 //  Finewaste
 //
-//  Created by charlie siagian on 04/11/21.
+//  Created by charlie siagian on 12/11/21.
 //
 
 import Foundation
 import Firebase
 import SwiftUI
 
-class ProjectViewModel: ObservableObject {
+class MyContributeProjectViewModel: ObservableObject {
     
     @Published var listProject = [Project]()
     
-    @Published var items = 0..<20
-    
     let database = Firestore.firestore()
-    
-    @Published var contribution = 0
-    @Published var target = 0
     
     @Published var listProjectMaterial = [ProjectMaterial]()
     
@@ -26,56 +21,50 @@ class ProjectViewModel: ObservableObject {
     
     @Published var daysToDeadline = [String:(Int)]()
     
+    private var user: String
     
-    init(){
-        self.getProjectData()
+    
+    init(user: String){
+        self.user = user
+        self.getMyContributeProjectData(user: user)
     }
     
-    func getProjectData() {
-//        database.collection("projects").getDocuments { snapshot, error in
-            database.collection("projects").addSnapshotListener { snapshot, error in
-            
+    
+    func getMyContributeProjectData(user: String) {
+        
+        
+        database.collection("contributions").whereField("contributor", isEqualTo: user).addSnapshotListener { snapshot, error in
             if error ==  nil {
                 
                 if let snapshot = snapshot {
                     
                     DispatchQueue.main.async {
                         
-                        self.listProject = snapshot.documents.map { docs in
-                            
-                            
-                            self.projectTarget[docs.documentID] = (contribution:0,target:0)
-                            
-                            
-                            self.getNumberOfContribution(projectId: docs.documentID) { contribute in
-                                self.projectTarget[docs.documentID]?.contribution = contribute
-                                print("Contribute: \(contribute)")
+                        snapshot.documents.forEach( { contribution in
+                            let documentData = contribution.data()
+                            self.database.collection("projects").document(documentData["projectId"] as? String ?? "").addSnapshotListener { snapshot, error in
+                                
+                                let projectData = snapshot?.data()
+                                
+                                
+                                
+                                self.listProject.append(Project(id: snapshot?.documentID,
+                                                                poster: projectData?["poster"] as? String ?? "",
+                                                                projectName: projectData?["projectName"] as? String ?? "",
+                                                                description: projectData?["description"] as? String ?? "",
+                                                                deadline: projectData?["deadline"] as? Timestamp ?? Timestamp(date: Date(timeIntervalSince1970: 0)),
+                                                                images: projectData?["images"] as? [String] ?? [""],
+                                                                deliveryType: projectData?["deliveryType"] as? [String] ?? [""],
+                                                                location: projectData?["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0)))
+                                
+                                
                             }
-                            
-                            
-                            self.getTotalNeeded(projectId: docs.documentID) { targets in
-                                self.projectTarget[docs.documentID]?.target = targets
-                                print("Target: \(targets)")
-                            }
-                            
-                            self.daysToDeadline[docs.documentID] = 0
-                            
-                            self.getDeadline(deadline: (docs["deadline"] as? Timestamp) ?? Timestamp(date: Date(timeIntervalSince1970: 0))) { deadline in
-                                self.daysToDeadline[docs.documentID] = deadline
-                            }
-                            
-                            
-                            return Project(id: docs.documentID,
-                                           poster: docs["poster"] as? String ?? "",
-                                           projectName: docs["projectName"] as? String ?? "",
-                                           description: docs["description"] as? String ?? "",
-                                           deadline: docs["deadline"] as? Timestamp ?? Timestamp(date: Date(timeIntervalSince1970: 0)),
-                                           images: docs["images"] as? [String] ?? [""],
-                                           deliveryType: docs["deliveryType"] as? [String] ?? [""],
-                                           location: docs["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0))
-                            
-                        }
+                        })
+                        
                     }
+                   
+                    
+
                     
                 }
             }
@@ -84,7 +73,8 @@ class ProjectViewModel: ObservableObject {
             }
         }
         
-        print("Count: \(self.daysToDeadline.count)")
+        print("List Count : \(self.listProject.count)")
+    
         
     }
     
@@ -158,5 +148,9 @@ class ProjectViewModel: ObservableObject {
         }
         
     }
+    
+   
+    
+    
     
 }
