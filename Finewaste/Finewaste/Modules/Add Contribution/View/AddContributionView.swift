@@ -24,31 +24,44 @@ struct AddContributionView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                PaginationView(currentStep: $currentStep, maxStep: maxStep, stepPlaceholder: stepPlaceholder)
-                switch currentStep {
-                case 1:
-                    SelectMaterialView(model: viewModel.contributionModel)
-                        .transition(.asymmetric(insertion: .opacity, removal: .offset(x: -300, y: 0)))
-                case 2:
-                    SetDeliveryView(model: viewModel.contributionModel)
-                        .transition(.asymmetric(insertion: .opacity, removal: .offset(x: -300, y: 0)))
-                default:
-                    EmptyView()
-                }
-                
-                Spacer()
-                FinewasteButtonFill(text: bottomButtonText[currentStep - 1], size: .fullWidth, isEnabled: true) {
-                    if currentStep < maxStep {
-                        withAnimation {
-                            currentStep += 1
+            ZStack {
+                VStack {
+                    PaginationView(currentStep: $currentStep, maxStep: maxStep, stepPlaceholder: stepPlaceholder)
+                    switch currentStep {
+                    case 1:
+                        SelectMaterialView(model: viewModel.contributionModel)
+                            .transition(.asymmetric(insertion: .opacity, removal: .offset(x: -300, y: 0)))
+                    case 2:
+                        SetDeliveryView(model: viewModel.contributionModel)
+                            .transition(.asymmetric(insertion: .opacity, removal: .offset(x: -300, y: 0)))
+                    default:
+                        EmptyView()
+                    }
+                    
+                    Spacer()
+                    FinewasteButtonFill(text: bottomButtonText[currentStep - 1], size: .fullWidth, isEnabled: true) {
+                        if currentStep < maxStep {
+                            withAnimation {
+                                currentStep += 1
+                            }
+                        } else {
+                            viewModel.postContribution()
                         }
-                    } else {
-                        viewModel.postContribution()
+                    }
+                }
+                .padding()
+                
+                if viewModel.postingContribution {
+                    PostUploadIndicator(currentProgress: Double(viewModel.uploadedImages) / Double(viewModel.totalImages)) {
+                        viewModel.cancelPostContribution()
+                    }
+                    .onChange(of: viewModel.uploadedImages) { val in
+                        if val == viewModel.totalImages {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
                     }
                 }
             }
-            .padding()
             
             .navigationTitle(stepNavigationTitle[currentStep - 1])
             .navigationBarTitleDisplayMode(.inline)
