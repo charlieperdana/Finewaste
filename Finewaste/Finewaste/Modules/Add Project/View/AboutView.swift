@@ -32,6 +32,8 @@ class NewMaterial: ObservableObject {
 }
 
 struct AboutView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     @State var projectName: String = ""
     @State var projectDescription: String = ""
     @State var selectedDate = Date()
@@ -39,6 +41,7 @@ struct AboutView: View {
     
     @State var showSheet = false
     @State var showNextPage = false
+    @State var showAlert = false
     
     @StateObject var newProject = NewProject()
     
@@ -135,11 +138,21 @@ struct AboutView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading:
                                     Button(action: {
-                print("close tapped")
+                self.showAlert = true
             }) {
                 Image(systemName: "xmark")
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(Colors.Turqoise)
+            })
+            .alert(isPresented: $showAlert, content: {
+                Alert(title: Text("Unsaved Change"),
+                      message: Text("Are you sure you want to discard the changes? Your changes will be lost."),
+                      primaryButton: .default(Text("Cancel")
+                                                .foregroundColor(Colors.Turqoise)),
+                      secondaryButton: .destructive(Text("Discard"), action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                })
+                )
             })
             .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
         }

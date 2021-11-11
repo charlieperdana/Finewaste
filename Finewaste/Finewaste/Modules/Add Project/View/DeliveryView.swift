@@ -14,8 +14,6 @@ struct DeliveryView: View {
     
     @EnvironmentObject var newProject: NewProject
     
-    @State var showAlert = false
-    
     var isFieldFilled: Bool {
         !deliveryOption.isEmpty && !projectAddress.isEmpty
     }
@@ -86,21 +84,11 @@ struct DeliveryView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading:
                                     Button(action: {
-                self.showAlert = true
+                self.presentationMode.wrappedValue.dismiss()
             }) {
                 Image(systemName: "chevron.left")
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(Colors.Turqoise)
-            })
-            .alert(isPresented: $showAlert, content: {
-                Alert(title: Text("Unsaved Change"),
-                      message: Text("Are you sure you want to discard the changes? Your changes will be lost."),
-                      primaryButton: .default(Text("Cancel")
-                                                .foregroundColor(Colors.Turqoise)),
-                      secondaryButton: .destructive(Text("Discard"), action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                })
-                )
             })
             .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
         }.navigationBarHidden(true)
