@@ -22,12 +22,7 @@ class PostProjectUpdateViewModel: ObservableObject {
     func postUpdate(updateDescription: String, images: [UIImage]) {
         let update = ProjectUpdate(projectId: self.projectId, description: updateDescription)
 
-        var imagesData = [Data]()
-        images.forEach { image in
-            if let compressedImageData = image.jpegData(compressionQuality: 0.8) {
-                imagesData.append(compressedImageData)
-            }
-        }
+        let imagesData = ImageCompressor.shared.compressImages(images: images)
 
         self.totalImages = imagesData.count
         self.postingUpdate = true

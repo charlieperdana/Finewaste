@@ -39,28 +39,29 @@ struct Fonts {
     static func poppinsSubheadline() -> Font {
         return .custom("Poppins-Regular", size: 15, relativeTo: .subheadline)
     }
+    
+    static func poppinsSubheadlineBold() -> Font {
+        return .custom("Poppins-SemiBold", size: 15, relativeTo: .subheadline)
+    }
 
     static func poppinsFootnote() -> Font {
         return .custom("Poppins-Regular", size: 13, relativeTo: .footnote)
     }
     
     static func poppinsFootnoteBold() -> Font {
-        return .custom("Poppins-Bold", size: 13, relativeTo: .footnote)
+        return .custom("Poppins-SemiBold", size: 13, relativeTo: .footnote)
     }
 
     static func poppinsCaption() -> Font {
         return .custom("Poppins-Regular", size: 12, relativeTo: .caption)
+    }
+    
+    static func poppinsCaptionBold() -> Font {
+        return .custom("Poppins-Bold", size: 12, relativeTo: .caption)
     }
 
     static func poppinsCaption2() -> Font {
         return .custom("Poppins-Regular", size: 11, relativeTo: .caption2)
     }
 
-    static func poppinsCaptionBold() -> Font {
-        return .custom("Poppins-Bold", size: 12, relativeTo: .caption)
-    }
-
-    static func poppinsSubheadlineBold() -> Font {
-        return .custom("Poppins-Bold", size: 15, relativeTo: .subheadline)
-    }
 }

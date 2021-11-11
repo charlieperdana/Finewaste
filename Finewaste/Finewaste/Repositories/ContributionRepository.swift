@@ -28,4 +28,17 @@ final class ContributionRepository: ObservableObject {
                 self.contributions = documents.compactMap { try? $0.data(as: Contribution.self) }
             }
     }
+    
+    func postContribution(contribution: Contribution, completion: @escaping (String) -> Void) {
+        do {
+            let ref = store.collection(path).document()
+            try ref.setData(from: contribution) { err in
+                if err == nil {
+                    completion(ref.documentID)
+                }
+            }
+        } catch {
+            
+        }
+    }
 }

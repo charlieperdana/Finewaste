@@ -6,12 +6,14 @@
 //
 
 import FirebaseFirestore
+import CoreLocation
 
 class NewContributionModel: ObservableObject {
     @Published var contributor = ""
     @Published var postId = ""
+    @Published var deliveryAddress = ""
     @Published var deliveryType = ""
-    @Published var location = GeoPoint(latitude: 0, longitude: 0)
+    @Published var location = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     @Published var materials = [NewContributionMaterialModel]()
 }
 
