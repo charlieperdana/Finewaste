@@ -13,6 +13,8 @@ class ProjectViewModel: ObservableObject {
     
     @Published var listProject = [Project]()
     
+    @Published var listMyProject = [Project]()
+    
     @Published var items = 0..<20
     
     let database = Firestore.firestore()
@@ -32,10 +34,8 @@ class ProjectViewModel: ObservableObject {
     }
     
     func getProjectData() {
-        
-        
-        
-        database.collection("projects").getDocuments { snapshot, error in
+//        database.collection("projects").getDocuments { snapshot, error in
+            database.collection("projects").addSnapshotListener { snapshot, error in
             
             if error ==  nil {
                 
@@ -48,13 +48,13 @@ class ProjectViewModel: ObservableObject {
                             
                             self.projectTarget[docs.documentID] = (contribution:0,target:0)
                             
-                           
+                            
                             self.getNumberOfContribution(projectId: docs.documentID) { contribute in
                                 self.projectTarget[docs.documentID]?.contribution = contribute
                                 print("Contribute: \(contribute)")
                             }
                             
-                        
+                            
                             self.getTotalNeeded(projectId: docs.documentID) { targets in
                                 self.projectTarget[docs.documentID]?.target = targets
                                 print("Target: \(targets)")
@@ -65,7 +65,7 @@ class ProjectViewModel: ObservableObject {
                             self.getDeadline(deadline: (docs["deadline"] as? Timestamp) ?? Timestamp(date: Date(timeIntervalSince1970: 0))) { deadline in
                                 self.daysToDeadline[docs.documentID] = deadline
                             }
-                       
+                            
                             
                             return Project(id: docs.documentID,
                                            poster: docs["poster"] as? String ?? "",
@@ -94,7 +94,7 @@ class ProjectViewModel: ObservableObject {
     func getNumberOfContribution(projectId: String, completion: @escaping (Int) -> Void) {
         
         
-        database.collection("contributions").whereField("projectId", isEqualTo: projectId).getDocuments { snapshot, error in
+        database.collection("contributions").whereField("projectId", isEqualTo: projectId).addSnapshotListener { snapshot, error in
             if error ==  nil {
                 if let snapshot = snapshot {
                     DispatchQueue.main.async {
@@ -116,7 +116,7 @@ class ProjectViewModel: ObservableObject {
     func getTotalNeeded(projectId: String, completion: @escaping (Int) -> Void){
         
         
-        database.collection("projectMaterials").whereField("projectId", isEqualTo: projectId).getDocuments { snapshot, error in
+        database.collection("projectMaterials").whereField("projectId", isEqualTo: projectId).addSnapshotListener { snapshot, error in
             if error ==  nil {
                 if let snapshot = snapshot {
                     DispatchQueue.main.async {
@@ -126,7 +126,7 @@ class ProjectViewModel: ObservableObject {
                         snapshot.documents.forEach { docs in
                             
                             
-                             target += docs["target"] as? Int ?? 0
+                            target += docs["target"] as? Int ?? 0
                             
                             
                         }
@@ -143,23 +143,57 @@ class ProjectViewModel: ObservableObject {
             }
             
         }
-       
+        
     }
     
     func getDeadline(deadline: Timestamp, completion: @escaping (Int) -> Void){
         
-
+        
         CloudFunctionTrigger.shared.getServerTime { serverTime in
             guard let projectDeadline = deadline as? Timestamp else {
                 return
             }
-           
+            
             
             completion(TimestampHelper.shared.daysBetween(date1: projectDeadline, date2: serverTime))
-           
+            
         }
-       
+        
     }
+    
+    func getMyProjectData(user: String) {
+        
+        database.collection("projects").whereField("poster", isEqualTo: user).addSnapshotListener { snapshot, error in
+            
+            if error ==  nil {
+                
+                if let snapshot = snapshot {
+                    
+                    DispatchQueue.main.async {
+                        
+                        self.listMyProject = snapshot.documents.map { docs in
+                            
+                            return Project(id: docs.documentID,
+                                           poster: docs["poster"] as? String ?? "",
+                                           projectName: docs["projectName"] as? String ?? "",
+                                           description: docs["description"] as? String ?? "",
+                                           deadline: docs["deadline"] as? Timestamp ?? Timestamp(date: Date(timeIntervalSince1970: 0)),
+                                           images: docs["images"] as? [String] ?? [""],
+                                           deliveryType: docs["deliveryType"] as? [String] ?? [""],
+                                           location: docs["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0))
+                            
+                        }
+                    }
+                    
+                }
+            }
+            else {
+                
+            }
+        }
+        
+    }
+    
     
     
 }

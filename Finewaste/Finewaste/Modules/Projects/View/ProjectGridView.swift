@@ -15,31 +15,37 @@ struct ProjectGridView: View {
     @ObservedObject var model: ProjectViewModel
     @Binding var searchText : String
     
-    var index = 0
-    
     var body: some View {
         LazyVGrid(columns: [
             GridItem(.flexible(minimum: 100, maximum: 200), spacing: 20, alignment: .top),
             GridItem(.flexible(minimum: 100, maximum: 200))
-            
-        ], alignment: .leading, spacing: 12, content: {
+
+        ], alignment: .leading, spacing: 10, content: {
             ForEach((model.listProject).filter({"\($0)".contains(searchText) || searchText.isEmpty})){ project in
                 ZStack {
-                    RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Colors.White).shadow(color: Colors.DropShadow, radius: 2, x: 2, y: 1)
+                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        .fill(Colors.White)
+                        .frame(width: 170, height: 260)
+                        .shadow(color: Colors.DropShadow, radius: 2, x: 2, y: 1)
+                        
                     
                     
                     VStack(alignment: .leading, spacing: 4) {
                         
                         WebImage(url: URL(string: (project.images?[0]) ?? ""))
                             .resizable()
-                            .frame(width: 170, height: 170, alignment: .center)
+                            .frame(width: 170, height: 170)
                             .scaledToFill()
                             .clipped()
                             .cornerRadius(10, corners: [.topLeft, .topRight])
+                            .offset(y: 10)
                         
                         Text(project.projectName ?? "")  .font(Fonts.poppinsSubheadline())
                             .foregroundColor(Colors.DarkGray)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .lineLimit(2)
                             .padding(5)
+                            .offset(y: 5)
                             
                         
                         Spacer()
@@ -66,15 +72,15 @@ struct ProjectGridView: View {
                                 .accentColor(Colors.Red)
                                 .font(Fonts.poppinsCallout())
                         }.padding(8)
+                         .offset(y: -15)
                         
                         
                     }
-                    //                    .fixedSize()
-                    
+
                 }
-                .fixedSize()
-                //                .frame(maxHeight: 200)
-                
+                .frame(width: 50, height: 50)
+                .padding(.vertical, 110)
+                .padding(.horizontal, 55)
             }
             
         }).padding(.horizontal)
@@ -89,8 +95,7 @@ extension View {
 }
 
 struct ProjectGridView_Previews: PreviewProvider {
-//    @State static var listProject = [Project(id: "", poster: "", projectName: "cinta", description: "", deadline: 0, neededMaterials: [ProjectMaterial()], images: [""], deliveryType: [""], location: GeoPoint(latitude: 0.0, longitude: 0.0), updates: [ProjectUpdate()])]
-    
+
     @State static var searchText = ""
     
     static var previews: some View {
