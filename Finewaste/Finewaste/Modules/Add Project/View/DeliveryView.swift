@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct DeliveryView: View {
     @Environment(\.presentationMode) var presentationMode
