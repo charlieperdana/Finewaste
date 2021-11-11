@@ -10,7 +10,8 @@ import Firebase
 
 struct MainProjectView: View {
     
-    @ObservedObject var model = ProjectViewModel()
+//    @ObservedObject var model = ProjectViewModel()
+    @StateObject var model = ProjectViewModel()
     
     @AppStorage("log_status") var logStatus = false
     
@@ -24,72 +25,57 @@ struct MainProjectView: View {
     @AppStorage("uuid_user") var uuidUser = ""
     @AppStorage("username_user") var usernameUser = ""
     
+    @State var searchText = ""
+    @State var isSearching = false
+    
+    @State var project = Project()
+    
+    
     
     var body: some View {
         
         NavigationView {
-            VStack {
-                Text("Login Success using Apple ID")
-                    .navigationBarTitle("Projects")
-                    .navigationBarItems(trailing: Button("Log Out") {
-
-                        DispatchQueue.global(qos: .background).async {
-                            try? Auth.auth().signOut()
-                        }
-                        
-                        withAnimation(.easeInOut) {
-                            logStatus = false
-                        }
-                })
-                List(model.list) { item in
-                    Text(item.username)
-                }
-                
-                
-                Divider()
-                
-                VStack(spacing:5){
-                    TextField("Username", text: $username)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+            ScrollView {
+                VStack {
                     
-                    TextField("Fullname", text: $fullname)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    SearchBarView(searchText: $searchText, isSearching: $isSearching)
                     
-                    TextField("UUID", text: $uid)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    
-                    
-                    
-                    Button(action:    {
-                        
-                        let newUser = Users(id: self.uuidUser, name: fullname, username: self.usernameUser, description: "", productService: [""], createdProduct: 0, donatedWaste: 0, location: Location(latitude: 0.0, longitude: 0.0), isBusiness: false)
-//                        model.addData(fullname: fullname, username: username, uuid: uuid)
-                        
-                        model.addData(newUser: newUser)
-                        
-                        fullname = ""
-                        username = ""
-                        uid = ""
-                        
-                        
-                        
-                    }, label: {
-                        
-                        Text("Add New User")
-                    })
-                }
-                
-                .padding()
-                
+                    ProjectGridView(model: model,searchText: $searchText)
             
                 
+                }
+                .navigationBarTitle(Text("Projects").font(Fonts.poppinsTitle()))
+                .toolbar {
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        Button {
+                            
+                        }label: {
+                            Image(systemName: "plus")
+                                .foregroundColor(Colors.Turqoise)
+                        }
+                        Button {
+                            DispatchQueue.global(qos: .background).async {
+                                try? Auth.auth().signOut()
+                            }
+                            
+                            withAnimation(.easeInOut) {
+                                logStatus = false
+                            }
+                        }label: {
+                            Text("Log Out")
+                                .foregroundColor(Colors.Turqoise)
+                        }
+                    }
+                }
             }
         }
         .navigationBarHidden(true)
     }
     
     init() {
-        model.getData()
+//        model.getProjectData()
+
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Poppins-SemiBold", size: 28)!]
     }
 }
 
