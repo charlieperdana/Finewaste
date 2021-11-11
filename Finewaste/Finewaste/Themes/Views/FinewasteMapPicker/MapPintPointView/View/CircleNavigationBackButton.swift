@@ -9,10 +9,12 @@ import SwiftUI
 
 struct CircleNavigationBackButton: View {
     @Environment(\.presentationMode) var presentationMode
+    var additionalAction: () -> Void
     
     var body: some View {
         Button {
             self.presentationMode.wrappedValue.dismiss()
+            additionalAction()
         } label: {
             ZStack {
                 Circle()
@@ -29,6 +31,6 @@ struct CircleNavigationBackButton: View {
 
 struct CircleNavigationBackButton_Previews: PreviewProvider {
     static var previews: some View {
-        CircleNavigationBackButton()
+        CircleNavigationBackButton(additionalAction: {})
     }
 }

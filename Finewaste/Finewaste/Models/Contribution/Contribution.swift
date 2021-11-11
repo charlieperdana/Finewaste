@@ -11,6 +11,7 @@ import FirebaseFirestoreSwift
 
 struct Contribution: Codable, Identifiable {
     @DocumentID var id: String?
+    var status: Int? = 0
     var contributor: String?
     var projectId: String?
     var deliveryType: String??

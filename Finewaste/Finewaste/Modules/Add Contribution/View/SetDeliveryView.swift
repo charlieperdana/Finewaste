@@ -30,7 +30,7 @@ struct SetDeliveryView: View {
                                 selectedData: $selectedDeliveryMethod,
                                 dataToChoose: viewModel.deliveryTypes)
                     .onChange(of: selectedDeliveryMethod) { deliveryMethod in
-                        viewModel.contributionModel.deliveryType = deliveryMethod
+                        viewModel.setContributionDeliveryMethod(method: deliveryMethod)
                     }
             }
             
@@ -39,12 +39,17 @@ struct SetDeliveryView: View {
                     Text("\(selectedDeliveryMethod.capitalized) Address")
                         .font(Fonts.poppinsCallout())
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    FinewasteMapPicker()
                     
                     if selectedDeliveryMethod == "Drop off" {
+                        FinewasteMapPicker(isReadOnly: true,
+                                           currentAddress: .constant(viewModel.projectLocation),
+                                           currentCoordinate: $viewModel.projectCoordinate)
                         Text("Deliver the materials within 3x24 hours from the time contribution request made")
                             .font(Fonts.poppinsCaption())
                     } else {
+                        FinewasteMapPicker(isReadOnly: false,
+                                           currentAddress: $viewModel.contributionModel.deliveryAddress,
+                                           currentCoordinate: $viewModel.pickUpCoordinate)
                         Text("Materials will be picked up within 3x24 hours from the time contribution request made")
                             .font(Fonts.poppinsCaption())
                     }
