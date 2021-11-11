@@ -11,6 +11,7 @@ struct DeliveryView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var deliveryOption: String = ""
     @State var projectAddress: String = ""
+    @State var defaultCoordinate: CLLocationCoordinate2D = .init(latitude: -6.175784, longitude: 106.827136)
     
     @EnvironmentObject var newProject: NewProject
     
@@ -72,7 +73,7 @@ struct DeliveryView: View {
                         .font(Fonts.poppinsCallout())
                     Text("Your full address will not be shown on the project")
                         .font(Fonts.poppinsFootnote())
-                    FinewasteMapPicker()
+                    FinewasteMapPicker(isReadOnly: true, currentAddress: $projectAddress, currentCoordinate: $defaultCoordinate)
                 }
                 Spacer()
                 FinewasteButtonFill(text: "Add Project", size: .fullWidth, isEnabled: isFieldFilled) {
