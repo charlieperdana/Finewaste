@@ -18,7 +18,7 @@
 		00E7704A27327AC300C9C299 /* showImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E7704927327AC300C9C299 /* showImagePicker.swift */; };
 		00F2BC9F2733C78D00E95798 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F2BC9E2733C78D00E95798 /* AboutView.swift */; };
 		00FE22CA2733DBEB00EF306A /* AddMaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE22C92733DBEB00EF306A /* AddMaterialView.swift */; };
-		551DD88727329E7A00E550AF /* LoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD88627329E7A00E550AF /* LoginHelper.swift */; };
+		551DD88727329E7A00E550AF /* EncryptionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD88627329E7A00E550AF /* EncryptionHelper.swift */; };
 		551DD8892732A2DF00E550AF /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD8882732A2DF00E550AF /* Users.swift */; };
 		551DD88D273302C300E550AF /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD88C273302C300E550AF /* ProjectViewModel.swift */; };
 		551DD8902733037E00E550AF /* MainProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD88F2733037E00E550AF /* MainProjectView.swift */; };
@@ -30,7 +30,6 @@
 		55270536273D8BA600868643 /* MyContributeProjectGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55270535273D8BA600868643 /* MyContributeProjectGridView.swift */; };
 		5527053A273D8D7600868643 /* MyContributeProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55270539273D8D7600868643 /* MyContributeProjectViewModel.swift */; };
 		5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6892728152900601A69 /* FinewasteApp.swift */; };
-		5572C68C2728152900601A69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C68B2728152900601A69 /* ContentView.swift */; };
 		5572C68E2728152C00601A69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C68D2728152C00601A69 /* Assets.xcassets */; };
 		5572C6912728152C00601A69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C6902728152C00601A69 /* Preview Assets.xcassets */; };
 		5572C6932728152C00601A69 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6922728152C00601A69 /* Persistence.swift */; };
@@ -125,6 +124,10 @@
 		7DDD23012732CC4900250B35 /* ProjectUpdateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD23002732CC4900250B35 /* ProjectUpdateCard.swift */; };
 		7DF81C9F273CB43A00D6A24A /* CLLocationCoordinate2D+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF81C9E273CB43A00D6A24A /* CLLocationCoordinate2D+Equatable.swift */; };
 		7DF81CA1273CDF5A00D6A24A /* ImageCompressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF81CA0273CDF5A00D6A24A /* ImageCompressor.swift */; };
+		7DF81CB7273E923900D6A24A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF81CB6273E923900D6A24A /* RootView.swift */; };
+		7DF81CBB273E942900D6A24A /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF81CBA273E942900D6A24A /* ChatListView.swift */; };
+		7DF81CBD273E947D00D6A24A /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF81CBC273E947D00D6A24A /* TabBarItem.swift */; };
+		7DF81CBF273EB12300D6A24A /* AuthenticationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF81CBE273EB12300D6A24A /* AuthenticationHelper.swift */; };
 		974DD9ADAE3429C896D20222 /* Pods_Finewaste.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5231D242E97A6378582A26D /* Pods_Finewaste.framework */; };
 		AC84CD62D6147B378199808A /* Pods_FinewasteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4256E325940C78D4FE7ABFB /* Pods_FinewasteTests.framework */; };
 /* End PBXBuildFile section */
@@ -160,7 +163,7 @@
 		00FE22C92733DBEB00EF306A /* AddMaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaterialView.swift; sourceTree = "<group>"; };
 		2DF683434FDB618D22EE5487 /* Pods-FinewasteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinewasteTests.release.xcconfig"; path = "Target Support Files/Pods-FinewasteTests/Pods-FinewasteTests.release.xcconfig"; sourceTree = "<group>"; };
 		31A721380256AA037E7CAE8D /* Pods-Finewaste.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finewaste.release.xcconfig"; path = "Target Support Files/Pods-Finewaste/Pods-Finewaste.release.xcconfig"; sourceTree = "<group>"; };
-		551DD88627329E7A00E550AF /* LoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHelper.swift; sourceTree = "<group>"; };
+		551DD88627329E7A00E550AF /* EncryptionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionHelper.swift; sourceTree = "<group>"; };
 		551DD8882732A2DF00E550AF /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		551DD88C273302C300E550AF /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		551DD88F2733037E00E550AF /* MainProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProjectView.swift; sourceTree = "<group>"; };
@@ -173,7 +176,6 @@
 		55270539273D8D7600868643 /* MyContributeProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContributeProjectViewModel.swift; sourceTree = "<group>"; };
 		5572C6862728152900601A69 /* Finewaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finewaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5572C6892728152900601A69 /* FinewasteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteApp.swift; sourceTree = "<group>"; };
-		5572C68B2728152900601A69 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5572C68D2728152C00601A69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5572C6902728152C00601A69 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5572C6922728152C00601A69 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -273,6 +275,10 @@
 		7DDD23002732CC4900250B35 /* ProjectUpdateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdateCard.swift; sourceTree = "<group>"; };
 		7DF81C9E273CB43A00D6A24A /* CLLocationCoordinate2D+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Equatable.swift"; sourceTree = "<group>"; };
 		7DF81CA0273CDF5A00D6A24A /* ImageCompressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCompressor.swift; sourceTree = "<group>"; };
+		7DF81CB6273E923900D6A24A /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		7DF81CBA273E942900D6A24A /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
+		7DF81CBC273E947D00D6A24A /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		7DF81CBE273EB12300D6A24A /* AuthenticationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationHelper.swift; sourceTree = "<group>"; };
 		91615283BDD8D1B26DF96862 /* Pods-FinewasteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinewasteTests.debug.xcconfig"; path = "Target Support Files/Pods-FinewasteTests/Pods-FinewasteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4256E325940C78D4FE7ABFB /* Pods_FinewasteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinewasteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5231D242E97A6378582A26D /* Pods_Finewaste.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finewaste.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -384,10 +390,11 @@
 		551DD88527329E6200E550AF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				551DD88627329E7A00E550AF /* LoginHelper.swift */,
+				551DD88627329E7A00E550AF /* EncryptionHelper.swift */,
 				55FE157F273919D900B24F2D /* RoundedCorner.swift */,
 				7D0200D92736D6B900D3BB44 /* TimestampHelper.swift */,
 				7DF81CA0273CDF5A00D6A24A /* ImageCompressor.swift */,
+				7DF81CBE273EB12300D6A24A /* AuthenticationHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -481,7 +488,6 @@
 				55B6045327305A0400631004 /* Finewaste.entitlements */,
 				55B60408272FE99900631004 /* GoogleService-Info.plist */,
 				7DDD22CA273037F400250B35 /* Info.plist */,
-				5572C68B2728152900601A69 /* ContentView.swift */,
 				5572C6922728152C00601A69 /* Persistence.swift */,
 				5572C68D2728152C00601A69 /* Assets.xcassets */,
 				7DDD229F272FD5C500250B35 /* Colors.xcassets */,
@@ -783,6 +789,7 @@
 		7DDD2294272FD54600250B35 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7DF81CB8273E941800D6A24A /* Chat */,
 				00BC26A8273D123900C0C7DB /* Contribution Status */,
 				55FE15762738451200B24F2D /* Dashboard */,
 				7D6DD4AD273A62760023E163 /* Add Contribution */,
@@ -792,6 +799,7 @@
 				7DDD22D62730EBA600250B35 /* Project Detail */,
 				000B7D38273133D60066BDD8 /* Add Project */,
 				7DDD2295272FD54900250B35 /* Login */,
+				7DF81CB6273E923900D6A24A /* RootView.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -911,6 +919,7 @@
 				7D0200F12737A75D00D3BB44 /* ImagePicker */,
 				7D6DD4AB27396DE60023E163 /* PostUploadIndicator.swift */,
 				00BC26B3273D278700C0C7DB /* FinewasteContributionStatusCard.swift */,
+				7DF81CBC273E947D00D6A24A /* TabBarItem.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -951,6 +960,22 @@
 				7DDD22F72732767800250B35 /* ImagePageIndicatorView.swift */,
 			);
 			path = ImageCarousel;
+			sourceTree = "<group>";
+		};
+		7DF81CB8273E941800D6A24A /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				7DF81CB9273E941F00D6A24A /* View */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		7DF81CB9273E941F00D6A24A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7DF81CBA273E942900D6A24A /* ChatListView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A7F9E69F0CFAB35C1BEB4203 /* Frameworks */ = {
@@ -1189,6 +1214,7 @@
 				55FE157B27384E1400B24F2D /* ProjectGridView.swift in Sources */,
 				7DDD22E62731140C00250B35 /* FinewasteButtonSize.swift in Sources */,
 				7D6DD4C9273AC3FE0023E163 /* EditContributionMaterialView.swift in Sources */,
+				7DF81CBD273E947D00D6A24A /* TabBarItem.swift in Sources */,
 				7D0200DE2736DD5200D3BB44 /* ProjectUpdateViewModel.swift in Sources */,
 				7DDD22DC2730EBC300250B35 /* ProjectDetailViewModel.swift in Sources */,
 				7D6DD4DE273B974E0023E163 /* CircleNavigationBackButton.swift in Sources */,
@@ -1237,9 +1263,9 @@
 				55B6044C27304F0300631004 /* HomeView.swift in Sources */,
 				7D6DD4E9273C0AC00023E163 /* SearchResultData.swift in Sources */,
 				5527053A273D8D7600868643 /* MyContributeProjectViewModel.swift in Sources */,
-				5572C68C2728152900601A69 /* ContentView.swift in Sources */,
 				7D0200F82737B8B200D3BB44 /* PostProjectUpdateViewModel.swift in Sources */,
 				551DD8902733037E00E550AF /* MainProjectView.swift in Sources */,
+				7DF81CB7273E923900D6A24A /* RootView.swift in Sources */,
 				7D0200F0273796B600D3BB44 /* FinewasteImagePicker.swift in Sources */,
 				551DD8892732A2DF00E550AF /* Users.swift in Sources */,
 				7D9143492734F9A700B89F98 /* User.swift in Sources */,
@@ -1252,7 +1278,9 @@
 				7D0200E72737838000D3BB44 /* FinewasteButtonOutline.swift in Sources */,
 				7DDD22CC27303CF100250B35 /* Fonts.swift in Sources */,
 				7D91434F273590C700B89F98 /* ProjectMaterialRepository.swift in Sources */,
+				7DF81CBB273E942900D6A24A /* ChatListView.swift in Sources */,
 				7D0200D32736C2F800D3BB44 /* ContributionRepository.swift in Sources */,
+				7DF81CBF273EB12300D6A24A /* AuthenticationHelper.swift in Sources */,
 				7DDD22EC273137A700250B35 /* ProjectAboutView.swift in Sources */,
 				7DDD2293272FD53500250B35 /* Project.swift in Sources */,
 				7D6DD4CE273ADB4B0023E163 /* PickerDataList.swift in Sources */,
@@ -1284,7 +1312,7 @@
 				55270524273D640500868643 /* MyProjectView.swift in Sources */,
 				7D6DD4D1273B73910023E163 /* SetDeliveryViewModel.swift in Sources */,
 				002A633C273E615000A0549B /* MyContributionsViewModel.swift in Sources */,
-				551DD88727329E7A00E550AF /* LoginHelper.swift in Sources */,
+				551DD88727329E7A00E550AF /* EncryptionHelper.swift in Sources */,
 				55FE1580273919D900B24F2D /* RoundedCorner.swift in Sources */,
 				7D6DD4D8273B84390023E163 /* MapView.swift in Sources */,
 				55B604572731302F00631004 /* OnboardingView.swift in Sources */,
@@ -1462,6 +1490,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Finewaste/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Finewaste need a permission to capture your product";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "FineWaste need to access your location to provide more accurate recommendation";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1473,7 +1502,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = WeTheX.Finewaste;
+				PRODUCT_BUNDLE_IDENTIFIER = WeTheX.Finewastewwww;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1496,6 +1525,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Finewaste/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Finewaste need a permission to capture your product";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "FineWaste need to access your location to provide more accurate recommendation";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1507,7 +1537,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = WeTheX.Finewaste;
+				PRODUCT_BUNDLE_IDENTIFIER = WeTheX.Finewastewwww;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

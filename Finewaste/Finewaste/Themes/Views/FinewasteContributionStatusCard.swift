@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct FinewasteContributionStatusCard: View {
-//    var id: String
-//    var projectName: String
-//    var user: String
-//    var createdDate: String
-//    var dueDate: String
-//    var status: Bool
-    
-    @StateObject var contribution: Contribution
+    var id: String
+    var projectName: String
+    var user: String
+    var createdDate: String
+    var dueDate: String
+    var status: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -67,6 +65,6 @@ struct FinewasteContributionStatusCard: View {
 
 struct FinewasteContributionStatusCard_Previews: PreviewProvider {
     static var previews: some View {
-        FinewasteContributionStatusCard(contribution: Contribution())
+        FinewasteContributionStatusCard(id: "", projectName: "", user: "", createdDate: "", dueDate: "", status: true)
     }
 }
