@@ -54,23 +54,23 @@ struct MyContributeProjectGridView: View {
                         
                         VStack (alignment: .leading, spacing: 4){
                             
-//                            let contribution = (model.projectTarget[project.id ?? ""] ?? (contribution:0, target:0) ).contribution
-//                            
-//                            let target = (model.projectTarget[project.id ?? ""] ?? (contribution:0, target:0) ).target
-//                            
-//                            let progress = target - contribution
-//                            
-//                            let deadline = (model.daysToDeadline[project.id ?? ""] ?? 0 )
-//                            
-//                            
-//                            Text("\(progress) pcs more in \(deadline) days")
-//                                .foregroundColor(Colors.Red)
-//                                .font(Fonts.poppinsCaption())
-//                            
-//                            ProgressView(value: (Double(contribution)/Double(target)).isNaN ? 0 : Double(contribution)/Double(target), total: 1)
-//                                .scaleEffect(x: 1, y: 1, anchor: .center)
-//                                .accentColor(Colors.Red)
-//                                .font(Fonts.poppinsCallout())
+                            let contribution = (model.projectTarget[project.id ?? ""] ?? (contribution:0, target:0) ).contribution
+                            
+                            let target = (model.projectTarget[project.id ?? ""] ?? (contribution:0, target:0) ).target
+                            
+                            let progress = target - contribution
+                            
+                            let deadline = (model.daysToDeadline[project.id ?? ""] ?? 0 )
+                            
+                            
+                            Text("\(progress) pcs more in \(deadline) days")
+                                .foregroundColor(Colors.Red)
+                                .font(Fonts.poppinsCaption())
+                            
+                            ProgressView(value: (Double(contribution)/Double(target)).isNaN ? 0 : Double(contribution)/Double(target), total: 1)
+                                .scaleEffect(x: 1, y: 1, anchor: .center)
+                                .accentColor(Colors.Red)
+                                .font(Fonts.poppinsCallout())
                         }.padding(8)
                             .offset(y: -15)
                         

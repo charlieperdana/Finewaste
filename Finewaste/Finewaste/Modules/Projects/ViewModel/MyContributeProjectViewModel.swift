@@ -48,6 +48,7 @@ class MyContributeProjectViewModel: ObservableObject {
                                 
                                 
                                 
+                                
                                 self.listProject.append(Project(id: snapshot?.documentID,
                                                                 poster: projectData?["poster"] as? String ?? "",
                                                                 projectName: projectData?["projectName"] as? String ?? "",
@@ -56,6 +57,26 @@ class MyContributeProjectViewModel: ObservableObject {
                                                                 images: projectData?["images"] as? [String] ?? [""],
                                                                 deliveryType: projectData?["deliveryType"] as? [String] ?? [""],
                                                                 location: projectData?["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0)))
+                                
+                                self.projectTarget[snapshot?.documentID ?? ""] = (contribution:0,target:0)
+                                
+                                
+                                self.getNumberOfContribution(projectId: snapshot?.documentID ?? "") { contribute in
+                                    self.projectTarget[snapshot?.documentID ?? ""]?.contribution = contribute
+                                    print("Contribute: \(contribute)")
+                                }
+                                
+                                
+                                self.getTotalNeeded(projectId: snapshot?.documentID ?? "") { targets in
+                                    self.projectTarget[snapshot?.documentID ?? ""]?.target = targets
+                                    print("Target: \(targets)")
+                                }
+                                
+                                self.daysToDeadline[snapshot?.documentID ?? ""] = 0
+                                
+                                self.getDeadline(deadline: (projectData?["deadline"] as? Timestamp) ?? Timestamp(date: Date(timeIntervalSince1970: 0))) { deadline in
+                                    self.daysToDeadline[snapshot?.documentID ?? ""] = deadline
+                                }
                                 
                                 
                             }
