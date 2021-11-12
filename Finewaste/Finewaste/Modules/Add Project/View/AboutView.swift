@@ -6,158 +6,155 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+
+class NewProject: ObservableObject {
+    var projectName: String = ""
+    var projectDesc: String = ""
+    var deadline: Timestamp = Timestamp(seconds: 0, nanoseconds: 0)
+    var images: [UIImage] = []
+    var deliveryType: [String] = []
+    var location: GeoPoint = GeoPoint(latitude: 0, longitude: 0)
+    @Published var newMaterial = [NewMaterial]()
+}
+
+class NewMaterial: ObservableObject {
+    init(name: String, target: Int, limit: Bool, requirements: [String]) {
+        materialName = name
+        materialTarget = target
+        allowOverlimit = limit
+        materialPrerequisite = requirements
+    }
+    @Published var materialName: String = ""
+    @Published var materialTarget: Int = 0
+    var allowOverlimit: Bool = false
+    @Published var materialPrerequisite: [String] = []
+}
 
 struct AboutView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     @State var projectName: String = ""
     @State var projectDescription: String = ""
     @State var selectedDate = Date()
-    @State var image = UIImage()
+    @State var images = [UIImage]()
     
     @State var showSheet = false
+    @State var showNextPage = false
+    @State var showAlert = false
+    
+    @StateObject var newProject = NewProject()
+    
+    var minimumCloseDate = Calendar.current.date(byAdding: .day, value: 7, to: Date()) ?? Date()
+    
+    var isFieldFilled:Bool {
+        !projectName.isEmpty && !projectDescription.isEmpty && !images.isEmpty
+    }
     
     var body: some View {
-        VStack {
-            NavigationView {
-                Text("")
-                    .font(Fonts.poppinsHeadline())
-                    .navigationBarTitle("Project Detail")
-                    .navigationBarTitleDisplayMode(.inline)
-                    .navigationBarItems(leading:
-                                            Button(action: {
-                        print("close tapped")
-                    }) {
-                        Image(systemName: "xmark")
+        NavigationView {
+            VStack(spacing: 32) {
+//                Spacer().frame(height: 24)
+                ZStack {
+                    HStack(spacing: 0) {
+                        Image(systemName: "1.circle.fill")
+                            .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .foregroundColor(Colors.Turqoise)
-                    })
-            }.frame(maxHeight: 42)
-            Spacer().frame(height: 24)
-            ZStack{
-                HStack(spacing: 0) {
-                    Image(systemName: "1.circle.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 26.0, height: 28.0)
+                            .frame(width: 26.0, height: 28.0)
+                            .foregroundColor(Colors.Red)
+                        Rectangle()
+                            .fill(Colors.Gray)
+                            .frame(width: 80, height: 5)
+                        Image(systemName: "2.circle.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 26.0, height: 28.0)
+                            .foregroundColor(Colors.Gray)
+                        Rectangle()
+                            .fill(Colors.Gray)
+                            .frame(width: 80, height: 5)
+                        Image(systemName: "3.circle.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 26.0, height: 28.0)
+                            .foregroundColor(Colors.Gray)
+                    }
+                    Text("About")
                         .foregroundColor(Colors.Red)
-                    Rectangle()
-                        .fill(Colors.Gray)
-                        .frame(width: 80, height: 5)
-                    Image(systemName: "2.circle.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 26.0, height: 28.0)
-                        .foregroundColor(Colors.Gray)
-                    Rectangle()
-                        .fill(Colors.Gray)
-                        .frame(width: 80, height: 5)
-                    Image(systemName: "3.circle.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 26.0, height: 28.0)
-                        .foregroundColor(Colors.Gray)
-                }
-                Text("About")
-                    .foregroundColor(Colors.Red)
-                    .font(Fonts.poppinsFootnote())
-                    .bold()
-                    .offset(x: -106, y: 30)
-                Text("Material")
-                    .foregroundColor(Colors.Gray)
-                    .font(Fonts.poppinsFootnote())
-                    .bold()
-                    .offset(y: 30)
-                Text("Delivery")
-                    .foregroundColor(Colors.Gray)
-                    .font(Fonts.poppinsFootnote())
-                    .bold()
-                    .offset(x: 106, y: 30)
-            }
-            Spacer().frame(height: 32)
-            VStack(alignment: .leading) {
-                Text("Project Name")
-                    .font(Fonts.poppinsCallout())
-                TextField("e.g. Denim totebag", text: $projectName)
-                    .font(Fonts.poppinsSubheadline())
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    
-                HStack {
-                    Spacer()
-                    Text("\(projectName.count)/30")
                         .font(Fonts.poppinsFootnote())
-                        .foregroundColor(Colors.Turqoise)
-                }
-                Text("What do you want to make?")
-                    .font(Fonts.poppinsCallout())
-                TextField("Describe product you want to make", text: $projectDescription)
-                    .font(Fonts.poppinsSubheadline())
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                HStack {
-                    Spacer()
-                    Text("\(projectDescription.count)/500")
+                        .fontWeight(.semibold)
+                        .offset(x: -106, y: 30)
+                    Text("Material")
+                        .foregroundColor(Colors.Gray)
                         .font(Fonts.poppinsFootnote())
-                        .foregroundColor(Colors.Turqoise)
+                        .fontWeight(.semibold)
+                        .offset(y: 30)
+                    Text("Delivery")
+                        .foregroundColor(Colors.Gray)
+                        .font(Fonts.poppinsFootnote())
+                        .fontWeight(.semibold)
+                        .offset(x: 106, y: 30)
                 }
-                HStack {
-                    Text("Project Close Date")
+                Spacer().frame(height: 0)
+                VStack(alignment: .leading) {
+                    Text("Project Name")
                         .font(Fonts.poppinsCallout())
-                    DatePicker("", selection: $selectedDate, in: Date()..., displayedComponents: .date)
-                }
-                Text("Product Image Reference")
-                    .font(Fonts.poppinsCallout())
-                HStack {
-                    Button(action: {
-                        self.showSheet = true
-                    }) {
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Colors.Gray)
-                                .frame(width: 100, height: 100)
-                            Image(systemName: "plus.viewfinder")
-                                .frame(width: 30, height: 30, alignment: .center)
-                                .foregroundColor(Colors.Turqoise)
-                        }
+                    FinewasteTextField(placeholder: "e.g. Denim totebag", text: $projectName)
+                    HStack {
+                        Spacer()
+                        Text("\(projectName.count)/30")
+                            .font(Fonts.poppinsFootnote())
+                            .foregroundColor(Colors.Turqoise)
                     }
-                    .sheet(isPresented: $showSheet) {
-                        ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
+                    Text("What do you want to make?")
+                        .font(Fonts.poppinsCallout())
+                    FinewasteTextField(placeholder: "Describe product you want to make", text: $projectDescription)
+                    HStack {
+                        Spacer()
+                        Text("\(projectDescription.count)/500")
+                            .font(Fonts.poppinsFootnote())
+                            .foregroundColor(Colors.Turqoise)
                     }
-                    Image(uiImage: self.image)
-                        .resizable()
-                        .cornerRadius(10)
-                        .frame(width: 100, height: 100)
-                    Image(uiImage: self.image)
-                        .resizable()
-                        .cornerRadius(10)
-                        .frame(width: 100, height: 100)
+                    HStack {
+                        Text("Project Close Date")
+                            .font(Fonts.poppinsCallout())
+                        DatePicker("", selection: $selectedDate, in: minimumCloseDate..., displayedComponents: .date)
+                    }
+                    Text("Product Image Reference")
+                        .font(Fonts.poppinsCallout())
+                    FinewasteImagePicker(selectedImages: $images)
                 }
-                HStack {
-                    Image(uiImage: self.image)
-                        .resizable()
-                        .cornerRadius(10)
-                        .frame(width: 100, height: 100)
-                    Image(uiImage: self.image)
-                        .resizable()
-                        .cornerRadius(10)
-                        .frame(width: 100, height: 100)
-                    Image(uiImage: self.image)
-                        .resizable()
-                        .cornerRadius(10)
-                        .frame(width: 100, height: 100)
+                Spacer()
+                FinewasteButtonFill(text: "Next", size: .fullWidth, isEnabled: isFieldFilled) {
+                    newProject.projectName = projectName
+                    newProject.projectDesc = projectDescription
+                    newProject.deadline = Timestamp(seconds: Int64(selectedDate.timeIntervalSince1970), nanoseconds: 0)
+                    newProject.images = images
+                    self.showNextPage = true
                 }
-            }.padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-            Spacer()
-            Button(action: {
-                print("button next tapped")
-            }) {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Colors.Gray)
-                        .frame(width: 358, height: 44)
-                        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                    Text("Next")
-                        .foregroundColor(Colors.White)
-                        .font(Fonts.poppinsHeadline())
-                }
+                NavigationLink(destination: MaterialView().environmentObject(newProject), isActive: $showNextPage) {}
             }
+            .navigationBarTitle("Project Detail")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(leading:
+                                    Button(action: {
+                self.showAlert = true
+            }) {
+                Image(systemName: "xmark")
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(Colors.Turqoise)
+            })
+            .alert(isPresented: $showAlert, content: {
+                Alert(title: Text("Unsaved Change"),
+                      message: Text("Are you sure you want to discard the changes? Your changes will be lost."),
+                      primaryButton: .default(Text("Cancel")
+                                                .foregroundColor(Colors.Turqoise)),
+                      secondaryButton: .destructive(Text("Discard"), action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                })
+                )
+            })
+            .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
         }
     }
 }
