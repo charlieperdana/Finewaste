@@ -74,8 +74,6 @@ class ProjectViewModel: ObservableObject {
                                            deliveryType: docs["deliveryType"] as? [String] ?? [""],
                                            location: docs["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0))
                             
-                            self.project = try? snapshot?.data(as: Project.self)
-                            
                         }
                     }
                     
