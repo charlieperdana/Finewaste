@@ -9,8 +9,6 @@ import SwiftUI
 import Firebase
 
 struct MainProjectView: View {
-    
-//    @ObservedObject var model = ProjectViewModel()
     @StateObject var model = ProjectViewModel()
     
     @AppStorage("log_status") var logStatus = false
@@ -30,46 +28,35 @@ struct MainProjectView: View {
     
     @State var project = Project()
     
-    
+    @State var isPresentingLoginSheet = false
     
     var body: some View {
-        
-        NavigationView {
-            ScrollView {
-                VStack {
-                    
-                    SearchBarView(searchText: $searchText, isSearching: $isSearching)
-                    
-                    ProjectGridView(model: model,searchText: $searchText)
-            
+        ScrollView {
+            VStack {
                 
-                }
-                .navigationBarTitle(Text("Projects").font(Fonts.poppinsTitle()))
-                .toolbar {
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        Button {
-                            
-                        }label: {
-                            Image(systemName: "plus")
-                                .foregroundColor(Colors.Turqoise)
+                SearchBarView(searchText: $searchText, isSearching: $isSearching)
+                
+                ProjectGridView(model: model,searchText: $searchText)
+                
+                
+            }
+            .navigationBarTitle(Text("Projects").font(Fonts.poppinsTitle()))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        if !AuthenticationHelper.shared.isLoggedIn {
+                            self.isPresentingLoginSheet.toggle()
                         }
-                        Button {
-                            DispatchQueue.global(qos: .background).async {
-                                try? Auth.auth().signOut()
-                            }
-                            
-                            withAnimation(.easeInOut) {
-                                logStatus = false
-                            }
-                        }label: {
-                            Text("Log Out")
-                                .foregroundColor(Colors.Turqoise)
-                        }
+                    }label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(Colors.Turqoise)
                     }
                 }
             }
+            .sheet(isPresented: $isPresentingLoginSheet) {
+                LoginView(loginTrigger: .addProject)
+            }
         }
-        .navigationBarHidden(true)
     }
     
     init() {

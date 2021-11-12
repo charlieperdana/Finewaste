@@ -7,20 +7,16 @@
 
 import SwiftUI
 import Firebase
-import CoreLocation
 
 @main
 struct FinewasteApp: App {
-    let persistenceController = PersistenceController.shared
-    @State private var test = 0
-
     init() {
         FirebaseApp.configure()
     }
 
     var body: some Scene {
         WindowGroup {
-          DashboardView()
+            RootView()
         }
     }
 }

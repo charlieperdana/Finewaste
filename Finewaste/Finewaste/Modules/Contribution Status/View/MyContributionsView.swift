@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MyContributionsView: View {
+
     var body: some View {
         VStack {
             Spacer().frame(height: 16)

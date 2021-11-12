@@ -10,62 +10,68 @@ import SwiftUI
 struct FloatingTabBarView: View {
     @Binding var selected : Int
     var body: some View {
-        HStack {
-            VStack (spacing:5){
-                
-                Button(action: {
-                    self.selected = 0
-                   
-                }){
-                    Image(systemName: "scissors").foregroundColor(self.selected == 0 ? Colors.Turqoise : Colors.DarkGray).padding(.horizontal)
-                }
-                Text("Projects").font(Fonts.poppinsCaption2()).foregroundColor(self.selected == 0 ? Colors.Turqoise : Colors.DarkGray)
-                
-            }
-            
-            Spacer(minLength: 15)
-            
-            VStack (spacing:5){
-                
-                Button(action: {
-                    self.selected = 1
-                   
-                }){
-                    Image(systemName: "bubble.left.and.bubble.right").foregroundColor(self.selected == 1 ? Colors.Turqoise : Colors.DarkGray).padding(.horizontal)
-            }
-                Text("Chat").font(Fonts.poppinsCaption2()).foregroundColor(self.selected == 1 ? Colors.Turqoise : Colors.DarkGray)
-            }
-            
-            Spacer(minLength: 15)
-            
-            VStack(spacing:5) {
-                
-                Button(action: {
+        ZStack(alignment: .top) {
+            HStack {
+                VStack (spacing:5){
                     
-                    self.selected = 2
-                }){
-                    Image(systemName: "clock.arrow.circlepath").foregroundColor(self.selected == 2 ? Colors.Turqoise : Colors.DarkGray).padding(.horizontal)
-            }
-                Text("Status").font(Fonts.poppinsCaption2()).foregroundColor(self.selected == 2 ? Colors.Turqoise : Colors.DarkGray)
-            }
-            
-            Spacer(minLength: 15)
-            
-            VStack(spacing:5) {
+                    Button(action: {
+                        self.selected = 0
+                        
+                    }){
+                        Image(systemName: "scissors").foregroundColor(self.selected == 0 ? Colors.Turqoise : Colors.DarkGray).padding(.horizontal)
+                    }
+                    Text("Projects").font(Fonts.poppinsCaption2()).foregroundColor(self.selected == 0 ? Colors.Turqoise : Colors.DarkGray)
+                    
+                }
                 
-                Button(action: {
-                   
-                    self.selected = 3
-                }){
-                    Image(systemName: "person.crop.circle").foregroundColor(self.selected == 3 ? Colors.Turqoise : Colors.DarkGray).padding(.horizontal)
+                Spacer(minLength: 15)
+                
+                VStack (spacing:5){
+                    
+                    Button(action: {
+                        self.selected = 1
+                        
+                    }){
+                        Image(systemName: "bubble.left.and.bubble.right").foregroundColor(self.selected == 1 ? Colors.Turqoise : Colors.DarkGray).padding(.horizontal)
+                    }
+                    Text("Chat").font(Fonts.poppinsCaption2()).foregroundColor(self.selected == 1 ? Colors.Turqoise : Colors.DarkGray)
+                }
+                
+                Spacer(minLength: 15)
+                
+                VStack(spacing:5) {
+                    
+                    Button(action: {
+                        
+                        self.selected = 2
+                    }){
+                        Image(systemName: "clock.arrow.circlepath").foregroundColor(self.selected == 2 ? Colors.Turqoise : Colors.DarkGray).padding(.horizontal)
+                    }
+                    Text("Status").font(Fonts.poppinsCaption2()).foregroundColor(self.selected == 2 ? Colors.Turqoise : Colors.DarkGray)
+                }
+                
+                Spacer(minLength: 15)
+                
+                VStack(spacing:5) {
+                    
+                    Button(action: {
+                        
+                        self.selected = 3
+                    }){
+                        Image(systemName: "person.crop.circle").foregroundColor(self.selected == 3 ? Colors.Turqoise : Colors.DarkGray).padding(.horizontal)
+                    }
+                    Text("Profile").font(Fonts.poppinsCaption2()).foregroundColor(self.selected == 3 ? Colors.Turqoise : Colors.DarkGray)
+                }
             }
-                Text("Profile").font(Fonts.poppinsCaption2()).foregroundColor(self.selected == 3 ? Colors.Turqoise : Colors.DarkGray)
-            }
+            .padding(.top, 10)
+            .padding(.horizontal, 20)
+            
+            Rectangle()
+                .fill(Colors.PlaceholderGray)
+                .frame(height: 1)
         }
-        .padding(.vertical, 5)
-        .padding(.horizontal, 20)
+        .padding(.bottom, 35)
         .background(Colors.White)
-//        .clipShape(Capsule())
     }
 }
 
