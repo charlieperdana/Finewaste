@@ -20,6 +20,7 @@ struct Colors {
     static let Red = Color("Red")
     static let RedOverlay = Color("RedOverlay")
     static let Turqoise = Color("Turquoise")
+    static let DropShadow = Color("DropShadow")
     
     static let SearchBarGray = Color("SearchBarGray")
 }

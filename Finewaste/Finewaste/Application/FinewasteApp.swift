@@ -20,7 +20,7 @@ struct FinewasteApp: App {
 
     var body: some Scene {
         WindowGroup {
-            AboutView()
+          DashboardView()
         }
     }
 }
