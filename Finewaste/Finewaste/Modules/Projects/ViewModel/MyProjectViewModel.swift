@@ -1,24 +1,18 @@
 //
-//  ProjectViewModel.swift
+//  MyProjectViewModel.swift
 //  Finewaste
 //
-//  Created by charlie siagian on 04/11/21.
+//  Created by charlie siagian on 11/11/21.
 //
 
-import Foundation
 import Firebase
 import SwiftUI
 
-class ProjectViewModel: ObservableObject {
+class MyProjectViewModel: ObservableObject {
     
     @Published var listProject = [Project]()
     
-    @Published var items = 0..<20
-    
     let database = Firestore.firestore()
-    
-    @Published var contribution = 0
-    @Published var target = 0
     
     @Published var listProjectMaterial = [ProjectMaterial]()
     
@@ -26,15 +20,18 @@ class ProjectViewModel: ObservableObject {
     
     @Published var daysToDeadline = [String:(Int)]()
     
+    private var user: String
     
-    init(){
-        self.getProjectData()
+    
+    init(user: String){
+        self.user = user
+        self.getMyProjectData(user: user)
     }
     
-    func getProjectData() {
-//        database.collection("projects").getDocuments { snapshot, error in
-            database.collection("projects").addSnapshotListener { snapshot, error in
-            
+    
+    func getMyProjectData(user: String) {
+        
+        database.collection("projects").whereField("poster", isEqualTo: user).addSnapshotListener { snapshot, error in
             if error ==  nil {
                 
                 if let snapshot = snapshot {
@@ -73,8 +70,6 @@ class ProjectViewModel: ObservableObject {
                                            images: docs["images"] as? [String] ?? [""],
                                            deliveryType: docs["deliveryType"] as? [String] ?? [""],
                                            location: docs["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0))
-                            
-                            self.project = try? snapshot?.data(as: Project.self)
                             
                         }
                     }
@@ -160,5 +155,7 @@ class ProjectViewModel: ObservableObject {
         }
         
     }
+    
+    
     
 }

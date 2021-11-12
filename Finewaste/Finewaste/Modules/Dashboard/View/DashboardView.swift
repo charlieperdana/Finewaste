@@ -16,18 +16,20 @@ struct DashboardView: View {
                 if self.selected == 0 {
                     MainProjectView()
                 } else if self.selected == 1 {
-                    HomeView()
+//                    HomeView()
+                    MyProjectView()
                     
                 }
                 else if self.selected == 2 {
-                    NavigationView {
-                        VStack(spacing: 20) {
-                            Text("Your Status")
-                                .navigationBarTitle("Status")
-                            
-                        }
-                    }
-                    .navigationBarHidden(true)
+//                    NavigationView {
+//                        VStack(spacing: 20) {
+//                            Text("Your Status")
+//                                .navigationBarTitle("Status")
+//
+//                        }
+//                    }
+//                    .navigationBarHidden(true)
+                    MyContributeProjectView()
                 }
                 else if self.selected == 3 {
                     NavigationView {
