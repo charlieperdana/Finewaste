@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct MyContributionsView: View {
+    @State var viewModel: MyContributionsViewModel
+    
     var body: some View {
         VStack {
             Spacer().frame(height: 16)
-            FinewasteContributionStatusCard(projectName: "Denim material for totebag", user: "Putri_240", createdDate: "26 October 2021, 19:05", dueDate: "28 October 2021", status: false)
-            FinewasteContributionStatusCard(projectName: "Denim material for totebag", user: "Putri_240", createdDate: "26 October 2021, 19:05", dueDate: "28 October 2021", status: true)
+            ForEach ($viewModel.contribution, id: \.viewModel.contributionID) { data in
+                FinewasteContributionStatusCard(contribution: data)
+            }
+//            FinewasteContributionStatusCard(id: "", projectName: "Denim material for totebag", user: "Putri_240", createdDate: "26 October 2021, 19:05", dueDate: "28 October 2021", status: false)
+//            FinewasteContributionStatusCard(id: "", projectName: "Denim material for totebag", user: "Putri_240", createdDate: "26 October 2021, 19:05", dueDate: "28 October 2021", status: true)
         }
     }
 }

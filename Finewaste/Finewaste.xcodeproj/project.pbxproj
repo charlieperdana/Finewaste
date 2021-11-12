@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002A633C273E615000A0549B /* MyContributionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A633B273E615000A0549B /* MyContributionsViewModel.swift */; };
 		00BC26AE273D126C00C0C7DB /* MyContributionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC26AD273D126C00C0C7DB /* MyContributionsView.swift */; };
 		00BC26B0273D127D00C0C7DB /* MyProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC26AF273D127D00C0C7DB /* MyProjectsView.swift */; };
 		00BC26B2273D190300C0C7DB /* ContributionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC26B1273D190300C0C7DB /* ContributionStatusView.swift */; };
@@ -135,6 +136,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		002A633B273E615000A0549B /* MyContributionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContributionsViewModel.swift; sourceTree = "<group>"; };
 		00BC26AD273D126C00C0C7DB /* MyContributionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContributionsView.swift; sourceTree = "<group>"; };
 		00BC26AF273D127D00C0C7DB /* MyProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectsView.swift; sourceTree = "<group>"; };
 		00BC26B1273D190300C0C7DB /* ContributionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionStatusView.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 		00BC26AA273D124600C0C7DB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				002A633B273E615000A0549B /* MyContributionsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1202,6 +1205,7 @@
 				551DD8932735144500E550AF /* OnboardingViewModel.swift in Sources */,
 				55B6040F273047FC00631004 /* UserInfo.swift in Sources */,
 				7D6DD4D1273B73910023E163 /* SetDeliveryViewModel.swift in Sources */,
+				002A633C273E615000A0549B /* MyContributionsViewModel.swift in Sources */,
 				551DD88727329E7A00E550AF /* LoginHelper.swift in Sources */,
 				7D6DD4D8273B84390023E163 /* MapView.swift in Sources */,
 				55B604572731302F00631004 /* OnboardingView.swift in Sources */,
