@@ -20,13 +20,7 @@ struct FinewasteApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            ProjectDetailView()
-//                .foregroundColor(Colors.DarkGray)
-//            ContentView()
-//            MainProjectView()
-            DashboardView()
-            // ProjectDetailView(projectId: "dummyData")
-            //     .foregroundColor(Colors.DarkGray)
+          DashboardView()
         }
     }
 }

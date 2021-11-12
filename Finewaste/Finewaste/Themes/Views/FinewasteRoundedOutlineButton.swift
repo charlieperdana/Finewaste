@@ -19,7 +19,7 @@ struct FinewasteRoundedOutlineButton: View {
                     .stroke(Colors.Turqoise)
                 
                 Text(text)
-                    .font(Fonts.poppinsSubheadline())
+                    .font(Fonts.poppinsHeadline())
                     .foregroundColor(Colors.Turqoise)
             }
             .modifier(FinewasteButtonSize(size: size))
