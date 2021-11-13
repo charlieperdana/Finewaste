@@ -29,6 +29,10 @@
 		55270532273D8B4100868643 /* MyContributeProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55270531273D8B4100868643 /* MyContributeProjectView.swift */; };
 		55270536273D8BA600868643 /* MyContributeProjectGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55270535273D8BA600868643 /* MyContributeProjectGridView.swift */; };
 		5527053A273D8D7600868643 /* MyContributeProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55270539273D8D7600868643 /* MyContributeProjectViewModel.swift */; };
+		5527053E2740022B00868643 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527053D2740022B00868643 /* MyProfileView.swift */; };
+		552705402740110A00868643 /* HeaderProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527053F2740110A00868643 /* HeaderProfileView.swift */; };
+		552705422740162E00868643 /* DescriptionProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552705412740162E00868643 /* DescriptionProfileView.swift */; };
+		5527054627401BF100868643 /* InfoProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527054527401BF100868643 /* InfoProfileView.swift */; };
 		5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6892728152900601A69 /* FinewasteApp.swift */; };
 		5572C68E2728152C00601A69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C68D2728152C00601A69 /* Assets.xcassets */; };
 		5572C6912728152C00601A69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C6902728152C00601A69 /* Preview Assets.xcassets */; };
@@ -174,6 +178,10 @@
 		55270531273D8B4100868643 /* MyContributeProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContributeProjectView.swift; sourceTree = "<group>"; };
 		55270535273D8BA600868643 /* MyContributeProjectGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContributeProjectGridView.swift; sourceTree = "<group>"; };
 		55270539273D8D7600868643 /* MyContributeProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContributeProjectViewModel.swift; sourceTree = "<group>"; };
+		5527053D2740022B00868643 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
+		5527053F2740110A00868643 /* HeaderProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderProfileView.swift; sourceTree = "<group>"; };
+		552705412740162E00868643 /* DescriptionProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionProfileView.swift; sourceTree = "<group>"; };
+		5527054527401BF100868643 /* InfoProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoProfileView.swift; sourceTree = "<group>"; };
 		5572C6862728152900601A69 /* Finewaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finewaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5572C6892728152900601A69 /* FinewasteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteApp.swift; sourceTree = "<group>"; };
 		5572C68D2728152C00601A69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -455,6 +463,25 @@
 				55270535273D8BA600868643 /* MyContributeProjectGridView.swift */,
 			);
 			path = Contribute;
+			sourceTree = "<group>";
+		};
+		5527053B2740020F00868643 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5527053C2740021700868643 /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		5527053C2740021700868643 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5527053D2740022B00868643 /* MyProfileView.swift */,
+				5527053F2740110A00868643 /* HeaderProfileView.swift */,
+				552705412740162E00868643 /* DescriptionProfileView.swift */,
+				5527054527401BF100868643 /* InfoProfileView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5572C67D2728152900601A69 = {
@@ -789,6 +816,7 @@
 		7DDD2294272FD54600250B35 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5527053B2740020F00868643 /* Profile */,
 				7DF81CB8273E941800D6A24A /* Chat */,
 				00BC26A8273D123900C0C7DB /* Contribution Status */,
 				55FE15762738451200B24F2D /* Dashboard */,
@@ -1223,6 +1251,7 @@
 				7D0200EE273790A900D3BB44 /* FinewasteTextField.swift in Sources */,
 				7DDD229E272FD5A500250B35 /* Colors.swift in Sources */,
 				7D6DD4EB273C0B590023E163 /* MapPinPointViewModel.swift in Sources */,
+				5527054627401BF100868643 /* InfoProfileView.swift in Sources */,
 				7D6DD4DC273B95940023E163 /* MapPinPointView.swift in Sources */,
 				7D0200FA2737C56F00D3BB44 /* CloudStorageUploader.swift in Sources */,
 				7D0200DA2736D6B900D3BB44 /* TimestampHelper.swift in Sources */,
@@ -1238,6 +1267,7 @@
 				7D0200C82736703D00D3BB44 /* Message.swift in Sources */,
 				7D6DD4AA273956590023E163 /* Image+centerWidthCrop.swift in Sources */,
 				00BC26B2273D190300C0C7DB /* ContributionStatusView.swift in Sources */,
+				552705422740162E00868643 /* DescriptionProfileView.swift in Sources */,
 				7D6DD4C1273AB2680023E163 /* StepBulletColor.swift in Sources */,
 				7D6DD4E3273C07980023E163 /* MapKitService.swift in Sources */,
 				7DDD22F227318C7C00250B35 /* ProjectMaterialRequirementView.swift in Sources */,
@@ -1314,9 +1344,11 @@
 				002A633C273E615000A0549B /* MyContributionsViewModel.swift in Sources */,
 				551DD88727329E7A00E550AF /* EncryptionHelper.swift in Sources */,
 				55FE1580273919D900B24F2D /* RoundedCorner.swift in Sources */,
+				5527053E2740022B00868643 /* MyProfileView.swift in Sources */,
 				7D6DD4D8273B84390023E163 /* MapView.swift in Sources */,
 				55B604572731302F00631004 /* OnboardingView.swift in Sources */,
 				55B6040D272FEA6800631004 /* LoginViewModel.swift in Sources */,
+				552705402740110A00868643 /* HeaderProfileView.swift in Sources */,
 				7D339EC92733D6240023BFDB /* NavigationBackButton.swift in Sources */,
 				7D339EC52733D3CE0023BFDB /* ImageGalleryView.swift in Sources */,
 				00FE22CA2733DBEB00EF306A /* AddMaterialView.swift in Sources */,
@@ -1485,7 +1517,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Finewaste/Preview Content\"";
-				DEVELOPMENT_TEAM = 6QH35NFSG6;
+				DEVELOPMENT_TEAM = ND4DZWJCVY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Finewaste/Info.plist;
@@ -1502,7 +1534,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = WeTheX.Finewastewwww;
+				PRODUCT_BUNDLE_IDENTIFIER = WeTheX.Finewaste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1520,7 +1552,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Finewaste/Preview Content\"";
-				DEVELOPMENT_TEAM = 6QH35NFSG6;
+				DEVELOPMENT_TEAM = ND4DZWJCVY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Finewaste/Info.plist;
@@ -1537,7 +1569,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = WeTheX.Finewastewwww;
+				PRODUCT_BUNDLE_IDENTIFIER = WeTheX.Finewaste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
