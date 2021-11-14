@@ -9,6 +9,8 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct ProjectOwnerView: View {
+    @State private var isShowingLoginModal = false
+    
     var body: some View {
         HStack {
             WebImage(url: URL(string: "https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"))
@@ -19,10 +21,16 @@ struct ProjectOwnerView: View {
                 .font(Fonts.poppinsCallout())
             Spacer()
             FinewasteButtonFill(text: "Chat", size: .small, isEnabled: true) {
-                // Navigate to chat view
+                if !AuthenticationHelper.shared.isLoggedIn {
+                    isShowingLoginModal.toggle()
+                    return
+                }
             }
         }
         .padding(.all, 16)
+        .sheet(isPresented: $isShowingLoginModal) {
+            LoginView(loginTrigger: .chat)
+        }
     }
 }
 
