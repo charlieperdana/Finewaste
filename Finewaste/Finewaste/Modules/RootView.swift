@@ -21,11 +21,6 @@ final class TabBarManager: ObservableObject {
 struct RootView: View {
 //    @State private var selectedTab: SelectedTab = .projects
     @State private var selectedTab = 0
-    @State private var oldSelectedTab = -1
-    @State private var isTabBarHidden = false
-    
-    @State private var isPresentingLoginSheet = false
-    @State private var modalDismissed = false
     
     var body: some View {
         NavigationView {
@@ -45,28 +40,11 @@ struct RootView: View {
                     }
                     Spacer()
                 }
-                .onChange(of: selectedTab) { [selectedTab] _ in
-                    if modalDismissed {
-                        self.modalDismissed = false
-                        return
-                    }
-                    
-                    self.oldSelectedTab = selectedTab
-                    if !AuthenticationHelper.shared.isLoggedIn {
-                        self.isPresentingLoginSheet.toggle()
-                    }
-                }
                 
                 VStack {
                     Spacer()
                     FloatingTabBarView(selected: $selectedTab)
                 }
-            }
-            .sheet(isPresented: $isPresentingLoginSheet, onDismiss: {
-                self.modalDismissed = true
-                self.selectedTab = oldSelectedTab
-            }) {
-                LoginView(loginTrigger: .chat)
             }
             .edgesIgnoringSafeArea(.bottom)
         }
