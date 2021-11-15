@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MyProjectView: View {
-    @StateObject var model = MyProjectViewModel(user: "charlie")
+    @StateObject var model = MyProjectViewModel(user: "8xayV4ivOsOSqUrNiD0kOHM7jih1")
     
     @State var searchText = ""
     @State var isSearching = false
@@ -29,7 +29,7 @@ struct MyProjectView: View {
     
 
     var body: some View {
-        NavigationView {
+//        NavigationView {
             
             
             ScrollView {
@@ -43,9 +43,9 @@ struct MyProjectView: View {
                 }
                 .navigationBarTitle(Text("My Projects").font(Fonts.poppinsHeadline()), displayMode: .inline)
             }
-        }
-        .navigationBarHidden(true)
-        .navigationBarItems(leading: btnBack)
+//        }
+//        .navigationBarHidden(true)
+//        .navigationBarItems(leading: btnBack)
     }
     
     init() {

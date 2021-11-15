@@ -39,7 +39,7 @@ struct RootView: View {
                         case 2:
                             ContributionStatusView()
                         case 3:
-                            Text("Profile")
+                            MyProfileView()
                         default:
                             EmptyView()
                     }
@@ -53,7 +53,7 @@ struct RootView: View {
                     
                     self.oldSelectedTab = selectedTab
                     if !AuthenticationHelper.shared.isLoggedIn {
-                        self.isPresentingLoginSheet.toggle()
+//                        self.isPresentingLoginSheet.toggle()
                     }
                 }
                 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MyContributeProjectView: View {
-    @StateObject var model = MyContributeProjectViewModel(user: "person1")
+    @StateObject var model = MyContributeProjectViewModel(user: "8xayV4ivOsOSqUrNiD0kOHM7jih1")
     
     @State var searchText = ""
     @State var isSearching = false
@@ -28,7 +28,7 @@ struct MyContributeProjectView: View {
     }
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             
             
             ScrollView {
@@ -42,9 +42,9 @@ struct MyContributeProjectView: View {
                 }
                 .navigationBarTitle(Text("Contributed").font(Fonts.poppinsHeadline()), displayMode: .inline)
             }
-        }
-        .navigationBarHidden(true)
-        .navigationBarItems(leading: btnBack)
+//        }
+//        .navigationBarHidden(true)
+//        .navigationBarItems(leading: btnBack)
     }
     
     init() {

@@ -10,10 +10,17 @@ import SDWebImageSwiftUI
 import SwiftUI
 
 struct HeaderProfileView: View {
+    
+    @ObservedObject var model: ProfileViewModel
+    
+    @State var showMyProject = false
+    @State var showMyContrProject = false
+    
+    
     var body: some View {
         VStack {
             HStack {
-                WebImage(url: URL(string: ("https://firebasestorage.googleapis.com/v0/b/finewaste.appspot.com/o/Profile%20Pic.svg?alt=media&token=63062364-4414-4d84-bb83-7a766f4aaa57")))
+                WebImage(url: URL(string: (model.user.profilePhotoUrl ?? "")))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 100, height: 100)
@@ -23,31 +30,45 @@ struct HeaderProfileView: View {
                 VStack(spacing:12){
                     HStack {
                         Spacer()
-                        VStack {
-                            Text("4300")
-                                .font(Fonts.poppinsTitle())
-                            Text("pcs saved")
-                                .font(Fonts.poppinsFootnote())
+                        Button(action: {
+                           
+                        }) {
+                            VStack {
+                                Text("4300")
+                                    .font(Fonts.poppinsTitle())
+                                Text("pcs saved")
+                                    .font(Fonts.poppinsFootnote())
+                            }.foregroundColor(Colors.Black)
                         }
                         Spacer()
-                        VStack {
-                            Text("4300")
-                                .font(Fonts.poppinsTitle())
-                            Text("projects")
-                                .font(Fonts.poppinsFootnote())
+                        Button(action: {
+                            self.showMyProject = true
+                        }) {
+                            VStack {
+                                Text("\(model.myProjectNumber)")
+                                    .font(Fonts.poppinsTitle())
+                                Text("projects")
+                                    .font(Fonts.poppinsFootnote())
+                            }.foregroundColor(Colors.Black)
                         }
                         Spacer()
-                        VStack {
-                            Text("4300")
-                                .font(Fonts.poppinsTitle())
-                            Text("contributed")
-                                .font(Fonts.poppinsFootnote())
+                        Button(action: {
+                            self.showMyContrProject = true
+                        }) {
+                            VStack {
+                                Text("\(model.myContributionNumber)")
+                                    .font(Fonts.poppinsTitle())
+                                Text("contributed")
+                                    .font(Fonts.poppinsFootnote())
+                            }.foregroundColor(Colors.Black)
                         }
                         
                     }
                     
                     
                 }
+                NavigationLink(destination: MyProjectView(), isActive: $showMyProject) {}
+                NavigationLink(destination: MyContributeProjectView(), isActive: $showMyContrProject) {}
                     
             }
             
@@ -60,6 +81,6 @@ struct HeaderProfileView: View {
 
 struct HeaderProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderProfileView()
+        HeaderProfileView(model: ProfileViewModel(userId: "8xayV4ivOsOSqUrNiD0kOHM7jih1"))
     }
 }

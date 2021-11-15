@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct DescriptionProfileView: View {
+    
+    @ObservedObject var model: ProfileViewModel
+    
     var body: some View {
         VStack(alignment:.leading, spacing: 8) {
             Text("Description")
                 .font(Fonts.poppinsCallout())
             
 
-            Text("Love upcycling you!")
+            Text(model.user.description ?? "--")
                 .font(Fonts.poppinsSubheadline())
             
             HStack{
@@ -29,6 +32,6 @@ struct DescriptionProfileView: View {
 
 struct DescriptionProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        DescriptionProfileView()
+        DescriptionProfileView(model: ProfileViewModel(userId: "8xayV4ivOsOSqUrNiD0kOHM7jih1"))
     }
 }

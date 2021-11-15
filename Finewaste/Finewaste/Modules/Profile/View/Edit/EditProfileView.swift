@@ -10,6 +10,7 @@ import SDWebImageSwiftUI
 import Combine
 
 struct EditProfileView: View {
+    @Environment(\.presentationMode) var presentationMode
     
     @State private var nameText = ""
     
@@ -22,11 +23,11 @@ struct EditProfileView: View {
     @State private var isUpcycler : Bool = false
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             ScrollView(.vertical) {
                 ScrollViewReader { value in
                     VStack(spacing:16) {
-                        WebImage(url: URL(string: ("https://firebasestorage.googleapis.com/v0/b/finewaste.appspot.com/o/Profile%20Pic.svg?alt=media&token=63062364-4414-4d84-bb83-7a766f4aaa57")))
+                        WebImage(url: URL(string: ("https://firebasestorage.googleapis.com/v0/b/finewaste.appspot.com/o/Num1.jpg?alt=media&token=75452abe-ab1b-49c1-bedf-b3842212c0f8")))
                             .resizable()
                             .scaledToFill()
                             .frame(width: 100, height: 100)
@@ -133,10 +134,11 @@ struct EditProfileView: View {
             .padding()
             .navigationTitle(Text("Edit Profile"))
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading:
                                     HStack {
                 Button {
-                    
+                    self.presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Cancel").font(Fonts.poppinsBody()).foregroundColor(Colors.Turqoise)
                 }
@@ -153,7 +155,7 @@ struct EditProfileView: View {
                     
                 }
             }
-        }
+//        }
     }
     
     init() {
