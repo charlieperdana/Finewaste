@@ -64,7 +64,7 @@ struct LoginView: View {
             }
             .signInWithAppleButtonStyle(.black)
             .frame(height: 55)
-            .padding(.horizontal, 40)
+            .padding(.horizontal)
             
 
         }
