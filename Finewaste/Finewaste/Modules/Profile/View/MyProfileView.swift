@@ -23,7 +23,7 @@ struct MyProfileView: View {
                     self.showEditPage = true
                 }
                 
-                NavigationLink(destination: EditProfileView(), isActive: $showEditPage) {}
+                NavigationLink(destination: EditProfileView(model: model), isActive: $showEditPage) {}
                 
                 DescriptionProfileView(model: model)
             }

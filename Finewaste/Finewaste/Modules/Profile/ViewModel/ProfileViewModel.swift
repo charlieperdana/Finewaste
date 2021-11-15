@@ -47,6 +47,12 @@ class ProfileViewModel: ObservableObject {
                             print("Jumlah Contri:\(number)")
                         }
                         
+                        let location = userData?["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0)
+                        
+                        self.getLocationName(latitude: location.latitude, longitude: location.longitude) { value in
+                            self.locationName = value
+                        }
+                        
                         self.user = User(id: userId,
                                     profilePhotoUrl: userData?["profilePhotoUrl"] as? String ?? "",
                                     name: userData?["name"] as? String ?? "",
@@ -108,7 +114,7 @@ class ProfileViewModel: ObservableObject {
                         
                         snapshot.documents.forEach( { contribution in
                             let documentData = contribution.data()
-                            self.database.collection("projects").document(documentData["projectId"] as? String ?? "").addSnapshotListener { snapshot, error in
+                            self.database.collection("projects").document(documentData["projectId"] as? String ?? "").addSnapshotListener { _, _ in
                                 
                                 counter += 1
                                 
@@ -135,22 +141,37 @@ class ProfileViewModel: ObservableObject {
         
     }
     
-//    func getLocationName(latitude: Double, longitude: Double) -> String {
-//        if let lat = latitude, let long = longitude {
-//            let loc = CLLocation(latitude: lat, longitude: long)
-//
-//            loc.fetchShortLocation { placemark, error in
-//                if error != nil {
-//                    self.projectLocation = "---"
-//                }
-//
-//                let locality = placemark?.locality ?? "---"
-//                let subLocality = placemark?.subLocality ?? "---"
-//
-//                self.projectLocation = "\(locality), \(subLocality)"
-//            }
-//        }
-//    }
+    func getLocationName(latitude: Double, longitude: Double, completion: @escaping (String) -> Void) {
+        var location = ""
+        let loc = CLLocation(latitude: latitude, longitude: longitude)
+        
+        loc.fetchShortLocation { placemark, error in
+            if error != nil {
+                location = "---"
+            }
+            
+            let locality = placemark?.locality ?? "---"
+            let subLocality = placemark?.subLocality ?? "---"
+            
+            location = "\(locality), \(subLocality)"
+            
+            completion(location)
+        
+        }
+    }
+    
+    func updateProfile(data: User){
+        let updatedData = ["name":data.name ?? "",
+                           "username":data.username ?? ""
+        ]
+        database.collection("users").document(data.id ?? "").setData(updatedData, merge: true){ error in
+            
+            if error == nil {
+                
+            }
+            
+        }
+    }
     
     
 }

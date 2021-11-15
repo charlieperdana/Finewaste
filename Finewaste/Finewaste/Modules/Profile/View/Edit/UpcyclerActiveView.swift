@@ -24,7 +24,6 @@ struct UpcyclerActiveView: View {
                     Text("Product Pictures")
                         .font(Fonts.poppinsCallout())
                     FinewasteImagePicker(selectedImages: $selectedImages)
-                        .id(8)
                 }
             }
         

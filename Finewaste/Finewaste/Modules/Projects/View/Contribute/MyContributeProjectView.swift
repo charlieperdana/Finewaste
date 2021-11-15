@@ -40,16 +40,24 @@ struct MyContributeProjectView: View {
                     
                     
                 }
-                .navigationBarTitle(Text("Contributed").font(Fonts.poppinsHeadline()), displayMode: .inline)
+//                .navigationBarTitle(Text("Contributed").font(Fonts.poppinsHeadline()), displayMode: .inline)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        VStack {
+                            Text("Contributed").font(Fonts.poppinsHeadline())
+                        }
+                    }
+                }
             }
 //        }
 //        .navigationBarHidden(true)
 //        .navigationBarItems(leading: btnBack)
     }
     
-    init() {
-        UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Poppins-SemiBold", size: 17)!]
-    }
+//    init() {
+//        UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Poppins-SemiBold", size: 17)!]
+//    }
 }
 
 struct MyContributrProjectView_Previews: PreviewProvider {

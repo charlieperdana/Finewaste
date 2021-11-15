@@ -16,7 +16,7 @@ struct InfoProfileView: View {
                 .font(Fonts.poppinsCallout())
             
 
-            Text(model.user.name ?? "---")
+            Text(model.locationName)
                 .font(Fonts.poppinsSubheadline())
             
             HStack{

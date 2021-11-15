@@ -27,29 +27,37 @@ struct MyProjectView: View {
     }
     }
     
-
+    
     var body: some View {
-//        NavigationView {
-            
-            
-            ScrollView {
-                VStack {
-                    
-                    SearchBarView(searchText: $searchText, isSearching: $isSearching)
-                    
-                    MyProjectGridView(model: model,searchText: $searchText)
-                    
-                    
-                }
-                .navigationBarTitle(Text("My Projects").font(Fonts.poppinsHeadline()), displayMode: .inline)
+        //        NavigationView {
+        
+        
+        ScrollView {
+            VStack {
+                
+                SearchBarView(searchText: $searchText, isSearching: $isSearching)
+                
+                MyProjectGridView(model: model,searchText: $searchText)
+                
+                
             }
-//        }
-//        .navigationBarHidden(true)
-//        .navigationBarItems(leading: btnBack)
+            //                .navigationBarTitle(Text("My Projects"), displayMode: .inline)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    VStack {
+                        Text("My Projects").font(Fonts.poppinsHeadline())
+                    }
+                }
+            }
+        }
+        //        }
+        //        .navigationBarHidden(true)
+        //        .navigationBarItems(leading: btnBack)
     }
     
     init() {
-        UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Poppins-SemiBold", size: 17)!]
+        //        UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Poppins-SemiBold", size: 17)!]
     }
 }
 
