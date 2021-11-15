@@ -49,7 +49,7 @@ struct FinewasteImageGallery: View {
                                         .fill(Colors.Black)
                                         .opacity(0.7)
                                     
-                                    Text("See all")
+                                    Text("+\(images.count - maxImagesToDisplay) more")
                                         .font(Fonts.poppinsSubheadline())
                                         .foregroundColor(Colors.White)
                                 }
