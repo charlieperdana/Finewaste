@@ -17,7 +17,7 @@ struct UpcyclerActiveView: View {
                 VStack(alignment:.leading, spacing:3) {
                     Text("Product Service")
                         .font(Fonts.poppinsCallout())
-                    FinewasteTextField(placeholder: "e.g. Jonathan", text: $productService)
+                    FinewasteTextField(placeholder: "Tell us about your product services", text: $productService)
                 }
                 
                 VStack(alignment:.leading, spacing:3) {

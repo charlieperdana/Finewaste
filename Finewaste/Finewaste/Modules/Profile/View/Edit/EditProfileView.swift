@@ -8,6 +8,9 @@
 import SwiftUI
 import SDWebImageSwiftUI
 import Combine
+import CoreLocation
+import Firebase
+import FirebaseFirestoreSwift
 
 struct EditProfileView: View {
     @ObservedObject var model: ProfileViewModel
@@ -24,6 +27,10 @@ struct EditProfileView: View {
     let textLimit = 500
     
     @State var isUpcycler : Bool = false
+    
+    @State var defaultCoordinate: CLLocationCoordinate2D = .init(latitude: -6.175784, longitude: 106.827136)
+    
+    @State private var showMapScreen = false
     
     var body: some View {
 
@@ -68,17 +75,27 @@ struct EditProfileView: View {
                                 .padding([.leading, .trailing], 16)
                                 .padding([.top, .bottom], 12)
                             
-                            Button {
-                                
-                            } label: {
-                                Image(systemName: "map")
-                                    .foregroundColor(Colors.Turqoise)
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
-                            }
+                            HStack {
+                                Spacer()
+                                Button {
+                                    self.showMapScreen = true
+                                    
+                                } label: {
+                                    Image(systemName: "map")
+                                        .foregroundColor(Colors.Turqoise)
+                                        .frame(alignment: .trailing)
+                                }
                             .padding()
+                            }
+                            
+                            
+                            NavigationLink(destination: MapPinPointView(currentCoordinate: $defaultCoordinate), isActive: $showMapScreen) {
+                                EmptyView()
+                            }
                             
                         }
                         .frame(height: 58)
+                       
                     }
                     
                     VStack(alignment:.leading, spacing:3) {
@@ -133,8 +150,16 @@ struct EditProfileView: View {
                 .onReceive(self.model.$user) { user in
                     self.nameText = user.name ?? ""
                     self.usernameText = user.username ?? ""
-                    self.addressText = model.locationName
+//                    self.addressText = model.locationName
                     self.descText = user.description ?? ""
+                    if let location = user.location{
+                        self.defaultCoordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+                        
+                        model.getLocationName(latitude: location.latitude, longitude: location.longitude, completion: { value in
+                            self.addressText = value
+                        })
+                    }
+                   
                 }
                 
                 
@@ -165,7 +190,7 @@ struct EditProfileView: View {
                         let prodService = [""]
                         let createdProducts = model.user.createdProducts
                         let donatedWaste = model.user.donatedWaste
-                        let location = model.user.location
+                        let location = GeoPoint(latitude: self.defaultCoordinate.latitude, longitude: self.defaultCoordinate.longitude)
                         let isBusiness = model.user.isBusiness
                         
                         self.model.updateProfile(data: User(id: id, profilePhotoUrl: profilePhotoUrl, name: name, username: username, description: desc, productServices: prodService, createdProducts: createdProducts, donatedWaste: donatedWaste, location: location, isBusiness: isBusiness))
