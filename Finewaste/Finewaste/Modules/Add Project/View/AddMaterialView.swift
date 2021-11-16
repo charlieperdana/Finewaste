@@ -13,7 +13,7 @@ struct AddMaterialView: View {
     @State var materialQuantity: String = ""
     @State var isReceivingMore: Bool = false
     
-    init(selectedMaterial: NewMaterial, editMaterial: Bool) {
+    init(selectedMaterial: NewMaterialModel, editMaterial: Bool) {
         self.selectedMaterial = selectedMaterial
         self.editMaterial = editMaterial
         if editMaterial {
@@ -26,8 +26,8 @@ struct AddMaterialView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @EnvironmentObject var newProject: NewProject
-    var selectedMaterial: NewMaterial
+    @EnvironmentObject var newProject: NewProjectModel
+    var selectedMaterial: NewMaterialModel
     var editMaterial: Bool = false
     
     var isFieldFilled: Bool {
@@ -78,7 +78,7 @@ struct AddMaterialView: View {
                     selectedMaterial.allowOverlimit = isReceivingMore
                     selectedMaterial.materialPrerequisite = requirements
                 } else {
-                    newProject.newMaterial.append(NewMaterial(name: materialNeeded, target: target, limit: isReceivingMore, requirements: requirements))
+                    newProject.newMaterial.append(NewMaterialModel(name: materialNeeded, target: target, limit: isReceivingMore, requirements: requirements))
                 }
                 presentationMode.wrappedValue.dismiss()
             }, label: {
@@ -100,6 +100,6 @@ struct AddMaterialView: View {
 
 struct AddMaterialView_Previews: PreviewProvider {
     static var previews: some View {
-        AddMaterialView(selectedMaterial: NewMaterial(name: "", target: 0, limit: false, requirements: []), editMaterial: false)
+        AddMaterialView(selectedMaterial: NewMaterialModel(name: "", target: 0, limit: false, requirements: []), editMaterial: false)
     }
 }

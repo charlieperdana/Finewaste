@@ -11,13 +11,12 @@ import CoreLocation
 struct DeliveryView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var deliveryOption: String = ""
-    @State var projectAddress: String = ""
-    @State var defaultCoordinate: CLLocationCoordinate2D = .init(latitude: -6.175784, longitude: 106.827136)
     
-    @EnvironmentObject var newProject: NewProject
+    @EnvironmentObject var newProject: NewProjectModel
+    @StateObject private var viewModel = DeliveryViewModel()
     
     var isFieldFilled: Bool {
-        !deliveryOption.isEmpty && !projectAddress.isEmpty
+        !deliveryOption.isEmpty && viewModel.isLocationSelected
     }
     
     var body: some View {
@@ -74,13 +73,16 @@ struct DeliveryView: View {
                         .font(Fonts.poppinsCallout())
                     Text("Your full address will not be shown on the project")
                         .font(Fonts.poppinsFootnote())
-                    FinewasteMapPicker(isReadOnly: true, currentAddress: $projectAddress, currentCoordinate: $defaultCoordinate)
+                    FinewasteMapPicker(isReadOnly: false, currentAddress: $viewModel.projectModel.deliveryAddress, currentCoordinate: $viewModel.pickUpCoordinate)
                 }
                 Spacer()
                 FinewasteButtonFill(text: "Add Project", size: .fullWidth, isEnabled: isFieldFilled) {
                     print("Add project tapped")
                 }
             }
+            .onAppear(perform: {
+                viewModel.projectModel = newProject
+            })
             .font(Fonts.poppinsHeadline())
             .navigationBarTitle("Delivery")
             .navigationBarTitleDisplayMode(.inline)

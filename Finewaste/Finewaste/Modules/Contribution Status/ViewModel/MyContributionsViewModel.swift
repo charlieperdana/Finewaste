@@ -6,20 +6,22 @@
 //
 
 import Combine
+import FirebaseFirestore
 
 class MyContributionsViewModel: ObservableObject {
     private var repository = ContributionRepository()
-    @Published var contribution = [Contribution]()
+    @Published var contributions = [Contribution]()
     
     private var cancellables: Set<AnyCancellable> = []
     
-    var contributionID: String
+//    var contributionID: String
     
-    init(contributionID: String) {
-        self.contributionID = contributionID
+    init() {
+//        self.contributionID = contributionID
         repository.$contributions
-            .assign(to: \.contribution, on: self)
+            .assign(to: \.contributions, on: self)
             .store(in: &cancellables)
-        repository.getContributions(projectId: contributionID)
+//        repository.getContributions(projectId: contributionID)
+        repository.getUserContribution(userID: "---")
     }
 }

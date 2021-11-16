@@ -14,6 +14,8 @@ struct Contribution: Codable, Identifiable {
     var status: Int? = 0
     var contributor: String?
     var projectId: String?
-    var deliveryType: String??
+    var projectName: String?
+    var deliveryType: String?
     var location: GeoPoint?
+    @ServerTimestamp var createdDate: Timestamp?
 }
