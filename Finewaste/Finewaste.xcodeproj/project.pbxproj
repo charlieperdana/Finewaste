@@ -36,6 +36,15 @@
 		5527054927412D6D00868643 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527054827412D6D00868643 /* EditProfileView.swift */; };
 		5527054B27417C4B00868643 /* UpcyclerActiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527054A27417C4B00868643 /* UpcyclerActiveView.swift */; };
 		5527054E2742628300868643 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527054D2742628300868643 /* ProfileViewModel.swift */; };
+		552705522744210800868643 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552705512744210700868643 /* SettingView.swift */; };
+		552705542744254100868643 /* SettingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552705532744254100868643 /* SettingItemView.swift */; };
+		552705572744284300868643 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552705562744284300868643 /* Setting.swift */; };
+		5527055A27442D5300868643 /* HowWeWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527055927442D5300868643 /* HowWeWorkView.swift */; };
+		5527055C27442D8E00868643 /* FaqView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527055B27442D8E00868643 /* FaqView.swift */; };
+		5527055E27442DA600868643 /* TermOfUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527055D27442DA600868643 /* TermOfUseView.swift */; };
+		5527056027442DC100868643 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527055F27442DC100868643 /* PrivacyPolicyView.swift */; };
+		5527056227442DE900868643 /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527056127442DE900868643 /* ContactUsView.swift */; };
+		5527056427442E0000868643 /* SignOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527056327442E0000868643 /* SignOutView.swift */; };
 		5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6892728152900601A69 /* FinewasteApp.swift */; };
 		5572C68E2728152C00601A69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C68D2728152C00601A69 /* Assets.xcassets */; };
 		5572C6912728152C00601A69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C6902728152C00601A69 /* Preview Assets.xcassets */; };
@@ -188,6 +197,15 @@
 		5527054827412D6D00868643 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		5527054A27417C4B00868643 /* UpcyclerActiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcyclerActiveView.swift; sourceTree = "<group>"; };
 		5527054D2742628300868643 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		552705512744210700868643 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		552705532744254100868643 /* SettingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItemView.swift; sourceTree = "<group>"; };
+		552705562744284300868643 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		5527055927442D5300868643 /* HowWeWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowWeWorkView.swift; sourceTree = "<group>"; };
+		5527055B27442D8E00868643 /* FaqView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqView.swift; sourceTree = "<group>"; };
+		5527055D27442DA600868643 /* TermOfUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermOfUseView.swift; sourceTree = "<group>"; };
+		5527055F27442DC100868643 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		5527056127442DE900868643 /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
+		5527056327442E0000868643 /* SignOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutView.swift; sourceTree = "<group>"; };
 		5572C6862728152900601A69 /* Finewaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finewaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5572C6892728152900601A69 /* FinewasteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteApp.swift; sourceTree = "<group>"; };
 		5572C68D2728152C00601A69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -509,6 +527,45 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		5527054F274420E400868643 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				55270550274420F300868643 /* View */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		55270550274420F300868643 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5527055827442D4200868643 /* Item */,
+				552705512744210700868643 /* SettingView.swift */,
+				552705532744254100868643 /* SettingItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		552705552744283100868643 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				552705562744284300868643 /* Setting.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		5527055827442D4200868643 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				5527055927442D5300868643 /* HowWeWorkView.swift */,
+				5527055B27442D8E00868643 /* FaqView.swift */,
+				5527055D27442DA600868643 /* TermOfUseView.swift */,
+				5527055F27442DC100868643 /* PrivacyPolicyView.swift */,
+				5527056127442DE900868643 /* ContactUsView.swift */,
+				5527056327442E0000868643 /* SignOutView.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
 		5572C67D2728152900601A69 = {
 			isa = PBXGroup;
 			children = (
@@ -828,6 +885,7 @@
 		7DDD2291272FD52900250B35 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				552705552744283100868643 /* Setting */,
 				7D0200CF273670B000D3BB44 /* Project */,
 				55B6040E273047FC00631004 /* UserInfo.swift */,
 				551DD8882732A2DF00E550AF /* Users.swift */,
@@ -841,6 +899,7 @@
 		7DDD2294272FD54600250B35 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5527054F274420E400868643 /* Setting */,
 				5527053B2740020F00868643 /* Profile */,
 				7DF81CB8273E941800D6A24A /* Chat */,
 				00BC26A8273D123900C0C7DB /* Contribution Status */,
@@ -1285,6 +1344,7 @@
 				7D6DD4BF273AA3F20023E163 /* FinewasteMaterialCard.swift in Sources */,
 				00F2BC9F2733C78D00E95798 /* AboutView.swift in Sources */,
 				5527052B273D6CC700868643 /* MyProjectGridView.swift in Sources */,
+				552705522744210800868643 /* SettingView.swift in Sources */,
 				7D6DD4B3273A66530023E163 /* PaginationView.swift in Sources */,
 				00C18B552732988E000C1103 /* DeliveryView.swift in Sources */,
 				559B6E9E2736D29A003FD6AC /* SearchBarView.swift in Sources */,
@@ -1296,6 +1356,7 @@
 				552705422740162E00868643 /* DescriptionProfileView.swift in Sources */,
 				7D6DD4C1273AB2680023E163 /* StepBulletColor.swift in Sources */,
 				7D6DD4E3273C07980023E163 /* MapKitService.swift in Sources */,
+				5527056227442DE900868643 /* ContactUsView.swift in Sources */,
 				7DDD22F227318C7C00250B35 /* ProjectMaterialRequirementView.swift in Sources */,
 				7DDD22FC2732C30900250B35 /* ProjectStatusView.swift in Sources */,
 				7D6DD4BA273A7DEF0023E163 /* SetDeliveryView.swift in Sources */,
@@ -1306,6 +1367,7 @@
 				551DD88D273302C300E550AF /* ProjectViewModel.swift in Sources */,
 				7D91434B2734FA9D00B89F98 /* Conversation.swift in Sources */,
 				7D6DD4B1273A63500023E163 /* AddContributionView.swift in Sources */,
+				5527055C27442D8E00868643 /* FaqView.swift in Sources */,
 				5572C6932728152C00601A69 /* Persistence.swift in Sources */,
 				7D0200CE2736708D00D3BB44 /* ProjectUpdate.swift in Sources */,
 				7DDD23012732CC4900250B35 /* ProjectUpdateCard.swift in Sources */,
@@ -1319,6 +1381,7 @@
 				55B6044C27304F0300631004 /* HomeView.swift in Sources */,
 				7D6DD4E9273C0AC00023E163 /* SearchResultData.swift in Sources */,
 				5527053A273D8D7600868643 /* MyContributeProjectViewModel.swift in Sources */,
+				5527056027442DC100868643 /* PrivacyPolicyView.swift in Sources */,
 				7D0200F82737B8B200D3BB44 /* PostProjectUpdateViewModel.swift in Sources */,
 				551DD8902733037E00E550AF /* MainProjectView.swift in Sources */,
 				7DF81CB7273E923900D6A24A /* RootView.swift in Sources */,
@@ -1326,6 +1389,7 @@
 				551DD8892732A2DF00E550AF /* Users.swift in Sources */,
 				7D9143492734F9A700B89F98 /* User.swift in Sources */,
 				7DDD22F627319FB700250B35 /* ProjectImageCarouselView.swift in Sources */,
+				552705542744254100868643 /* SettingItemView.swift in Sources */,
 				00BC26B4273D278700C0C7DB /* FinewasteContributionStatusCard.swift in Sources */,
 				7D6DD4B6273A75A50023E163 /* StepBullet.swift in Sources */,
 				5527054927412D6D00868643 /* EditProfileView.swift in Sources */,
@@ -1333,10 +1397,13 @@
 				7DDD22E32731136F00250B35 /* FinewasteButtonFill.swift in Sources */,
 				7DDD22FA2732C23600250B35 /* ProjectOwnerView.swift in Sources */,
 				7D0200E72737838000D3BB44 /* FinewasteButtonOutline.swift in Sources */,
+				5527055A27442D5300868643 /* HowWeWorkView.swift in Sources */,
 				7DDD22CC27303CF100250B35 /* Fonts.swift in Sources */,
 				7D91434F273590C700B89F98 /* ProjectMaterialRepository.swift in Sources */,
 				7DF81CBB273E942900D6A24A /* ChatListView.swift in Sources */,
+				5527055E27442DA600868643 /* TermOfUseView.swift in Sources */,
 				7D0200D32736C2F800D3BB44 /* ContributionRepository.swift in Sources */,
+				5527056427442E0000868643 /* SignOutView.swift in Sources */,
 				7DF81CBF273EB12300D6A24A /* AuthenticationHelper.swift in Sources */,
 				7DDD22EC273137A700250B35 /* ProjectAboutView.swift in Sources */,
 				7DDD2293272FD53500250B35 /* Project.swift in Sources */,
@@ -1374,6 +1441,7 @@
 				55FE1580273919D900B24F2D /* RoundedCorner.swift in Sources */,
 				5527053E2740022B00868643 /* MyProfileView.swift in Sources */,
 				7D6DD4D8273B84390023E163 /* MapView.swift in Sources */,
+				552705572744284300868643 /* Setting.swift in Sources */,
 				55B604572731302F00631004 /* OnboardingView.swift in Sources */,
 				55B6040D272FEA6800631004 /* LoginViewModel.swift in Sources */,
 				552705402740110A00868643 /* HeaderProfileView.swift in Sources */,

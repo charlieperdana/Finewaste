@@ -11,6 +11,7 @@ struct MyProfileView: View {
     @StateObject var model = ProfileViewModel(userId: "8xayV4ivOsOSqUrNiD0kOHM7jih1")
     
     @State var showEditPage = false
+    @State var showSettingPage = false
     
     var body: some View {
         ScrollView(.vertical) {
@@ -24,6 +25,8 @@ struct MyProfileView: View {
                 }
                 
                 NavigationLink(destination: EditProfileView(model: model), isActive: $showEditPage) {}
+                
+                NavigationLink(destination: SettingView(), isActive: $showSettingPage) {}
                 
                 DescriptionProfileView(model: model)
             }
@@ -41,7 +44,8 @@ struct MyProfileView: View {
         .toolbar{
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    
+                    self.showSettingPage = true
+                    print("Setting tap")
                 } label: {
                     Image(systemName: "gearshape").foregroundColor(Colors.Turqoise)
                 }
