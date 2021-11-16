@@ -21,10 +21,10 @@ struct ProjectOwnerView: View {
                 .font(Fonts.poppinsCallout())
             Spacer()
             FinewasteButtonFill(text: "Chat", size: .small, isEnabled: true) {
-                if !AuthenticationHelper.shared.isLoggedIn {
-                    isShowingLoginModal.toggle()
-                    return
-                }
+//                if !AuthenticationHelper.shared.isLoggedIn {
+//                    isShowingLoginModal.toggle()
+//                    return
+//                }
             }
         }
         .padding(.all, 16)
