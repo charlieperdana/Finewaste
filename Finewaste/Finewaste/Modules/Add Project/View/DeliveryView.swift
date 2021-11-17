@@ -74,7 +74,7 @@ struct DeliveryView: View {
                         .font(Fonts.poppinsCallout())
                     Text("Your full address will not be shown on the project")
                         .font(Fonts.poppinsFootnote())
-                    FinewasteMapPicker(isReadOnly: true, currentAddress: $projectAddress, currentCoordinate: $defaultCoordinate)
+                    FinewasteMapPicker(isReadOnly: true, currentAddress: $projectAddress, currentCoordinate: $defaultCoordinate, isShowingMap: true)
                 }
                 Spacer()
                 FinewasteButtonFill(text: "Add Project", size: .fullWidth, isEnabled: isFieldFilled) {

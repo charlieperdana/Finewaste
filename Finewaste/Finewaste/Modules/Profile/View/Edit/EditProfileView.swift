@@ -28,7 +28,11 @@ struct EditProfileView: View {
     
     @State var isUpcycler : Bool = false
     
-    @State var defaultCoordinate: CLLocationCoordinate2D = .init(latitude: -6.175784, longitude: 106.827136)
+    @State var defaultCoordinate: CLLocationCoordinate2D = .init(latitude: -6.175784, longitude: 106.827136){
+        didSet{
+            print("Lokaasinya")
+        }
+    }
     
     @State private var showMapScreen = false
     
@@ -67,34 +71,36 @@ struct EditProfileView: View {
                             .font(Fonts.poppinsCallout())
                         Text("Your full address will not be shown on your profile")
                             .font(Fonts.poppinsCaption())
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Colors.Gray)
-                            TextField("Type your adreess here...", text: $addressText)
-                                .font(Fonts.poppinsSubheadline())
-                                .padding([.leading, .trailing], 16)
-                                .padding([.top, .bottom], 12)
-                            
-                            HStack {
-                                Spacer()
-                                Button {
-                                    self.showMapScreen = true
-                                    
-                                } label: {
-                                    Image(systemName: "map")
-                                        .foregroundColor(Colors.Turqoise)
-                                        .frame(alignment: .trailing)
-                                }
-                            .padding()
-                            }
-                            
-                            
-                            NavigationLink(destination: MapPinPointView(currentCoordinate: $defaultCoordinate), isActive: $showMapScreen) {
-                                EmptyView()
-                            }
-                            
-                        }
-                        .frame(height: 58)
+//                        ZStack {
+//                            RoundedRectangle(cornerRadius: 10)
+//                                .stroke(Colors.Gray)
+//                            TextField("Type your adreess here...", text: $addressText)
+//                                .font(Fonts.poppinsSubheadline())
+//                                .padding([.leading, .trailing], 16)
+//                                .padding([.top, .bottom], 12)
+//
+//                            HStack {
+//                                Spacer()
+//                                Button {
+//                                    self.showMapScreen = true
+//
+//                                } label: {
+//                                    Image(systemName: "map")
+//                                        .foregroundColor(Colors.Turqoise)
+//                                        .frame(alignment: .trailing)
+//                                }
+//                            .padding()
+//                            }
+//
+//
+//                            NavigationLink(destination: MapPinPointView(currentCoordinate: $defaultCoordinate), isActive: $showMapScreen) {
+//                                EmptyView()
+//                            }
+//
+//                        }
+//                        .frame(height: 58)
+                        
+                        FinewasteMapPicker(isReadOnly: false, currentAddress: $addressText, currentCoordinate: $defaultCoordinate, isShowingMap: false)
                        
                     }
                     
@@ -155,6 +161,7 @@ struct EditProfileView: View {
                     if let location = user.location{
                         self.defaultCoordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
                         
+                        
                         model.getLocationName(latitude: location.latitude, longitude: location.longitude, completion: { value in
                             self.addressText = value
                         })
@@ -196,6 +203,8 @@ struct EditProfileView: View {
                         self.model.updateProfile(data: User(id: id, profilePhotoUrl: profilePhotoUrl, name: name, username: username, description: desc, productServices: prodService, createdProducts: createdProducts, donatedWaste: donatedWaste, location: location, isBusiness: isBusiness))
                         
                         self.presentationMode.wrappedValue.dismiss()
+                        
+                        print("Keluar : \(defaultCoordinate)")
                         
                     } label: {
                         Text("Done").font(Fonts.poppinsBody()).foregroundColor(Colors.Gray)

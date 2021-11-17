@@ -43,13 +43,13 @@ struct SetDeliveryView: View {
                     if selectedDeliveryMethod == "Drop off" {
                         FinewasteMapPicker(isReadOnly: true,
                                            currentAddress: .constant(viewModel.projectLocation),
-                                           currentCoordinate: $viewModel.projectCoordinate)
+                                           currentCoordinate: $viewModel.projectCoordinate, isShowingMap: true)
                         Text("Deliver the materials within 3x24 hours from the time contribution request made")
                             .font(Fonts.poppinsCaption())
                     } else {
                         FinewasteMapPicker(isReadOnly: false,
                                            currentAddress: $viewModel.contributionModel.deliveryAddress,
-                                           currentCoordinate: $viewModel.pickUpCoordinate)
+                                           currentCoordinate: $viewModel.pickUpCoordinate, isShowingMap: true)
                         Text("Materials will be picked up within 3x24 hours from the time contribution request made")
                             .font(Fonts.poppinsCaption())
                     }
