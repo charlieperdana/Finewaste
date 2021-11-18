@@ -18,6 +18,7 @@
 		00E7704A27327AC300C9C299 /* showImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E7704927327AC300C9C299 /* showImagePicker.swift */; };
 		00F2BC9F2733C78D00E95798 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F2BC9E2733C78D00E95798 /* AboutView.swift */; };
 		00FE22CA2733DBEB00EF306A /* AddMaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE22C92733DBEB00EF306A /* AddMaterialView.swift */; };
+		551BAAE12746B5C20061093A /* ProfileImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551BAAE02746B5C20061093A /* ProfileImagePicker.swift */; };
 		551DD88727329E7A00E550AF /* EncryptionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD88627329E7A00E550AF /* EncryptionHelper.swift */; };
 		551DD8892732A2DF00E550AF /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD8882732A2DF00E550AF /* Users.swift */; };
 		551DD88D273302C300E550AF /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551DD88C273302C300E550AF /* ProjectViewModel.swift */; };
@@ -179,6 +180,7 @@
 		00FE22C92733DBEB00EF306A /* AddMaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaterialView.swift; sourceTree = "<group>"; };
 		2DF683434FDB618D22EE5487 /* Pods-FinewasteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinewasteTests.release.xcconfig"; path = "Target Support Files/Pods-FinewasteTests/Pods-FinewasteTests.release.xcconfig"; sourceTree = "<group>"; };
 		31A721380256AA037E7CAE8D /* Pods-Finewaste.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finewaste.release.xcconfig"; path = "Target Support Files/Pods-Finewaste/Pods-Finewaste.release.xcconfig"; sourceTree = "<group>"; };
+		551BAAE02746B5C20061093A /* ProfileImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImagePicker.swift; sourceTree = "<group>"; };
 		551DD88627329E7A00E550AF /* EncryptionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionHelper.swift; sourceTree = "<group>"; };
 		551DD8882732A2DF00E550AF /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		551DD88C273302C300E550AF /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 			children = (
 				5527054827412D6D00868643 /* EditProfileView.swift */,
 				5527054A27417C4B00868643 /* UpcyclerActiveView.swift */,
+				551BAAE02746B5C20061093A /* ProfileImagePicker.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -1326,6 +1329,7 @@
 				55FE157B27384E1400B24F2D /* ProjectGridView.swift in Sources */,
 				7DDD22E62731140C00250B35 /* FinewasteButtonSize.swift in Sources */,
 				7D6DD4C9273AC3FE0023E163 /* EditContributionMaterialView.swift in Sources */,
+				551BAAE12746B5C20061093A /* ProfileImagePicker.swift in Sources */,
 				7DF81CBD273E947D00D6A24A /* TabBarItem.swift in Sources */,
 				7D0200DE2736DD5200D3BB44 /* ProjectUpdateViewModel.swift in Sources */,
 				7DDD22DC2730EBC300250B35 /* ProjectDetailViewModel.swift in Sources */,

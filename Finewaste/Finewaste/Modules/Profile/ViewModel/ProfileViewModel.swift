@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import CoreLocation
+import UIKit
 
 class ProfileViewModel: ObservableObject {
     
@@ -162,14 +163,33 @@ class ProfileViewModel: ObservableObject {
     
     func updateProfile(data: User){
         let updatedData = ["name":data.name ?? "",
-                           "username":data.username ?? ""
-        ]
+                           "username":data.username ?? "",
+                           "location":data.location ?? GeoPoint(latitude: 0.0, longitude: 0.0),
+                           "description":data.description ?? "",
+                           "isBusiness":data.isBusiness ?? false,
+                           "productService":data.productServices ?? [""]
+        ] as [String : Any]
         database.collection("users").document(data.id ?? "").setData(updatedData, merge: true){ error in
             
             if error == nil {
                 
             }
             
+        }
+    }
+    
+    func uploadProfileImage(image: UIImage){
+        if let imageData = image.jpegData(compressionQuality: 1){
+            let storage = Storage.storage()
+            storage.reference().child("profile").putData(imageData, metadata: nil){ (_,err)  in
+                if let err = err {
+                    print("error bung - \(err.localizedDescription)")
+                } else {
+                    print("gambar uploaded")
+                }
+            }
+        } else {
+            print("couldn't unwrap/case image to data")
         }
     }
     

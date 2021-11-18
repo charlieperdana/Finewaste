@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct UpcyclerActiveView: View {
-    @State private var productService = ""
-    @State private var selectedImages = [UIImage]()
+    @State var productService = ""
+    @State var selectedImages = [UIImage]()
     
     var body: some View {
         

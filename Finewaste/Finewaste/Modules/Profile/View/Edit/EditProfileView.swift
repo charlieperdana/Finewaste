@@ -36,6 +36,8 @@ struct EditProfileView: View {
     
     @State private var showMapScreen = false
     
+    @State var selectedProfileImages = UIImage(named: "profile")
+    
     var body: some View {
 
         ScrollViewReader { value in
@@ -48,9 +50,7 @@ struct EditProfileView: View {
                         .clipShape(Circle())
                         .overlay(Circle().strokeBorder(Color.orange, lineWidth: 2))
                     
-                    FinewasteRoundedOutlineButton(text: "Change Profile Image", size: .fullWidth) {
-                        
-                    }
+                    ProfileImagePicker(selectedImages: $selectedProfileImages)
                     
                     
                     VStack(alignment:.leading, spacing:3) {
@@ -156,7 +156,6 @@ struct EditProfileView: View {
                 .onReceive(self.model.$user) { user in
                     self.nameText = user.name ?? ""
                     self.usernameText = user.username ?? ""
-//                    self.addressText = model.locationName
                     self.descText = user.description ?? ""
                     if let location = user.location{
                         self.defaultCoordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
@@ -165,6 +164,10 @@ struct EditProfileView: View {
                         model.getLocationName(latitude: location.latitude, longitude: location.longitude, completion: { value in
                             self.addressText = value
                         })
+                    }
+                    
+                    if let isUpcycler = user.isBusiness {
+                        self.isUpcycler = isUpcycler
                     }
                    
                 }
@@ -194,11 +197,19 @@ struct EditProfileView: View {
                         let name = self.nameText
                         let username = self.usernameText
                         let desc = self.descText
-                        let prodService = [""]
                         let createdProducts = model.user.createdProducts
                         let donatedWaste = model.user.donatedWaste
                         let location = GeoPoint(latitude: self.defaultCoordinate.latitude, longitude: self.defaultCoordinate.longitude)
-                        let isBusiness = model.user.isBusiness
+                        let isBusiness = isUpcycler
+                        let prodService = [UpcyclerActiveView().productService]
+//                        let prodService = [""]
+                        
+                        if let profileImage = self.selectedProfileImages {
+                            self.model.uploadProfileImage(image: profileImage)
+                        } else {
+                            print("Image gak ada")
+                        }
+                        
                         
                         self.model.updateProfile(data: User(id: id, profilePhotoUrl: profilePhotoUrl, name: name, username: username, description: desc, productServices: prodService, createdProducts: createdProducts, donatedWaste: donatedWaste, location: location, isBusiness: isBusiness))
                         
