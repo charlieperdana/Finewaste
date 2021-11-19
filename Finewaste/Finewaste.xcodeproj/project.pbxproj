@@ -10,6 +10,9 @@
 		002A633C273E615000A0549B /* MyContributionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A633B273E615000A0549B /* MyContributionsViewModel.swift */; };
 		006683642743ABE100D9BD80 /* DeliveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006683632743ABE100D9BD80 /* DeliveryViewModel.swift */; };
 		008E4B5627478781005A793C /* MyProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008E4B5527478781005A793C /* MyProjectsViewModel.swift */; };
+		008E4B582747AAE9005A793C /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008E4B572747AAE9005A793C /* HistoryView.swift */; };
+		008E4B5B2747AD6D005A793C /* HistoryContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008E4B5A2747AD6D005A793C /* HistoryContributionView.swift */; };
+		008E4B5D2747AD7A005A793C /* HistoryProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008E4B5C2747AD7A005A793C /* HistoryProjectView.swift */; };
 		00BC26AE273D126C00C0C7DB /* MyContributionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC26AD273D126C00C0C7DB /* MyContributionsView.swift */; };
 		00BC26B0273D127D00C0C7DB /* MyProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC26AF273D127D00C0C7DB /* MyProjectsView.swift */; };
 		00BC26B2273D190300C0C7DB /* ContributionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC26B1273D190300C0C7DB /* ContributionStatusView.swift */; };
@@ -171,6 +174,9 @@
 		002A633B273E615000A0549B /* MyContributionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContributionsViewModel.swift; sourceTree = "<group>"; };
 		006683632743ABE100D9BD80 /* DeliveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewModel.swift; sourceTree = "<group>"; };
 		008E4B5527478781005A793C /* MyProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectsViewModel.swift; sourceTree = "<group>"; };
+		008E4B572747AAE9005A793C /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		008E4B5A2747AD6D005A793C /* HistoryContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContributionView.swift; sourceTree = "<group>"; };
+		008E4B5C2747AD7A005A793C /* HistoryProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryProjectView.swift; sourceTree = "<group>"; };
 		00BC26AD273D126C00C0C7DB /* MyContributionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContributionsView.swift; sourceTree = "<group>"; };
 		00BC26AF273D127D00C0C7DB /* MyProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectsView.swift; sourceTree = "<group>"; };
 		00BC26B1273D190300C0C7DB /* ContributionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionStatusView.swift; sourceTree = "<group>"; };
@@ -377,6 +383,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		008E4B592747AD5E005A793C /* History */ = {
+			isa = PBXGroup;
+			children = (
+				008E4B572747AAE9005A793C /* HistoryView.swift */,
+				008E4B5A2747AD6D005A793C /* HistoryContributionView.swift */,
+				008E4B5C2747AD7A005A793C /* HistoryProjectView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		00BC26A8273D123900C0C7DB /* Contribution Status */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +406,7 @@
 		00BC26A9273D124200C0C7DB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				008E4B592747AD5E005A793C /* History */,
 				00BC26AD273D126C00C0C7DB /* MyContributionsView.swift */,
 				00BC26AF273D127D00C0C7DB /* MyProjectsView.swift */,
 				00BC26B1273D190300C0C7DB /* ContributionStatusView.swift */,
@@ -1362,6 +1379,7 @@
 				552705422740162E00868643 /* DescriptionProfileView.swift in Sources */,
 				7D6DD4C1273AB2680023E163 /* StepBulletColor.swift in Sources */,
 				7D6DD4E3273C07980023E163 /* MapKitService.swift in Sources */,
+				008E4B5B2747AD6D005A793C /* HistoryContributionView.swift in Sources */,
 				5527056227442DE900868643 /* ContactUsView.swift in Sources */,
 				7DDD22F227318C7C00250B35 /* ProjectMaterialRequirementView.swift in Sources */,
 				7DDD22FC2732C30900250B35 /* ProjectStatusView.swift in Sources */,
@@ -1381,6 +1399,7 @@
 				7D6DD4E0273B9B610023E163 /* CircleCurrentLocationButton.swift in Sources */,
 				7D0200DC2736DBE300D3BB44 /* ProjectUpdateRepository.swift in Sources */,
 				7D6DD4AC27396DE60023E163 /* PostUploadIndicator.swift in Sources */,
+				008E4B5D2747AD7A005A793C /* HistoryProjectView.swift in Sources */,
 				7D0200EC2737850B00D3BB44 /* PostProjectUpdateView.swift in Sources */,
 				7D0200D82736D11C00D3BB44 /* CloudFunctionTrigger.swift in Sources */,
 				008E4B5627478781005A793C /* MyProjectsViewModel.swift in Sources */,
@@ -1420,6 +1439,7 @@
 				7DDD22E12730EC7800250B35 /* ProjectNavigationBar.swift in Sources */,
 				55FE15792738452700B24F2D /* DashboardView.swift in Sources */,
 				7DDD22F82732767800250B35 /* ImagePageIndicatorView.swift in Sources */,
+				008E4B582747AAE9005A793C /* HistoryView.swift in Sources */,
 				7D6DD4BD273A86EF0023E163 /* NewContributionModel.swift in Sources */,
 				00BC26AE273D126C00C0C7DB /* MyContributionsView.swift in Sources */,
 				7DDD22F427318CF900250B35 /* ProjectStoryView.swift in Sources */,

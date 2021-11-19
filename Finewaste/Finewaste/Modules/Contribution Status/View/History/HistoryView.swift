@@ -1,24 +1,24 @@
 //
-//  ContributionStatusView.swift
+//  HistoryView.swift
 //  Finewaste
 //
-//  Created by Kendra Arsena W on 11/11/21.
+//  Created by Kendra Arsena W on 19/11/21.
 //
 
 import SwiftUI
 
-private enum ContributionStatusContentType: String, CaseIterable {
+private enum ContributionHistoryContentType: String, CaseIterable {
     case contributions = "My Contributions"
     case projects = "My Projects"
 }
 
-struct ContributionStatusView: View {
-    @State private var selectedContentView = ContributionStatusContentType.contributions.rawValue
-    private var contentTypes = ContributionStatusContentType.allCases.map {
+struct HistoryView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
+    @State private var selectedContentView = ContributionHistoryContentType.contributions.rawValue
+    private var contentTypes = ContributionHistoryContentType.allCases.map {
         $0.rawValue
     }
-    
-    @State var isShowHistoryPage = false
     
     var body: some View {
         NavigationView {
@@ -33,34 +33,34 @@ struct ContributionStatusView: View {
                         }
                     }
                     .pickerStyle(.segmented)
-                    switch ContributionStatusContentType(rawValue: selectedContentView) {
+                    switch ContributionHistoryContentType(rawValue: selectedContentView) {
                     case .contributions:
-                        MyContributionsView()
+                        HistoryContributionView()
                     case .projects:
-                        MyProjectsView()
+                        HistoryProjectView()
                     default:
                         EmptyView()
                     }
                 }
                 Spacer()
-                
-                NavigationLink(destination: HistoryView(), isActive: $isShowHistoryPage) {}
             }
-            .navigationBarTitle("Contribution Status", displayMode: .large)
-            .navigationBarItems(trailing: Button(action: {
-                self.isShowHistoryPage = true
-            }, label: {
-                Text("History")
-                    .font(Fonts.poppinsHeadline())
+            .navigationBarTitle("Contribution History")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(leading: Button(action: {
+                self.presentationMode.wrappedValue.dismiss()
+            }) {
+                Image(systemName: "chevron.left")
+                    .aspectRatio(contentMode: .fit)
                     .foregroundColor(Colors.Turqoise)
-            }))
+            })
             .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
         }
+        .navigationBarHidden(true)
     }
 }
 
-struct ContributionStatusView_Previews: PreviewProvider {
+struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        ContributionStatusView()
+        HistoryView()
     }
 }
