@@ -21,7 +21,9 @@ class ProfileViewModel: ObservableObject {
     @Published var myContributionNumber = 0
     
     @Published var locationName = ""
-   
+    
+    @Published var urlProfileImage = ""
+    
     
     init(userId: String){
         self.getSingleUser(userId: userId)
@@ -55,15 +57,15 @@ class ProfileViewModel: ObservableObject {
                         }
                         
                         self.user = User(id: userId,
-                                    profilePhotoUrl: userData?["profilePhotoUrl"] as? String ?? "",
-                                    name: userData?["name"] as? String ?? "",
-                                    username: userData?["username"] as? String ?? "",
-                                    description: userData?["description"] as? String ?? "",
-                                    productServices: userData?["productServices"] as? [String] ?? [""],
-                                    createdProducts: userData?["createdProducts"] as? Int ?? 0,
-                                    donatedWaste: userData?["donatedWaste"] as? Int ?? 0,
-                                    location: userData?["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0),
-                                    isBusiness: userData?["isBusiness"] as? Bool ?? false)
+                                         profilePhotoUrl: userData?["profilePhotoUrl"] as? String ?? "",
+                                         name: userData?["name"] as? String ?? "",
+                                         username: userData?["username"] as? String ?? "",
+                                         description: userData?["description"] as? String ?? "",
+                                         productServices: userData?["productServices"] as? [String] ?? [""],
+                                         createdProducts: userData?["createdProducts"] as? Int ?? 0,
+                                         donatedWaste: userData?["donatedWaste"] as? Int ?? 0,
+                                         location: userData?["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0),
+                                         isBusiness: userData?["isBusiness"] as? Bool ?? false)
                         
                         print("User: \(self.user )")
                         
@@ -121,15 +123,15 @@ class ProfileViewModel: ObservableObject {
                                 
                                 completion(counter)
                                 
-                
+                                
                                 
                             }
                         })
                         
                     }
-                   
                     
-
+                    
+                    
                     
                 }
             }
@@ -138,7 +140,7 @@ class ProfileViewModel: ObservableObject {
             }
         }
         
-       
+        
         
     }
     
@@ -157,7 +159,7 @@ class ProfileViewModel: ObservableObject {
             location = "\(locality), \(subLocality)"
             
             completion(location)
-        
+            
         }
     }
     
@@ -191,6 +193,42 @@ class ProfileViewModel: ObservableObject {
         } else {
             print("couldn't unwrap/case image to data")
         }
+    }
+    
+    func uploadProfileImages(image: UIImage) {
+        
+        var urlResult = ""
+        let filename = UUID().uuidString
+        guard let uid = AuthenticationHelper.shared.userId
+        else { return }
+        
+        let ref = Storage.storage().reference(withPath: "profile/\(uid)")
+        let metadatas = StorageMetadata()
+        metadatas.contentType = "image/jpeg"
+        
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else {return}
+        
+        ref.putData(imageData, metadata: metadatas){ metadata, err in
+            if let err = err {
+                print("error bung - \(err.localizedDescription)")
+                return
+            }
+            
+            ref.downloadURL { url, err in
+                if let err = err {
+                    print("error download url - \(err.localizedDescription)")
+                    return
+                }
+                
+                self.urlProfileImage = url?.absoluteString ?? ""
+                
+                print("url profile: \(self.urlProfileImage)")
+            }
+            
+        }
+        
+        
+        
     }
     
     

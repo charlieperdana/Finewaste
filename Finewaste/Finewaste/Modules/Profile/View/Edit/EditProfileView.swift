@@ -193,7 +193,7 @@ struct EditProfileView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         let id = model.user.id
-                        let profilePhotoUrl = model.user.profilePhotoUrl
+                        var profilePhotoUrl = model.user.profilePhotoUrl
                         let name = self.nameText
                         let username = self.usernameText
                         let desc = self.descText
@@ -205,7 +205,8 @@ struct EditProfileView: View {
 //                        let prodService = [""]
                         
                         if let profileImage = self.selectedProfileImages {
-                            self.model.uploadProfileImage(image: profileImage)
+                            self.model.uploadProfileImages(image: profileImage)
+                            profilePhotoUrl = model.urlProfileImage
                         } else {
                             print("Image gak ada")
                         }
