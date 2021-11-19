@@ -68,12 +68,14 @@ struct DeliveryView: View {
                         .font(Fonts.poppinsCallout())
                     Spacer().frame(height: 16)
                     FinewastePicker(placeholder: "Choose delivery option", selectedData: $deliveryOption, dataToChoose: ["Drop off", "Pick up", "Drop off or pick up"])
-                    Spacer().frame(height: 24)
-                    Text("Project Address")
-                        .font(Fonts.poppinsCallout())
-                    Text("Your full address will not be shown on the project")
-                        .font(Fonts.poppinsFootnote())
-                    FinewasteMapPicker(isReadOnly: false, currentAddress: $viewModel.projectModel.deliveryAddress, currentCoordinate: $viewModel.pickUpCoordinate)
+                    if deliveryOption != "" {
+                        Spacer().frame(height: 24)
+                        Text("Project Address")
+                            .font(Fonts.poppinsCallout())
+                        Text("Your full address will not be shown on the project")
+                            .font(Fonts.poppinsFootnote())
+                        FinewasteMapPicker(isReadOnly: false, currentAddress: $viewModel.projectModel.deliveryAddress, currentCoordinate: $viewModel.pickUpCoordinate)
+                    }
                 }
                 Spacer()
                 FinewasteButtonFill(text: "Add Project", size: .fullWidth, isEnabled: isFieldFilled) {

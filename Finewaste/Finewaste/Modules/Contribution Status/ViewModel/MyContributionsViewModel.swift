@@ -14,14 +14,10 @@ class MyContributionsViewModel: ObservableObject {
     
     private var cancellables: Set<AnyCancellable> = []
     
-//    var contributionID: String
-    
     init() {
-//        self.contributionID = contributionID
         repository.$contributions
             .assign(to: \.contributions, on: self)
             .store(in: &cancellables)
-//        repository.getContributions(projectId: contributionID)
         repository.getUserContribution(userID: "---")
     }
 }

@@ -14,8 +14,16 @@ struct MyContributionsView: View {
     var body: some View {
         VStack {
             Spacer().frame(height: 16)
-            ForEach(viewModel.contributions, id: \.id) { contribution in
-                FinewasteContributionStatusCard(contribution: contribution)
+            if viewModel.contributions.isEmpty {
+                Spacer()
+                Text("No contribution yet")
+                    .font(Fonts.poppinsCallout())
+                    .foregroundColor(Colors.Gray)
+                Spacer()
+            } else {
+                ForEach(viewModel.contributions, id: \.id) { contribution in
+                    FinewasteContributionStatusCard(contribution: contribution)
+                }
             }
             
 //            FinewasteContributionStatusCard(id: "", projectName: "Denim material for totebag", user: "Putri_240", createdDate: "26 October 2021, 19:05", dueDate: "28 October 2021", status: false)

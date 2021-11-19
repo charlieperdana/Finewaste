@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		002A633C273E615000A0549B /* MyContributionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A633B273E615000A0549B /* MyContributionsViewModel.swift */; };
 		006683642743ABE100D9BD80 /* DeliveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006683632743ABE100D9BD80 /* DeliveryViewModel.swift */; };
+		008E4B5627478781005A793C /* MyProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008E4B5527478781005A793C /* MyProjectsViewModel.swift */; };
 		00BC26AE273D126C00C0C7DB /* MyContributionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC26AD273D126C00C0C7DB /* MyContributionsView.swift */; };
 		00BC26B0273D127D00C0C7DB /* MyProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC26AF273D127D00C0C7DB /* MyProjectsView.swift */; };
 		00BC26B2273D190300C0C7DB /* ContributionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC26B1273D190300C0C7DB /* ContributionStatusView.swift */; };
@@ -152,6 +153,7 @@
 /* Begin PBXFileReference section */
 		002A633B273E615000A0549B /* MyContributionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContributionsViewModel.swift; sourceTree = "<group>"; };
 		006683632743ABE100D9BD80 /* DeliveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewModel.swift; sourceTree = "<group>"; };
+		008E4B5527478781005A793C /* MyProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectsViewModel.swift; sourceTree = "<group>"; };
 		00BC26AD273D126C00C0C7DB /* MyContributionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContributionsView.swift; sourceTree = "<group>"; };
 		00BC26AF273D127D00C0C7DB /* MyProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectsView.swift; sourceTree = "<group>"; };
 		00BC26B1273D190300C0C7DB /* ContributionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionStatusView.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				002A633B273E615000A0549B /* MyContributionsViewModel.swift */,
+				008E4B5527478781005A793C /* MyProjectsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1258,6 +1261,7 @@
 				7D6DD4AC27396DE60023E163 /* PostUploadIndicator.swift in Sources */,
 				7D0200EC2737850B00D3BB44 /* PostProjectUpdateView.swift in Sources */,
 				7D0200D82736D11C00D3BB44 /* CloudFunctionTrigger.swift in Sources */,
+				008E4B5627478781005A793C /* MyProjectsViewModel.swift in Sources */,
 				7DDD22DA2730EBBA00250B35 /* ProjectDetailView.swift in Sources */,
 				55B6044C27304F0300631004 /* HomeView.swift in Sources */,
 				7D6DD4E9273C0AC00023E163 /* SearchResultData.swift in Sources */,
