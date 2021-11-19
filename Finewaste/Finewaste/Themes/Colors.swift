@@ -23,4 +23,5 @@ struct Colors {
     static let DropShadow = Color("DropShadow")
     
     static let SearchBarGray = Color("SearchBarGray")
+    static let GrayList = Color("GrayList")
 }
