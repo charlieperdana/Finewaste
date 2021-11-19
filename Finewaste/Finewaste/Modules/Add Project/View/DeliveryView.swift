@@ -74,7 +74,7 @@ struct DeliveryView: View {
                             .font(Fonts.poppinsCallout())
                         Text("Your full address will not be shown on the project")
                             .font(Fonts.poppinsFootnote())
-                        FinewasteMapPicker(isReadOnly: false, currentAddress: $viewModel.projectModel.deliveryAddress, currentCoordinate: $viewModel.pickUpCoordinate)
+                        FinewasteMapPicker(isReadOnly: false, currentAddress: $viewModel.projectModel.deliveryAddress, currentCoordinate: $viewModel.pickUpCoordinate, isShowingMap: true)
                     }
                 }
                 Spacer()

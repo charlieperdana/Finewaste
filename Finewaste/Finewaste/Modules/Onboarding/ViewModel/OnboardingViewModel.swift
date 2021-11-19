@@ -13,6 +13,8 @@ import SwiftUI
 class UserViewModel: ObservableObject {
     @Published var list = [Users]()
     
+    @Published var user = User()
+    
     let db = Firestore.firestore()
     
     
@@ -92,5 +94,6 @@ class UserViewModel: ObservableObject {
             }
         }
     }
+    
     
 }

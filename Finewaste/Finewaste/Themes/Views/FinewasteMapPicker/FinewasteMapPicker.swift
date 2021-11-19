@@ -12,6 +12,7 @@ struct FinewasteMapPicker: View {
     var isReadOnly: Bool
     @Binding var currentAddress: String
     @Binding var currentCoordinate: CLLocationCoordinate2D
+    var isShowingMap : Bool
     
     @State private var showMapScreen = false
     
@@ -37,18 +38,21 @@ struct FinewasteMapPicker: View {
                     .stroke(Colors.Gray)
             )
             
-            ZStack {
-                MapView(isVisualOnly: true, center: $currentCoordinate, visibleRegionChangeHandler: nil)
-                    .frame(height: 200)
-                    .cornerRadius(10)
-                
-                Image(systemName: "mappin")
-                    .foregroundColor(Colors.Red)
-                    .font(.system(size: 32))
+            if isShowingMap{
+                ZStack {
+                    MapView(isVisualOnly: true, center: $currentCoordinate, visibleRegionChangeHandler: nil)
+                        .frame(height: 200)
+                        .cornerRadius(10)
+                    
+                    Image(systemName: "mappin")
+                        .foregroundColor(Colors.Red)
+                        .font(.system(size: 32))
+                }
+                .onTapGesture {
+                    self.showMapScreen = true
+                }
             }
-            .onTapGesture {
-                self.showMapScreen = true
-            }
+            
             
             NavigationLink(destination: MapPinPointView(currentCoordinate: $currentCoordinate), isActive: $showMapScreen) {
                 EmptyView()
@@ -59,6 +63,6 @@ struct FinewasteMapPicker: View {
 
 struct FinewasteMapPicker_Previews: PreviewProvider {
     static var previews: some View {
-        FinewasteMapPicker(isReadOnly: true, currentAddress: .constant(""), currentCoordinate: .constant(.init(latitude: 0, longitude: 0)))
+        FinewasteMapPicker(isReadOnly: true, currentAddress: .constant(""), currentCoordinate: .constant(.init(latitude: 0, longitude: 0)), isShowingMap: true)
     }
 }
