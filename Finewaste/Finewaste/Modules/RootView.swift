@@ -53,7 +53,7 @@ struct RootView: View {
                     
                     self.oldSelectedTab = selectedTab
                     if !AuthenticationHelper.shared.isLoggedIn {
-//                        self.isPresentingLoginSheet.toggle()
+                        self.isPresentingLoginSheet.toggle()
                     }
                 }
                 

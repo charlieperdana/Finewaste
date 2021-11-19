@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct MyContributeProjectView: View {
-    @StateObject var model = MyContributeProjectViewModel(user: "8xayV4ivOsOSqUrNiD0kOHM7jih1")
+//    @StateObject var model = MyContributeProjectViewModel(user: "8xayV4ivOsOSqUrNiD0kOHM7jih1")
     
+    @StateObject var model = MyContributeProjectViewModel(user: AuthenticationHelper.shared.userId ?? "")
+
     @State var searchText = ""
     @State var isSearching = false
     

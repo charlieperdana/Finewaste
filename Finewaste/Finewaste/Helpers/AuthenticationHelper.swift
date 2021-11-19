@@ -21,4 +21,12 @@ final class AuthenticationHelper {
             return false
         }
     }
+    
+    var userId: String? {
+        if Auth.auth().currentUser != nil {
+            return Auth.auth().currentUser?.uid
+        } else {
+            return "---"
+        }
+    }
 }
