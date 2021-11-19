@@ -24,12 +24,14 @@ class MyProjectsViewModel: ObservableObject {
     }
     @Published var contributions = [Contribution]()
     
+    var currentUser = AuthenticationHelper.shared.userId ?? ""
+    
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
         projectRepository.$projects
             .assign(to: \.projects, on: self)
             .store(in: &cancellables)
-        projectRepository.getProjects(poster: "8xayV4ivOsOSqUrNiD0kOHM7jih1")
+        projectRepository.getProjects(poster: currentUser)
     }
 }
