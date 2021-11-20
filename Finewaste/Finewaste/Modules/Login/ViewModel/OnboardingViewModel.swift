@@ -17,7 +17,6 @@ class UserViewModel: ObservableObject {
     
     let db = Firestore.firestore()
     
-    
     func getData() {
         
         db.collection("users").getDocuments { snapshot, error in
@@ -56,7 +55,6 @@ class UserViewModel: ObservableObject {
         
         
         let uuid = newUser.id
-        
         db.collection("users").document(uuid).setData(["name":newUser.name,
                                                        "username":newUser.username,
                                                        "description":newUser.description,

@@ -91,6 +91,7 @@ struct ProjectDetailView: View {
                         Color.white
                             .frame(height: 78)
                         FinewasteButtonFill(text: "Contribute", size: .fullWidth, isEnabled: true) {
+                            print(AuthenticationHelper.shared.userId ?? "----")
                             if !AuthenticationHelper.shared.isLoggedIn {
                                 self.isPresentingLoginSheet.toggle()
                                 return
