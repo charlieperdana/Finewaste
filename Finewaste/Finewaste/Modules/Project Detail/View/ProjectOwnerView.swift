@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import FirebaseAuth
 
 struct ProjectOwnerView: View {
     @State private var isShowingLoginModal = false
@@ -21,10 +22,13 @@ struct ProjectOwnerView: View {
                 .font(Fonts.poppinsCallout())
             Spacer()
             FinewasteButtonFill(text: "Chat", size: .small, isEnabled: true) {
-                if !AuthenticationHelper.shared.isLoggedIn {
-                    isShowingLoginModal.toggle()
-                    return
-                }
+//                if !AuthenticationHelper.shared.isLoggedIn {
+//                    isShowingLoginModal.toggle()
+//                    return
+//                }
+                try? Auth.auth().signOut()
+                print("Sign out!")
+                print(AuthenticationHelper.shared.isLoggedIn)
             }
         }
         .padding(.all, 16)

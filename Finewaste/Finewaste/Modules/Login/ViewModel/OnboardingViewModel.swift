@@ -13,8 +13,9 @@ import SwiftUI
 class UserViewModel: ObservableObject {
     @Published var list = [Users]()
     
-    let db = Firestore.firestore()
+    @Published var user = User()
     
+    let db = Firestore.firestore()
     
     func getData() {
         
@@ -54,7 +55,6 @@ class UserViewModel: ObservableObject {
         
         
         let uuid = newUser.id
-        
         db.collection("users").document(uuid).setData(["name":newUser.name,
                                                        "username":newUser.username,
                                                        "description":newUser.description,
@@ -92,5 +92,6 @@ class UserViewModel: ObservableObject {
             }
         }
     }
+    
     
 }
