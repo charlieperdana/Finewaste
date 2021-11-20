@@ -34,7 +34,7 @@ struct RootView: View {
                         case 2:
                             ContributionStatusView()
                         case 3:
-                            Text("Profile")
+                            MyProfileView()
                         default:
                             EmptyView()
                     }

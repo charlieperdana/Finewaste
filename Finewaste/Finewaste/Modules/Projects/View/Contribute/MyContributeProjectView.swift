@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct MyContributeProjectView: View {
-    @StateObject var model = MyContributeProjectViewModel(user: "person1")
+//    @StateObject var model = MyContributeProjectViewModel(user: "8xayV4ivOsOSqUrNiD0kOHM7jih1")
     
+    @StateObject var model = MyContributeProjectViewModel(user: AuthenticationHelper.shared.userId ?? "")
+
     @State var searchText = ""
     @State var isSearching = false
     
@@ -28,7 +30,7 @@ struct MyContributeProjectView: View {
     }
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             
             
             ScrollView {
@@ -40,16 +42,24 @@ struct MyContributeProjectView: View {
                     
                     
                 }
-                .navigationBarTitle(Text("Contributed").font(Fonts.poppinsHeadline()), displayMode: .inline)
+//                .navigationBarTitle(Text("Contributed").font(Fonts.poppinsHeadline()), displayMode: .inline)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        VStack {
+                            Text("Contributed").font(Fonts.poppinsHeadline())
+                        }
+                    }
+                }
             }
-        }
-        .navigationBarHidden(true)
-        .navigationBarItems(leading: btnBack)
+//        }
+//        .navigationBarHidden(true)
+//        .navigationBarItems(leading: btnBack)
     }
     
-    init() {
-        UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Poppins-SemiBold", size: 17)!]
-    }
+//    init() {
+//        UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Poppins-SemiBold", size: 17)!]
+//    }
 }
 
 struct MyContributrProjectView_Previews: PreviewProvider {
