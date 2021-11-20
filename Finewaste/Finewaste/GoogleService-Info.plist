@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>678207028102-187q9dj4jej3t376ik05dm0f5lhh8575.apps.googleusercontent.com</string>
+	<string>678207028102-91b1rpus3t6r6romc8pup26oj61dd34k.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.678207028102-187q9dj4jej3t376ik05dm0f5lhh8575</string>
+	<string>com.googleusercontent.apps.678207028102-91b1rpus3t6r6romc8pup26oj61dd34k</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAD7Ncfj9mEBoYUQHy7Ntr3ugR8R_uUp28</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>WeTheX.Finewaste</string>
+	<string>com.wethex.finewaste.ios</string>
 	<key>PROJECT_ID</key>
 	<string>finewaste</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:678207028102:ios:44aa16628e4ef55fad4a07</string>
+	<string>1:678207028102:ios:1c71c0e3e16af2acad4a07</string>
 </dict>
 </plist>

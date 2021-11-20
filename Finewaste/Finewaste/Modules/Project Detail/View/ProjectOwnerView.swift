@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import FirebaseAuth
 
 struct ProjectOwnerView: View {
     @State private var isShowingLoginModal = false
@@ -25,6 +26,9 @@ struct ProjectOwnerView: View {
 //                    isShowingLoginModal.toggle()
 //                    return
 //                }
+                try? Auth.auth().signOut()
+                print("Sign out!")
+                print(AuthenticationHelper.shared.isLoggedIn)
             }
         }
         .padding(.all, 16)
