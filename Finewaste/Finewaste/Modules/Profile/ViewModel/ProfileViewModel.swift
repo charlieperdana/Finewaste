@@ -166,10 +166,13 @@ class ProfileViewModel: ObservableObject {
     func updateProfile(data: User){
         let updatedData = ["name":data.name ?? "",
                            "username":data.username ?? "",
+                           "profilePhotoUrl":data.profilePhotoUrl ?? "",
                            "location":data.location ?? GeoPoint(latitude: 0.0, longitude: 0.0),
                            "description":data.description ?? "",
                            "isBusiness":data.isBusiness ?? false,
-                           "productService":data.productServices ?? [""]
+                           "productService":data.productServices ?? [""],
+                           "createdProduct":data.createdProducts ?? 0,
+                           "donatedWaste":data.donatedWaste ?? 0
         ] as [String : Any]
         database.collection("users").document(data.id ?? "").setData(updatedData, merge: true){ error in
             
@@ -180,22 +183,8 @@ class ProfileViewModel: ObservableObject {
         }
     }
     
-    func uploadProfileImage(image: UIImage){
-        if let imageData = image.jpegData(compressionQuality: 1){
-            let storage = Storage.storage()
-            storage.reference().child("profile").putData(imageData, metadata: nil){ (_,err)  in
-                if let err = err {
-                    print("error bung - \(err.localizedDescription)")
-                } else {
-                    print("gambar uploaded")
-                }
-            }
-        } else {
-            print("couldn't unwrap/case image to data")
-        }
-    }
     
-    func uploadProfileImages(image: UIImage) {
+    func uploadProfileImages(image: UIImage, completion: @escaping (String) -> Void) {
         
         var urlResult = ""
         let filename = UUID().uuidString
@@ -220,9 +209,12 @@ class ProfileViewModel: ObservableObject {
                     return
                 }
                 
-                self.urlProfileImage = url?.absoluteString ?? ""
-                
-                print("url profile: \(self.urlProfileImage)")
+                if let urlResult = url?.absoluteString {
+                    completion(urlResult)
+                }
+
+                print("url profile: \(urlResult)")
+             
             }
             
         }

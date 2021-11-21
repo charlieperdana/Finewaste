@@ -36,21 +36,38 @@ struct EditProfileView: View {
     
     @State private var showMapScreen = false
     
-    @State var selectedProfileImages = UIImage(named: "profile")
+    @State var selectedProfileImages: UIImage? = UIImage()
+    
+    @State private var isImageFromLocal = false
+    
+    @State var profilePhotoUrl = ""
     
     var body: some View {
 
         ScrollViewReader { value in
             ScrollView(.vertical) {
                 VStack(spacing:16) {
-                    WebImage(url: URL(string: (model.user.profilePhotoUrl ?? "")))
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 100, height: 100)
-                        .clipShape(Circle())
-                        .overlay(Circle().strokeBorder(Color.orange, lineWidth: 2))
+                    if isImageFromLocal {
+                        if let image = self.selectedProfileImages {
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 100, height: 100)
+                                .clipShape(Circle())
+                                .overlay(Circle().strokeBorder(Color.orange, lineWidth: 2))
+                        }
+                    }
+                    else {
+                        WebImage(url: URL(string: (model.user.profilePhotoUrl ?? "")))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 100, height: 100)
+                            .clipShape(Circle())
+                            .overlay(Circle().strokeBorder(Color.orange, lineWidth: 2))
+                    }
+                   
                     
-                    ProfileImagePicker(selectedImages: $selectedProfileImages)
+                    ProfileImagePicker(selectedImages: $selectedProfileImages, isLoadLocal: $isImageFromLocal)
                     
                     
                     VStack(alignment:.leading, spacing:3) {
@@ -193,7 +210,7 @@ struct EditProfileView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         let id = model.user.id
-                        var profilePhotoUrl = model.user.profilePhotoUrl
+                        self.profilePhotoUrl = model.user.profilePhotoUrl ?? ""
                         let name = self.nameText
                         let username = self.usernameText
                         let desc = self.descText
@@ -205,11 +222,17 @@ struct EditProfileView: View {
 //                        let prodService = [""]
                         
                         if let profileImage = self.selectedProfileImages {
-                            self.model.uploadProfileImages(image: profileImage)
-                            profilePhotoUrl = model.urlProfileImage
+                            self.model.uploadProfileImages(image: profileImage) { value in
+                                self.profilePhotoUrl = value
+                                print("isi poto:\(self.profilePhotoUrl)")
+                            }
+                            
                         } else {
                             print("Image gak ada")
                         }
+                        
+                       
+                        print("isi poto 2:\(self.profilePhotoUrl)")
                         
                         
                         self.model.updateProfile(data: User(id: id, profilePhotoUrl: profilePhotoUrl, name: name, username: username, description: desc, productServices: prodService, createdProducts: createdProducts, donatedWaste: donatedWaste, location: location, isBusiness: isBusiness))
