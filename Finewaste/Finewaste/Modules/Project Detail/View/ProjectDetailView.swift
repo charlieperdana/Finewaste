@@ -15,7 +15,7 @@ private enum ProjectContentType: String, CaseIterable {
 
 struct ProjectDetailView: View {
     @State var opacity = 0.0
-
+    
     @State private var selectedContentView = ProjectContentType.about.rawValue
     private var contentTypes = ProjectContentType.allCases.map {
         $0.rawValue
@@ -58,12 +58,12 @@ struct ProjectDetailView: View {
                                 .pickerStyle(.segmented)
                                 
                                 switch ProjectContentType(rawValue: selectedContentView) {
-                                    case .about:
-                                        ProjectAboutView(viewModel: viewModel)
-                                    case .update:
-                                        ProjectUpdateView(projectId: viewModel.projectId)
-                                    default:
-                                        EmptyView()
+                                case .about:
+                                    ProjectAboutView(viewModel: viewModel)
+                                case .update:
+                                    ProjectUpdateView(projectId: viewModel.projectId)
+                                default:
+                                    EmptyView()
                                 }
                             }
                             
@@ -91,7 +91,6 @@ struct ProjectDetailView: View {
                         Color.white
                             .frame(height: 78)
                         FinewasteButtonFill(text: "Contribute", size: .fullWidth, isEnabled: true) {
-                            print(AuthenticationHelper.shared.userId ?? "----")
                             if !AuthenticationHelper.shared.isLoggedIn {
                                 self.isPresentingLoginSheet.toggle()
                                 return
@@ -102,13 +101,14 @@ struct ProjectDetailView: View {
                         .padding([.leading, .trailing])
                     }
                 }
-                .edgesIgnoringSafeArea(.top)
-                .navigationBarBackButtonHidden(true)
-                .navigationBarHidden(true)
+                .edgesIgnoringSafeArea(.all)
             }
+            .edgesIgnoringSafeArea(.top)
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
             
             .fullScreenCover(isPresented: $isPresentingAddContribution) {
-                AddContributionView(projectId: viewModel.projectId)
+                AddContributionView(projectId: viewModel.projectId, projectOwnerId: viewModel.projectOwnerId, projectName: viewModel.projectName)
             }
             .sheet(isPresented: $isPresentingLoginSheet) {
                 LoginView(loginTrigger: .addContribution)

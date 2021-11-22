@@ -9,8 +9,10 @@ import FirebaseFirestore
 import CoreLocation
 
 class NewContributionModel: ObservableObject {
-    @Published var contributor = ""
-    @Published var postId = ""
+    @Published var contributorId = ""
+    @Published var projectName = ""
+    @Published var projectId = ""
+    @Published var projectOwnerId = ""
     @Published var deliveryAddress = ""
     @Published var deliveryType = ""
     @Published var location = CLLocationCoordinate2D(latitude: 0, longitude: 0)

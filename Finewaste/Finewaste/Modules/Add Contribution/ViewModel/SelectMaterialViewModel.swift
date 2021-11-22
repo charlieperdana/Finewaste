@@ -39,6 +39,6 @@ class SelectMaterialViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
-        repository.getMaterials(projectId: contributionModel.postId)
+        repository.getMaterials(projectId: contributionModel.projectId)
     }
 }

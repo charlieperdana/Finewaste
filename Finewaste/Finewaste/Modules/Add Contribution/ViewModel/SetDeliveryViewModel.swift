@@ -37,7 +37,7 @@ class SetDeliveryViewModel: ObservableObject {
                 self.setProjectData(from: project)
             }
             .store(in: &cancellables)
-        repository.get(projectId: contributionModel.postId)
+        repository.get(projectId: contributionModel.projectId)
     }
     
     private func setProjectData(from project: Project) {
