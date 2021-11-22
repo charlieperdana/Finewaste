@@ -16,62 +16,59 @@ struct ContributionStatusDetailView: View {
     }
     
     var body: some View {
-        NavigationView {
-            if let contribution = viewModel.contribution {
-                ZStack {
-                    ScrollView {
-                        VStack(alignment: .leading, spacing: 32) {
-                            HStack {
-                                VStack(alignment: .leading, spacing: 8) {
-                                    Text(viewModel.isProjectOwner ? "Contributor" : "Project Owner")
-                                        .font(Fonts.poppinsCallout())
-                                    Text("DonateforCycle.id")
-                                        .font(Fonts.poppinsSubheadline())
-                                }
-                                Spacer()
-                                FinewasteButtonFill(text: "Chat", size: .small, isEnabled: true) {
-                                    
-                                }
+        if let contribution = viewModel.contribution {
+            ZStack {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 32) {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text(viewModel.isProjectOwner ? "Contributor" : "Project Owner")
+                                    .font(Fonts.poppinsCallout())
+                                Text("DonateforCycle.id")
+                                    .font(Fonts.poppinsSubheadline())
                             }
-                            ContributionTimeline(contribution: contribution)
-                            Divider()
-                            ContributionDetail(contribution: contribution, materials: viewModel.materials)
-                            
                             Spacer()
-                            
-                            
+                            FinewasteButtonFill(text: "Chat", size: .small, isEnabled: true) {
+                                
+                            }
                         }
-                        .padding()
+                        ContributionTimeline(contribution: contribution)
+                        Divider()
+                        ContributionDetail(contribution: contribution, materials: viewModel.materials)
                         
                         Spacer()
-                            .frame(height: 76)
+                        
+                        
                     }
+                    .padding()
                     
-                    switch viewModel.currentStatus {
-                    case .waitingConfirmation:
-                        InitialActionsView(viewModel: viewModel)
-                    case .confirmed:
-                        SetDeliveryActionsView(viewModel: viewModel)
-                    case .deliverySet:
-                        DeliveryConfirmationActionsView(viewModel: viewModel)
-                    case .deliveryConfirmed:
-                        DeliveryConfirmedActionsView(viewModel: viewModel)
-                    default:
-                        EmptyView()
-                    }
-                    
+                    Spacer()
+                        .frame(height: 76)
                 }
                 
-                .navigationTitle(contribution.projectName ?? "---")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        NavigationBackButton()
-                    }
+                switch viewModel.currentStatus {
+                case .waitingConfirmation:
+                    InitialActionsView(viewModel: viewModel)
+                case .confirmed:
+                    SetDeliveryActionsView(viewModel: viewModel)
+                case .deliverySet:
+                    DeliveryConfirmationActionsView(viewModel: viewModel)
+                case .deliveryConfirmed:
+                    DeliveryConfirmedActionsView(viewModel: viewModel)
+                default:
+                    EmptyView()
                 }
-            } else {
-                Text("Fetching contribution data..")
             }
+            .navigationTitle(contribution.projectName ?? "---")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    NavigationBackButton()
+                }
+            }
+        } else {
+            Text("Fetching contribution data..")
         }
     }
 }
@@ -88,7 +85,6 @@ private struct InitialActionsView: View {
             ZStack(alignment:. top) {
                 Color.white
                     .frame(height: viewModel.isProjectOwner ? 128 : 78)
-                    .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 8) {
                     if true {
@@ -110,6 +106,7 @@ private struct InitialActionsView: View {
                 .padding(.horizontal)
             }
         }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
