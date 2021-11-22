@@ -9,7 +9,8 @@ import FirebaseFirestore
 
 enum DateFormat: String {
     case simple = "d MMMM yyyy"
-    case full = ""
+    case dayDate = "EEEE, d MMMM yyyy"
+    case dateAndTime = "EEEE, d MMMM yyyy, h:mm a"
 }
 
 final class TimestampHelper {
@@ -31,11 +32,7 @@ final class TimestampHelper {
         let date = Date(timeIntervalSince1970: TimeInterval(seconds))
         
         let formatter = DateFormatter()
-        if format == .simple {
-            formatter.dateFormat = "d MMMM yyyy "
-        } else if format == .full {
-            formatter.dateFormat = "EEEE, d MMMM yyyy, h:mm a"
-        }
+        formatter.dateFormat = format.rawValue
         
         return formatter.string(from: date)
     }
