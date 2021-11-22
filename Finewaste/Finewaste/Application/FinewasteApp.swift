@@ -24,7 +24,6 @@ struct FinewasteApp: App {
         WindowGroup {
             RootView()
                 .foregroundColor(Colors.DarkGray)
-//            ContributionStatusDetailView(contributionId: "twjMaWoYTcmdqpNE9HS7")
         }
     }
 }

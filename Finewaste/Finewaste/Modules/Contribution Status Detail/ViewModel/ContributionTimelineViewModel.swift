@@ -170,7 +170,13 @@ class ContributionTimelineViewModel: ObservableObject {
         return "---"
     }
     
-    var isProjectOwner: Bool
+    var isProjectOwner: Bool {
+        if let ownerId = contribution.projectOwnerId {
+            return ownerId == AuthenticationHelper.shared.userId
+        } else {
+            return false
+        }
+    }
     
     init(contribution: Contribution) {
         self.contribution = contribution
@@ -178,12 +184,6 @@ class ContributionTimelineViewModel: ObservableObject {
         
         if let status = contribution.status {
             self.status = ContributionStatus(from: status)
-        }
-        
-        if let ownerId = contribution.projectOwnerId {
-            isProjectOwner = ownerId == AuthenticationHelper.shared.userId
-        } else {
-            isProjectOwner = false
         }
     }
 }

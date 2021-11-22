@@ -88,9 +88,10 @@ private struct InitialActionsView: View {
             ZStack(alignment:. top) {
                 Color.white
                     .frame(height: viewModel.isProjectOwner ? 128 : 78)
+                    .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 8) {
-                    if viewModel.isProjectOwner {
+                    if true {
                         FinewasteTapHoldButton(text: "Hold to Reject", style: .outline, onHoldDoneAction: {
                             self.isShowingCancelContribution.toggle()
                         })
@@ -109,7 +110,6 @@ private struct InitialActionsView: View {
                 .padding(.horizontal)
             }
         }
-        .edgesIgnoringSafeArea(.all)
     }
 }
 

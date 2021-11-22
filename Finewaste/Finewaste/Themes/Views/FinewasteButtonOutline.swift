@@ -35,6 +35,6 @@ struct FinewasteButtonOutline: View {
 
 struct FinewasteButtonOutline_Previews: PreviewProvider {
     static var previews: some View {
-        FinewasteButtonFill(text: "Chat", size: .fullWidth, isEnabled: false, onButtonTap: {})
+        FinewasteButtonFill(text: "Chat", size: .fullWidth, isEnabled: true, onButtonTap: {})
     }
 }

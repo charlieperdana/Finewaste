@@ -49,8 +49,6 @@
 		5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6892728152900601A69 /* FinewasteApp.swift */; };
 		5572C68E2728152C00601A69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C68D2728152C00601A69 /* Assets.xcassets */; };
 		5572C6912728152C00601A69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C6902728152C00601A69 /* Preview Assets.xcassets */; };
-		5572C6932728152C00601A69 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6922728152C00601A69 /* Persistence.swift */; };
-		5572C6962728152C00601A69 /* Finewaste.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6942728152C00601A69 /* Finewaste.xcdatamodeld */; };
 		5572C6A02728152C00601A69 /* FinewasteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C69F2728152C00601A69 /* FinewasteTests.swift */; };
 		5572C6AA2728152C00601A69 /* FinewasteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6A92728152C00601A69 /* FinewasteUITests.swift */; };
 		5572C6AC2728152C00601A69 /* FinewasteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6AB2728152C00601A69 /* FinewasteUITestsLaunchTests.swift */; };
@@ -83,6 +81,8 @@
 		7D0200F52737A86B00D3BB44 /* NativeImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200F42737A86B00D3BB44 /* NativeImagePicker.swift */; };
 		7D0200F82737B8B200D3BB44 /* PostProjectUpdateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200F72737B8B200D3BB44 /* PostProjectUpdateViewModel.swift */; };
 		7D0200FA2737C56F00D3BB44 /* CloudStorageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200F92737C56F00D3BB44 /* CloudStorageUploader.swift */; };
+		7D0286D6274A150500241266 /* RejectContributionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0286D5274A150500241266 /* RejectContributionViewModel.swift */; };
+		7D0286D8274A8D9600241266 /* WheelDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0286D7274A8D9600241266 /* WheelDatePicker.swift */; };
 		7D339EC92733D6240023BFDB /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D339EC82733D6240023BFDB /* NavigationBackButton.swift */; };
 		7D6DD4AA273956590023E163 /* Image+centerWidthCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4A9273956590023E163 /* Image+centerWidthCrop.swift */; };
 		7D6DD4AC27396DE60023E163 /* PostUploadIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4AB27396DE60023E163 /* PostUploadIndicator.swift */; };
@@ -116,6 +116,21 @@
 		7DB94F2027492621000EDEE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DB94F1F27492621000EDEE3 /* GoogleService-Info.plist */; };
 		7DB94F2C274950F3000EDEE3 /* FinewasteImageGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F2A274950F3000EDEE3 /* FinewasteImageGallery.swift */; };
 		7DB94F2D274950F3000EDEE3 /* ImageGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F2B274950F3000EDEE3 /* ImageGalleryView.swift */; };
+		7DB94F3E274954A3000EDEE3 /* ContributionTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F30274954A3000EDEE3 /* ContributionTimelineViewModel.swift */; };
+		7DB94F3F274954A3000EDEE3 /* ContributionStatusDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F31274954A3000EDEE3 /* ContributionStatusDetailViewModel.swift */; };
+		7DB94F40274954A3000EDEE3 /* ContributionMaterialItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F33274954A3000EDEE3 /* ContributionMaterialItem.swift */; };
+		7DB94F41274954A3000EDEE3 /* RejectReasonOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F35274954A3000EDEE3 /* RejectReasonOption.swift */; };
+		7DB94F42274954A3000EDEE3 /* RejectContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F36274954A3000EDEE3 /* RejectContributionView.swift */; };
+		7DB94F43274954A3000EDEE3 /* ContributionCancelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F37274954A3000EDEE3 /* ContributionCancelView.swift */; };
+		7DB94F44274954A3000EDEE3 /* TimelineConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F39274954A3000EDEE3 /* TimelineConnector.swift */; };
+		7DB94F45274954A3000EDEE3 /* ContributionTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F3A274954A3000EDEE3 /* ContributionTimeline.swift */; };
+		7DB94F46274954A3000EDEE3 /* TimelineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F3B274954A3000EDEE3 /* TimelineItem.swift */; };
+		7DB94F47274954A3000EDEE3 /* ContributionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F3C274954A3000EDEE3 /* ContributionDetail.swift */; };
+		7DB94F48274954A3000EDEE3 /* ContributionStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F3D274954A3000EDEE3 /* ContributionStatusDetailView.swift */; };
+		7DB94F4C27495505000EDEE3 /* ContributionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F4A27495505000EDEE3 /* ContributionStatus.swift */; };
+		7DB94F4D27495505000EDEE3 /* ContributionRejection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F4B27495505000EDEE3 /* ContributionRejection.swift */; };
+		7DB94F4F2749552A000EDEE3 /* FinewasteTapHoldButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F4E2749552A000EDEE3 /* FinewasteTapHoldButton.swift */; };
+		7DB94F51274955AD000EDEE3 /* FinewasteLimitTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F50274955AD000EDEE3 /* FinewasteLimitTextField.swift */; };
 		7DDD2293272FD53500250B35 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD2292272FD53500250B35 /* Project.swift */; };
 		7DDD229E272FD5A500250B35 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD229D272FD5A500250B35 /* Colors.swift */; };
 		7DDD22A0272FD5C500250B35 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DDD229F272FD5C500250B35 /* Colors.xcassets */; };
@@ -212,8 +227,6 @@
 		5572C6892728152900601A69 /* FinewasteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteApp.swift; sourceTree = "<group>"; };
 		5572C68D2728152C00601A69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Finewaste/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		5572C6902728152C00601A69 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5572C6922728152C00601A69 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		5572C6952728152C00601A69 /* Finewaste.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Finewaste.xcdatamodel; sourceTree = "<group>"; };
 		5572C69B2728152C00601A69 /* FinewasteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinewasteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5572C69F2728152C00601A69 /* FinewasteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteTests.swift; sourceTree = "<group>"; };
 		5572C6A52728152C00601A69 /* FinewasteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinewasteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,6 +262,8 @@
 		7D0200F42737A86B00D3BB44 /* NativeImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeImagePicker.swift; sourceTree = "<group>"; };
 		7D0200F72737B8B200D3BB44 /* PostProjectUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProjectUpdateViewModel.swift; sourceTree = "<group>"; };
 		7D0200F92737C56F00D3BB44 /* CloudStorageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudStorageUploader.swift; sourceTree = "<group>"; };
+		7D0286D5274A150500241266 /* RejectContributionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RejectContributionViewModel.swift; sourceTree = "<group>"; };
+		7D0286D7274A8D9600241266 /* WheelDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelDatePicker.swift; sourceTree = "<group>"; };
 		7D074D0A272846940010C4F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D339EC82733D6240023BFDB /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
 		7D6DD4A9273956590023E163 /* Image+centerWidthCrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+centerWidthCrop.swift"; sourceTree = "<group>"; };
@@ -283,6 +298,21 @@
 		7DB94F1F27492621000EDEE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7DB94F2A274950F3000EDEE3 /* FinewasteImageGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinewasteImageGallery.swift; sourceTree = "<group>"; };
 		7DB94F2B274950F3000EDEE3 /* ImageGalleryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryView.swift; sourceTree = "<group>"; };
+		7DB94F30274954A3000EDEE3 /* ContributionTimelineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionTimelineViewModel.swift; sourceTree = "<group>"; };
+		7DB94F31274954A3000EDEE3 /* ContributionStatusDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionStatusDetailViewModel.swift; sourceTree = "<group>"; };
+		7DB94F33274954A3000EDEE3 /* ContributionMaterialItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionMaterialItem.swift; sourceTree = "<group>"; };
+		7DB94F35274954A3000EDEE3 /* RejectReasonOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RejectReasonOption.swift; sourceTree = "<group>"; };
+		7DB94F36274954A3000EDEE3 /* RejectContributionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RejectContributionView.swift; sourceTree = "<group>"; };
+		7DB94F37274954A3000EDEE3 /* ContributionCancelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionCancelView.swift; sourceTree = "<group>"; };
+		7DB94F39274954A3000EDEE3 /* TimelineConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineConnector.swift; sourceTree = "<group>"; };
+		7DB94F3A274954A3000EDEE3 /* ContributionTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionTimeline.swift; sourceTree = "<group>"; };
+		7DB94F3B274954A3000EDEE3 /* TimelineItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineItem.swift; sourceTree = "<group>"; };
+		7DB94F3C274954A3000EDEE3 /* ContributionDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionDetail.swift; sourceTree = "<group>"; };
+		7DB94F3D274954A3000EDEE3 /* ContributionStatusDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionStatusDetailView.swift; sourceTree = "<group>"; };
+		7DB94F4A27495505000EDEE3 /* ContributionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionStatus.swift; sourceTree = "<group>"; };
+		7DB94F4B27495505000EDEE3 /* ContributionRejection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionRejection.swift; sourceTree = "<group>"; };
+		7DB94F4E2749552A000EDEE3 /* FinewasteTapHoldButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinewasteTapHoldButton.swift; sourceTree = "<group>"; };
+		7DB94F50274955AD000EDEE3 /* FinewasteLimitTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinewasteLimitTextField.swift; sourceTree = "<group>"; };
 		7DDD2292272FD53500250B35 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		7DDD229D272FD5A500250B35 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7DDD229F272FD5C500250B35 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -586,19 +616,18 @@
 		5572C6882728152900601A69 /* Finewaste */ = {
 			isa = PBXGroup;
 			children = (
-				7DB94F1F27492621000EDEE3 /* GoogleService-Info.plist */,
-				7D0200DF2737760600D3BB44 /* Extensions */,
-				7D0200D62736D10900D3BB44 /* Networking */,
-				551DD88527329E6200E550AF /* Helpers */,
-				55B6045327305A0400631004 /* Finewaste.entitlements */,
-				7DDD22CA273037F400250B35 /* Info.plist */,
-				5572C6922728152C00601A69 /* Persistence.swift */,
+				7DDD2290272FD4C100250B35 /* Application */,
 				5572C68D2728152C00601A69 /* Assets.xcassets */,
 				7DDD229F272FD5C500250B35 /* Colors.xcassets */,
-				7DDD2290272FD4C100250B35 /* Application */,
-				5572C6942728152C00601A69 /* Finewaste.xcdatamodeld */,
+				7DB94F4927495505000EDEE3 /* Constants */,
+				7D0200DF2737760600D3BB44 /* Extensions */,
+				55B6045327305A0400631004 /* Finewaste.entitlements */,
+				7DB94F1F27492621000EDEE3 /* GoogleService-Info.plist */,
+				551DD88527329E6200E550AF /* Helpers */,
+				7DDD22CA273037F400250B35 /* Info.plist */,
 				7DDD2291272FD52900250B35 /* Models */,
 				7DDD2294272FD54600250B35 /* Modules */,
+				7D0200D62736D10900D3BB44 /* Networking */,
 				5572C68F2728152C00601A69 /* Preview Content */,
 				7DDD22A1272FD82400250B35 /* Repositories */,
 				7DDD22A42730374A00250B35 /* Resources */,
@@ -889,6 +918,67 @@
 			path = ../../../../../../../Downloads/Finewaste/Finewaste/Finewaste/Themes/Views/FinewasteImageGallery;
 			sourceTree = "<group>";
 		};
+		7DB94F2E274954A3000EDEE3 /* Contribution Status Detail */ = {
+			isa = PBXGroup;
+			children = (
+				7DB94F2F274954A3000EDEE3 /* ViewModel */,
+				7DB94F32274954A3000EDEE3 /* View */,
+			);
+			path = "Contribution Status Detail";
+			sourceTree = "<group>";
+		};
+		7DB94F2F274954A3000EDEE3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7DB94F30274954A3000EDEE3 /* ContributionTimelineViewModel.swift */,
+				7DB94F31274954A3000EDEE3 /* ContributionStatusDetailViewModel.swift */,
+				7D0286D5274A150500241266 /* RejectContributionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7DB94F32274954A3000EDEE3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7DB94F33274954A3000EDEE3 /* ContributionMaterialItem.swift */,
+				7DB94F34274954A3000EDEE3 /* Reject Contribution */,
+				7DB94F37274954A3000EDEE3 /* ContributionCancelView.swift */,
+				7DB94F38274954A3000EDEE3 /* Contribution Timeline */,
+				7DB94F3C274954A3000EDEE3 /* ContributionDetail.swift */,
+				7DB94F3D274954A3000EDEE3 /* ContributionStatusDetailView.swift */,
+				7D0286D7274A8D9600241266 /* WheelDatePicker.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7DB94F34274954A3000EDEE3 /* Reject Contribution */ = {
+			isa = PBXGroup;
+			children = (
+				7DB94F35274954A3000EDEE3 /* RejectReasonOption.swift */,
+				7DB94F36274954A3000EDEE3 /* RejectContributionView.swift */,
+			);
+			path = "Reject Contribution";
+			sourceTree = "<group>";
+		};
+		7DB94F38274954A3000EDEE3 /* Contribution Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				7DB94F39274954A3000EDEE3 /* TimelineConnector.swift */,
+				7DB94F3A274954A3000EDEE3 /* ContributionTimeline.swift */,
+				7DB94F3B274954A3000EDEE3 /* TimelineItem.swift */,
+			);
+			path = "Contribution Timeline";
+			sourceTree = "<group>";
+		};
+		7DB94F4927495505000EDEE3 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				7DB94F4A27495505000EDEE3 /* ContributionStatus.swift */,
+				7DB94F4B27495505000EDEE3 /* ContributionRejection.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		7DDD2290272FD4C100250B35 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -914,6 +1004,7 @@
 		7DDD2294272FD54600250B35 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7DB94F2E274954A3000EDEE3 /* Contribution Status Detail */,
 				7DB94F2127492CD0000EDEE3 /* Login */,
 				5527054F274420E400868643 /* Setting */,
 				5527053B2740020F00868643 /* Profile */,
@@ -1007,6 +1098,8 @@
 		7DDD22DD2730EC5500250B35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7DB94F50274955AD000EDEE3 /* FinewasteLimitTextField.swift */,
+				7DB94F4E2749552A000EDEE3 /* FinewasteTapHoldButton.swift */,
 				7DB94F29274950F3000EDEE3 /* FinewasteImageGallery */,
 				7D6DD4D2273B81C40023E163 /* FinewasteMapPicker */,
 				7D6DD4CF273B60CD0023E163 /* FinewasteMaterialCard */,
@@ -1316,6 +1409,7 @@
 				7D6DD4C9273AC3FE0023E163 /* EditContributionMaterialView.swift in Sources */,
 				551BAAE12746B5C20061093A /* ProfileImagePicker.swift in Sources */,
 				7DF81CBD273E947D00D6A24A /* TabBarItem.swift in Sources */,
+				7DB94F40274954A3000EDEE3 /* ContributionMaterialItem.swift in Sources */,
 				7D0200DE2736DD5200D3BB44 /* ProjectUpdateViewModel.swift in Sources */,
 				7DDD22DC2730EBC300250B35 /* ProjectDetailViewModel.swift in Sources */,
 				7D6DD4DE273B974E0023E163 /* CircleNavigationBackButton.swift in Sources */,
@@ -1332,22 +1426,26 @@
 				7D6DD4B8273A7DE20023E163 /* SelectMaterialView.swift in Sources */,
 				7D6DD4BF273AA3F20023E163 /* FinewasteMaterialCard.swift in Sources */,
 				00F2BC9F2733C78D00E95798 /* AboutView.swift in Sources */,
+				7DB94F47274954A3000EDEE3 /* ContributionDetail.swift in Sources */,
 				5527052B273D6CC700868643 /* MyProjectGridView.swift in Sources */,
 				552705522744210800868643 /* SettingView.swift in Sources */,
 				7D6DD4B3273A66530023E163 /* PaginationView.swift in Sources */,
 				00C18B552732988E000C1103 /* DeliveryView.swift in Sources */,
+				7DB94F48274954A3000EDEE3 /* ContributionStatusDetailView.swift in Sources */,
 				559B6E9E2736D29A003FD6AC /* SearchBarView.swift in Sources */,
-				5572C6962728152C00601A69 /* Finewaste.xcdatamodeld in Sources */,
 				7D6DD4C5273AB42B0023E163 /* AddContributionViewModel.swift in Sources */,
 				7D0200C82736703D00D3BB44 /* Message.swift in Sources */,
 				7D6DD4AA273956590023E163 /* Image+centerWidthCrop.swift in Sources */,
 				00BC26B2273D190300C0C7DB /* ContributionStatusView.swift in Sources */,
+				7DB94F46274954A3000EDEE3 /* TimelineItem.swift in Sources */,
 				552705422740162E00868643 /* DescriptionProfileView.swift in Sources */,
+				7DB94F4D27495505000EDEE3 /* ContributionRejection.swift in Sources */,
 				7D6DD4C1273AB2680023E163 /* StepBulletColor.swift in Sources */,
 				7D6DD4E3273C07980023E163 /* MapKitService.swift in Sources */,
 				5527056227442DE900868643 /* ContactUsView.swift in Sources */,
 				7DDD22F227318C7C00250B35 /* ProjectMaterialRequirementView.swift in Sources */,
 				7DDD22FC2732C30900250B35 /* ProjectStatusView.swift in Sources */,
+				7D0286D8274A8D9600241266 /* WheelDatePicker.swift in Sources */,
 				7D6DD4BA273A7DEF0023E163 /* SetDeliveryView.swift in Sources */,
 				7DDD22A3272FD84200250B35 /* ProjectRepository.swift in Sources */,
 				7D914351273596E100B89F98 /* ProjectStatusViewModel.swift in Sources */,
@@ -1358,8 +1456,9 @@
 				7D6DD4B1273A63500023E163 /* AddContributionView.swift in Sources */,
 				7DB94F2D274950F3000EDEE3 /* ImageGalleryView.swift in Sources */,
 				5527055C27442D8E00868643 /* FaqView.swift in Sources */,
-				5572C6932728152C00601A69 /* Persistence.swift in Sources */,
 				7D0200CE2736708D00D3BB44 /* ProjectUpdate.swift in Sources */,
+				7DB94F44274954A3000EDEE3 /* TimelineConnector.swift in Sources */,
+				7DB94F43274954A3000EDEE3 /* ContributionCancelView.swift in Sources */,
 				7DDD23012732CC4900250B35 /* ProjectUpdateCard.swift in Sources */,
 				7D6DD4E0273B9B610023E163 /* CircleCurrentLocationButton.swift in Sources */,
 				7D0200DC2736DBE300D3BB44 /* ProjectUpdateRepository.swift in Sources */,
@@ -1373,6 +1472,7 @@
 				7D0200F82737B8B200D3BB44 /* PostProjectUpdateViewModel.swift in Sources */,
 				551DD8902733037E00E550AF /* MainProjectView.swift in Sources */,
 				7DF81CB7273E923900D6A24A /* RootView.swift in Sources */,
+				7DB94F3E274954A3000EDEE3 /* ContributionTimelineViewModel.swift in Sources */,
 				7D0200F0273796B600D3BB44 /* FinewasteImagePicker.swift in Sources */,
 				551DD8892732A2DF00E550AF /* Users.swift in Sources */,
 				7D9143492734F9A700B89F98 /* User.swift in Sources */,
@@ -1386,10 +1486,13 @@
 				7DDD22FA2732C23600250B35 /* ProjectOwnerView.swift in Sources */,
 				7D0200E72737838000D3BB44 /* FinewasteButtonOutline.swift in Sources */,
 				5527055A27442D5300868643 /* HowWeWorkView.swift in Sources */,
+				7DB94F4F2749552A000EDEE3 /* FinewasteTapHoldButton.swift in Sources */,
 				7DDD22CC27303CF100250B35 /* Fonts.swift in Sources */,
 				7D91434F273590C700B89F98 /* ProjectMaterialRepository.swift in Sources */,
 				7DF81CBB273E942900D6A24A /* ChatListView.swift in Sources */,
 				5527055E27442DA600868643 /* TermOfUseView.swift in Sources */,
+				7DB94F41274954A3000EDEE3 /* RejectReasonOption.swift in Sources */,
+				7DB94F45274954A3000EDEE3 /* ContributionTimeline.swift in Sources */,
 				7D0200D32736C2F800D3BB44 /* ContributionRepository.swift in Sources */,
 				7DB94F2C274950F3000EDEE3 /* FinewasteImageGallery.swift in Sources */,
 				5527056427442E0000868643 /* SignOutView.swift in Sources */,
@@ -1403,12 +1506,14 @@
 				55FE15792738452700B24F2D /* DashboardView.swift in Sources */,
 				7DDD22F82732767800250B35 /* ImagePageIndicatorView.swift in Sources */,
 				7D6DD4BD273A86EF0023E163 /* NewContributionModel.swift in Sources */,
+				7DB94F3F274954A3000EDEE3 /* ContributionStatusDetailViewModel.swift in Sources */,
 				00BC26AE273D126C00C0C7DB /* MyContributionsView.swift in Sources */,
 				7DDD22F427318CF900250B35 /* ProjectStoryView.swift in Sources */,
 				55270536273D8BA600868643 /* MyContributeProjectGridView.swift in Sources */,
 				7D91434D273507DA00B89F98 /* Contribution.swift in Sources */,
 				7DDD22F027313E1F00250B35 /* FinewasteRoundedOutlineButton.swift in Sources */,
 				7DDD22EE273137D700250B35 /* ProjectUpdateView.swift in Sources */,
+				7DB94F51274955AD000EDEE3 /* FinewasteLimitTextField.swift in Sources */,
 				7D0200E12737762700D3BB44 /* View+retrieveScrollPosition.swift in Sources */,
 				7D6DD4C7273AB5C00023E163 /* SelectMaterialViewModel.swift in Sources */,
 				7D6DD4CC273ADAAE0023E163 /* FinewastePicker.swift in Sources */,
@@ -1417,6 +1522,7 @@
 				55270526273D642100868643 /* MyProjectViewModel.swift in Sources */,
 				00BC26B0273D127D00C0C7DB /* MyProjectsView.swift in Sources */,
 				7D0200C22736356500D3BB44 /* CLLocation+fetchShortLocation.swift in Sources */,
+				7DB94F42274954A3000EDEE3 /* RejectContributionView.swift in Sources */,
 				7D0200F52737A86B00D3BB44 /* NativeImagePicker.swift in Sources */,
 				7D0200F32737A76D00D3BB44 /* AddImageView.swift in Sources */,
 				5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */,
@@ -1424,6 +1530,7 @@
 				55B6040F273047FC00631004 /* UserInfo.swift in Sources */,
 				55270524273D640500868643 /* MyProjectView.swift in Sources */,
 				7D6DD4D1273B73910023E163 /* SetDeliveryViewModel.swift in Sources */,
+				7D0286D6274A150500241266 /* RejectContributionViewModel.swift in Sources */,
 				002A633C273E615000A0549B /* MyContributionsViewModel.swift in Sources */,
 				551DD88727329E7A00E550AF /* EncryptionHelper.swift in Sources */,
 				5527054B27417C4B00868643 /* UpcyclerActiveView.swift in Sources */,
@@ -1435,6 +1542,7 @@
 				55B6040D272FEA6800631004 /* LoginViewModel.swift in Sources */,
 				552705402740110A00868643 /* HeaderProfileView.swift in Sources */,
 				7D339EC92733D6240023BFDB /* NavigationBackButton.swift in Sources */,
+				7DB94F4C27495505000EDEE3 /* ContributionStatus.swift in Sources */,
 				00FE22CA2733DBEB00EF306A /* AddMaterialView.swift in Sources */,
 				00E7704A27327AC300C9C299 /* showImagePicker.swift in Sources */,
 				559B6EA02737B6D3003FD6AC /* FloatingTabBarView.swift in Sources */,
@@ -1807,19 +1915,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		5572C6942728152C00601A69 /* Finewaste.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				5572C6952728152C00601A69 /* Finewaste.xcdatamodel */,
-			);
-			currentVersion = 5572C6952728152C00601A69 /* Finewaste.xcdatamodel */;
-			path = Finewaste.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 5572C67E2728152900601A69 /* Project object */;
 }
