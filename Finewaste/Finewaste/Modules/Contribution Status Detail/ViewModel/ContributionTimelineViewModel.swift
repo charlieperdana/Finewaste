@@ -56,8 +56,12 @@ class ContributionTimelineViewModel: ObservableObject {
         if status < .deliveryConfirmed {
             return "Pending"
         } else if status == .finished {
-            if (!isProjectOwner && deliveryType == "Drop off") || (isProjectOwner && deliveryType == "Pick up" ) {
-                return "Yay! your contribution \(deliveryType.lowercased()) is confirmed"
+            if !isProjectOwner {
+                if deliveryType == "Drop off" {
+                    return "Yay! your contribution drop off is confirmed"
+                } else {
+                    return "Yay! your contribution delivery is picked up"
+                }
             } else {
                 return "Yay! you already receive contribution!"
             }
@@ -89,7 +93,11 @@ class ContributionTimelineViewModel: ObservableObject {
                 return "Waiting \(deliveryType.capitalized) Schedule"
             }
         } else if status == .confirmed {
-            return (isProjectOwner ? "Waiting" : "Set") + (" \(deliveryType.capitalized) Schedule")
+            if isProjectOwner {
+                return (deliveryType == "Drop off" ? "Waiting" : "Set") + (" \(deliveryType.capitalized) Schedule")
+            } else {
+                return (deliveryType == "Drop off" ? "Set" : "Waiting") + (" \(deliveryType.capitalized) Schedule")
+            }
         } else {
             return "\(deliveryType) Scheduled"
         }
@@ -162,13 +170,7 @@ class ContributionTimelineViewModel: ObservableObject {
         return "---"
     }
     
-    private var isProjectOwner: Bool {
-        if let ownerId = contribution.projectOwnerId {
-            return ownerId == AuthenticationHelper.shared.userId
-        }
-        
-        return false
-    }
+    var isProjectOwner: Bool
     
     init(contribution: Contribution) {
         self.contribution = contribution
@@ -176,6 +178,12 @@ class ContributionTimelineViewModel: ObservableObject {
         
         if let status = contribution.status {
             self.status = ContributionStatus(from: status)
+        }
+        
+        if let ownerId = contribution.projectOwnerId {
+            isProjectOwner = ownerId == AuthenticationHelper.shared.userId
+        } else {
+            isProjectOwner = false
         }
     }
 }

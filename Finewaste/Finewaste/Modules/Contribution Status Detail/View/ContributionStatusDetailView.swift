@@ -23,7 +23,7 @@ struct ContributionStatusDetailView: View {
                         VStack(alignment: .leading, spacing: 32) {
                             HStack {
                                 VStack(alignment: .leading, spacing: 8) {
-                                    Text("Project Owner")
+                                    Text(viewModel.isProjectOwner ? "Contributor" : "Project Owner")
                                         .font(Fonts.poppinsCallout())
                                     Text("DonateforCycle.id")
                                         .font(Fonts.poppinsSubheadline())
