@@ -11,16 +11,18 @@ struct HistoryContributionView: View {
     @StateObject var viewModel = HistoryContributionsViewModel()
     
     var body: some View {
-        Spacer().frame(height: 16)
-        if viewModel.contributions.isEmpty {
-            Spacer()
-            Text("No contribution yet")
-                .font(Fonts.poppinsCallout())
-                .foregroundColor(Colors.Gray)
-            Spacer()
-        } else {
-            ForEach(viewModel.contributions, id: \.id) { contribution in
-                FinewasteContributionHistoryCard(contribution: contribution)
+        VStack {
+            Spacer().frame(height: 16)
+            if viewModel.contributions.isEmpty {
+                Spacer()
+                Text("No contribution yet")
+                    .font(Fonts.poppinsCallout())
+                    .foregroundColor(Colors.Gray)
+                Spacer()
+            } else {
+                ForEach(viewModel.contributions, id: \.id) { contribution in
+                    FinewasteContributionHistoryCard(contribution: contribution)
+                }
             }
         }
     }
