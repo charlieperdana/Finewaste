@@ -64,6 +64,11 @@ struct ContributionStatusDetailView: View {
                 
                 .navigationTitle(contribution.projectName ?? "---")
                 .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        NavigationBackButton()
+                    }
+                }
             } else {
                 Text("Fetching contribution data..")
             }
