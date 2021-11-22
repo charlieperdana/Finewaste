@@ -21,42 +21,39 @@ struct ContributionStatusView: View {
     @State var isShowHistoryPage = false
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Spacer().frame(height: 16)
-                Group {
-                    Picker("", selection: $selectedContentView) {
-                        ForEach(contentTypes, id: \.self) { name in
-                            Text(name)
-                                .font(Fonts.poppinsFootnote())
-                                .fontWeight(.semibold)
-                        }
-                    }
-                    .pickerStyle(.segmented)
-                    switch ContributionStatusContentType(rawValue: selectedContentView) {
-                    case .contributions:
-                        MyContributionsView()
-                    case .projects:
-                        MyProjectsView()
-                    default:
-                        EmptyView()
+        VStack {
+            Spacer().frame(height: 16)
+            Group {
+                Picker("", selection: $selectedContentView) {
+                    ForEach(contentTypes, id: \.self) { name in
+                        Text(name)
+                            .font(Fonts.poppinsFootnote())
+                            .fontWeight(.semibold)
                     }
                 }
-                Spacer()
-                
-                NavigationLink(destination: HistoryView(), isActive: $isShowHistoryPage) {}
+                .pickerStyle(.segmented)
+                switch ContributionStatusContentType(rawValue: selectedContentView) {
+                case .contributions:
+                    MyContributionsView()
+                case .projects:
+                    MyProjectsView()
+                default:
+                    EmptyView()
+                }
             }
-            .navigationBarTitle("Contribution Status", displayMode: .large)
-            .navigationBarItems(trailing: Button(action: {
-                self.isShowHistoryPage = true
-            }, label: {
-                Text("History")
-                    .font(Fonts.poppinsHeadline())
-                    .foregroundColor(Colors.Turqoise)
-            }))
-            .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+            Spacer()
+            
+            NavigationLink(destination: HistoryView(), isActive: $isShowHistoryPage) {}
         }
-        .navigationBarHidden(true)
+        .navigationBarTitle("Contribution Status", displayMode: .large)
+        .navigationBarItems(trailing: Button(action: {
+            self.isShowHistoryPage = true
+        }, label: {
+            Text("History")
+                .font(Fonts.poppinsHeadline())
+                .foregroundColor(Colors.Turqoise)
+        }))
+        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
     }
 }
 

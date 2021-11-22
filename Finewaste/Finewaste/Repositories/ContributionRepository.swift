@@ -45,7 +45,7 @@ final class ContributionRepository: ObservableObject {
     
     func getUserContribution(userID: String) {
         let firestore = Firestore.firestore()
-        firestore.collection("contributions").whereField("contributorId", isEqualTo: userID).getDocuments { (snapshot, error) in
+        firestore.collection("contributions").whereField("contributorId", isEqualTo: userID).addSnapshotListener { (snapshot, error) in
             guard let documents = snapshot?.documents else {
                 return
             }
