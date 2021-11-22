@@ -28,6 +28,6 @@ class RejectContributionViewModel: ObservableObject {
         newData["rejectionReason"] = reason
         newData["archived"] = false
         
-        repository.rejectContribution(id: self.contributionId, newData: newData)
+        repository.updateContribution(id: self.contributionId, newData: newData)
     }
 }
