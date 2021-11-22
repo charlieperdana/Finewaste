@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct HistoryContributionView: View {
+    @StateObject var viewModel = HistoryContributionsViewModel()
+    
     var body: some View {
-        Text("History Contribution")
+        VStack {
+            Spacer().frame(height: 16)
+            if viewModel.contributions.isEmpty {
+                Spacer()
+                Text("No contribution yet")
+                    .font(Fonts.poppinsCallout())
+                    .foregroundColor(Colors.Gray)
+                Spacer()
+            } else {
+                ForEach(viewModel.contributions, id: \.id) { contribution in
+                    if contribution.archived == true {
+                        FinewasteContributionHistoryCard(contribution: contribution)
+                    }
+                }
+            }
+        }
     }
 }
 

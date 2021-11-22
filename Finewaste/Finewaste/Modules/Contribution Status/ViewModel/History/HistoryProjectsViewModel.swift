@@ -1,14 +1,13 @@
 //
-//  MyProjectsViewModel.swift
+//  HistoryProjectsViewModel.swift
 //  Finewaste
 //
-//  Created by Kendra Arsena W on 19/11/21.
+//  Created by Kendra Arsena W on 22/11/21.
 //
 
 import Combine
-import FirebaseFirestore
 
-class MyProjectsViewModel: ObservableObject {
+class HistoryProjectsViewModel: ObservableObject {
     private var projectRepository = ProjectRepository()
     private var contributionRepository = ContributionRepository()
     
@@ -24,7 +23,7 @@ class MyProjectsViewModel: ObservableObject {
     }
     @Published var contributions = [Contribution]()
     
-    var currentUser = AuthenticationHelper.shared.userId
+    var currentUser = AuthenticationHelper.shared.userId ?? ""
     
     private var cancellables: Set<AnyCancellable> = []
     
