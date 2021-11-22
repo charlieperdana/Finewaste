@@ -17,6 +17,11 @@
 		00BC26B0273D127D00C0C7DB /* MyProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC26AF273D127D00C0C7DB /* MyProjectsView.swift */; };
 		00BC26B2273D190300C0C7DB /* ContributionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC26B1273D190300C0C7DB /* ContributionStatusView.swift */; };
 		00BC26B4273D278700C0C7DB /* FinewasteContributionStatusCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC26B3273D278700C0C7DB /* FinewasteContributionStatusCard.swift */; };
+		00BD9768274B905E00725DDD /* FinewasteContributionHistoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD9767274B905E00725DDD /* FinewasteContributionHistoryCard.swift */; };
+		00BD976C274B913500725DDD /* FinewasteImageGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD976A274B913500725DDD /* FinewasteImageGallery.swift */; };
+		00BD976D274B913500725DDD /* ImageGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD976B274B913500725DDD /* ImageGalleryView.swift */; };
+		00BD9771274B914600725DDD /* HistoryProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD976F274B914600725DDD /* HistoryProjectsViewModel.swift */; };
+		00BD9772274B914600725DDD /* HistoryContributionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD9770274B914600725DDD /* HistoryContributionsViewModel.swift */; };
 		00C18B552732988E000C1103 /* DeliveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C18B542732988E000C1103 /* DeliveryView.swift */; };
 		00C18B57273298C5000C1103 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C18B56273298C5000C1103 /* MaterialView.swift */; };
 		00E7704A27327AC300C9C299 /* showImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E7704927327AC300C9C299 /* showImagePicker.swift */; };
@@ -118,8 +123,6 @@
 		7D91434F273590C700B89F98 /* ProjectMaterialRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91434E273590C700B89F98 /* ProjectMaterialRepository.swift */; };
 		7D914351273596E100B89F98 /* ProjectStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D914350273596E100B89F98 /* ProjectStatusViewModel.swift */; };
 		7DB94F2027492621000EDEE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DB94F1F27492621000EDEE3 /* GoogleService-Info.plist */; };
-		7DB94F2C274950F3000EDEE3 /* FinewasteImageGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F2A274950F3000EDEE3 /* FinewasteImageGallery.swift */; };
-		7DB94F2D274950F3000EDEE3 /* ImageGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F2B274950F3000EDEE3 /* ImageGalleryView.swift */; };
 		7DB94F3E274954A3000EDEE3 /* ContributionTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F30274954A3000EDEE3 /* ContributionTimelineViewModel.swift */; };
 		7DB94F3F274954A3000EDEE3 /* ContributionStatusDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F31274954A3000EDEE3 /* ContributionStatusDetailViewModel.swift */; };
 		7DB94F40274954A3000EDEE3 /* ContributionMaterialItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F33274954A3000EDEE3 /* ContributionMaterialItem.swift */; };
@@ -196,6 +199,11 @@
 		00BC26AF273D127D00C0C7DB /* MyProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectsView.swift; sourceTree = "<group>"; };
 		00BC26B1273D190300C0C7DB /* ContributionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionStatusView.swift; sourceTree = "<group>"; };
 		00BC26B3273D278700C0C7DB /* FinewasteContributionStatusCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteContributionStatusCard.swift; sourceTree = "<group>"; };
+		00BD9767274B905E00725DDD /* FinewasteContributionHistoryCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinewasteContributionHistoryCard.swift; sourceTree = "<group>"; };
+		00BD976A274B913500725DDD /* FinewasteImageGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinewasteImageGallery.swift; sourceTree = "<group>"; };
+		00BD976B274B913500725DDD /* ImageGalleryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryView.swift; sourceTree = "<group>"; };
+		00BD976F274B914600725DDD /* HistoryProjectsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryProjectsViewModel.swift; sourceTree = "<group>"; };
+		00BD9770274B914600725DDD /* HistoryContributionsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryContributionsViewModel.swift; sourceTree = "<group>"; };
 		00C18B542732988E000C1103 /* DeliveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryView.swift; sourceTree = "<group>"; };
 		00C18B56273298C5000C1103 /* MaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		00E7704927327AC300C9C299 /* showImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showImagePicker.swift; sourceTree = "<group>"; };
@@ -304,8 +312,6 @@
 		7D91434E273590C700B89F98 /* ProjectMaterialRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMaterialRepository.swift; sourceTree = "<group>"; };
 		7D914350273596E100B89F98 /* ProjectStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatusViewModel.swift; sourceTree = "<group>"; };
 		7DB94F1F27492621000EDEE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7DB94F2A274950F3000EDEE3 /* FinewasteImageGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinewasteImageGallery.swift; sourceTree = "<group>"; };
-		7DB94F2B274950F3000EDEE3 /* ImageGalleryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryView.swift; sourceTree = "<group>"; };
 		7DB94F30274954A3000EDEE3 /* ContributionTimelineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionTimelineViewModel.swift; sourceTree = "<group>"; };
 		7DB94F31274954A3000EDEE3 /* ContributionStatusDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionStatusDetailViewModel.swift; sourceTree = "<group>"; };
 		7DB94F33274954A3000EDEE3 /* ContributionMaterialItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionMaterialItem.swift; sourceTree = "<group>"; };
@@ -447,6 +453,7 @@
 		00BC26AA273D124600C0C7DB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				00BD976E274B914600725DDD /* History */,
 				002A633B273E615000A0549B /* MyContributionsViewModel.swift */,
 				008E4B5527478781005A793C /* MyProjectsViewModel.swift */,
 			);
@@ -458,6 +465,24 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		00BD9769274B913500725DDD /* FinewasteImageGallery */ = {
+			isa = PBXGroup;
+			children = (
+				00BD976A274B913500725DDD /* FinewasteImageGallery.swift */,
+				00BD976B274B913500725DDD /* ImageGalleryView.swift */,
+			);
+			path = FinewasteImageGallery;
+			sourceTree = "<group>";
+		};
+		00BD976E274B914600725DDD /* History */ = {
+			isa = PBXGroup;
+			children = (
+				00BD976F274B914600725DDD /* HistoryProjectsViewModel.swift */,
+				00BD9770274B914600725DDD /* HistoryContributionsViewModel.swift */,
+			);
+			path = History;
 			sourceTree = "<group>";
 		};
 		3FD67218DA6996132C6B13F9 /* Pods */ = {
@@ -928,16 +953,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		7DB94F29274950F3000EDEE3 /* FinewasteImageGallery */ = {
-			isa = PBXGroup;
-			children = (
-				7DB94F2A274950F3000EDEE3 /* FinewasteImageGallery.swift */,
-				7DB94F2B274950F3000EDEE3 /* ImageGalleryView.swift */,
-			);
-			name = FinewasteImageGallery;
-			path = ../../../../../../../Downloads/Finewaste/Finewaste/Finewaste/Themes/Views/FinewasteImageGallery;
-			sourceTree = "<group>";
-		};
 		7DB94F2E274954A3000EDEE3 /* Contribution Status Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1120,7 +1135,7 @@
 			children = (
 				7DB94F50274955AD000EDEE3 /* FinewasteLimitTextField.swift */,
 				7DB94F4E2749552A000EDEE3 /* FinewasteTapHoldButton.swift */,
-				7DB94F29274950F3000EDEE3 /* FinewasteImageGallery */,
+				00BD9769274B913500725DDD /* FinewasteImageGallery */,
 				7D6DD4D2273B81C40023E163 /* FinewasteMapPicker */,
 				7D6DD4CF273B60CD0023E163 /* FinewasteMaterialCard */,
 				7D6DD4CA273ADA8C0023E163 /* FinewastePicker */,
@@ -1133,6 +1148,7 @@
 				7D0200F12737A75D00D3BB44 /* ImagePicker */,
 				7D6DD4AB27396DE60023E163 /* PostUploadIndicator.swift */,
 				00BC26B3273D278700C0C7DB /* FinewasteContributionStatusCard.swift */,
+				00BD9767274B905E00725DDD /* FinewasteContributionHistoryCard.swift */,
 				7DF81CBC273E947D00D6A24A /* TabBarItem.swift */,
 			);
 			path = Views;
@@ -1424,6 +1440,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00BD9771274B914600725DDD /* HistoryProjectsViewModel.swift in Sources */,
 				55FE157B27384E1400B24F2D /* ProjectGridView.swift in Sources */,
 				7DDD22E62731140C00250B35 /* FinewasteButtonSize.swift in Sources */,
 				7D6DD4C9273AC3FE0023E163 /* EditContributionMaterialView.swift in Sources */,
@@ -1474,7 +1491,6 @@
 				551DD88D273302C300E550AF /* ProjectViewModel.swift in Sources */,
 				7D91434B2734FA9D00B89F98 /* Conversation.swift in Sources */,
 				7D6DD4B1273A63500023E163 /* AddContributionView.swift in Sources */,
-				7DB94F2D274950F3000EDEE3 /* ImageGalleryView.swift in Sources */,
 				5527055C27442D8E00868643 /* FaqView.swift in Sources */,
 				7D0200CE2736708D00D3BB44 /* ProjectUpdate.swift in Sources */,
 				7DB94F44274954A3000EDEE3 /* TimelineConnector.swift in Sources */,
@@ -1484,16 +1500,19 @@
 				7D0200DC2736DBE300D3BB44 /* ProjectUpdateRepository.swift in Sources */,
 				7D6DD4AC27396DE60023E163 /* PostUploadIndicator.swift in Sources */,
 				008E4B5D2747AD7A005A793C /* HistoryProjectView.swift in Sources */,
+				00BD9768274B905E00725DDD /* FinewasteContributionHistoryCard.swift in Sources */,
 				7D0200EC2737850B00D3BB44 /* PostProjectUpdateView.swift in Sources */,
 				7D0200D82736D11C00D3BB44 /* CloudFunctionTrigger.swift in Sources */,
 				008E4B5627478781005A793C /* MyProjectsViewModel.swift in Sources */,
 				7DDD22DA2730EBBA00250B35 /* ProjectDetailView.swift in Sources */,
 				7D6DD4E9273C0AC00023E163 /* SearchResultData.swift in Sources */,
 				5527053A273D8D7600868643 /* MyContributeProjectViewModel.swift in Sources */,
+				00BD9772274B914600725DDD /* HistoryContributionsViewModel.swift in Sources */,
 				5527056027442DC100868643 /* PrivacyPolicyView.swift in Sources */,
 				7D0200F82737B8B200D3BB44 /* PostProjectUpdateViewModel.swift in Sources */,
 				551DD8902733037E00E550AF /* MainProjectView.swift in Sources */,
 				7DF81CB7273E923900D6A24A /* RootView.swift in Sources */,
+				00BD976C274B913500725DDD /* FinewasteImageGallery.swift in Sources */,
 				7DB94F3E274954A3000EDEE3 /* ContributionTimelineViewModel.swift in Sources */,
 				7D0200F0273796B600D3BB44 /* FinewasteImagePicker.swift in Sources */,
 				551DD8892732A2DF00E550AF /* Users.swift in Sources */,
@@ -1516,7 +1535,6 @@
 				7DB94F41274954A3000EDEE3 /* RejectReasonOption.swift in Sources */,
 				7DB94F45274954A3000EDEE3 /* ContributionTimeline.swift in Sources */,
 				7D0200D32736C2F800D3BB44 /* ContributionRepository.swift in Sources */,
-				7DB94F2C274950F3000EDEE3 /* FinewasteImageGallery.swift in Sources */,
 				5527056427442E0000868643 /* SignOutView.swift in Sources */,
 				7DF81CBF273EB12300D6A24A /* AuthenticationHelper.swift in Sources */,
 				7DDD22EC273137A700250B35 /* ProjectAboutView.swift in Sources */,
@@ -1567,6 +1585,7 @@
 				552705402740110A00868643 /* HeaderProfileView.swift in Sources */,
 				7D339EC92733D6240023BFDB /* NavigationBackButton.swift in Sources */,
 				7DB94F4C27495505000EDEE3 /* ContributionStatus.swift in Sources */,
+				00BD976D274B913500725DDD /* ImageGalleryView.swift in Sources */,
 				00FE22CA2733DBEB00EF306A /* AddMaterialView.swift in Sources */,
 				00E7704A27327AC300C9C299 /* showImagePicker.swift in Sources */,
 				559B6EA02737B6D3003FD6AC /* FloatingTabBarView.swift in Sources */,

@@ -12,12 +12,11 @@ class MyContributionsViewModel: ObservableObject {
     private var repository = ContributionRepository()
     @Published var contributions = [Contribution]()
     
-    var currentUser = AuthenticationHelper.shared.userId ?? ""
+    var currentUser = AuthenticationHelper.shared.userId
     
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
-        print("curr \(currentUser)")
         repository.$contributions
             .assign(to: \.contributions, on: self)
             .store(in: &cancellables)

@@ -18,8 +18,8 @@ struct FinewasteContributionHistoryCard: View {
     init(contribution: Contribution) {
         self.id = contribution.id ?? ""
         self.projectName = contribution.projectName ?? ""
-        self.user = contribution.contributor ?? ""
-        self.createdDate = TimestampHelper.shared.timestampToStringDate(timestamp: contribution.createdDate ?? Timestamp(seconds: 0, nanoseconds: 0))
+        self.user = contribution.contributorId ?? ""
+        self.createdDate = TimestampHelper.shared.timestampToStringDate(timestamp: contribution.createdDate ?? Timestamp(seconds: 0, nanoseconds: 0), format: .dateAndTime)
         self.status = contribution.status ?? 0
     }
     var body: some View {
