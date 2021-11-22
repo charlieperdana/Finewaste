@@ -65,7 +65,8 @@ class ProfileViewModel: ObservableObject {
                                          createdProducts: userData?["createdProducts"] as? Int ?? 0,
                                          donatedWaste: userData?["donatedWaste"] as? Int ?? 0,
                                          location: userData?["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0),
-                                         isBusiness: userData?["isBusiness"] as? Bool ?? false)
+                                         isBusiness: userData?["isBusiness"] as? Bool ?? false,
+                                         productImages: userData?["productPictures"] as? [String] ?? [""])
                         
                         print("User: \(self.user )")
                         
@@ -172,7 +173,8 @@ class ProfileViewModel: ObservableObject {
                            "isBusiness":data.isBusiness ?? false,
                            "productService":data.productServices ?? [""],
                            "createdProduct":data.createdProducts ?? 0,
-                           "donatedWaste":data.donatedWaste ?? 0
+                           "donatedWaste":data.donatedWaste ?? 0,
+                           "productPictures":data.productImages ?? [""]
         ] as [String : Any]
         database.collection("users").document(data.id ?? "").setData(updatedData, merge: true){ error in
             
@@ -191,7 +193,7 @@ class ProfileViewModel: ObservableObject {
         guard let uid = AuthenticationHelper.shared.userId
         else { return }
         
-        let ref = Storage.storage().reference(withPath: "profile/\(uid)")
+        let ref = Storage.storage().reference(withPath: "profile/\(uid)_profile")
         let metadatas = StorageMetadata()
         metadatas.contentType = "image/jpeg"
         

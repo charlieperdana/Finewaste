@@ -40,7 +40,9 @@ struct EditProfileView: View {
     
     @State private var isImageFromLocal = false
     
-    @State var profilePhotoUrl = ""
+    @State private var productService = ""
+    @State private var productImages = [UIImage]()
+    
     
     var body: some View {
 
@@ -165,7 +167,7 @@ struct EditProfileView: View {
                     }
                     
                     if isUpcycler {
-                        UpcyclerActiveView()
+                        UpcyclerActiveView(productService: $productService, selectedImages: $productImages, model: self.model)
                             .id(8)
                     }
                     
@@ -185,6 +187,7 @@ struct EditProfileView: View {
                     
                     if let isUpcycler = user.isBusiness {
                         self.isUpcycler = isUpcycler
+                        
                     }
                    
                 }
@@ -210,7 +213,7 @@ struct EditProfileView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         let id = model.user.id
-                        self.profilePhotoUrl = model.user.profilePhotoUrl ?? ""
+                        var profilePhotoUrl = model.user.profilePhotoUrl ?? ""
                         let name = self.nameText
                         let username = self.usernameText
                         let desc = self.descText
@@ -218,13 +221,14 @@ struct EditProfileView: View {
                         let donatedWaste = model.user.donatedWaste
                         let location = GeoPoint(latitude: self.defaultCoordinate.latitude, longitude: self.defaultCoordinate.longitude)
                         let isBusiness = isUpcycler
-                        let prodService = [UpcyclerActiveView().productService]
-//                        let prodService = [""]
+                        let prodService = self.productService.components(separatedBy: ",")
+                        
+                        print("prod service: \(prodService)")
                         
                         if let profileImage = self.selectedProfileImages {
                             self.model.uploadProfileImages(image: profileImage) { value in
-                                self.profilePhotoUrl = value
-                                print("isi poto:\(self.profilePhotoUrl)")
+                                profilePhotoUrl = value
+                                print("isi poto:\(profilePhotoUrl)")
                             }
                             
                         } else {
@@ -232,10 +236,22 @@ struct EditProfileView: View {
                         }
                         
                        
-                        print("isi poto 2:\(self.profilePhotoUrl)")
+                        print("isi poto 2:\(profilePhotoUrl)")
                         
+                        var updatedData = User()
+                        updatedData.id = id
+                        updatedData.profilePhotoUrl = profilePhotoUrl
+                        updatedData.name = name
+                        updatedData.username = username
+                        updatedData.description = desc
+                        updatedData.productServices = prodService
+                        updatedData.createdProducts = createdProducts
+                        updatedData.donatedWaste = donatedWaste
+                        updatedData.location = location
+                        updatedData.isBusiness = isBusiness
+                        updatedData.productImages = [""]
                         
-                        self.model.updateProfile(data: User(id: id, profilePhotoUrl: profilePhotoUrl, name: name, username: username, description: desc, productServices: prodService, createdProducts: createdProducts, donatedWaste: donatedWaste, location: location, isBusiness: isBusiness))
+                        self.model.updateProfile(data: updatedData)
                         
                         self.presentationMode.wrappedValue.dismiss()
                         

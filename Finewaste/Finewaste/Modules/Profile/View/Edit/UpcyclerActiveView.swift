@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct UpcyclerActiveView: View {
-    @State var productService = ""
-    @State var selectedImages = [UIImage]()
+    @Binding var productService : String
+    @Binding var selectedImages : [UIImage]
+    @ObservedObject var model: ProfileViewModel
     
     var body: some View {
         
@@ -17,7 +18,7 @@ struct UpcyclerActiveView: View {
                 VStack(alignment:.leading, spacing:3) {
                     Text("Product Service")
                         .font(Fonts.poppinsCallout())
-                    FinewasteTextField(placeholder: "Tell us about your product services", text: $productService)
+                    FinewasteTextField(placeholder: "e.g. totebag, jacket, etc", text: $productService)
                 }
                 
                 VStack(alignment:.leading, spacing:3) {
@@ -26,12 +27,20 @@ struct UpcyclerActiveView: View {
                     FinewasteImagePicker(selectedImages: $selectedImages)
                 }
             }
+            .onReceive(self.model.$user) { user in
+                print("isi service \(user.productImages)")
+                self.productService = user.productImages?.joined(separator: ", ") ?? "cinta"
+            }
+            
         
     }
 }
 
 struct UpcyclerActiveView_Previews: PreviewProvider {
+    @State static var service = ""
+    @State static var images = [UIImage]()
+    @State static var model = ProfileViewModel(userId: "8xayV4ivOsOSqUrNiD0kOHM7jih1")
     static var previews: some View {
-        UpcyclerActiveView()
+        UpcyclerActiveView(productService: $service, selectedImages:$images, model: ProfileViewModel(userId: "8xayV4ivOsOSqUrNiD0kOHM7jih1"))
     }
 }
