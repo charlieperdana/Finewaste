@@ -12,9 +12,10 @@ final class ContributionRepository: ObservableObject {
     private let path = "contributions"
     private let store = Firestore.firestore()
     @Published var contributions = [Contribution]()
+    @Published var contribution: Contribution?
     
     init() {
-
+        
     }
     
     func getContributions(projectId: String) {
@@ -26,6 +27,19 @@ final class ContributionRepository: ObservableObject {
                 }
                 
                 self.contributions = documents.compactMap { try? $0.data(as: Contribution.self) }
+            }
+    }
+    
+    func getContribution(id: String) {
+        store.collection(path)
+            .document(id)
+            .addSnapshotListener { snapshot, err in
+                if let error = err {
+                    print(error)
+                    return
+                }
+                
+                self.contribution = try? snapshot?.data(as: Contribution.self)
             }
     }
     
@@ -51,5 +65,12 @@ final class ContributionRepository: ObservableObject {
         } catch {
             
         }
+
+    }
+
+    func updateContribution(id: String, newData: [AnyHashable: Any]) {
+        store.collection(path)
+            .document(id)
+            .updateData(newData)
     }
 }

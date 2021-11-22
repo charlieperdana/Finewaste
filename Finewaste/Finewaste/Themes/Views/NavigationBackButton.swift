@@ -13,6 +13,7 @@ struct NavigationBackButton: View {
     var body: some View {
         Button(action: onBackButtonTapped) {
             Image(systemName: "chevron.left")
+                .font(.system(size: 17).weight(.medium))
                 .foregroundColor(Colors.Turqoise)
         }
     }

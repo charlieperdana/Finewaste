@@ -15,7 +15,7 @@ struct ProjectUpdateCard: View {
     
     init(update: ProjectUpdate) {
         if let date = update.createdDate {
-            updateDate = TimestampHelper.shared.timestampToStringDate(timestamp: date)
+            updateDate = TimestampHelper.shared.timestampToStringDate(timestamp: date, format: .simple)
         }
         if let description = update.description {
             updateDescription = description
@@ -40,42 +40,7 @@ struct ProjectUpdateCard: View {
                 Text(updateDescription)
                     .font(Fonts.poppinsSubheadline())
                 
-                HStack(spacing: 16) {
-                    ForEach(0..<min(2, updateImages.count)) { index in
-                        NavigationLink(
-                            destination: ImageGalleryView(updatePostedDate: updateDate, images: updateImages, chosenIndex: index)) {
-                            WebImage(url: updateImages[index])
-                                .resizable()
-                                .frame(width: 100, height: 100)
-                                .cornerRadius(10)
-                        }
-                    }
-                    if updateImages.count > 2 {
-                        NavigationLink(
-                            destination: ImageGalleryView(updatePostedDate: updateDate, images: updateImages, chosenIndex: 0)) {
-                            ZStack {
-                                WebImage(url: updateImages[2])
-                                    .resizable()
-                                    .frame(width: 100, height: 100)
-                                    .cornerRadius(10)
-                                
-                                if updateImages.count > 3 {
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .fill(Colors.Black)
-                                            .opacity(0.7)
-                                        
-                                        Text("See all")
-                                            .font(Fonts.poppinsSubheadline())
-                                            .foregroundColor(Colors.White)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    Spacer()
-                }
-                .frame(maxWidth: .infinity)
+                FinewasteImageGallery(images: updateImages, maxImagesToDisplay: min(2, updateImages.count), galleryTitle: updateDate, alignment: .left)
             }
             .offset(x: 8)
             .padding([.top, .bottom])
