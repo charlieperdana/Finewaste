@@ -35,5 +35,3 @@ struct MyProjectsView_Previews: PreviewProvider {
         MyProjectsView(viewModel: MyProjectsViewModel())
     }
 }
-
-// Cek User sekarang, punya project apa -> dari each project, cek contributions nya

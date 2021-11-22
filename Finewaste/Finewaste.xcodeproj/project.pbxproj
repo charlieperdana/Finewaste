@@ -17,6 +17,9 @@
 		00BC26B0273D127D00C0C7DB /* MyProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC26AF273D127D00C0C7DB /* MyProjectsView.swift */; };
 		00BC26B2273D190300C0C7DB /* ContributionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC26B1273D190300C0C7DB /* ContributionStatusView.swift */; };
 		00BC26B4273D278700C0C7DB /* FinewasteContributionStatusCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC26B3273D278700C0C7DB /* FinewasteContributionStatusCard.swift */; };
+		00BD975A274B841600725DDD /* HistoryProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD9759274B841600725DDD /* HistoryProjectsViewModel.swift */; };
+		00BD975E274B843100725DDD /* HistoryContributionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD975D274B843100725DDD /* HistoryContributionsViewModel.swift */; };
+		00BD9760274B871200725DDD /* FinewasteContributionHistoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD975F274B871200725DDD /* FinewasteContributionHistoryCard.swift */; };
 		00C18B552732988E000C1103 /* DeliveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C18B542732988E000C1103 /* DeliveryView.swift */; };
 		00C18B57273298C5000C1103 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C18B56273298C5000C1103 /* MaterialView.swift */; };
 		00E7704A27327AC300C9C299 /* showImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E7704927327AC300C9C299 /* showImagePicker.swift */; };
@@ -180,6 +183,9 @@
 		00BC26AF273D127D00C0C7DB /* MyProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectsView.swift; sourceTree = "<group>"; };
 		00BC26B1273D190300C0C7DB /* ContributionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionStatusView.swift; sourceTree = "<group>"; };
 		00BC26B3273D278700C0C7DB /* FinewasteContributionStatusCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteContributionStatusCard.swift; sourceTree = "<group>"; };
+		00BD9759274B841600725DDD /* HistoryProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryProjectsViewModel.swift; sourceTree = "<group>"; };
+		00BD975D274B843100725DDD /* HistoryContributionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContributionsViewModel.swift; sourceTree = "<group>"; };
+		00BD975F274B871200725DDD /* FinewasteContributionHistoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteContributionHistoryCard.swift; sourceTree = "<group>"; };
 		00C18B542732988E000C1103 /* DeliveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryView.swift; sourceTree = "<group>"; };
 		00C18B56273298C5000C1103 /* MaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		00E7704927327AC300C9C299 /* showImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showImagePicker.swift; sourceTree = "<group>"; };
@@ -415,6 +421,7 @@
 		00BC26AA273D124600C0C7DB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				00BD9758274B840600725DDD /* History */,
 				002A633B273E615000A0549B /* MyContributionsViewModel.swift */,
 				008E4B5527478781005A793C /* MyProjectsViewModel.swift */,
 			);
@@ -426,6 +433,15 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		00BD9758274B840600725DDD /* History */ = {
+			isa = PBXGroup;
+			children = (
+				00BD9759274B841600725DDD /* HistoryProjectsViewModel.swift */,
+				00BD975D274B843100725DDD /* HistoryContributionsViewModel.swift */,
+			);
+			path = History;
 			sourceTree = "<group>";
 		};
 		3FD67218DA6996132C6B13F9 /* Pods */ = {
@@ -1027,6 +1043,7 @@
 				7D0200F12737A75D00D3BB44 /* ImagePicker */,
 				7D6DD4AB27396DE60023E163 /* PostUploadIndicator.swift */,
 				00BC26B3273D278700C0C7DB /* FinewasteContributionStatusCard.swift */,
+				00BD975F274B871200725DDD /* FinewasteContributionHistoryCard.swift */,
 				7DF81CBC273E947D00D6A24A /* TabBarItem.swift */,
 			);
 			path = Views;
@@ -1324,7 +1341,9 @@
 				7D6DD4C9273AC3FE0023E163 /* EditContributionMaterialView.swift in Sources */,
 				551BAAE12746B5C20061093A /* ProfileImagePicker.swift in Sources */,
 				7DF81CBD273E947D00D6A24A /* TabBarItem.swift in Sources */,
+				00BD975A274B841600725DDD /* HistoryProjectsViewModel.swift in Sources */,
 				7D0200DE2736DD5200D3BB44 /* ProjectUpdateViewModel.swift in Sources */,
+				00BD9760274B871200725DDD /* FinewasteContributionHistoryCard.swift in Sources */,
 				7DDD22DC2730EBC300250B35 /* ProjectDetailViewModel.swift in Sources */,
 				7D6DD4DE273B974E0023E163 /* CircleNavigationBackButton.swift in Sources */,
 				7DF81CA1273CDF5A00D6A24A /* ImageCompressor.swift in Sources */,
@@ -1404,6 +1423,7 @@
 				7DF81CBF273EB12300D6A24A /* AuthenticationHelper.swift in Sources */,
 				7DDD22EC273137A700250B35 /* ProjectAboutView.swift in Sources */,
 				7DDD2293272FD53500250B35 /* Project.swift in Sources */,
+				00BD975E274B843100725DDD /* HistoryContributionsViewModel.swift in Sources */,
 				7D6DD4CE273ADB4B0023E163 /* PickerDataList.swift in Sources */,
 				7D0200D52736C74500D3BB44 /* ContributionMaterialRepository.swift in Sources */,
 				7D0200CC2736707600D3BB44 /* ProjectMaterial.swift in Sources */,

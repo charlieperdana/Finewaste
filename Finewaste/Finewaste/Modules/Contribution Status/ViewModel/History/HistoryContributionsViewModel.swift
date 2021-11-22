@@ -1,14 +1,14 @@
 //
-//  MyContributionsViewModel.swift
+//  HistoryContributionsViewModel.swift
 //  Finewaste
 //
-//  Created by Kendra Arsena W on 12/11/21.
+//  Created by Kendra Arsena W on 22/11/21.
 //
 
 import Combine
-import FirebaseFirestore
 
-class MyContributionsViewModel: ObservableObject {
+
+class HistoryContributionsViewModel: ObservableObject {
     private var repository = ContributionRepository()
     @Published var contributions = [Contribution]()
     
@@ -17,7 +17,6 @@ class MyContributionsViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
-        print("curr \(currentUser)")
         repository.$contributions
             .assign(to: \.contributions, on: self)
             .store(in: &cancellables)

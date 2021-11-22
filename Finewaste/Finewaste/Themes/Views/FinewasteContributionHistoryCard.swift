@@ -1,19 +1,18 @@
 //
-//  FinewasteContributionStatusCard.swift
+//  FinewasteContributionHistoryCard.swift
 //  Finewaste
 //
-//  Created by Kendra Arsena W on 11/11/21.
+//  Created by Kendra Arsena W on 22/11/21.
 //
 
 import SwiftUI
 import FirebaseFirestore
 
-struct FinewasteContributionStatusCard: View {
+struct FinewasteContributionHistoryCard: View {
     var id: String
     var projectName: String
     var user: String
     var createdDate: String
-    var dueDate: String = ""
     var status: Int
     
     init(contribution: Contribution) {
@@ -21,13 +20,8 @@ struct FinewasteContributionStatusCard: View {
         self.projectName = contribution.projectName ?? ""
         self.user = contribution.contributor ?? ""
         self.createdDate = TimestampHelper.shared.timestampToStringDate(timestamp: contribution.createdDate ?? Timestamp(seconds: 0, nanoseconds: 0))
-        if let createdDateTimestamp = contribution.createdDate {
-            let dueDateInThreeDays = Timestamp(seconds: Int64(createdDateTimestamp.seconds + 259200), nanoseconds: 0)
-            self.dueDate = TimestampHelper.shared.timestampToStringDate(timestamp: dueDateInThreeDays)
-        }
         self.status = contribution.status ?? 0
     }
-    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -49,26 +43,9 @@ struct FinewasteContributionStatusCard: View {
                     .font(Fonts.poppinsCaption())
             }
             Spacer().frame(height: 16)
-            HStack(spacing: 0) {
-                if status == 0 {
-                    Text("Waiting confirmation until ")
-                        .font(Fonts.poppinsCaption())
-                        .foregroundColor(Colors.Red)
-                    Text(dueDate)
-                        .font(Fonts.poppinsCaption())
-                        .foregroundColor(Colors.Red)
-                        .bold()
-                } else {
-                    Text("Pick up on ")
-                        .font(Fonts.poppinsCaption())
-                        .foregroundColor(Colors.Turqoise)
-                    Text(dueDate)
-                        .font(Fonts.poppinsCaption())
-                        .foregroundColor(Colors.Turqoise)
-                        .bold()
-                }
-                Spacer()
-            }
+            Text("Contribution Rejected")
+                .font(Fonts.poppinsCaption())
+                .foregroundColor(Colors.Turqoise)
         }
         .padding()
         .overlay(RoundedRectangle(cornerRadius: 10)
@@ -76,8 +53,8 @@ struct FinewasteContributionStatusCard: View {
     }
 }
 
-struct FinewasteContributionStatusCard_Previews: PreviewProvider {
+struct FinewasteContributionHistoryCard_Previews: PreviewProvider {
     static var previews: some View {
-        FinewasteContributionStatusCard(contribution: Contribution())
+        FinewasteContributionHistoryCard(contribution: Contribution())
     }
 }

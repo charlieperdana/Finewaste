@@ -25,9 +25,6 @@ struct MyContributionsView: View {
                     FinewasteContributionStatusCard(contribution: contribution)
                 }
             }
-            
-//            FinewasteContributionStatusCard(id: "", projectName: "Denim material for totebag", user: "Putri_240", createdDate: "26 October 2021, 19:05", dueDate: "28 October 2021", status: false)
-//            FinewasteContributionStatusCard(id: "", projectName: "Denim material for totebag", user: "Putri_240", createdDate: "26 October 2021, 19:05", dueDate: "28 October 2021", status: true)
         }
     }
 }
