@@ -21,11 +21,11 @@ struct FinewasteContributionStatusCard: View {
     init(contribution: Contribution) {
         self.id = contribution.id ?? ""
         self.projectName = contribution.projectName ?? ""
-        self.user = contribution.contributor ?? ""
-        self.createdDate = TimestampHelper.shared.timestampToStringDate(timestamp: contribution.createdDate ?? Timestamp(seconds: 0, nanoseconds: 0))
+        self.user = contribution.contributorId ?? ""
+        self.createdDate = TimestampHelper.shared.timestampToStringDate(timestamp: contribution.createdDate ?? Timestamp(seconds: 0, nanoseconds: 0), format: .dateAndTime)
         if let createdDateTimestamp = contribution.createdDate {
             let dueDateInThreeDays = Timestamp(seconds: Int64(createdDateTimestamp.seconds + 259200), nanoseconds: 0)
-            self.dueDate = TimestampHelper.shared.timestampToStringDate(timestamp: dueDateInThreeDays)
+            self.dueDate = TimestampHelper.shared.timestampToStringDate(timestamp: dueDateInThreeDays, format: .simple)
         }
         self.status = contribution.status ?? 0
     }

@@ -12,10 +12,14 @@ import FirebaseFirestoreSwift
 struct Contribution: Codable, Identifiable {
     @DocumentID var id: String?
     var status: Int? = 0
-    var contributor: String?
+    var contributorId: String?
     var projectId: String?
+    var projectOwnerId: String?
     var projectName: String?
     var deliveryType: String?
     var location: GeoPoint?
     @ServerTimestamp var createdDate: Timestamp?
+    var confirmedDate: Timestamp?
+    var deliveryDate: Timestamp?
+    var rejectionReason: String?
 }

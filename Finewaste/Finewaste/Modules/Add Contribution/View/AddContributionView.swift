@@ -18,8 +18,8 @@ struct AddContributionView: View {
     
     @StateObject var viewModel: AddContributionViewModel
     
-    init(projectId: String) {
-        self._viewModel = StateObject(wrappedValue: AddContributionViewModel(projectId: projectId))
+    init(projectId: String, projectOwnerId: String, projectName: String) {
+        self._viewModel = StateObject(wrappedValue: AddContributionViewModel(projectId: projectId, projectOwnerId: projectOwnerId, projectName: projectName))
     }
     
     var body: some View {
@@ -92,6 +92,6 @@ struct AddContributionView: View {
 
 struct AddContributionView_Previews: PreviewProvider {
     static var previews: some View {
-        AddContributionView(projectId: "")
+        AddContributionView(projectId: "", projectOwnerId: "", projectName: "")
     }
 }
