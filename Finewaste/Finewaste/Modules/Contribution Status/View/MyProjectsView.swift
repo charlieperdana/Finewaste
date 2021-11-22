@@ -8,17 +8,32 @@
 import SwiftUI
 
 struct MyProjectsView: View {
+    
+    @StateObject var viewModel = MyProjectsViewModel()
+    
     var body: some View {
-        Spacer()
-        Text("No contribution yet")
-            .font(Fonts.poppinsCallout())
-            .foregroundColor(Colors.Gray)
-        Spacer()
+        VStack {
+            Spacer().frame(height: 16)
+            if viewModel.projects.isEmpty {
+                Spacer()
+                Text("No contribution yet")
+                    .font(Fonts.poppinsCallout())
+                    .foregroundColor(Colors.Gray)
+                Spacer()
+            } else {
+                ForEach(viewModel.contributions, id: \.id) { contribution in
+                    FinewasteContributionStatusCard(contribution: contribution)
+                }
+            }
+            
+        }
     }
 }
 
 struct MyProjectsView_Previews: PreviewProvider {
     static var previews: some View {
-        MyProjectsView()
+        MyProjectsView(viewModel: MyProjectsViewModel())
     }
 }
+
+// Cek User sekarang, punya project apa -> dari each project, cek contributions nya

@@ -15,9 +15,9 @@ struct MaterialView: View {
     @State var showSheet = false
     @State var showAlert = false
     
-    @EnvironmentObject var newProject: NewProject
+    @EnvironmentObject var newProject: NewProjectModel
     
-    @State var selectedMaterial = NewMaterial(name: "", target: 0, limit: false, requirements: [])
+    @State var selectedMaterial = NewMaterialModel(name: "", target: 0, limit: false, requirements: [])
     
     @State var showDeliveryPage = false
     @State var editMaterial = false
