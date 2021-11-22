@@ -22,4 +22,5 @@ struct Contribution: Codable, Identifiable {
     var confirmedDate: Timestamp?
     var deliveryDate: Timestamp?
     var rejectionReason: String?
+    var archived: Bool?
 }

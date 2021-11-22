@@ -43,9 +43,15 @@ struct FinewasteContributionHistoryCard: View {
                     .font(Fonts.poppinsCaption())
             }
             Spacer().frame(height: 16)
-            Text("Contribution Rejected")
-                .font(Fonts.poppinsCaption())
-                .foregroundColor(Colors.Turqoise)
+            if status > 0 {
+                Text("Contribution Accepted")
+                    .font(Fonts.poppinsCaption())
+                    .foregroundColor(Colors.Turqoise)
+            } else {
+                Text("Contribution Rejected")
+                    .font(Fonts.poppinsCaption())
+                    .foregroundColor(Colors.Turqoise)
+            }
         }
         .padding()
         .overlay(RoundedRectangle(cornerRadius: 10)
