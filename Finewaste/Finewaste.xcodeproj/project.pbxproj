@@ -93,6 +93,7 @@
 		7D0286D6274A150500241266 /* RejectContributionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0286D5274A150500241266 /* RejectContributionViewModel.swift */; };
 		7D0286D8274A8D9600241266 /* WheelDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0286D7274A8D9600241266 /* WheelDatePicker.swift */; };
 		7D0286DA274BAD6A00241266 /* ContributionCancelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0286D9274BAD6A00241266 /* ContributionCancelViewModel.swift */; };
+		7D0286DE274D379F00241266 /* FinewasteSearchbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0286DD274D379F00241266 /* FinewasteSearchbar.swift */; };
 		7D339EC92733D6240023BFDB /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D339EC82733D6240023BFDB /* NavigationBackButton.swift */; };
 		7D6DD4AA273956590023E163 /* Image+centerWidthCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4A9273956590023E163 /* Image+centerWidthCrop.swift */; };
 		7D6DD4AC27396DE60023E163 /* PostUploadIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4AB27396DE60023E163 /* PostUploadIndicator.swift */; };
@@ -282,6 +283,7 @@
 		7D0286D5274A150500241266 /* RejectContributionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RejectContributionViewModel.swift; sourceTree = "<group>"; };
 		7D0286D7274A8D9600241266 /* WheelDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelDatePicker.swift; sourceTree = "<group>"; };
 		7D0286D9274BAD6A00241266 /* ContributionCancelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionCancelViewModel.swift; sourceTree = "<group>"; };
+		7D0286DD274D379F00241266 /* FinewasteSearchbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteSearchbar.swift; sourceTree = "<group>"; };
 		7D074D0A272846940010C4F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D339EC82733D6240023BFDB /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
 		7D6DD4A9273956590023E163 /* Image+centerWidthCrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+centerWidthCrop.swift"; sourceTree = "<group>"; };
@@ -1153,6 +1155,7 @@
 				00BC26B3273D278700C0C7DB /* FinewasteContributionStatusCard.swift */,
 				00BD9767274B905E00725DDD /* FinewasteContributionHistoryCard.swift */,
 				7DF81CBC273E947D00D6A24A /* TabBarItem.swift */,
+				7D0286DD274D379F00241266 /* FinewasteSearchbar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1543,6 +1546,7 @@
 				7DF81CBF273EB12300D6A24A /* AuthenticationHelper.swift in Sources */,
 				7DDD22EC273137A700250B35 /* ProjectAboutView.swift in Sources */,
 				7DDD2293272FD53500250B35 /* Project.swift in Sources */,
+				7D0286DE274D379F00241266 /* FinewasteSearchbar.swift in Sources */,
 				7D6DD4CE273ADB4B0023E163 /* PickerDataList.swift in Sources */,
 				7D0200D52736C74500D3BB44 /* ContributionMaterialRepository.swift in Sources */,
 				7D0200CC2736707600D3BB44 /* ProjectMaterial.swift in Sources */,
@@ -1758,7 +1762,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Finewaste/Preview Content\"";
-				DEVELOPMENT_TEAM = P74487TWS7;
+				DEVELOPMENT_TEAM = 6QH35NFSG6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Finewaste/Info.plist;
@@ -1796,7 +1800,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Finewaste/Preview Content\"";
-				DEVELOPMENT_TEAM = P74487TWS7;
+				DEVELOPMENT_TEAM = 6QH35NFSG6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Finewaste/Info.plist;

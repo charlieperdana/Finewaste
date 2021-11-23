@@ -19,9 +19,9 @@ struct SearchBarView: View {
                     .padding(.leading, 24)
             }
             .padding()
-            .frame(height:34)
+            .frame(height: 36)
             .background(Color(.systemGray5))
-            .cornerRadius(6)
+            .cornerRadius(10)
             .padding(.horizontal)
             .onTapGesture {
                 isSearching = true
@@ -40,7 +40,7 @@ struct SearchBarView: View {
                         
                     }
                     
-                }.padding(.horizontal,32)
+                }.padding(.horizontal, 28)
                     .foregroundColor(Colors.Gray)
             )
             .transition(.move(edge: .trailing))

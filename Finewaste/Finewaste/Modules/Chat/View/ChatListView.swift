@@ -10,8 +10,15 @@ import SwiftUI
 struct ChatListView: View {
     @EnvironmentObject var tabBarManager: TabBarManager
     
+    @State private var searchChatKeyword = ""
+    
     var body: some View {
-        Text("Chat List View Under Construction")
+        VStack(spacing: 8) {
+            FinewasteSearchbar(placeholderText: "Search chat history", searchText: $searchChatKeyword)
+            
+        }
+        .navigationTitle("Chat")
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 
