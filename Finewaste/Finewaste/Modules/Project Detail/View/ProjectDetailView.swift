@@ -88,7 +88,7 @@ struct ProjectDetailView: View {
                 VStack {
                     Spacer()
                     ZStack(alignment:. top) {
-                        Color.white
+                        Colors.White
                             .frame(height: 78)
                         FinewasteButtonFill(text: "Contribute", size: .fullWidth, isEnabled: true) {
                             if !AuthenticationHelper.shared.isLoggedIn {

@@ -24,4 +24,6 @@ struct Colors {
     
     static let SearchBarGray = Color("SearchBarGray")
     static let GrayList = Color("GrayList")
+    
+    static let Separator = Color("Separator")
 }

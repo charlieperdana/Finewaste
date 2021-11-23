@@ -16,6 +16,7 @@ enum LoginTrigger: String {
 
 struct LoginView: View {
     @EnvironmentObject var userInfo: UserInfo
+    @Environment(\.colorScheme) var colorScheme
     @Environment(\.presentationMode) var presentationMode
     
     @StateObject var loginData = LoginViewModel()
@@ -65,8 +66,9 @@ struct LoginView: View {
                         print(error.localizedDescription)
                 }
             }
-            .signInWithAppleButtonStyle(.black)
-            .frame(height: 55)
+            .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
+            .frame(height: 54)
+            .cornerRadius(10)
             .padding(.horizontal)
             
             NavigationLink(destination: OnboardingView(), isActive: $showLoginOnboarding) {

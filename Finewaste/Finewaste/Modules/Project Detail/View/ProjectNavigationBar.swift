@@ -13,7 +13,7 @@ struct ProjectNavigationBar: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            Color.white
+            Colors.White
                 .frame(height: 86)
                 .opacity(navBarOpacity)
             HStack {
@@ -22,7 +22,7 @@ struct ProjectNavigationBar: View {
                 } label: {
                     ZStack {
                         Circle()
-                            .fill(Colors.White)
+                            .fill(Color.white)
                             .frame(width: 44, height: 44)
                             .opacity(min(0.7, 1 - navBarOpacity))
                         Image(systemName: "chevron.backward")
