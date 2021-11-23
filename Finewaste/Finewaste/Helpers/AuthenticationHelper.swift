@@ -15,7 +15,6 @@ final class AuthenticationHelper {
     }
     
     var isLoggedIn: Bool {
-        return true
         if Auth.auth().currentUser != nil {
             return true
         } else {
@@ -24,7 +23,6 @@ final class AuthenticationHelper {
     }
     
     var userId: String {
-        return "SimulatorOwner"
         if let user = Auth.auth().currentUser {
             return user.uid
         } else {
