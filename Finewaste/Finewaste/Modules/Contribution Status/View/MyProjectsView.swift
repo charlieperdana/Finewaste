@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct MyProjectsView: View {
-    
     @StateObject var viewModel = MyProjectsViewModel()
     
     var body: some View {
         VStack {
             Spacer().frame(height: 16)
-            if viewModel.projects.isEmpty {
+            if viewModel.contributions.isEmpty {
                 Spacer()
                 Text("No contribution yet")
                     .font(Fonts.poppinsCallout())
@@ -22,7 +21,17 @@ struct MyProjectsView: View {
                 Spacer()
             } else {
                 ForEach(viewModel.contributions, id: \.id) { contribution in
-                    FinewasteContributionStatusCard(contribution: contribution)
+                    let status = ContributionStatus(from: contribution.status ?? -3)
+                    
+                    if status < .waitingConfirmation {
+                        NavigationLink(destination: ContributionCancelView(cancelledBy: status == .projectOwnerReject ? .projectOwner : .wasteOwner, contribution: contribution)) {
+                            FinewasteContributionStatusCard(contribution: contribution)
+                        }
+                    } else {
+                        NavigationLink(destination: ContributionStatusDetailView(contributionId: contribution.id ?? "---")) {
+                            FinewasteContributionStatusCard(contribution: contribution)
+                        }
+                    }
                 }
             }
             

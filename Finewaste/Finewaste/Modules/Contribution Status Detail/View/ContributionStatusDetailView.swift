@@ -87,7 +87,7 @@ private struct InitialActionsView: View {
                     .frame(height: viewModel.isProjectOwner ? 128 : 78)
                 
                 VStack(spacing: 8) {
-                    if true {
+                    if viewModel.isProjectOwner {
                         FinewasteTapHoldButton(text: "Hold to Reject", style: .outline, onHoldDoneAction: {
                             self.isShowingCancelContribution.toggle()
                         })

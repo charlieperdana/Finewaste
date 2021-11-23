@@ -18,8 +18,14 @@ class MyContributionsViewModel: ObservableObject {
     
     init() {
         repository.$contributions
+            .map { contributions in
+                contributions.filter {
+                    !($0.archived ?? false) && ($0.status ?? -3) != ContributionStatus.wasteOwnerCancel.rawValue
+                }
+            }
             .assign(to: \.contributions, on: self)
             .store(in: &cancellables)
+        
         repository.getUserContribution(userID: currentUser)
     }
 }

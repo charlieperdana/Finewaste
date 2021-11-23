@@ -21,8 +21,8 @@ struct HistoryContributionView: View {
                 Spacer()
             } else {
                 ForEach(viewModel.contributions, id: \.id) { contribution in
-                    if contribution.archived == true {
-                        FinewasteContributionHistoryCard(contribution: contribution)
+                    NavigationLink(destination: ContributionStatusDetailView(contributionId: contribution.id ?? "---")) {
+                        FinewasteContributionStatusCard(contribution: contribution)
                     }
                 }
             }

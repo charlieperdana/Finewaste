@@ -30,6 +30,18 @@ final class ContributionRepository: ObservableObject {
             }
     }
     
+    func getContributions(ownerId: String) {
+        store.collection(path)
+            .whereField("projectOwnerId", isEqualTo: ownerId)
+            .addSnapshotListener { snapshot, _ in
+                guard let documents = snapshot?.documents else {
+                    return
+                }
+                
+                self.contributions = documents.compactMap { try? $0.data(as: Contribution.self) }
+            }
+    }
+    
     func getContribution(id: String) {
         store.collection(path)
             .document(id)
