@@ -23,7 +23,6 @@ final class AuthenticationHelper {
     }
     
     var userId: String {
-//        return "SimulatorOwner"
         if let user = Auth.auth().currentUser {
             return user.uid
         } else {

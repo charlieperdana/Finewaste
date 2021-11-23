@@ -22,6 +22,8 @@ struct MaterialView: View {
     @State var showDeliveryPage = false
     @State var editMaterial = false
     
+    @Binding var isPresentingAddProjectSheet: Bool
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 32) {
@@ -100,7 +102,7 @@ struct MaterialView: View {
                 FinewasteButtonFill(text: "Next", size: .fullWidth, isEnabled: newProject.newMaterial.count > 0) {
                     self.showDeliveryPage = true
                 }
-                NavigationLink(destination: DeliveryView().environmentObject(newProject), isActive: $showDeliveryPage) {}
+                NavigationLink(destination: DeliveryView(isPresentingAddProjectSheet: $isPresentingAddProjectSheet).environmentObject(newProject), isActive: $showDeliveryPage) {}
             }.font(Fonts.poppinsHeadline())
                 .navigationBarTitle("Add Material")
                 .navigationBarTitleDisplayMode(.inline)
@@ -119,6 +121,6 @@ struct MaterialView: View {
 
 struct MaterialView_Previews: PreviewProvider {
     static var previews: some View {
-        MaterialView()
+        MaterialView(isPresentingAddProjectSheet: .constant(false))
     }
 }

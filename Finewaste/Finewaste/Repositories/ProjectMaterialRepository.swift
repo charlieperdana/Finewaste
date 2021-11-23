@@ -30,4 +30,17 @@ final class ProjectMaterialRepository: ObservableObject {
                 self.materials = documents.compactMap { try? $0.data(as: ProjectMaterial.self) }
             }
     }
+    
+    func postProjectMaterial(material: ProjectMaterial) {
+        let ref = store.collection(path).document()
+        
+        do {
+            try ref.setData(from: material) { _ in
+                // Document added..
+            }
+        } catch {
+            
+        }
+        
+    }
 }

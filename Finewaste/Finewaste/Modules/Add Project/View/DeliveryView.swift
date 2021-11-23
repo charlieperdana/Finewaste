@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreLocation
+import FirebaseFirestore
 
 struct DeliveryView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -14,6 +15,8 @@ struct DeliveryView: View {
     
     @EnvironmentObject var newProject: NewProjectModel
     @StateObject private var viewModel = DeliveryViewModel()
+    
+    @Binding var isPresentingAddProjectSheet: Bool
     
     var isFieldFilled: Bool {
         !deliveryOption.isEmpty && viewModel.isLocationSelected
@@ -79,7 +82,14 @@ struct DeliveryView: View {
                 }
                 Spacer()
                 FinewasteButtonFill(text: "Add Project", size: .fullWidth, isEnabled: isFieldFilled) {
-                    print("Add project tapped")
+                    if deliveryOption == "Drop off or pick up" {
+                        newProject.deliveryType.append(contentsOf: ["Drop off", "Pick up"])
+                    } else {
+                        newProject.deliveryType.append(deliveryOption)
+                    }
+                    newProject.location = GeoPoint(latitude: self.viewModel.pickUpCoordinate.latitude, longitude: self.viewModel.pickUpCoordinate.longitude)
+                    viewModel.postProject(newProject: newProject)
+                    isPresentingAddProjectSheet = false
                 }
             }
             .onAppear(perform: {
@@ -103,6 +113,6 @@ struct DeliveryView: View {
 
 struct DeliveryView_Previews: PreviewProvider {
     static var previews: some View {
-        DeliveryView()
+        DeliveryView(isPresentingAddProjectSheet: .constant(false))
     }
 }

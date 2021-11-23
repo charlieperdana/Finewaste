@@ -10,8 +10,14 @@ import CoreLocation
 import FirebaseFirestore
 
 class DeliveryViewModel: ObservableObject {
+    private var projectRepository = ProjectRepository()
+    private var projectMaterialRepository = ProjectMaterialRepository()
+    
     var projectLocation: String = ""
     var isLocationSelected: Bool = false
+    
+    var publishedImage = 0
+    
     @Published var pickUpCoordinate: CLLocationCoordinate2D = .init(latitude: -6.175784, longitude: 106.827136) {
         didSet {
             isLocationSelected = true
@@ -25,8 +31,39 @@ class DeliveryViewModel: ObservableObject {
     
     @Published var projectModel = NewProjectModel()
     
-    init() {
+    init() {}
+    
+    func postProject(newProject: NewProjectModel) {
+        let project = Project(
+            poster: AuthenticationHelper.shared.userId,
+            projectName: newProject.projectName,
+            description: newProject.projectDesc,
+            deadline: newProject.deadline,
+            deliveryType: newProject.deliveryType,
+            location: newProject.location)
         
+        let compressedImage = ImageCompressor.shared.compressImages(images: newProject.images)
+        print("compressed \(compressedImage)")
+        self.projectRepository.postProject(project: project, images: compressedImage) {
+            self.publishedImage += 1
+            
+            if self.publishedImage == newProject.images.count {
+                
+            }
+        } completion: { docId in
+            var materials = [ProjectMaterial]()
+            for material in newProject.newMaterial {
+                materials.append(ProjectMaterial(
+                    projectId: docId,
+                    name: material.materialName,
+                    target: material.materialTarget,
+                    allowOverlimit: material.allowOverlimit,
+                    prerequisite: material.materialPrerequisite))
+            }
+            for index in materials.indices {
+                self.projectMaterialRepository.postProjectMaterial(material: materials[index])
+            }
+        }
     }
     
     private func getAddress(fromCoordinate coordinate: CLLocationCoordinate2D, completion: @escaping (String) -> Void) {
