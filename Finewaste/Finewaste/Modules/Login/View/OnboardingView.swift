@@ -32,7 +32,7 @@ struct OnboardingView: View {
     var body: some View {
         VStack(spacing: 20) {
             
-            Image("loginImage")
+            Image("SetUsernameIllustration")
             Text("What can we call you?")
                 .font(Fonts.poppinsTitle())
                 .foregroundColor(Colors.Turqoise)
@@ -129,25 +129,11 @@ struct OnboardingView: View {
             
             Spacer()
             
-            
-            Button(action: {
+            FinewasteButtonFill(text: "Start", size: .fullWidth, isEnabled: !username.isEmpty) {
                 let newUser = Users(id: self.uuidUser, name: "", username: self.username, description: "", productService: [""], createdProduct: 0, donatedWaste: 0, location: Location(latitude: 0.0, longitude: 0.0), isBusiness: false)
                 
                 userModel.addData(newUser: newUser)
                 self.presentationMode.wrappedValue.dismiss()
-            }) {
-                HStack {
-                    Spacer()
-                    Text("Start")
-                        .font(Font.headline)
-                        .multilineTextAlignment(.center)
-                    Spacer()
-                    
-                }
-                .padding()
-                .foregroundColor(Colors.White)
-                .background(Colors.Turqoise)
-                .cornerRadius(13)
             }
         }
         .padding()
