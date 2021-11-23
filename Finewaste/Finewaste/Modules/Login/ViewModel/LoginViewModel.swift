@@ -53,6 +53,7 @@ class LoginViewModel: ObservableObject {
             print("Logged In Success")
 
             self.uuidUser = result?.user.uid ?? ""
+            print(self.uuidUser)
             withAnimation(.easeInOut) {
                 self.logStatus = true
             }

@@ -44,6 +44,8 @@ struct AboutView: View {
     @State var showNextPage = false
     @State var showAlert = false
     
+    @Binding var isPresentingAddProjectSheet: Bool
+    
     @StateObject var newProject = NewProjectModel()
     
     var minimumCloseDate = Calendar.current.date(byAdding: .day, value: 7, to: Date()) ?? Date()
@@ -133,7 +135,7 @@ struct AboutView: View {
                     newProject.images = images
                     self.showNextPage = true
                 }
-                NavigationLink(destination: MaterialView().environmentObject(newProject), isActive: $showNextPage) {}
+                NavigationLink(destination: MaterialView(isPresentingAddProjectSheet: $isPresentingAddProjectSheet).environmentObject(newProject), isActive: $showNextPage) {}
             }
             .navigationBarTitle("Project Detail")
             .navigationBarTitleDisplayMode(.inline)
@@ -162,6 +164,6 @@ struct AboutView: View {
 
 struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
-        AboutView()
+        AboutView(isPresentingAddProjectSheet: .constant(false))
     }
 }

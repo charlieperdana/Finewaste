@@ -23,7 +23,6 @@ final class AuthenticationHelper {
     }
     
     var userId: String {
-        return "VmdNLUC3ZDNtOCVO2h1jSyPP86E2"
         if let user = Auth.auth().currentUser {
             return user.uid
         } else {

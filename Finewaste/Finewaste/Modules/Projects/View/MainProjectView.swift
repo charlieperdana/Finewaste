@@ -29,6 +29,7 @@ struct MainProjectView: View {
     @State var project = Project()
     
     @State var isPresentingLoginSheet = false
+    @State var isPresentingAddProjectSheet = false
     
     var body: some View {
         ScrollView {
@@ -46,7 +47,10 @@ struct MainProjectView: View {
                     Button {
                         if !AuthenticationHelper.shared.isLoggedIn {
                             self.isPresentingLoginSheet.toggle()
+                            return
                         }
+                        
+                        self.isPresentingAddProjectSheet = true
                     }label: {
                         Image(systemName: "plus")
                             .foregroundColor(Colors.Turqoise)
@@ -55,6 +59,9 @@ struct MainProjectView: View {
             }
             .sheet(isPresented: $isPresentingLoginSheet) {
                 LoginView(loginTrigger: .addProject)
+            }
+            .fullScreenCover(isPresented: $isPresentingAddProjectSheet) {
+                AboutView(isPresentingAddProjectSheet: $isPresentingAddProjectSheet)
             }
         }
     }

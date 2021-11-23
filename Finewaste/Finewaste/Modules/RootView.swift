@@ -46,6 +46,7 @@ struct RootView: View {
                     FloatingTabBarView(selected: $selectedTab)
                 }
             }
+            .navigationViewStyle(.stack)
             .edgesIgnoringSafeArea(.bottom)
         }
     }
