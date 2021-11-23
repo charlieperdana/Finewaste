@@ -59,41 +59,39 @@ struct FinewasteContributionStatusCard: View {
     }
     
     var body: some View {
-        NavigationLink(destination: ContributionStatusDetailView(contributionId: self.id)) {
-            VStack(alignment: .leading) {
-                HStack {
-                    Text(projectName)
-                        .font(Fonts.poppinsCallout())
-                    Spacer()
-                    if status == .waitingConfirmation {
-                        Image(systemName: "circle.fill")
-                            .foregroundColor(Colors.Red)
-                            .frame(width: 15, height: 15)
-                    }
+        VStack(alignment: .leading) {
+            HStack {
+                Text(projectName)
+                    .font(Fonts.poppinsCallout())
+                Spacer()
+                if status == .waitingConfirmation {
+                    Image(systemName: "circle.fill")
+                        .foregroundColor(Colors.Red)
+                        .frame(width: 15, height: 15)
                 }
-                Spacer().frame(height: 0)
-                HStack {
-                    Text(user)
-                        .font(Fonts.poppinsCaption())
-                    Circle().frame(width: 4, height: 4)
-                    Text(createdDate)
-                        .font(Fonts.poppinsCaption())
-                }
-                Spacer().frame(height: 16)
-                HStack(spacing: 3) {
-                    Text(statusInformation)
-                        .font(Fonts.poppinsCaption())
-                    Text(dueDate)
-                        .font(Fonts.poppinsCaption())
-                        .bold()
-                    Spacer()
-                }
-                .foregroundColor(statusInformationColor)
             }
-            .padding()
-            .overlay(RoundedRectangle(cornerRadius: 10)
-                        .stroke(Colors.Gray, lineWidth: 1))
+            Spacer().frame(height: 0)
+            HStack {
+                Text(user)
+                    .font(Fonts.poppinsCaption())
+                Circle().frame(width: 4, height: 4)
+                Text(createdDate)
+                    .font(Fonts.poppinsCaption())
+            }
+            Spacer().frame(height: 16)
+            HStack(spacing: 3) {
+                Text(statusInformation)
+                    .font(Fonts.poppinsCaption())
+                Text(dueDate)
+                    .font(Fonts.poppinsCaption())
+                    .bold()
+                Spacer()
+            }
+            .foregroundColor(statusInformationColor)
         }
+        .padding()
+        .overlay(RoundedRectangle(cornerRadius: 10)
+                    .stroke(Colors.Gray, lineWidth: 1))
     }
 }
 

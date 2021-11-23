@@ -9,10 +9,11 @@ import SwiftUI
 
 struct HistoryProjectView: View {
     @StateObject var viewModel = HistoryProjectsViewModel()
+    
     var body: some View {
         VStack {
             Spacer().frame(height: 16)
-            if viewModel.projects.isEmpty {
+            if viewModel.contributions.isEmpty {
                 Spacer()
                 Text("No contribution yet")
                     .font(Fonts.poppinsCallout())
@@ -20,8 +21,8 @@ struct HistoryProjectView: View {
                 Spacer()
             } else {
                 ForEach(viewModel.contributions, id: \.id) { contribution in
-                    if contribution.archived == true {
-                        FinewasteContributionHistoryCard(contribution: contribution)
+                    NavigationLink(destination: ContributionStatusDetailView(contributionId: contribution.id ?? "---")) {
+                        FinewasteContributionStatusCard(contribution: contribution)
                     }
                 }
             }

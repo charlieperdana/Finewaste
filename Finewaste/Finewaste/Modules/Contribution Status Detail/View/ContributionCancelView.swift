@@ -13,7 +13,10 @@ enum CancellationSide: String {
 }
 
 struct ContributionCancelView: View {
-    var cancelledBy: CancellationSide
+    @Environment(\.presentationMode) var presentationMode
+    
+    private var cancelledBy: CancellationSide
+    private var reason: String = ""
     
     private var headerText: String {
         cancelledBy == .wasteOwner ? "Contribution Cancelled" : "Contribution Rejected"
@@ -21,6 +24,17 @@ struct ContributionCancelView: View {
     
     private var subheaderText: String {
         "Sorry, your contribution was \(cancelledBy.rawValue) \n because:"
+    }
+    
+    @StateObject private var viewModel: ContributionCancelViewModel
+    
+    init(cancelledBy: CancellationSide, contribution: Contribution) {
+        self.cancelledBy = cancelledBy
+        
+        if let reason = contribution.rejectionReason {
+            self.reason = reason
+        }
+        self._viewModel = StateObject(wrappedValue: ContributionCancelViewModel(id: contribution.id ?? "---"))
     }
     
     var body: some View {
@@ -42,7 +56,7 @@ struct ContributionCancelView: View {
                     .frame(maxWidth: .infinity, alignment: .center)
                 
                 VStack(spacing: 4) {
-                    Text("Materials does not meet the requirements")
+                    Text(reason)
                         .font(Fonts.poppinsBody())
                     Rectangle()
                         .fill(Colors.PlaceholderGray)
@@ -53,15 +67,18 @@ struct ContributionCancelView: View {
             Spacer()
 
             FinewasteButtonFill(text: "Back to Contribution Status", size: .fullWidth, isEnabled: true) {
-
+                viewModel.archieveContribution()
+                self.presentationMode.wrappedValue.dismiss()
             }
         }
         .padding(.horizontal)
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 struct ContributionCancelView_Previews: PreviewProvider {
     static var previews: some View {
-        ContributionCancelView(cancelledBy: .wasteOwner)
+        ContributionCancelView(cancelledBy: .wasteOwner, contribution: Contribution())
     }
 }
