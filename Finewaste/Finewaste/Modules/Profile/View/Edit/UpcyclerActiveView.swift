@@ -12,26 +12,46 @@ struct UpcyclerActiveView: View {
     @Binding var selectedImages : [UIImage]
     @ObservedObject var model: ProfileViewModel
     
+    @State var selectedImagesX : [UIImage] = []
+    
     var body: some View {
         
-            VStack(spacing:16) {
-                VStack(alignment:.leading, spacing:3) {
-                    Text("Product Service")
-                        .font(Fonts.poppinsCallout())
-                    FinewasteTextField(placeholder: "e.g. totebag, jacket, etc", text: $productService)
-                }
-                
-                VStack(alignment:.leading, spacing:3) {
-                    Text("Product Pictures")
-                        .font(Fonts.poppinsCallout())
-                    FinewasteImagePicker(selectedImages: $selectedImages)
-                }
-            }
-            .onReceive(self.model.$user) { user in
-                print("isi service \(user.productImages)")
-                self.productService = user.productImages?.joined(separator: ", ") ?? "cinta"
+        VStack(spacing:16) {
+            VStack(alignment:.leading, spacing:3) {
+                Text("Product Service")
+                    .font(Fonts.poppinsCallout())
+                FinewasteTextField(placeholder: "e.g. totebag, jacket, etc", text: $productService)
             }
             
+            VStack(alignment:.leading, spacing:3) {
+                Text("Product Pictures")
+                    .font(Fonts.poppinsCallout())
+                FinewasteImagePicker(selectedImages: $selectedImages)
+            }
+        }
+        .onReceive(self.model.$user) { user in
+            self.productService = user.productServices?.joined(separator: ", ") ?? "cinta"
+            DispatchQueue.global().async {
+                var imageProduct : [UIImage] = []
+                if let productImages = user.productImages{
+                    for  links in productImages{
+                        if let url = URL(string: links){
+                            if let data = try? Data(contentsOf: url) {
+                                if let image = UIImage(data: data) {
+    //                                DispatchQueue.main.async {
+                                        imageProduct.append(image)
+    //                                }
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+                self.selectedImages = imageProduct
+            }
+            
+        }
+        
         
     }
 }

@@ -24,6 +24,14 @@ class ProfileViewModel: ObservableObject {
     
     @Published var urlProfileImage = ""
     
+    private var uploader: CloudStorageUploader?
+    
+    @Published var productImages = [""]
+    
+    @Published var uploadedImages = 0
+    
+    @Published var postingUpdate = false
+    
     
     init(userId: String){
         self.getSingleUser(userId: userId)
@@ -61,7 +69,7 @@ class ProfileViewModel: ObservableObject {
                                          name: userData?["name"] as? String ?? "",
                                          username: userData?["username"] as? String ?? "",
                                          description: userData?["description"] as? String ?? "",
-                                         productServices: userData?["productServices"] as? [String] ?? [""],
+                                         productServices: userData?["productService"] as? [String] ?? [""],
                                          createdProducts: userData?["createdProducts"] as? Int ?? 0,
                                          donatedWaste: userData?["donatedWaste"] as? Int ?? 0,
                                          location: userData?["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0),
@@ -224,6 +232,45 @@ class ProfileViewModel: ObservableObject {
         
         
     }
+    
+    func postProductImages(images: [UIImage], completion: @escaping ([String]) -> Void) {
+
+        let imagesData = ImageCompressor.shared.compressImages(images: images)
+
+        let totalImages = imagesData.count
+//        var postingUpdate = true
+//        self.post(images: imagesData) { [self] in
+//            uploadedImages += 1
+//
+//            if uploadedImages == imagesData.count {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                    self.postingUpdate = false
+//                }
+//            }
+//        }
+        
+        self.post(images: imagesData, onUpdate: {}, completion: completion)
+    }
+    
+    func post(images: [Data], onUpdate: @escaping () -> Void, completion: @escaping ([String]) -> Void) {
+        
+        let path = "profile"
+        let store = Firestore.firestore()
+        
+        let ref = store.collection(path).document()
+        
+        
+        uploader = CloudStorageUploader(toUpload: images, onUploadedHandler: onUpdate)
+        uploader?.startUpload(atPath: "\(path)/\(ref.documentID)") { imageLinks in
+            self.productImages = imageLinks
+            print("Linkk :\(imageLinks)")
+            print("productImagesnya:\(self.productImages)")
+            completion(imageLinks)
+        
+        }
+    }
+    
+    
     
     
 }
