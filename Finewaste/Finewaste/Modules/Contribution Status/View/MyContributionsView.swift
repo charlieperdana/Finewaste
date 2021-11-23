@@ -22,7 +22,17 @@ struct MyContributionsView: View {
                 Spacer()
             } else {
                 ForEach(viewModel.contributions, id: \.id) { contribution in
-                    FinewasteContributionStatusCard(contribution: contribution)
+                    let status = ContributionStatus(from: contribution.status ?? -3)
+                    
+                    if status < .waitingConfirmation {
+                        NavigationLink(destination: ContributionCancelView(cancelledBy: status == .projectOwnerReject ? .projectOwner : .wasteOwner, contribution: contribution)) {
+                            FinewasteContributionStatusCard(contribution: contribution)
+                        }
+                    } else {
+                        NavigationLink(destination: ContributionStatusDetailView(contributionId: contribution.id ?? "---")) {
+                            FinewasteContributionStatusCard(contribution: contribution)
+                        }
+                    }
                 }
             }
         }

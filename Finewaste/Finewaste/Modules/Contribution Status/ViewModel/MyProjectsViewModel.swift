@@ -9,29 +9,23 @@ import Combine
 import FirebaseFirestore
 
 class MyProjectsViewModel: ObservableObject {
-    private var projectRepository = ProjectRepository()
     private var contributionRepository = ContributionRepository()
     
-    @Published var projects = [Project]() {
-        didSet {
-            contributionRepository.$contributions
-                .assign(to: \.contributions, on: self)
-                .store(in: &cancellables)
-            for project in projects {
-                contributionRepository.getContributions(projectId: project.id ?? "---")
-            }
-        }
-    }
     @Published var contributions = [Contribution]()
     
-    var currentUser = AuthenticationHelper.shared.userId
+    private var currentUser = AuthenticationHelper.shared.userId
     
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
-        projectRepository.$projects
-            .assign(to: \.projects, on: self)
+        contributionRepository.$contributions
+            .map { contributions in
+                contributions.filter {
+                    !($0.archived ?? false) && ($0.status ?? -3) != ContributionStatus.projectOwnerReject.rawValue
+                }
+            }
+            .assign(to: \.contributions, on: self)
             .store(in: &cancellables)
-        projectRepository.getProjects(poster: currentUser)
+        contributionRepository.getContributions(ownerId: currentUser)
     }
 }
