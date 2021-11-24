@@ -34,12 +34,13 @@ struct ProjectGridView: View {
                         VStack(alignment: .leading, spacing: 4) {
                             
                             WebImage(url: URL(string: (project.images?[0]) ?? ""))
-                                .resizable()
+                                .centerWidthCrop()
                                 .frame(width: 170, height: 170)
                                 .scaledToFill()
                                 .clipped()
                                 .cornerRadius(10, corners: [.topLeft, .topRight])
                                 .offset(y: 10)
+                            
                             
                             Text(project.projectName ?? "")  .font(Fonts.poppinsSubheadline())
                                 .foregroundColor(Colors.DarkGray)
@@ -47,6 +48,7 @@ struct ProjectGridView: View {
                                 .lineLimit(2)
                                 .padding(5)
                                 .offset(y: 5)
+                                .frame(alignment: .leading)
                             
                             
                             Spacer()

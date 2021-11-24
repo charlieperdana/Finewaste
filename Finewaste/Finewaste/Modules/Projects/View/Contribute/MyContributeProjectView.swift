@@ -30,19 +30,28 @@ struct MyContributeProjectView: View {
     }
     
     var body: some View {
-//        NavigationView {
-            
-            
+
             ScrollView {
                 VStack {
                     
                     SearchBarView(searchText: $searchText, isSearching: $isSearching)
                     
-                    MyContributeProjectGridView(model: model,searchText: $searchText)
+                    if(model.listProject.count <= 0 )
+                    {
+                        Spacer()
+                        Text("No contribution yet")
+                            .font(Fonts.poppinsCallout())
+                            .foregroundColor(Colors.Gray)
+//                        Spacer()
+                    } else {
+                        MyContributeProjectGridView(model: model,searchText: $searchText)
+                    }
+                    
+                    
                     
                     
                 }
-//                .navigationBarTitle(Text("Contributed").font(Fonts.poppinsHeadline()), displayMode: .inline)
+
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {

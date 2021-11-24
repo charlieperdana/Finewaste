@@ -52,6 +52,7 @@ struct HowWeWorkView: View {
                 ToolbarItem(placement: .principal) {
                     VStack {
                         Text("How We Work").font(Fonts.poppinsHeadline())
+                            .frame(width: 100)
                     }
                 }
         }

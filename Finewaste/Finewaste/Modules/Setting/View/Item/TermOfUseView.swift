@@ -36,6 +36,7 @@ struct TermOfUseView: View {
                     ToolbarItem(placement: .principal) {
                         VStack {
                             Text("Terms of Use").font(Fonts.poppinsHeadline())
+                                .frame(width: 100)
                         }
                     }
             }
