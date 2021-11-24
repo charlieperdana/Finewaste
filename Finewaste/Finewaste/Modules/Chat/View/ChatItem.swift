@@ -16,9 +16,34 @@ struct ChatItem: View {
     var onDeleteTapped: () -> Void
     
     @State private var swipeOffset: CGFloat = 0
+    @State private var isShowingChatDetail = false
     
     var body: some View {
+        let dragGesture = DragGesture(minimumDistance: 0, coordinateSpace: .global)
+            .onChanged { value in
+                if value.translation.width < 0 {
+                    swipeOffset = value.translation.width
+                }
+            }
+            .onEnded { _ in
+                if swipeOffset < -120 {
+                    swipeOffset = -120
+                } else {
+                    swipeOffset = 0
+                }
+            }
+        let tapGesture = TapGesture()
+            .onEnded {
+                self.isShowingChatDetail.toggle()
+            }
+        
+        let simultaneousGesture = tapGesture.simultaneously(with: dragGesture)
+        
         ZStack {
+            NavigationLink(destination: ChatDetailView(), isActive: $isShowingChatDetail) {
+                EmptyView()
+            }
+            
             HStack(spacing: 0) {
                 Spacer()
                 Rectangle()
@@ -39,6 +64,7 @@ struct ChatItem: View {
                     }
             }
             .frame(height: 60)
+            .foregroundColor(.white)
             
             VStack {
                 HStack {
@@ -62,6 +88,7 @@ struct ChatItem: View {
                             .foregroundColor(Colors.Red)
                         Text("22")
                             .font(Fonts.poppinsCaptionBold())
+                            .foregroundColor(.white)
                     }
                 }
                 .padding(.horizontal)
@@ -75,21 +102,8 @@ struct ChatItem: View {
             .background(Colors.White)
             .offset(x: swipeOffset)
             .animation(.linear)
-            .gesture(
-                DragGesture(minimumDistance: 0, coordinateSpace: .global)
-                    .onChanged { value in
-                        if value.translation.width < 0 {
-                            swipeOffset = value.translation.width
-                        }
-                    }
-                    .onEnded { _ in
-                        if swipeOffset < -120 {
-                            swipeOffset = -120
-                        } else {
-                            swipeOffset = 0
-                        }
-                    }
-            )
+            .gesture(simultaneousGesture)
+
         }
         .frame(minWidth: 0, maxWidth: .infinity)
         .contentShape(Rectangle())
