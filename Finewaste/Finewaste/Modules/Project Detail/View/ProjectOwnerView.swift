@@ -28,7 +28,7 @@ struct ProjectOwnerView: View {
             Text(posterUsername)
                 .font(Fonts.poppinsCallout())
             Spacer()
-            ChatButton(receiverId: posterId, receiverName: posterName)
+            ChatButton(receiverId: posterId, receiverName: posterName, receiverPhotoUrl: profilePhotoUrl)
         }
         .padding(.all, 16)
     }
