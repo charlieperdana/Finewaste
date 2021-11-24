@@ -39,7 +39,7 @@ struct ProjectDetailView: View {
                             .aspectRatio(CGSize(width: 1, height: 1), contentMode: .fit)
                             .trackScrollPosition(coordinateSpace: .named("scrollPosition"))
                         
-                        ProjectOwnerView()
+                        ProjectOwnerView(project: project)
                         Divider()
                         
                         Text(project.projectName ?? "---")

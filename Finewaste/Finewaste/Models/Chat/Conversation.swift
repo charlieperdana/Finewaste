@@ -11,11 +11,11 @@ import FirebaseFirestoreSwift
 
 struct Conversation: Codable, Identifiable {
     @DocumentID var id: String?
-    var senderId: String?
-    var senderUsername: String?
-    var receiverId: String?
-    var receiverUsername: String?
-    var users: [String]?
+    var senderId: String
+    var senderUsername: String
+    var receiverId: String
+    var receiverUsername: String
+    var users: [String]
     var lastMessage: String = ""
     var unreadMessages: Int = 0
 }
