@@ -45,19 +45,6 @@ struct RootView: View {
                     }
                     Spacer()
                 }
-                .onChange(of: selectedTab) { [selectedTab] _ in
-                    if modalDismissed {
-                        self.modalDismissed = false
-                        return
-                    }
-                    
-                    self.oldSelectedTab = selectedTab
-//                    if !AuthenticationHelper.shared.isLoggedIn {
-//                        self.isPresentingLoginSheet.toggle()
-//
-//
-//                    }
-                }
                 
                 VStack {
                     Spacer()

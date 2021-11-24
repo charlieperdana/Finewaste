@@ -56,10 +56,10 @@
 		5527056227442DE900868643 /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527056127442DE900868643 /* ContactUsView.swift */; };
 		5527056427442E0000868643 /* SignOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527056327442E0000868643 /* SignOutView.swift */; };
 		5532C9D2274D39F200632ACF /* GuestProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532C9D1274D39F200632ACF /* GuestProfileView.swift */; };
-		5532C9D4274D429D00632ACF /* AppleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532C9D3274D429D00632ACF /* AppleButtonView.swift */; };
 		5532C9D6274D4B3000632ACF /* OthersProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532C9D5274D4B3000632ACF /* OthersProfileView.swift */; };
 		5532C9D8274D4D5300632ACF /* ProductInfoProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532C9D7274D4D5300632ACF /* ProductInfoProfileView.swift */; };
 		5532C9DA274D4FFD00632ACF /* ProductImagesProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532C9D9274D4FFD00632ACF /* ProductImagesProfileView.swift */; };
+		555A280B274E5426001051F7 /* AppleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A280A274E5425001051F7 /* AppleButtonView.swift */; };
 		5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6892728152900601A69 /* FinewasteApp.swift */; };
 		5572C68E2728152C00601A69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C68D2728152C00601A69 /* Assets.xcassets */; };
 		5572C6912728152C00601A69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C6902728152C00601A69 /* Preview Assets.xcassets */; };
@@ -246,10 +246,10 @@
 		5527056127442DE900868643 /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
 		5527056327442E0000868643 /* SignOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutView.swift; sourceTree = "<group>"; };
 		5532C9D1274D39F200632ACF /* GuestProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestProfileView.swift; sourceTree = "<group>"; };
-		5532C9D3274D429D00632ACF /* AppleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleButtonView.swift; sourceTree = "<group>"; };
 		5532C9D5274D4B3000632ACF /* OthersProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersProfileView.swift; sourceTree = "<group>"; };
 		5532C9D7274D4D5300632ACF /* ProductInfoProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoProfileView.swift; sourceTree = "<group>"; };
 		5532C9D9274D4FFD00632ACF /* ProductImagesProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImagesProfileView.swift; sourceTree = "<group>"; };
+		555A280A274E5425001051F7 /* AppleButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleButtonView.swift; sourceTree = "<group>"; };
 		5572C6862728152900601A69 /* Finewaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finewaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5572C6892728152900601A69 /* FinewasteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteApp.swift; sourceTree = "<group>"; };
 		5572C68D2728152C00601A69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Finewaste/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -971,6 +971,7 @@
 		7DB94F2327492CDC000EDEE3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				555A280A274E5425001051F7 /* AppleButtonView.swift */,
 				55B604562731302F00631004 /* OnboardingView.swift */,
 				55B6040A272FEA4700631004 /* LoginView.swift */,
 			);
@@ -1079,33 +1080,6 @@
 				7DF81CB6273E923900D6A24A /* RootView.swift */,
 			);
 			path = Modules;
-			sourceTree = "<group>";
-		};
-		7DDD2295272FD54900250B35 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				7DDD2297272FD55300250B35 /* View */,
-				7DDD2296272FD54E00250B35 /* ViewModel */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		7DDD2296272FD54E00250B35 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				55B6040C272FEA6800631004 /* LoginViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		7DDD2297272FD55300250B35 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				55B6040A272FEA4700631004 /* LoginView.swift */,
-				55B6044B27304F0300631004 /* HomeView.swift */,
-				5532C9D3274D429D00632ACF /* AppleButtonView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		7DDD229C272FD58E00250B35 /* Themes */ = {
@@ -1601,8 +1575,8 @@
 				7D0200CC2736707600D3BB44 /* ProjectMaterial.swift in Sources */,
 				7DDD22E12730EC7800250B35 /* ProjectNavigationBar.swift in Sources */,
 				55FE15792738452700B24F2D /* DashboardView.swift in Sources */,
+				555A280B274E5426001051F7 /* AppleButtonView.swift in Sources */,
 				7DDD22F82732767800250B35 /* ImagePageIndicatorView.swift in Sources */,
-				5532C9D4274D429D00632ACF /* AppleButtonView.swift in Sources */,
 				008E4B582747AAE9005A793C /* HistoryView.swift in Sources */,
 				7D6DD4BD273A86EF0023E163 /* NewContributionModel.swift in Sources */,
 				7DB94F3F274954A3000EDEE3 /* ContributionStatusDetailViewModel.swift in Sources */,
