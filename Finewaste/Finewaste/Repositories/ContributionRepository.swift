@@ -12,9 +12,10 @@ final class ContributionRepository: ObservableObject {
     private let path = "contributions"
     private let store = Firestore.firestore()
     @Published var contributions = [Contribution]()
+    @Published var contribution: Contribution?
     
     init() {
-
+        
     }
     
     func getContributions(projectId: String) {
@@ -29,6 +30,42 @@ final class ContributionRepository: ObservableObject {
             }
     }
     
+    func getContributions(ownerId: String) {
+        store.collection(path)
+            .whereField("projectOwnerId", isEqualTo: ownerId)
+            .addSnapshotListener { snapshot, _ in
+                guard let documents = snapshot?.documents else {
+                    return
+                }
+                
+                self.contributions = documents.compactMap { try? $0.data(as: Contribution.self) }
+            }
+    }
+    
+    func getContribution(id: String) {
+        store.collection(path)
+            .document(id)
+            .addSnapshotListener { snapshot, err in
+                if let error = err {
+                    print(error)
+                    return
+                }
+                
+                self.contribution = try? snapshot?.data(as: Contribution.self)
+            }
+    }
+    
+    func getUserContribution(userID: String) {
+        let firestore = Firestore.firestore()
+        firestore.collection("contributions").whereField("contributorId", isEqualTo: userID).addSnapshotListener { (snapshot, error) in
+            guard let documents = snapshot?.documents else {
+                return
+            }
+            
+            self.contributions = documents.compactMap { try? $0.data(as: Contribution.self) }
+        }
+    }
+    
     func postContribution(contribution: Contribution, completion: @escaping (String) -> Void) {
         do {
             let ref = store.collection(path).document()
@@ -40,5 +77,12 @@ final class ContributionRepository: ObservableObject {
         } catch {
             
         }
+
+    }
+
+    func updateContribution(id: String, newData: [AnyHashable: Any]) {
+        store.collection(path)
+            .document(id)
+            .updateData(newData)
     }
 }

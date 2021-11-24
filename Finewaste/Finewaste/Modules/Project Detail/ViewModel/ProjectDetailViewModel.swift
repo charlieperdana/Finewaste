@@ -17,7 +17,9 @@ class ProjectDetailViewModel: ObservableObject {
             self.getLocationName()
         }
     }
+    @Published var projectName = ""
     @Published var projectId = ""
+    @Published var projectOwnerId = ""
     @Published var projectLocation = ""
     @Published var projectMaterials = [ProjectMaterial]()
     
@@ -32,7 +34,9 @@ class ProjectDetailViewModel: ObservableObject {
             .compactMap { $0 }
             .sink { project in
                 self.project = project
+                self.projectName = project.projectName ?? "---"
                 self.projectId = project.id ?? "---"
+                self.projectOwnerId = project.poster ?? "---"
                 self.projectMaterialRepository.getMaterials(projectId: project.id ?? "---")
             }
             .store(in: &cancellables)

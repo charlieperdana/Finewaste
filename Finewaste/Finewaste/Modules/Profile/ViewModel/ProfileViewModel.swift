@@ -201,8 +201,8 @@ class ProfileViewModel: ObservableObject {
         
         var urlResult = ""
         let filename = UUID().uuidString
-        guard let uid = AuthenticationHelper.shared.userId
-        else { return }
+        let uid = AuthenticationHelper.shared.userId
+        
         
         let ref = Storage.storage().reference(withPath: "profile/\(uid)_profile")
         let metadatas = StorageMetadata()

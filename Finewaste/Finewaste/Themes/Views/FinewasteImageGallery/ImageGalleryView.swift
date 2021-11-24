@@ -17,6 +17,7 @@ struct ImageGalleryView: View {
     init(updatePostedDate: String, images: [URL], chosenIndex: Int) {
         self.updatePostedDate = updatePostedDate
         self.images = images
+    
         self._currentImage = State(wrappedValue: images[chosenIndex])
     }
     

@@ -43,14 +43,17 @@ class LoginViewModel: ObservableObject {
         auth.signIn(with: firebaseCredential) { (result, err) in
             
             if let error = err {
-                print(error.localizedDescription)
+                print("FinewasteError: \(error)")
+//                print(error)
                 return
             }
             
 //            sukses
+            print("FinewasteSuccess: ")
             print("Logged In Success")
 
             self.uuidUser = result?.user.uid ?? ""
+            print(self.uuidUser)
             withAnimation(.easeInOut) {
                 self.logStatus = true
             }

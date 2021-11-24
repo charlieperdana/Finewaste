@@ -6,20 +6,26 @@
 //
 
 import Combine
+import FirebaseFirestore
 
 class MyContributionsViewModel: ObservableObject {
     private var repository = ContributionRepository()
-    @Published var contribution = [Contribution]()
+    @Published var contributions = [Contribution]()
+    
+    var currentUser = AuthenticationHelper.shared.userId
     
     private var cancellables: Set<AnyCancellable> = []
     
-    var contributionID: String
-    
-    init(contributionID: String) {
-        self.contributionID = contributionID
+    init() {
         repository.$contributions
-            .assign(to: \.contribution, on: self)
+            .map { contributions in
+                contributions.filter {
+                    !($0.archived ?? false) && ($0.status ?? -3) != ContributionStatus.wasteOwnerCancel.rawValue
+                }
+            }
+            .assign(to: \.contributions, on: self)
             .store(in: &cancellables)
-        repository.getContributions(projectId: contributionID)
+        
+        repository.getUserContribution(userID: currentUser)
     }
 }
