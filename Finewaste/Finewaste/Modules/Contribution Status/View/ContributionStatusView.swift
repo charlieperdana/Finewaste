@@ -18,6 +18,8 @@ struct ContributionStatusView: View {
         $0.rawValue
     }
     
+    @State var isShowHistoryPage = false
+    
     var body: some View {
         VStack {
             Spacer().frame(height: 16)
@@ -40,10 +42,12 @@ struct ContributionStatusView: View {
                 }
             }
             Spacer()
+            
+            NavigationLink(destination: HistoryView(), isActive: $isShowHistoryPage) {}
         }
         .navigationBarTitle("Contribution Status", displayMode: .large)
         .navigationBarItems(trailing: Button(action: {
-            print("History tapped")
+            self.isShowHistoryPage = true
         }, label: {
             Text("History")
                 .font(Fonts.poppinsHeadline())

@@ -8,17 +8,18 @@
 import SwiftUI
 import FirebaseFirestore
 
-class NewProject: ObservableObject {
+class NewProjectModel: ObservableObject {
     var projectName: String = ""
     var projectDesc: String = ""
     var deadline: Timestamp = Timestamp(seconds: 0, nanoseconds: 0)
     var images: [UIImage] = []
     var deliveryType: [String] = []
+    @Published var deliveryAddress: String = ""
     var location: GeoPoint = GeoPoint(latitude: 0, longitude: 0)
-    @Published var newMaterial = [NewMaterial]()
+    @Published var newMaterial = [NewMaterialModel]()
 }
 
-class NewMaterial: ObservableObject {
+class NewMaterialModel: ObservableObject {
     init(name: String, target: Int, limit: Bool, requirements: [String]) {
         materialName = name
         materialTarget = target
@@ -43,7 +44,9 @@ struct AboutView: View {
     @State var showNextPage = false
     @State var showAlert = false
     
-    @StateObject var newProject = NewProject()
+    @Binding var isPresentingAddProjectSheet: Bool
+    
+    @StateObject var newProject = NewProjectModel()
     
     var minimumCloseDate = Calendar.current.date(byAdding: .day, value: 7, to: Date()) ?? Date()
     
@@ -132,7 +135,7 @@ struct AboutView: View {
                     newProject.images = images
                     self.showNextPage = true
                 }
-                NavigationLink(destination: MaterialView().environmentObject(newProject), isActive: $showNextPage) {}
+                NavigationLink(destination: MaterialView(isPresentingAddProjectSheet: $isPresentingAddProjectSheet).environmentObject(newProject), isActive: $showNextPage) {}
             }
             .navigationBarTitle("Project Detail")
             .navigationBarTitleDisplayMode(.inline)
@@ -161,6 +164,6 @@ struct AboutView: View {
 
 struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
-        AboutView()
+        AboutView(isPresentingAddProjectSheet: .constant(false))
     }
 }

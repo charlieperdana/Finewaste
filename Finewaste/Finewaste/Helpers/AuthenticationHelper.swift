@@ -22,9 +22,9 @@ final class AuthenticationHelper {
         }
     }
     
-    var userId: String? {
-        if Auth.auth().currentUser != nil {
-            return Auth.auth().currentUser?.uid
+    var userId: String {
+        if let user = Auth.auth().currentUser {
+            return user.uid
         } else {
             return "---"
         }

@@ -17,14 +17,18 @@ class AddContributionViewModel: ObservableObject {
     @Published var uploadedImages = 0
     @Published var totalImages = 0
     
-    init(projectId: String) {
-        self.contributionModel.postId = projectId
+    init(projectId: String, projectOwnerId: String, projectName: String) {
+        self.contributionModel.projectId = projectId
+        self.contributionModel.projectOwnerId = projectOwnerId
+        self.contributionModel.projectName = projectName
     }
     
     func postContribution() {
         let contribution = Contribution(
-            contributor: "---",
-            projectId: contributionModel.postId,
+            contributorId: AuthenticationHelper.shared.userId,
+            projectId: contributionModel.projectId,
+            projectOwnerId: contributionModel.projectOwnerId,
+            projectName: contributionModel.projectName,
             deliveryType: contributionModel.deliveryType,
             location: GeoPoint(latitude: contributionModel.location.latitude, longitude: contributionModel.location.longitude))
         

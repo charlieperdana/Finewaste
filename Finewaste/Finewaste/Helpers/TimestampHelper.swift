@@ -7,6 +7,12 @@
 
 import FirebaseFirestore
 
+enum DateFormat: String {
+    case simple = "d MMMM yyyy"
+    case dayDate = "EEEE, d MMMM yyyy"
+    case dateAndTime = "EEEE, d MMMM yyyy, h:mm a"
+}
+
 final class TimestampHelper {
     static let shared = TimestampHelper()
     
@@ -20,14 +26,20 @@ final class TimestampHelper {
         return Int(days)
     }
     
-    func timestampToStringDate(timestamp: Timestamp) -> String {
+    func timestampToStringDate(timestamp: Timestamp, format: DateFormat) -> String {
         let seconds = timestamp.seconds
         
         let date = Date(timeIntervalSince1970: TimeInterval(seconds))
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "d MMMM yyyy "
+        formatter.dateFormat = format.rawValue
         
         return formatter.string(from: date)
+    }
+    
+    func addThreeDaysTo(timestamp: Timestamp) -> Timestamp {
+        let secondsInThreeDays: Int64 = 259200
+        
+        return Timestamp(seconds: timestamp.seconds + secondsInThreeDays, nanoseconds: 0)
     }
 }

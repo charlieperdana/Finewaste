@@ -6,14 +6,57 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct FinewasteContributionStatusCard: View {
     var id: String
     var projectName: String
     var user: String
     var createdDate: String
-    var dueDate: String
-    var status: Bool
+    
+    var status: ContributionStatus = .unknown
+    var statusInformation: String = ""
+    var dueDate: String = ""
+    
+    private var statusInformationColor: Color {
+        status == .finished ? Colors.Turqoise : Colors.Red
+    }
+    
+    init(contribution: Contribution) {
+        self.id = contribution.id ?? ""
+        self.projectName = contribution.projectName ?? ""
+        self.user = "---"
+        self.createdDate = TimestampHelper.shared.timestampToStringDate(timestamp: contribution.createdDate ?? Timestamp(seconds: 0, nanoseconds: 0), format: .dateAndTime)
+        
+        let isOwner = AuthenticationHelper.shared.userId == (contribution.projectOwnerId ?? "")
+        let deliveryType = contribution.deliveryType ?? ""
+        if let contributionStatus = contribution.status {
+            self.status = ContributionStatus(from: contributionStatus)
+            
+            if status == .waitingConfirmation {
+                statusInformation = "Waiting confirmation until"
+                if let createdDateTimestamp = contribution.createdDate {
+                    let dueDateInThreeDays = Timestamp(seconds: Int64(createdDateTimestamp.seconds + 259200), nanoseconds: 0)
+                    self.dueDate = TimestampHelper.shared.timestampToStringDate(timestamp: dueDateInThreeDays, format: .simple)
+                }
+            } else if status == .confirmed || status == .deliverySet {
+                if (isOwner && deliveryType == "Drop off") || (!isOwner && deliveryType == "Pick up") {
+                    statusInformation = "Waiting \(deliveryType.lowercased()) schedule"
+                } else {
+                    statusInformation = "Set \(deliveryType.lowercased()) schedule"
+                }
+            } else if status == .deliveryConfirmed {
+                statusInformation = "\(deliveryType) at "
+                if let deliveryDate = contribution.deliveryDate {
+                    self.dueDate = TimestampHelper.shared.timestampToStringDate(timestamp: deliveryDate, format: .simple)
+                }
+            } else if status == .finished {
+                statusInformation = "Contribution finished"
+            } else if status <= .waitingConfirmation {
+                statusInformation = "Contribution " + (status == .wasteOwnerCancel ? "cancelled" : "rejected")
+            }
+        }
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -21,7 +64,7 @@ struct FinewasteContributionStatusCard: View {
                 Text(projectName)
                     .font(Fonts.poppinsCallout())
                 Spacer()
-                if !status {
+                if status == .waitingConfirmation {
                     Image(systemName: "circle.fill")
                         .foregroundColor(Colors.Red)
                         .frame(width: 15, height: 15)
@@ -36,26 +79,15 @@ struct FinewasteContributionStatusCard: View {
                     .font(Fonts.poppinsCaption())
             }
             Spacer().frame(height: 16)
-            HStack(spacing: 0) {
-                if status {
-                    Text("Pick up on ")
-                        .font(Fonts.poppinsCaption())
-                        .foregroundColor(Colors.Turqoise)
-                    Text(dueDate)
-                        .font(Fonts.poppinsCaption())
-                        .foregroundColor(Colors.Turqoise)
-                        .bold()
-                } else {
-                    Text("Waiting confirmation until ")
-                        .font(Fonts.poppinsCaption())
-                        .foregroundColor(Colors.Red)
-                    Text(dueDate)
-                        .font(Fonts.poppinsCaption())
-                        .foregroundColor(Colors.Red)
-                        .bold()
-                }
+            HStack(spacing: 3) {
+                Text(statusInformation)
+                    .font(Fonts.poppinsCaption())
+                Text(dueDate)
+                    .font(Fonts.poppinsCaption())
+                    .bold()
                 Spacer()
             }
+            .foregroundColor(statusInformationColor)
         }
         .padding()
         .overlay(RoundedRectangle(cornerRadius: 10)
@@ -65,6 +97,6 @@ struct FinewasteContributionStatusCard: View {
 
 struct FinewasteContributionStatusCard_Previews: PreviewProvider {
     static var previews: some View {
-        FinewasteContributionStatusCard(id: "", projectName: "", user: "", createdDate: "", dueDate: "", status: true)
+        FinewasteContributionStatusCard(contribution: Contribution())
     }
 }
