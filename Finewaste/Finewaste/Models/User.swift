@@ -20,4 +20,5 @@ struct User: Codable, Identifiable {
     var donatedWaste: Int?
     var location: GeoPoint?
     var isBusiness: Bool?
+    var productImages: [String]?
 }

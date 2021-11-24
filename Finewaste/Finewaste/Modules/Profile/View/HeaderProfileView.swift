@@ -15,26 +15,39 @@ struct HeaderProfileView: View {
     
     @State var showMyProject = false
     @State var showMyContrProject = false
+    @State var showOthersProfile = false
+    
+    @Binding var isGuest : Bool
     
     
     var body: some View {
         VStack {
             HStack {
-                WebImage(url: URL(string: (model.user.profilePhotoUrl ?? "")))
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 100, height: 100)
-                    .clipShape(Circle())
-                    .overlay(Circle().strokeBorder(Color.orange, lineWidth: 2))
+                if(isGuest){
+                    Image("profile")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 100, height: 100)
+                        .clipShape(Circle())
+//                        .overlay(Circle().strokeBorder(Color.orange, lineWidth: 2))
+                } else {
+                    WebImage(url: URL(string: (model.user.profilePhotoUrl ?? "")))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 100, height: 100)
+                        .clipShape(Circle())
+                        .overlay(Circle().strokeBorder(Colors.PlaceholderGray, lineWidth: 2))
+                }
+                
                 
                 VStack(spacing:12){
                     HStack {
                         Spacer()
                         Button(action: {
-                           
+                            self.showOthersProfile = true
                         }) {
                             VStack {
-                                Text("4300")
+                                Text("0")
                                     .font(Fonts.poppinsTitle())
                                 Text("pcs saved")
                                     .font(Fonts.poppinsFootnote())
@@ -69,6 +82,7 @@ struct HeaderProfileView: View {
                 }
                 NavigationLink(destination: MyProjectView(), isActive: $showMyProject) {}
                 NavigationLink(destination: MyContributeProjectView(), isActive: $showMyContrProject) {}
+                NavigationLink(destination: OthersProfileView(), isActive: $showOthersProfile) {}
                     
             }
             
@@ -80,7 +94,8 @@ struct HeaderProfileView: View {
 }
 
 struct HeaderProfileView_Previews: PreviewProvider {
+    @State static var isGuest = true
     static var previews: some View {
-        HeaderProfileView(model: ProfileViewModel(userId: "8xayV4ivOsOSqUrNiD0kOHM7jih1"))
+        HeaderProfileView(model: ProfileViewModel(userId: "8xayV4ivOsOSqUrNiD0kOHM7jih1"), isGuest: $isGuest)
     }
 }

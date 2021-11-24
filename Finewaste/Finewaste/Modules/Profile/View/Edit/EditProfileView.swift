@@ -36,21 +36,40 @@ struct EditProfileView: View {
     
     @State private var showMapScreen = false
     
-    @State var selectedProfileImages = UIImage(named: "profile")
+    @State var selectedProfileImages: UIImage? = nil
+    
+    @State private var isImageFromLocal = false
+    
+    @State private var productService = ""
+    @State private var productImages = [UIImage]()
+    
     
     var body: some View {
-
+        
         ScrollViewReader { value in
             ScrollView(.vertical) {
                 VStack(spacing:16) {
-                    WebImage(url: URL(string: (model.user.profilePhotoUrl ?? "")))
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 100, height: 100)
-                        .clipShape(Circle())
-                        .overlay(Circle().strokeBorder(Color.orange, lineWidth: 2))
+                    if isImageFromLocal {
+                        if let image = self.selectedProfileImages {
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 100, height: 100)
+                                .clipShape(Circle())
+                                .overlay(Circle().strokeBorder(Color.orange, lineWidth: 2))
+                        }
+                    }
+                    else {
+                        WebImage(url: URL(string: (model.user.profilePhotoUrl ?? "")))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 100, height: 100)
+                            .clipShape(Circle())
+                            .overlay(Circle().strokeBorder(Color.orange, lineWidth: 2))
+                    }
                     
-                    ProfileImagePicker(selectedImages: $selectedProfileImages)
+                    
+                    ProfileImagePicker(selectedImages: $selectedProfileImages, isLoadLocal: $isImageFromLocal)
                     
                     
                     VStack(alignment:.leading, spacing:3) {
@@ -71,37 +90,37 @@ struct EditProfileView: View {
                             .font(Fonts.poppinsCallout())
                         Text("Your full address will not be shown on your profile")
                             .font(Fonts.poppinsCaption())
-//                        ZStack {
-//                            RoundedRectangle(cornerRadius: 10)
-//                                .stroke(Colors.Gray)
-//                            TextField("Type your adreess here...", text: $addressText)
-//                                .font(Fonts.poppinsSubheadline())
-//                                .padding([.leading, .trailing], 16)
-//                                .padding([.top, .bottom], 12)
-//
-//                            HStack {
-//                                Spacer()
-//                                Button {
-//                                    self.showMapScreen = true
-//
-//                                } label: {
-//                                    Image(systemName: "map")
-//                                        .foregroundColor(Colors.Turqoise)
-//                                        .frame(alignment: .trailing)
-//                                }
-//                            .padding()
-//                            }
-//
-//
-//                            NavigationLink(destination: MapPinPointView(currentCoordinate: $defaultCoordinate), isActive: $showMapScreen) {
-//                                EmptyView()
-//                            }
-//
-//                        }
-//                        .frame(height: 58)
+                        //                        ZStack {
+                        //                            RoundedRectangle(cornerRadius: 10)
+                        //                                .stroke(Colors.Gray)
+                        //                            TextField("Type your adreess here...", text: $addressText)
+                        //                                .font(Fonts.poppinsSubheadline())
+                        //                                .padding([.leading, .trailing], 16)
+                        //                                .padding([.top, .bottom], 12)
+                        //
+                        //                            HStack {
+                        //                                Spacer()
+                        //                                Button {
+                        //                                    self.showMapScreen = true
+                        //
+                        //                                } label: {
+                        //                                    Image(systemName: "map")
+                        //                                        .foregroundColor(Colors.Turqoise)
+                        //                                        .frame(alignment: .trailing)
+                        //                                }
+                        //                            .padding()
+                        //                            }
+                        //
+                        //
+                        //                            NavigationLink(destination: MapPinPointView(currentCoordinate: $defaultCoordinate), isActive: $showMapScreen) {
+                        //                                EmptyView()
+                        //                            }
+                        //
+                        //                        }
+                        //                        .frame(height: 58)
                         
                         FinewasteMapPicker(isReadOnly: false, currentAddress: $addressText, currentCoordinate: $defaultCoordinate, isShowingMap: false)
-                       
+                        
                     }
                     
                     VStack(alignment:.leading, spacing:3) {
@@ -148,7 +167,7 @@ struct EditProfileView: View {
                     }
                     
                     if isUpcycler {
-                        UpcyclerActiveView()
+                        UpcyclerActiveView(productService: $productService, selectedImages: $productImages, model: self.model)
                             .id(8)
                     }
                     
@@ -168,8 +187,9 @@ struct EditProfileView: View {
                     
                     if let isUpcycler = user.isBusiness {
                         self.isUpcycler = isUpcycler
+                        
                     }
-                   
+                    
                 }
                 
                 
@@ -193,7 +213,7 @@ struct EditProfileView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         let id = model.user.id
-                        let profilePhotoUrl = model.user.profilePhotoUrl
+                        var profilePhotoUrl = model.user.profilePhotoUrl ?? ""
                         let name = self.nameText
                         let username = self.usernameText
                         let desc = self.descText
@@ -201,21 +221,63 @@ struct EditProfileView: View {
                         let donatedWaste = model.user.donatedWaste
                         let location = GeoPoint(latitude: self.defaultCoordinate.latitude, longitude: self.defaultCoordinate.longitude)
                         let isBusiness = isUpcycler
-                        let prodService = [UpcyclerActiveView().productService]
-//                        let prodService = [""]
+                        let prodService = self.productService.trimmingCharacters(in: .whitespaces).components(separatedBy: ",")
+                        
+                        var updatedData = User()
+                        updatedData.id = id
+                        updatedData.profilePhotoUrl = profilePhotoUrl
+                        updatedData.name = name
+                        updatedData.username = username
+                        updatedData.description = desc
+                        updatedData.productServices = prodService
+                        updatedData.createdProducts = createdProducts
+                        updatedData.donatedWaste = donatedWaste
+                        updatedData.location = location
+                        updatedData.isBusiness = isBusiness
+                        updatedData.productImages = model.user.productImages ?? [""]
+                        
+                        
+                        
                         
                         if let profileImage = self.selectedProfileImages {
-                            self.model.uploadProfileImage(image: profileImage)
+                            self.model.uploadProfileImages(image: profileImage) { value in
+                                
+                                updatedData.profilePhotoUrl = value
+                                
+                                if productImages.count > 0 {
+                                    
+                                    self.model.postProductImages(images: productImages) { value in
+                                        updatedData.productImages = value
+                                        
+                                        self.model.updateProfile(data: updatedData)
+                                    }
+                                    
+                                    
+                                }else{
+                                    self.model.updateProfile(data: updatedData)
+                                }
+                                
+                            }
+                            
                         } else {
-                            print("Image gak ada")
+                            
+                            if productImages.count > 0 {
+                                
+                                self.model.postProductImages(images: productImages) { value in
+                                    updatedData.productImages = value
+                                    
+                                    self.model.updateProfile(data: updatedData)
+                                }
+                                
+                                
+                            } else {
+                                self.model.updateProfile(data: updatedData)
+                            }
+                            
                         }
-                        
-                        
-                        self.model.updateProfile(data: User(id: id, profilePhotoUrl: profilePhotoUrl, name: name, username: username, description: desc, productServices: prodService, createdProducts: createdProducts, donatedWaste: donatedWaste, location: location, isBusiness: isBusiness))
                         
                         self.presentationMode.wrappedValue.dismiss()
                         
-                        print("Keluar : \(defaultCoordinate)")
                         
                     } label: {
                         Text("Done").font(Fonts.poppinsBody()).foregroundColor(Colors.Gray)
@@ -238,11 +300,12 @@ struct EditProfileView: View {
             descText = String(descText.prefix(upper))
         }
     }
+    
 }
 
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
         EditProfileView(model: ProfileViewModel(userId: "8xayV4ivOsOSqUrNiD0kOHM7jih1"))
-//        EditProfileView()
+        //        EditProfileView()
     }
 }

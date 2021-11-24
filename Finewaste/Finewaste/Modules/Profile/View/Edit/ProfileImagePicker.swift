@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileImagePicker: View {
     @Binding var selectedImages: UIImage?
+    @Binding var isLoadLocal: Bool
     
     @State private var showImagePicker = false
     @State private var showActionSheet = false
@@ -24,6 +25,7 @@ struct ProfileImagePicker: View {
         .sheet(isPresented: $showImagePicker) {
             NativeImagePicker(imageSource: self.imageSource) { selectedImage in
                 self.selectedImages = selectedImage
+                self.isLoadLocal = true
             }
         }
         .actionSheet(isPresented: $showActionSheet) { 
@@ -49,8 +51,9 @@ struct ProfileImagePicker: View {
 
 struct ProfileImagePicker_Previews: PreviewProvider {
     @State static var imageSample : UIImage? = UIImage(named: "profile")
+    @State static var isLoadLocal = true
     
     static var previews: some View {
-        ProfileImagePicker(selectedImages: $imageSample)
+        ProfileImagePicker(selectedImages: $imageSample, isLoadLocal: $isLoadLocal)
     }
 }
