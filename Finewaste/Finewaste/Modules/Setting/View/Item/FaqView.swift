@@ -17,7 +17,7 @@ struct FaqView: View {
                 ToolbarItem(placement: .principal) {
                     VStack {
                         Text("Frequently Asked Questions").font(Fonts.poppinsHeadline())
-                            .frame(width: 100)
+                            .frame(width: 250)
                     }
                 }
             }

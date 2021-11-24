@@ -26,10 +26,10 @@ struct HowWeWorkView: View {
                 
                 List() {
                     Section(header: Text("WHICH ONE ARE YOU")) {
-                        NavigationLink(destination: HowWeWorkView()) {
+                        NavigationLink(destination: UpcyclerSettingView()) {
                             Text("I'm an upcycler")
                         }
-                        NavigationLink(destination: FaqView()) {
+                        NavigationLink(destination: WasteOwnerSettingView()) {
                             Text("I'm a waste owner")
                         }
                         
@@ -52,7 +52,7 @@ struct HowWeWorkView: View {
                 ToolbarItem(placement: .principal) {
                     VStack {
                         Text("How We Work").font(Fonts.poppinsHeadline())
-                            .frame(width: 100)
+                            .frame(width: 200)
                     }
                 }
         }
