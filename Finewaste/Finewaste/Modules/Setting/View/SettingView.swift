@@ -67,6 +67,7 @@ struct SettingView: View {
                             
                             withAnimation(.easeInOut) {
 //                                logStatus = false
+                                RootView()
                             }
                         }
 //                    }

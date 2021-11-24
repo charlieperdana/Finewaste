@@ -30,7 +30,7 @@ struct UpcyclerActiveView: View {
             }
         }
         .onReceive(self.model.$user) { user in
-            self.productService = user.productServices?.joined(separator: ", ") ?? "cinta"
+            self.productService = user.productServices?.joined(separator: ", ") ?? ""
             DispatchQueue.global().async {
                 var imageProduct : [UIImage] = []
                 if let productImages = user.productImages{

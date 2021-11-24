@@ -19,7 +19,7 @@ final class TabBarManager: ObservableObject {
 }
 
 struct RootView: View {
-//    @State private var selectedTab: SelectedTab = .projects
+    //    @State private var selectedTab: SelectedTab = .projects
     @State private var selectedTab = 0
     @State private var oldSelectedTab = -1
     @State private var isTabBarHidden = false
@@ -32,16 +32,21 @@ struct RootView: View {
             ZStack {
                 VStack {
                     switch selectedTab {
-                        case 0:
-                            MainProjectView()
-                        case 1:
-                            ChatListView()
-                        case 2:
-                            ContributionStatusView()
-                        case 3:
+                    case 0:
+                        MainProjectView()
+                    case 1:
+                        ChatListView()
+                    case 2:
+                        ContributionStatusView()
+                    case 3:
+                        if !AuthenticationHelper.shared.isLoggedIn {
+                            GuestProfileView()
+                        } else {
                             MyProfileView()
-                        default:
-                            EmptyView()
+                        }
+                        
+                    default:
+                        EmptyView()
                     }
                     Spacer()
                 }
@@ -54,6 +59,8 @@ struct RootView: View {
                     self.oldSelectedTab = selectedTab
 //                    if !AuthenticationHelper.shared.isLoggedIn {
 //                        self.isPresentingLoginSheet.toggle()
+//
+//
 //                    }
                 }
                 

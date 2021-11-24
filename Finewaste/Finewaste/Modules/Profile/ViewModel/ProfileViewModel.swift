@@ -34,6 +34,9 @@ class ProfileViewModel: ObservableObject {
     
     
     init(userId: String){
+        if(userId == "" || userId.isEmpty){
+            return
+        }
         self.getSingleUser(userId: userId)
     }
     

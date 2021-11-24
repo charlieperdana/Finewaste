@@ -46,6 +46,11 @@
 		5527056027442DC100868643 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527055F27442DC100868643 /* PrivacyPolicyView.swift */; };
 		5527056227442DE900868643 /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527056127442DE900868643 /* ContactUsView.swift */; };
 		5527056427442E0000868643 /* SignOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527056327442E0000868643 /* SignOutView.swift */; };
+		5532C9D2274D39F200632ACF /* GuestProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532C9D1274D39F200632ACF /* GuestProfileView.swift */; };
+		5532C9D4274D429D00632ACF /* AppleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532C9D3274D429D00632ACF /* AppleButtonView.swift */; };
+		5532C9D6274D4B3000632ACF /* OthersProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532C9D5274D4B3000632ACF /* OthersProfileView.swift */; };
+		5532C9D8274D4D5300632ACF /* ProductInfoProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532C9D7274D4D5300632ACF /* ProductInfoProfileView.swift */; };
+		5532C9DA274D4FFD00632ACF /* ProductImagesProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532C9D9274D4FFD00632ACF /* ProductImagesProfileView.swift */; };
 		5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6892728152900601A69 /* FinewasteApp.swift */; };
 		5572C68E2728152C00601A69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C68D2728152C00601A69 /* Assets.xcassets */; };
 		5572C6912728152C00601A69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C6902728152C00601A69 /* Preview Assets.xcassets */; };
@@ -208,6 +213,11 @@
 		5527055F27442DC100868643 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		5527056127442DE900868643 /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
 		5527056327442E0000868643 /* SignOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutView.swift; sourceTree = "<group>"; };
+		5532C9D1274D39F200632ACF /* GuestProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestProfileView.swift; sourceTree = "<group>"; };
+		5532C9D3274D429D00632ACF /* AppleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleButtonView.swift; sourceTree = "<group>"; };
+		5532C9D5274D4B3000632ACF /* OthersProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersProfileView.swift; sourceTree = "<group>"; };
+		5532C9D7274D4D5300632ACF /* ProductInfoProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoProfileView.swift; sourceTree = "<group>"; };
+		5532C9D9274D4FFD00632ACF /* ProductImagesProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImagesProfileView.swift; sourceTree = "<group>"; };
 		5572C6862728152900601A69 /* Finewaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finewaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5572C6892728152900601A69 /* FinewasteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteApp.swift; sourceTree = "<group>"; };
 		5572C68D2728152C00601A69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -503,6 +513,7 @@
 		5527053C2740021700868643 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5532C9D0274D39DE00632ACF /* Others */,
 				5527054727412D5C00868643 /* Edit */,
 				5527053D2740022B00868643 /* MyProfileView.swift */,
 				5527053F2740110A00868643 /* HeaderProfileView.swift */,
@@ -515,8 +526,8 @@
 		5527054727412D5C00868643 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
-				5527054827412D6D00868643 /* EditProfileView.swift */,
 				5527054A27417C4B00868643 /* UpcyclerActiveView.swift */,
+				5527054827412D6D00868643 /* EditProfileView.swift */,
 				551BAAE02746B5C20061093A /* ProfileImagePicker.swift */,
 			);
 			path = Edit;
@@ -567,6 +578,17 @@
 				5527056327442E0000868643 /* SignOutView.swift */,
 			);
 			path = Item;
+			sourceTree = "<group>";
+		};
+		5532C9D0274D39DE00632ACF /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				5532C9D1274D39F200632ACF /* GuestProfileView.swift */,
+				5532C9D5274D4B3000632ACF /* OthersProfileView.swift */,
+				5532C9D7274D4D5300632ACF /* ProductInfoProfileView.swift */,
+				5532C9D9274D4FFD00632ACF /* ProductImagesProfileView.swift */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 		5572C67D2728152900601A69 = {
@@ -941,6 +963,7 @@
 			children = (
 				55B6040A272FEA4700631004 /* LoginView.swift */,
 				55B6044B27304F0300631004 /* HomeView.swift */,
+				5532C9D3274D429D00632ACF /* AppleButtonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1337,6 +1360,7 @@
 				00E77048273259D900C9C299 /* AddProjectViewModel.swift in Sources */,
 				7DF81CA1273CDF5A00D6A24A /* ImageCompressor.swift in Sources */,
 				7D0200EE273790A900D3BB44 /* FinewasteTextField.swift in Sources */,
+				5532C9D6274D4B3000632ACF /* OthersProfileView.swift in Sources */,
 				7DDD229E272FD5A500250B35 /* Colors.swift in Sources */,
 				7D6DD4EB273C0B590023E163 /* MapPinPointViewModel.swift in Sources */,
 				5527054627401BF100868643 /* InfoProfileView.swift in Sources */,
@@ -1365,6 +1389,7 @@
 				7DDD22FC2732C30900250B35 /* ProjectStatusView.swift in Sources */,
 				7D6DD4BA273A7DEF0023E163 /* SetDeliveryView.swift in Sources */,
 				7DDD22A3272FD84200250B35 /* ProjectRepository.swift in Sources */,
+				5532C9D8274D4D5300632ACF /* ProductInfoProfileView.swift in Sources */,
 				7D914351273596E100B89F98 /* ProjectStatusViewModel.swift in Sources */,
 				55B6040B272FEA4700631004 /* LoginView.swift in Sources */,
 				55270532273D8B4100868643 /* MyContributeProjectView.swift in Sources */,
@@ -1389,6 +1414,7 @@
 				7D0200F82737B8B200D3BB44 /* PostProjectUpdateViewModel.swift in Sources */,
 				551DD8902733037E00E550AF /* MainProjectView.swift in Sources */,
 				7DF81CB7273E923900D6A24A /* RootView.swift in Sources */,
+				5532C9D2274D39F200632ACF /* GuestProfileView.swift in Sources */,
 				7D0200F0273796B600D3BB44 /* FinewasteImagePicker.swift in Sources */,
 				551DD8892732A2DF00E550AF /* Users.swift in Sources */,
 				7D9143492734F9A700B89F98 /* User.swift in Sources */,
@@ -1397,6 +1423,7 @@
 				00BC26B4273D278700C0C7DB /* FinewasteContributionStatusCard.swift in Sources */,
 				7D6DD4B6273A75A50023E163 /* StepBullet.swift in Sources */,
 				5527054927412D6D00868643 /* EditProfileView.swift in Sources */,
+				5532C9DA274D4FFD00632ACF /* ProductImagesProfileView.swift in Sources */,
 				7D0200C627366EF900D3BB44 /* ContributionMaterial.swift in Sources */,
 				7DDD22E32731136F00250B35 /* FinewasteButtonFill.swift in Sources */,
 				7DDD22FA2732C23600250B35 /* ProjectOwnerView.swift in Sources */,
@@ -1417,6 +1444,7 @@
 				7DDD22E12730EC7800250B35 /* ProjectNavigationBar.swift in Sources */,
 				55FE15792738452700B24F2D /* DashboardView.swift in Sources */,
 				7DDD22F82732767800250B35 /* ImagePageIndicatorView.swift in Sources */,
+				5532C9D4274D429D00632ACF /* AppleButtonView.swift in Sources */,
 				7D6DD4BD273A86EF0023E163 /* NewContributionModel.swift in Sources */,
 				00BC26AE273D126C00C0C7DB /* MyContributionsView.swift in Sources */,
 				7DDD22F427318CF900250B35 /* ProjectStoryView.swift in Sources */,

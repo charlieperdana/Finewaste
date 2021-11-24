@@ -12,10 +12,9 @@ struct DescriptionProfileView: View {
     @ObservedObject var model: ProfileViewModel
     
     var body: some View {
-        VStack(alignment:.leading, spacing: 8) {
+        VStack(alignment:.leading) {
             Text("Description")
                 .font(Fonts.poppinsCallout())
-            
 
             Text(model.user.description ?? "--")
                 .font(Fonts.poppinsSubheadline())
