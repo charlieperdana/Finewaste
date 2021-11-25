@@ -9,14 +9,14 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct FinewasteSmallCirclePicture: View {
-    var url: URL
+    var url: String
     
     init(fromUrl url: String) {
-        self.url = URL(string: url)!
+        self.url = url
     }
     
     var body: some View {
-        WebImage(url: url)
+        WebImage(url: URL(string: url))
             .resizable()
             .frame(width: 44, height: 44)
             .clipShape(Circle())
