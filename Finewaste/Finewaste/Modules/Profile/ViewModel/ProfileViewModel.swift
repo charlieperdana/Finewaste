@@ -21,9 +21,22 @@ class ProfileViewModel: ObservableObject {
     @Published var myContributionNumber = 0
     
     @Published var locationName = ""
-   
+    
+    @Published var urlProfileImage = ""
+    
+    private var uploader: CloudStorageUploader?
+    
+    @Published var productImages = [""]
+    
+    @Published var uploadedImages = 0
+    
+    @Published var postingUpdate = false
+    
     
     init(userId: String){
+        if(userId == "" || userId.isEmpty){
+            return
+        }
         self.getSingleUser(userId: userId)
     }
     
@@ -55,15 +68,16 @@ class ProfileViewModel: ObservableObject {
                         }
                         
                         self.user = User(id: userId,
-                                    profilePhotoUrl: userData?["profilePhotoUrl"] as? String ?? "",
-                                    name: userData?["name"] as? String ?? "",
-                                    username: userData?["username"] as? String ?? "",
-                                    description: userData?["description"] as? String ?? "",
-                                    productServices: userData?["productServices"] as? [String] ?? [""],
-                                    createdProducts: userData?["createdProducts"] as? Int ?? 0,
-                                    donatedWaste: userData?["donatedWaste"] as? Int ?? 0,
-                                    location: userData?["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0),
-                                    isBusiness: userData?["isBusiness"] as? Bool ?? false)
+                                         profilePhotoUrl: userData?["profilePhotoUrl"] as? String ?? "",
+                                         name: userData?["name"] as? String ?? "",
+                                         username: userData?["username"] as? String ?? "",
+                                         description: userData?["description"] as? String ?? "",
+                                         productServices: userData?["productService"] as? [String] ?? [""],
+                                         createdProducts: userData?["createdProducts"] as? Int ?? 0,
+                                         donatedWaste: userData?["donatedWaste"] as? Int ?? 0,
+                                         location: userData?["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0),
+                                         isBusiness: userData?["isBusiness"] as? Bool ?? false,
+                                         productImages: userData?["productPictures"] as? [String] ?? [""])
                         
                         print("User: \(self.user )")
                         
@@ -121,15 +135,15 @@ class ProfileViewModel: ObservableObject {
                                 
                                 completion(counter)
                                 
-                
+                                
                                 
                             }
                         })
                         
                     }
-                   
                     
-
+                    
+                    
                     
                 }
             }
@@ -138,7 +152,7 @@ class ProfileViewModel: ObservableObject {
             }
         }
         
-       
+        
         
     }
     
@@ -157,17 +171,21 @@ class ProfileViewModel: ObservableObject {
             location = "\(locality), \(subLocality)"
             
             completion(location)
-        
+            
         }
     }
     
     func updateProfile(data: User){
         let updatedData = ["name":data.name ?? "",
                            "username":data.username ?? "",
+                           "profilePhotoUrl":data.profilePhotoUrl ?? "",
                            "location":data.location ?? GeoPoint(latitude: 0.0, longitude: 0.0),
                            "description":data.description ?? "",
                            "isBusiness":data.isBusiness ?? false,
-                           "productService":data.productServices ?? [""]
+                           "productService":data.productServices ?? [""],
+                           "createdProduct":data.createdProducts ?? 0,
+                           "donatedWaste":data.donatedWaste ?? 0,
+                           "productPictures":data.productImages ?? [""]
         ] as [String : Any]
         database.collection("users").document(data.id ?? "").setData(updatedData, merge: true){ error in
             
@@ -178,20 +196,84 @@ class ProfileViewModel: ObservableObject {
         }
     }
     
-    func uploadProfileImage(image: UIImage){
-        if let imageData = image.jpegData(compressionQuality: 1){
-            let storage = Storage.storage()
-            storage.reference().child("profile").putData(imageData, metadata: nil){ (_,err)  in
-                if let err = err {
-                    print("error bung - \(err.localizedDescription)")
-                } else {
-                    print("gambar uploaded")
-                }
+    
+    func uploadProfileImages(image: UIImage, completion: @escaping (String) -> Void) {
+        
+        var urlResult = ""
+        let filename = UUID().uuidString
+        let uid = AuthenticationHelper.shared.userId
+        
+        
+        let ref = Storage.storage().reference(withPath: "profile/\(uid)_profile")
+        let metadatas = StorageMetadata()
+        metadatas.contentType = "image/jpeg"
+        
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else {return}
+        
+        ref.putData(imageData, metadata: metadatas){ metadata, err in
+            if let err = err {
+                print("error bung - \(err.localizedDescription)")
+                return
             }
-        } else {
-            print("couldn't unwrap/case image to data")
+            
+            ref.downloadURL { url, err in
+                if let err = err {
+                    print("error download url - \(err.localizedDescription)")
+                    return
+                }
+                
+                if let urlResult = url?.absoluteString {
+                    completion(urlResult)
+                }
+
+                print("url profile: \(urlResult)")
+             
+            }
+            
+        }
+        
+        
+        
+    }
+    
+    func postProductImages(images: [UIImage], completion: @escaping ([String]) -> Void) {
+
+        let imagesData = ImageCompressor.shared.compressImages(images: images)
+
+        let totalImages = imagesData.count
+//        var postingUpdate = true
+//        self.post(images: imagesData) { [self] in
+//            uploadedImages += 1
+//
+//            if uploadedImages == imagesData.count {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                    self.postingUpdate = false
+//                }
+//            }
+//        }
+        
+        self.post(images: imagesData, onUpdate: {}, completion: completion)
+    }
+    
+    func post(images: [Data], onUpdate: @escaping () -> Void, completion: @escaping ([String]) -> Void) {
+        
+        let path = "profile"
+        let store = Firestore.firestore()
+        
+        let ref = store.collection(path).document()
+        
+        
+        uploader = CloudStorageUploader(toUpload: images, onUploadedHandler: onUpdate)
+        uploader?.startUpload(atPath: "\(path)/\(ref.documentID)") { imageLinks in
+            self.productImages = imageLinks
+            print("Linkk :\(imageLinks)")
+            print("productImagesnya:\(self.productImages)")
+            completion(imageLinks)
+        
         }
     }
+    
+    
     
     
 }

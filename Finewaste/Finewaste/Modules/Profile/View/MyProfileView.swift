@@ -13,10 +13,12 @@ struct MyProfileView: View {
     @State var showEditPage = false
     @State var showSettingPage = false
     
+    @State var isGuest = false
+    
     var body: some View {
         ScrollView(.vertical) {
             VStack(spacing:16) {
-                HeaderProfileView(model: model)
+                HeaderProfileView(model: model, isGuest: $isGuest)
                 
                 InfoProfileView(model: model)
                 
