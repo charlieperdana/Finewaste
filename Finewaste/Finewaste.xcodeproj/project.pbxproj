@@ -62,6 +62,7 @@
 		555A280B274E5426001051F7 /* AppleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A280A274E5425001051F7 /* AppleButtonView.swift */; };
 		555A280E274EA51D001051F7 /* UpcyclerSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A280D274EA51D001051F7 /* UpcyclerSettingView.swift */; };
 		555A2810274EA52E001051F7 /* WasteOwnerSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A280F274EA52E001051F7 /* WasteOwnerSettingView.swift */; };
+		555A2813274F629C001051F7 /* FaqItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A2812274F629C001051F7 /* FaqItemView.swift */; };
 		5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6892728152900601A69 /* FinewasteApp.swift */; };
 		5572C68E2728152C00601A69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C68D2728152C00601A69 /* Assets.xcassets */; };
 		5572C6912728152C00601A69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C6902728152C00601A69 /* Preview Assets.xcassets */; };
@@ -254,6 +255,7 @@
 		555A280A274E5425001051F7 /* AppleButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleButtonView.swift; sourceTree = "<group>"; };
 		555A280D274EA51D001051F7 /* UpcyclerSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcyclerSettingView.swift; sourceTree = "<group>"; };
 		555A280F274EA52E001051F7 /* WasteOwnerSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WasteOwnerSettingView.swift; sourceTree = "<group>"; };
+		555A2812274F629C001051F7 /* FaqItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqItemView.swift; sourceTree = "<group>"; };
 		5572C6862728152900601A69 /* Finewaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finewaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5572C6892728152900601A69 /* FinewasteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteApp.swift; sourceTree = "<group>"; };
 		5572C68D2728152C00601A69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Finewaste/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -625,6 +627,7 @@
 		55270550274420F300868643 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				555A2811274F6281001051F7 /* Faq */,
 				555A280C274EA4E9001051F7 /* Upcycler */,
 				5527055827442D4200868643 /* Item */,
 				552705512744210700868643 /* SettingView.swift */,
@@ -672,6 +675,14 @@
 				555A280F274EA52E001051F7 /* WasteOwnerSettingView.swift */,
 			);
 			path = Upcycler;
+			sourceTree = "<group>";
+		};
+		555A2811274F6281001051F7 /* Faq */ = {
+			isa = PBXGroup;
+			children = (
+				555A2812274F629C001051F7 /* FaqItemView.swift */,
+			);
+			path = Faq;
 			sourceTree = "<group>";
 		};
 		5572C67D2728152900601A69 = {
@@ -1604,6 +1615,7 @@
 				7DB94F51274955AD000EDEE3 /* FinewasteLimitTextField.swift in Sources */,
 				7D0200E12737762700D3BB44 /* View+retrieveScrollPosition.swift in Sources */,
 				7D6DD4C7273AB5C00023E163 /* SelectMaterialViewModel.swift in Sources */,
+				555A2813274F629C001051F7 /* FaqItemView.swift in Sources */,
 				7D6DD4CC273ADAAE0023E163 /* FinewastePicker.swift in Sources */,
 				7DF81C9F273CB43A00D6A24A /* CLLocationCoordinate2D+Equatable.swift in Sources */,
 				7D6DD4DA273B84650023E163 /* FinewasteMapPicker.swift in Sources */,
