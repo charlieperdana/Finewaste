@@ -102,22 +102,10 @@ struct AboutView: View {
                 VStack(alignment: .leading) {
                     Text("Project Name")
                         .font(Fonts.poppinsCallout())
-                    FinewasteTextField(placeholder: "e.g. Denim totebag", text: $projectName)
-                    HStack {
-                        Spacer()
-                        Text("\(projectName.count)/30")
-                            .font(Fonts.poppinsFootnote())
-                            .foregroundColor(Colors.Turqoise)
-                    }
+                    FinewasteLimitTextField(placeholder: "e.g. Denim totebag", text: $projectName, maximumCharacter: 30)
                     Text("What do you want to make?")
                         .font(Fonts.poppinsCallout())
-                    FinewasteTextField(placeholder: "Describe product you want to make", text: $projectDescription)
-                    HStack {
-                        Spacer()
-                        Text("\(projectDescription.count)/500")
-                            .font(Fonts.poppinsFootnote())
-                            .foregroundColor(Colors.Turqoise)
-                    }
+                    FinewasteLimitTextField(placeholder: "Describe product you want to make", text: $projectDescription, maximumCharacter: 500)
                     HStack {
                         Text("Project Close Date")
                             .font(Fonts.poppinsCallout())
