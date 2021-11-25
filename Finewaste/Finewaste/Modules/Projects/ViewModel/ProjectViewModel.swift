@@ -22,12 +22,12 @@ class ProjectViewModel: ObservableObject {
     
     @Published var listProjectMaterial = [ProjectMaterial]()
     
-    @Published var projectTarget = [String:(contribution:Int,target:Int)]()
+    @Published var projectTarget = [String:(contribution:Int, target:Int)]()
     
     @Published var daysToDeadline = [String:(Int)]()
     
     
-    init(){
+    init() {
         self.getProjectData()
     }
     
