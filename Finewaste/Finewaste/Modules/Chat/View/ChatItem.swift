@@ -40,7 +40,7 @@ struct ChatItem: View {
         let simultaneousGesture = tapGesture.simultaneously(with: dragGesture)
         
         ZStack {
-            NavigationLink(destination: ChatDetailView(), isActive: $isShowingChatDetail) {
+            NavigationLink(destination: ChatDetailView(conversationId: "", receiverDisplayName: "", receiverPhotoUrl: ""), isActive: $isShowingChatDetail) {
                 EmptyView()
             }
             

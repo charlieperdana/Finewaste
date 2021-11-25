@@ -15,9 +15,21 @@ struct ChatDetailView: View {
         "Denim."
     ]
     
+    @StateObject private var viewModel: ChatDetailViewModel
+    
+    private var receiverDisplayName: String
+    private var receiverPhotoUrl: String
+    
+    init(conversationId: String, receiverDisplayName: String, receiverPhotoUrl: String) {
+        self._viewModel = StateObject(wrappedValue: ChatDetailViewModel(conversationId: conversationId))
+        
+        self.receiverDisplayName = receiverDisplayName
+        self.receiverPhotoUrl = receiverPhotoUrl
+    }
+    
     var body: some View {
         VStack {
-            ChatDetailNavigationBar()
+            ChatDetailNavigationBar(displayName: receiverDisplayName, photoUrl: receiverPhotoUrl)
             
             ScrollView {
                 ForEach(texts.indices, id: \.self) { index in
@@ -53,6 +65,6 @@ struct ChatDetailView: View {
 
 struct ChatDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatDetailView()
+        ChatDetailView(conversationId: "", receiverDisplayName: "", receiverPhotoUrl: "")
     }
 }

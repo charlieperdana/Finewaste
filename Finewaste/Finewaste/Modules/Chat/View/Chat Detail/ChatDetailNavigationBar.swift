@@ -11,6 +11,14 @@ import SDWebImageSwiftUI
 struct ChatDetailNavigationBar: View {
     @Environment(\.presentationMode) var presentationMode
     
+    private var displayName: String
+    private var photoUrl: String
+    
+    init(displayName: String, photoUrl: String) {
+        self.displayName = displayName
+        self.photoUrl = photoUrl
+    }
+    
     var body: some View {
         ZStack(alignment: .topLeading) {
             Button {
@@ -25,9 +33,9 @@ struct ChatDetailNavigationBar: View {
             HStack {
                 Spacer()
                 VStack(spacing: 8) {
-                    Text("Ali Abdul")
+                    Text(displayName)
                         .font(Fonts.poppinsHeadline())
-                    FinewasteSmallCirclePicture(fromUrl: "https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png")
+                    FinewasteSmallCirclePicture(fromUrl: photoUrl)
                     Rectangle()
                         .frame(height: 1)
                         .foregroundColor(Colors.Separator)
@@ -40,6 +48,6 @@ struct ChatDetailNavigationBar: View {
 
 struct ChatDetailNavigationBar_Previews: PreviewProvider {
     static var previews: some View {
-        ChatDetailNavigationBar()
+        ChatDetailNavigationBar(displayName: "", photoUrl: "")
     }
 }
