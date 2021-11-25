@@ -24,6 +24,7 @@
 		00BD9772274B914600725DDD /* HistoryContributionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD9770274B914600725DDD /* HistoryContributionsViewModel.swift */; };
 		00C18B552732988E000C1103 /* DeliveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C18B542732988E000C1103 /* DeliveryView.swift */; };
 		00C18B57273298C5000C1103 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C18B56273298C5000C1103 /* MaterialView.swift */; };
+		00CF45AE274F86790019773C /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF45AD274F86790019773C /* KeyboardAdaptive.swift */; };
 		00E7704A27327AC300C9C299 /* showImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E7704927327AC300C9C299 /* showImagePicker.swift */; };
 		00F2BC9F2733C78D00E95798 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F2BC9E2733C78D00E95798 /* AboutView.swift */; };
 		00FE22CA2733DBEB00EF306A /* AddMaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE22C92733DBEB00EF306A /* AddMaterialView.swift */; };
@@ -207,6 +208,7 @@
 		00BD9770274B914600725DDD /* HistoryContributionsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryContributionsViewModel.swift; sourceTree = "<group>"; };
 		00C18B542732988E000C1103 /* DeliveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryView.swift; sourceTree = "<group>"; };
 		00C18B56273298C5000C1103 /* MaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		00CF45AD274F86790019773C /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
 		00E7704927327AC300C9C299 /* showImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showImagePicker.swift; sourceTree = "<group>"; };
 		00F2BC9E2733C78D00E95798 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		00FE22C92733DBEB00EF306A /* AddMaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaterialView.swift; sourceTree = "<group>"; };
@@ -1160,6 +1162,7 @@
 		7DDD22E4273113FF00250B35 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
+				00CF45AD274F86790019773C /* KeyboardAdaptive.swift */,
 				7DDD22E52731140C00250B35 /* FinewasteButtonSize.swift */,
 				7D6DD4C0273AB2680023E163 /* StepBulletColor.swift */,
 			);
@@ -1539,6 +1542,7 @@
 				7DB94F41274954A3000EDEE3 /* RejectReasonOption.swift in Sources */,
 				7DB94F45274954A3000EDEE3 /* ContributionTimeline.swift in Sources */,
 				7D0200D32736C2F800D3BB44 /* ContributionRepository.swift in Sources */,
+				00CF45AE274F86790019773C /* KeyboardAdaptive.swift in Sources */,
 				5527056427442E0000868643 /* SignOutView.swift in Sources */,
 				7DF81CBF273EB12300D6A24A /* AuthenticationHelper.swift in Sources */,
 				7DDD22EC273137A700250B35 /* ProjectAboutView.swift in Sources */,
