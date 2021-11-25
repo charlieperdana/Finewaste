@@ -137,6 +137,7 @@ struct AboutView: View {
                 }
                 NavigationLink(destination: MaterialView(isPresentingAddProjectSheet: $isPresentingAddProjectSheet).environmentObject(newProject), isActive: $showNextPage) {}
             }
+            .modifier(KeyboardAdaptive())
             .navigationBarTitle("Project Detail")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading:
