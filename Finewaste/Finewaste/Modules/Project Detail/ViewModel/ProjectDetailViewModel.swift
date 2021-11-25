@@ -55,7 +55,7 @@ class ProjectDetailViewModel: ObservableObject {
                 let locality = placemark?.locality ?? "---"
                 let subLocality = placemark?.subLocality ?? "---"
                 
-                self.projectLocation = "\(locality), \(subLocality)"
+                self.projectLocation = "\(subLocality), \(locality)"
             }
         }
     }
