@@ -60,6 +60,9 @@
 		5532C9D8274D4D5300632ACF /* ProductInfoProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532C9D7274D4D5300632ACF /* ProductInfoProfileView.swift */; };
 		5532C9DA274D4FFD00632ACF /* ProductImagesProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532C9D9274D4FFD00632ACF /* ProductImagesProfileView.swift */; };
 		555A280B274E5426001051F7 /* AppleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A280A274E5425001051F7 /* AppleButtonView.swift */; };
+		555A280E274EA51D001051F7 /* UpcyclerSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A280D274EA51D001051F7 /* UpcyclerSettingView.swift */; };
+		555A2810274EA52E001051F7 /* WasteOwnerSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A280F274EA52E001051F7 /* WasteOwnerSettingView.swift */; };
+		555A2813274F629C001051F7 /* FaqItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A2812274F629C001051F7 /* FaqItemView.swift */; };
 		5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6892728152900601A69 /* FinewasteApp.swift */; };
 		5572C68E2728152C00601A69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C68D2728152C00601A69 /* Assets.xcassets */; };
 		5572C6912728152C00601A69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C6902728152C00601A69 /* Preview Assets.xcassets */; };
@@ -250,6 +253,9 @@
 		5532C9D7274D4D5300632ACF /* ProductInfoProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoProfileView.swift; sourceTree = "<group>"; };
 		5532C9D9274D4FFD00632ACF /* ProductImagesProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImagesProfileView.swift; sourceTree = "<group>"; };
 		555A280A274E5425001051F7 /* AppleButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleButtonView.swift; sourceTree = "<group>"; };
+		555A280D274EA51D001051F7 /* UpcyclerSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcyclerSettingView.swift; sourceTree = "<group>"; };
+		555A280F274EA52E001051F7 /* WasteOwnerSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WasteOwnerSettingView.swift; sourceTree = "<group>"; };
+		555A2812274F629C001051F7 /* FaqItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqItemView.swift; sourceTree = "<group>"; };
 		5572C6862728152900601A69 /* Finewaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finewaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5572C6892728152900601A69 /* FinewasteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteApp.swift; sourceTree = "<group>"; };
 		5572C68D2728152C00601A69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Finewaste/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -621,6 +627,8 @@
 		55270550274420F300868643 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				555A2811274F6281001051F7 /* Faq */,
+				555A280C274EA4E9001051F7 /* Upcycler */,
 				5527055827442D4200868643 /* Item */,
 				552705512744210700868643 /* SettingView.swift */,
 				552705532744254100868643 /* SettingItemView.swift */,
@@ -658,6 +666,23 @@
 				5532C9D9274D4FFD00632ACF /* ProductImagesProfileView.swift */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		555A280C274EA4E9001051F7 /* Upcycler */ = {
+			isa = PBXGroup;
+			children = (
+				555A280D274EA51D001051F7 /* UpcyclerSettingView.swift */,
+				555A280F274EA52E001051F7 /* WasteOwnerSettingView.swift */,
+			);
+			path = Upcycler;
+			sourceTree = "<group>";
+		};
+		555A2811274F6281001051F7 /* Faq */ = {
+			isa = PBXGroup;
+			children = (
+				555A2812274F629C001051F7 /* FaqItemView.swift */,
+			);
+			path = Faq;
 			sourceTree = "<group>";
 		};
 		5572C67D2728152900601A69 = {
@@ -1513,6 +1538,7 @@
 				7D0286D8274A8D9600241266 /* WheelDatePicker.swift in Sources */,
 				7D6DD4BA273A7DEF0023E163 /* SetDeliveryView.swift in Sources */,
 				7DDD22A3272FD84200250B35 /* ProjectRepository.swift in Sources */,
+				555A280E274EA51D001051F7 /* UpcyclerSettingView.swift in Sources */,
 				5532C9D8274D4D5300632ACF /* ProductInfoProfileView.swift in Sources */,
 				7D914351273596E100B89F98 /* ProjectStatusViewModel.swift in Sources */,
 				55B6040B272FEA4700631004 /* LoginView.swift in Sources */,
@@ -1589,6 +1615,7 @@
 				7DB94F51274955AD000EDEE3 /* FinewasteLimitTextField.swift in Sources */,
 				7D0200E12737762700D3BB44 /* View+retrieveScrollPosition.swift in Sources */,
 				7D6DD4C7273AB5C00023E163 /* SelectMaterialViewModel.swift in Sources */,
+				555A2813274F629C001051F7 /* FaqItemView.swift in Sources */,
 				7D6DD4CC273ADAAE0023E163 /* FinewastePicker.swift in Sources */,
 				7DF81C9F273CB43A00D6A24A /* CLLocationCoordinate2D+Equatable.swift in Sources */,
 				7D6DD4DA273B84650023E163 /* FinewasteMapPicker.swift in Sources */,
@@ -1613,6 +1640,7 @@
 				7D6DD4D8273B84390023E163 /* MapView.swift in Sources */,
 				552705572744284300868643 /* Setting.swift in Sources */,
 				55B604572731302F00631004 /* OnboardingView.swift in Sources */,
+				555A2810274EA52E001051F7 /* WasteOwnerSettingView.swift in Sources */,
 				55B6040D272FEA6800631004 /* LoginViewModel.swift in Sources */,
 				552705402740110A00868643 /* HeaderProfileView.swift in Sources */,
 				7D339EC92733D6240023BFDB /* NavigationBackButton.swift in Sources */,
@@ -1786,7 +1814,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Finewaste/Preview Content\"";
-				DEVELOPMENT_TEAM = P74487TWS7;
+				DEVELOPMENT_TEAM = ND4DZWJCVY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Finewaste/Info.plist;
@@ -1804,7 +1832,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wethex.finewaste.-";
+				PRODUCT_BUNDLE_IDENTIFIER = WeTheX.Finewaste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1825,7 +1853,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Finewaste/Preview Content\"";
-				DEVELOPMENT_TEAM = P74487TWS7;
+				DEVELOPMENT_TEAM = ND4DZWJCVY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Finewaste/Info.plist;
@@ -1843,7 +1871,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wethex.finewaste.-";
+				PRODUCT_BUNDLE_IDENTIFIER = WeTheX.Finewaste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -10,14 +10,35 @@ import SwiftUI
 struct FaqView: View {
     var body: some View {
         VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            List(SettingContent.dataFaqSetting) { data in
+                Section(header: Text(data.section.title)) {
+//                    ForEach(data.data as [SettingDataFaq], id: \.self){ data in
+//
+//                    }
+                    NavigationLink(destination: HowWeWorkView()) {
+                        Text("How We Work")
+                    }
+                   
+                    
+                }
+            }
+//            ForEach(SettingContent.dataFaq as [FaqSectionData], id: \.self){ data in
+//                Section(header: Text("charlie")) {
+//
+////                    NavigationLink(destination: HowWeWorkView()) {
+////                        Text("How We Work")
+////                    }
+//
+//                }
+//            }
+            
         }
         .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     VStack {
                         Text("Frequently Asked Questions").font(Fonts.poppinsHeadline())
-                            .frame(width: 100)
+                            .frame(width: 250)
                     }
                 }
             }
