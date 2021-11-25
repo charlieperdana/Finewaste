@@ -16,11 +16,10 @@ struct ChatListView: View {
             FinewasteSearchbar(placeholderText: "Search chat history", searchText: $searchChatKeyword)
             
             VStack(spacing: 0) {
-                ForEach(0..<2, id: \.self) { index in
+                ForEach(viewModel.conversations, id: \.id) { conversation in
                     ChatItem(
-                        senderName: "Ali Abdul",
-                        lastMessage: "Hellooo",
-                        isPinned: true,
+                        conversation: conversation,
+                        isPinned: false,
                         onPinTapped: {
                             
                         },

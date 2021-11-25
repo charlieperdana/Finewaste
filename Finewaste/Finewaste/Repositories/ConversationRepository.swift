@@ -19,6 +19,18 @@ final class ConversationRepository: ObservableObject {
         
     }
     
+    func getConversation(including id: String) {
+        store.collection(path)
+            .whereField("users", arrayContains: id)
+            .getDocuments { snapshot, _ in
+                guard let docs = snapshot?.documents else {
+                    return
+                }
+                
+                self.conversations = docs.compactMap { try? $0.data(as: Conversation.self) }
+            }
+    }
+    
     func add(conversation: Conversation, completion: @escaping (Conversation) -> Void) {
         checkExistingConversation(firstUserId: conversation.firstUserId,
                              secondUserId: conversation.secondUserId) { foundConversation in

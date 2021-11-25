@@ -51,6 +51,10 @@ class MessageRepository: ObservableObject {
                     
                     return nil
                 }
+                
+                self.messages.sort {
+                    ($0.createdDate ?? -1) < ($1.createdDate ?? -1)
+                }
             } catch {
                 
             }

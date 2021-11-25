@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ChatItem: View {
-    var senderName: String
     var lastMessage: String
     var isPinned: Bool
     
@@ -17,6 +16,21 @@ struct ChatItem: View {
     
     @State private var swipeOffset: CGFloat = 0
     @State private var isShowingChatDetail = false
+    
+    private var conversationId: String
+    private var receiverDisplayName: String
+    private var receiverPhotoUrl: String
+    
+    init(conversation: Conversation, isPinned: Bool, onPinTapped: @escaping () -> Void, onDeleteTapped: @escaping () -> Void) {
+        self.conversationId = conversation.id ?? "---"
+        self.receiverDisplayName = conversation.otherUserName
+        self.receiverPhotoUrl = conversation.otherProfilePhotoUrl
+        
+        self.lastMessage = conversation.lastMessage
+        self.isPinned = isPinned
+        self.onPinTapped = onPinTapped
+        self.onDeleteTapped = onDeleteTapped
+    }
     
     var body: some View {
         let dragGesture = DragGesture(minimumDistance: 0, coordinateSpace: .global)
@@ -40,7 +54,7 @@ struct ChatItem: View {
         let simultaneousGesture = tapGesture.simultaneously(with: dragGesture)
         
         ZStack {
-            NavigationLink(destination: ChatDetailView(conversationId: "", receiverDisplayName: "", receiverPhotoUrl: ""), isActive: $isShowingChatDetail) {
+            NavigationLink(destination: ChatDetailView(conversationId: conversationId, receiverDisplayName: receiverDisplayName, receiverPhotoUrl: receiverPhotoUrl), isActive: $isShowingChatDetail) {
                 EmptyView()
             }
             
@@ -69,7 +83,7 @@ struct ChatItem: View {
             VStack {
                 HStack {
                     VStack(alignment: .leading) {
-                        Text(senderName)
+                        Text(receiverDisplayName)
                             .font(Fonts.poppinsCallout())
                         Text(lastMessage)
                             .font(Fonts.poppinsFootnote())
@@ -112,6 +126,6 @@ struct ChatItem: View {
 
 struct ChatItem_Previews: PreviewProvider {
     static var previews: some View {
-        ChatItem(senderName: "", lastMessage: "", isPinned: false, onPinTapped: {}, onDeleteTapped: {})
+        ChatItem(conversation: Conversation(), isPinned: false, onPinTapped: {}, onDeleteTapped: {})
     }
 }

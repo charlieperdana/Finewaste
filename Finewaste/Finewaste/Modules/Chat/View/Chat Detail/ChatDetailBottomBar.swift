@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ChatDetailBottomBar: View {
+    @ObservedObject var viewModel: ChatDetailViewModel
     @State private var messageToSend = ""
     
     var body: some View {
@@ -26,7 +27,7 @@ struct ChatDetailBottomBar: View {
             }
             
             HStack(spacing: 8) {
-                Button(action: attachFile) {
+                Button(action: attachImage) {
                     Image(systemName: "plus.app")
                         .font(.system(size: 22))
                         .foregroundColor(Colors.Turqoise)
@@ -50,17 +51,18 @@ struct ChatDetailBottomBar: View {
         }
     }
     
-    private func attachFile() {
+    private func attachImage() {
         
     }
     
     private func sendMessage() {
-        
+        viewModel.sendMessage(text: messageToSend)
+        messageToSend = ""
     }
 }
 
 struct ChatDetailBottomBar_Previews: PreviewProvider {
     static var previews: some View {
-        ChatDetailBottomBar()
+        ChatDetailBottomBar(viewModel: ChatDetailViewModel(conversationId: ""))
     }
 }

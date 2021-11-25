@@ -32,31 +32,33 @@ struct ChatDetailView: View {
             ChatDetailNavigationBar(displayName: receiverDisplayName, photoUrl: receiverPhotoUrl)
             
             ScrollView {
-                ForEach(texts.indices, id: \.self) { index in
-                    let chatSide: MessageBubbleShape.Direction = index % 2 == 0 ? .left : .right
-                    
-                    VStack(alignment: .trailing, spacing: 0) {
-                        ChatBubble(direction: chatSide) {
-                            Text(texts[index])
-                                .foregroundColor(Colors.ChatBubbleText)
-                                .font(Fonts.poppinsBody())
-                                .padding(.vertical, 8)
-                                .padding(chatSide == .right ? .leading : .trailing, 12)
-                                .padding(chatSide == .right ? .trailing : .leading)
-                                .background(chatSide == .left ? Colors.OtherUserChatBubble : Colors.UserChatBubble)
-                        }
+                VStack(spacing: 0) {
+                    ForEach(viewModel.messages, id: \.id) { message in
+                        let chatSide: MessageBubbleShape.Direction = message.senderId != viewModel.currentUser ? .left : .right
                         
-                        if chatSide == .right {
-                            Text("Read")
-                                .font(Fonts.poppinsCaption2())
-                                .foregroundColor(Colors.Turqoise)
-                                .offset(x: -20)
+                        VStack(alignment: .trailing, spacing: 0) {
+                            ChatBubble(direction: chatSide) {
+                                Text(message.text)
+                                    .foregroundColor(Colors.ChatBubbleText)
+                                    .font(Fonts.poppinsBody())
+                                    .padding(.vertical, 8)
+                                    .padding(chatSide == .right ? .leading : .trailing, 12)
+                                    .padding(chatSide == .right ? .trailing : .leading)
+                                    .background(chatSide == .left ? Colors.OtherUserChatBubble : Colors.UserChatBubble)
+                            }
+                            
+                            if chatSide == .right && message.isRead {
+                                Text("Read")
+                                    .font(Fonts.poppinsCaption2())
+                                    .foregroundColor(Colors.Turqoise)
+                                    .offset(x: -20)
+                            }
                         }
                     }
                 }
             }
             
-            ChatDetailBottomBar()
+            ChatDetailBottomBar(viewModel: viewModel)
                 .padding()
         }
         .navigationBarHidden(true)
