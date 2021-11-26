@@ -18,8 +18,7 @@ struct OthersProfileView: View {
     init(userId:String){
         self._model = StateObject(wrappedValue: ProfileViewModel(userId: userId))
     }
-    
-    
+
     var body: some View {
         ScrollView(.vertical) {
             VStack(alignment: .leading, spacing: 8){
