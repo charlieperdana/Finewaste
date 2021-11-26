@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FaqItemView: View {
-    let item : String
+    let title : String
     var body: some View {
         VStack {
             Text("Hello, World!")
@@ -17,7 +17,8 @@ struct FaqItemView: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     VStack {
-                        Text(item).font(Fonts.poppinsHeadline())
+                        Text(title).font(Fonts.poppinsHeadline())
+                            .frame(width:200)
                     }
                 }
             }
@@ -27,6 +28,6 @@ struct FaqItemView: View {
 
 struct FaqItemView_Previews: PreviewProvider {
     static var previews: some View {
-        FaqItemView(item: "Item")
+        FaqItemView(title: "Item")
     }
 }

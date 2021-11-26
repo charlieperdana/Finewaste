@@ -15,6 +15,9 @@ struct OthersProfileView: View {
     
     @State var isGuest = false
     
+    init(userId:String){
+        self._model = StateObject(wrappedValue: ProfileViewModel(userId: userId))
+    }
     
     
     var body: some View {
@@ -61,6 +64,6 @@ struct OthersProfileView: View {
 
 struct OthersProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        OthersProfileView()
+        OthersProfileView(userId: "8xayV4ivOsOSqUrNiD0kOHM7jih1")
     }
 }
