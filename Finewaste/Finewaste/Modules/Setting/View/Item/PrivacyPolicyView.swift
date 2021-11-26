@@ -37,7 +37,7 @@ struct PrivacyPolicyView: View {
                     ToolbarItem(placement: .principal) {
                         VStack {
                             Text("Privacy Policy").font(Fonts.poppinsHeadline())
-                                .frame(width: 100)
+                                .frame(width: 200)
                         }
                     }
             }

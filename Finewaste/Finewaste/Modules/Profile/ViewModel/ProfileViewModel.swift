@@ -165,10 +165,14 @@ class ProfileViewModel: ObservableObject {
                 location = "---"
             }
             
-            let locality = placemark?.locality ?? "---"
-            let subLocality = placemark?.subLocality ?? "---"
             
-            location = "\(locality), \(subLocality)"
+            let streetName = placemark?.name ?? ""
+            let subLocality = placemark?.subLocality ?? ""
+            let locality = placemark?.locality ?? ""
+            let administrativeArea = placemark?.administrativeArea ?? ""
+            
+            location = "\(streetName), \(locality), \(subLocality), \(administrativeArea)"
+            
             
             completion(location)
             

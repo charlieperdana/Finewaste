@@ -15,21 +15,19 @@ struct ProductImagesProfileView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing:8) {
                 
-                ForEach(model.user.productImages ?? [] as [String], id: \.self){ image in
-                    GeometryReader { proxy in
-                        
-                        let scale  = getScale(proxy: proxy)
-                        
-                        WebImage(url: URL(string: image))
+                ForEach(Array(model.user.productImagesUrl.enumerated()), id: \.offset){ index, image in
+                    
+
+                    
+                    NavigationLink(destination: ImageGalleryView(updatePostedDate: "Product Images", images: model.user.productImagesUrl, chosenIndex: index)) {
+                        WebImage(url: image)
                             .centerWidthCrop()
                             .frame(width: 100, height: 100)
                             .scaledToFill()
                             .clipped()
-                            .cornerRadius(10)
+                        .cornerRadius(10)
                     }
-                    
-                    .frame(width: 100, height: 150)
-                    
+
                     
                 }
             }

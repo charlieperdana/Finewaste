@@ -25,7 +25,7 @@ struct ImageGalleryView: View {
         NavigationView {
             VStack {
                 WebImage(url: self.currentImage)
-                    .resizable()
+                    .centerWidthCrop()
                     .aspectRatio(CGSize(width: 1, height: 1), contentMode: .fit)
                 Spacer()
                 
@@ -33,7 +33,7 @@ struct ImageGalleryView: View {
                     HStack(spacing: 4) {
                         ForEach(images, id: \.self) { imageUrl in
                             WebImage(url: imageUrl)
-                                .resizable()
+                                .centerWidthCrop()
                                 .frame(width: 67, height: 67)
                                 .onTapGesture {
                                     self.currentImage = imageUrl

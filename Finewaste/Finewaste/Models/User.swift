@@ -21,4 +21,10 @@ struct User: Codable, Identifiable {
     var location: GeoPoint?
     var isBusiness: Bool?
     var productImages: [String]?
+    var productImagesUrl : [URL]{
+        productImages?.compactMap{
+            URL(string: $0)
+        } ?? []
+    }
+    var pcsSaved : Int? = 0
 }

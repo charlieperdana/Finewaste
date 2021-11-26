@@ -24,6 +24,7 @@
 		00BD9772274B914600725DDD /* HistoryContributionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD9770274B914600725DDD /* HistoryContributionsViewModel.swift */; };
 		00C18B552732988E000C1103 /* DeliveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C18B542732988E000C1103 /* DeliveryView.swift */; };
 		00C18B57273298C5000C1103 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C18B56273298C5000C1103 /* MaterialView.swift */; };
+		00CF45AE274F86790019773C /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF45AD274F86790019773C /* KeyboardAdaptive.swift */; };
 		00E7704A27327AC300C9C299 /* showImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E7704927327AC300C9C299 /* showImagePicker.swift */; };
 		00F2BC9F2733C78D00E95798 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F2BC9E2733C78D00E95798 /* AboutView.swift */; };
 		00FE22CA2733DBEB00EF306A /* AddMaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE22C92733DBEB00EF306A /* AddMaterialView.swift */; };
@@ -60,6 +61,9 @@
 		5532C9D8274D4D5300632ACF /* ProductInfoProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532C9D7274D4D5300632ACF /* ProductInfoProfileView.swift */; };
 		5532C9DA274D4FFD00632ACF /* ProductImagesProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532C9D9274D4FFD00632ACF /* ProductImagesProfileView.swift */; };
 		555A280B274E5426001051F7 /* AppleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A280A274E5425001051F7 /* AppleButtonView.swift */; };
+		555A280E274EA51D001051F7 /* UpcyclerSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A280D274EA51D001051F7 /* UpcyclerSettingView.swift */; };
+		555A2810274EA52E001051F7 /* WasteOwnerSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A280F274EA52E001051F7 /* WasteOwnerSettingView.swift */; };
+		555A2813274F629C001051F7 /* FaqItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A2812274F629C001051F7 /* FaqItemView.swift */; };
 		5572C68A2728152900601A69 /* FinewasteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572C6892728152900601A69 /* FinewasteApp.swift */; };
 		5572C68E2728152C00601A69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C68D2728152C00601A69 /* Assets.xcassets */; };
 		5572C6912728152C00601A69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572C6902728152C00601A69 /* Preview Assets.xcassets */; };
@@ -227,6 +231,7 @@
 		00BD9770274B914600725DDD /* HistoryContributionsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryContributionsViewModel.swift; sourceTree = "<group>"; };
 		00C18B542732988E000C1103 /* DeliveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryView.swift; sourceTree = "<group>"; };
 		00C18B56273298C5000C1103 /* MaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		00CF45AD274F86790019773C /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
 		00E7704927327AC300C9C299 /* showImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showImagePicker.swift; sourceTree = "<group>"; };
 		00F2BC9E2733C78D00E95798 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		00FE22C92733DBEB00EF306A /* AddMaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaterialView.swift; sourceTree = "<group>"; };
@@ -265,6 +270,9 @@
 		5532C9D7274D4D5300632ACF /* ProductInfoProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoProfileView.swift; sourceTree = "<group>"; };
 		5532C9D9274D4FFD00632ACF /* ProductImagesProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImagesProfileView.swift; sourceTree = "<group>"; };
 		555A280A274E5425001051F7 /* AppleButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleButtonView.swift; sourceTree = "<group>"; };
+		555A280D274EA51D001051F7 /* UpcyclerSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcyclerSettingView.swift; sourceTree = "<group>"; };
+		555A280F274EA52E001051F7 /* WasteOwnerSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WasteOwnerSettingView.swift; sourceTree = "<group>"; };
+		555A2812274F629C001051F7 /* FaqItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqItemView.swift; sourceTree = "<group>"; };
 		5572C6862728152900601A69 /* Finewaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finewaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5572C6892728152900601A69 /* FinewasteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteApp.swift; sourceTree = "<group>"; };
 		5572C68D2728152C00601A69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Finewaste/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -651,6 +659,8 @@
 		55270550274420F300868643 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				555A2811274F6281001051F7 /* Faq */,
+				555A280C274EA4E9001051F7 /* Upcycler */,
 				5527055827442D4200868643 /* Item */,
 				552705512744210700868643 /* SettingView.swift */,
 				552705532744254100868643 /* SettingItemView.swift */,
@@ -688,6 +698,23 @@
 				5532C9D9274D4FFD00632ACF /* ProductImagesProfileView.swift */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		555A280C274EA4E9001051F7 /* Upcycler */ = {
+			isa = PBXGroup;
+			children = (
+				555A280D274EA51D001051F7 /* UpcyclerSettingView.swift */,
+				555A280F274EA52E001051F7 /* WasteOwnerSettingView.swift */,
+			);
+			path = Upcycler;
+			sourceTree = "<group>";
+		};
+		555A2811274F6281001051F7 /* Faq */ = {
+			isa = PBXGroup;
+			children = (
+				555A2812274F629C001051F7 /* FaqItemView.swift */,
+			);
+			path = Faq;
 			sourceTree = "<group>";
 		};
 		5572C67D2728152900601A69 = {
@@ -1272,6 +1299,7 @@
 		7DDD22E4273113FF00250B35 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
+				00CF45AD274F86790019773C /* KeyboardAdaptive.swift */,
 				7DDD22E52731140C00250B35 /* FinewasteButtonSize.swift */,
 				7D6DD4C0273AB2680023E163 /* StepBulletColor.swift */,
 			);
@@ -1611,6 +1639,7 @@
 				7D0286E7274DEC6300241266 /* ChatDetailView.swift in Sources */,
 				7D6DD4BA273A7DEF0023E163 /* SetDeliveryView.swift in Sources */,
 				7DDD22A3272FD84200250B35 /* ProjectRepository.swift in Sources */,
+				555A280E274EA51D001051F7 /* UpcyclerSettingView.swift in Sources */,
 				5532C9D8274D4D5300632ACF /* ProductInfoProfileView.swift in Sources */,
 				7D914351273596E100B89F98 /* ProjectStatusViewModel.swift in Sources */,
 				55B6040B272FEA4700631004 /* LoginView.swift in Sources */,
@@ -1668,6 +1697,7 @@
 				7D0286F5274E120E00241266 /* ChatDetailBottomBar.swift in Sources */,
 				7DB94F45274954A3000EDEE3 /* ContributionTimeline.swift in Sources */,
 				7D0200D32736C2F800D3BB44 /* ContributionRepository.swift in Sources */,
+				00CF45AE274F86790019773C /* KeyboardAdaptive.swift in Sources */,
 				5527056427442E0000868643 /* SignOutView.swift in Sources */,
 				7DF81CBF273EB12300D6A24A /* AuthenticationHelper.swift in Sources */,
 				7DDD22EC273137A700250B35 /* ProjectAboutView.swift in Sources */,
@@ -1693,6 +1723,7 @@
 				7D0286F3274E08FF00241266 /* ChatTemplate.swift in Sources */,
 				7D0200E12737762700D3BB44 /* View+retrieveScrollPosition.swift in Sources */,
 				7D6DD4C7273AB5C00023E163 /* SelectMaterialViewModel.swift in Sources */,
+				555A2813274F629C001051F7 /* FaqItemView.swift in Sources */,
 				7D6DD4CC273ADAAE0023E163 /* FinewastePicker.swift in Sources */,
 				7DF81C9F273CB43A00D6A24A /* CLLocationCoordinate2D+Equatable.swift in Sources */,
 				7D6DD4DA273B84650023E163 /* FinewasteMapPicker.swift in Sources */,
@@ -1718,6 +1749,7 @@
 				7D6DD4D8273B84390023E163 /* MapView.swift in Sources */,
 				552705572744284300868643 /* Setting.swift in Sources */,
 				55B604572731302F00631004 /* OnboardingView.swift in Sources */,
+				555A2810274EA52E001051F7 /* WasteOwnerSettingView.swift in Sources */,
 				55B6040D272FEA6800631004 /* LoginViewModel.swift in Sources */,
 				552705402740110A00868643 /* HeaderProfileView.swift in Sources */,
 				7D0286F0274E012A00241266 /* ChatBubble.swift in Sources */,
@@ -1892,7 +1924,7 @@
 				CODE_SIGN_ENTITLEMENTS = Finewaste/Finewaste.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Finewaste/Preview Content\"";
 				DEVELOPMENT_TEAM = 6QH35NFSG6;
 				ENABLE_PREVIEWS = YES;
@@ -1903,6 +1935,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1930,7 +1963,7 @@
 				CODE_SIGN_ENTITLEMENTS = Finewaste/Finewaste.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Finewaste/Preview Content\"";
 				DEVELOPMENT_TEAM = 6QH35NFSG6;
 				ENABLE_PREVIEWS = YES;
@@ -1941,6 +1974,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
