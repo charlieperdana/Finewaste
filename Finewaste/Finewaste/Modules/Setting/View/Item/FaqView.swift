@@ -12,25 +12,17 @@ struct FaqView: View {
         VStack {
             List(SettingContent.dataFaqSetting) { data in
                 Section(header: Text(data.section.title)) {
-//                    ForEach(data.data as [SettingDataFaq], id: \.self){ data in
-//
-//                    }
-                    NavigationLink(destination: HowWeWorkView()) {
-                        Text("How We Work")
+                    ForEach(data.data as [SettingDataFaq], id: \.self){ item in
+                        NavigationLink(destination: FaqItemView(title: item.title)) {
+                            Text(item.title)
+                                .font(Fonts.poppinsBody())
+                                .foregroundColor(Colors.DarkGray)
+                        }
                     }
-                   
+                    
                     
                 }
             }
-//            ForEach(SettingContent.dataFaq as [FaqSectionData], id: \.self){ data in
-//                Section(header: Text("charlie")) {
-//
-////                    NavigationLink(destination: HowWeWorkView()) {
-////                        Text("How We Work")
-////                    }
-//
-//                }
-//            }
             
         }
         .navigationBarTitleDisplayMode(.inline)

@@ -22,19 +22,21 @@ struct ProjectOwnerView: View {
         self.profilePhotoUrl = project.posterPhotoUrl ?? "---"
     }
     
+    @State var showOthersProfile = false
+    
     var body: some View {
         HStack {
             Group {
                 FinewasteSmallCirclePicture(fromUrl: profilePhotoUrl)
                 Text(posterUsername)
                     .font(Fonts.poppinsCallout())
-            }
-            .contentShape(Rectangle())
-            .onTapGesture {
-                
+            }.onTapGesture {
+                self.showOthersProfile = true
             }
             Spacer()
             ChatButton(receiverId: posterId, receiverName: posterName, receiverPhotoUrl: profilePhotoUrl)
+            
+            NavigationLink(destination: OthersProfileView(userId: self.posterId), isActive: $showOthersProfile) {}
         }
         .padding(.all, 16)
     }

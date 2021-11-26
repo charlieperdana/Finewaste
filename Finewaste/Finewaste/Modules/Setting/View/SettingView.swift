@@ -36,23 +36,23 @@ struct SettingView: View {
             List {
                 Section(header: Text("")) {
                     NavigationLink(destination: HowWeWorkView()) {
-                        Text("How We Work")
+                        Text("How We Work").font(Fonts.poppinsBody())
                     }
                     NavigationLink(destination: FaqView()) {
-                        Text("Frequently Asked Questions")
+                        Text("Frequently Asked Questions").font(Fonts.poppinsBody())
                     }
                     
                 }
                 
                 Section(header: Text("")) {
                     NavigationLink(destination: TermOfUseView()) {
-                        Text("Terms of Use")
+                        Text("Terms of Use").font(Fonts.poppinsBody())
                     }
                     NavigationLink(destination: PrivacyPolicyView()) {
-                        Text("Privacy Policy")
+                        Text("Privacy Policy").font(Fonts.poppinsBody())
                     }
                     NavigationLink(destination: ContactUsView()) {
-                        Text("Contact Us")
+                        Text("Contact Us").font(Fonts.poppinsBody())
                     }
                     
                 }
@@ -60,6 +60,7 @@ struct SettingView: View {
                 Section(header: Text("")) {
 //                    NavigationLink(destination: SignOutView()) {
                         Text("Sign Out")
+                        .font(Fonts.poppinsBody())
                         .onTapGesture {
                             DispatchQueue.global(qos: .background).async {
                                 try? Auth.auth().signOut()
