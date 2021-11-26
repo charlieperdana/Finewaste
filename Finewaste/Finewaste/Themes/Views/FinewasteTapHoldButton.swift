@@ -41,7 +41,7 @@ struct FinewasteTapHoldButton: View {
             
             Text(text)
                 .font(Fonts.poppinsHeadline())
-                .foregroundColor(style == .fill ? Colors.White : Colors.Turqoise)
+                .foregroundColor(style == .fill ? .white : Colors.Turqoise)
         }
         .contentShape(Rectangle())
         .modifier(FinewasteButtonSize(size: .fullWidth))

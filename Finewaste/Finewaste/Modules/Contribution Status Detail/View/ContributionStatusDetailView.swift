@@ -83,7 +83,7 @@ private struct InitialActionsView: View {
         VStack {
             Spacer()
             ZStack(alignment:. top) {
-                Color.white
+                Colors.White
                     .frame(height: viewModel.isProjectOwner ? 128 : 78)
                 
                 VStack(spacing: 8) {
@@ -121,7 +121,7 @@ private struct SetDeliveryActionsView: View {
             Spacer()
             ZStack(alignment:. top) {
                 if !isShowingDatePicker {
-                    Color.white
+                    Colors.White
                         .frame(height: 78)
                     
                     Group {
@@ -169,7 +169,7 @@ private struct DeliveryConfirmationActionsView: View {
             Spacer()
             ZStack(alignment:. top) {
                 if !isShowingDatePicker {
-                    Color.white
+                    Colors.White
                         .frame(height: 128)
                     
                     VStack(spacing: 8) {
@@ -229,7 +229,7 @@ private struct DeliveryConfirmedActionsView: View {
         VStack {
             Spacer()
             ZStack(alignment:. top) {
-                Color.white
+                Colors.White
                     .frame(height: 78)
                 
                 FinewasteTapHoldButton(text: "Hold to Confirm", style: .fill, onHoldDoneAction: {
