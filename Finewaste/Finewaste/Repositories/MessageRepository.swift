@@ -14,6 +14,7 @@ class MessageRepository: ObservableObject {
     private let ref: DatabaseReference!
     
     @Published var messages = [Message]()
+    private var otherSideMessageIds = [String]()
     
     init() {
         ref = Database.database(url: self.url).reference()
@@ -42,11 +43,15 @@ class MessageRepository: ObservableObject {
             
             do {
                 self.messages = try messages.compactMap { message in
-                    if let message = message.value as? [String: Any] {
-                        let jsonData = try JSONSerialization.data(withJSONObject: message, options: [])
-                        let message = try JSONDecoder().decode(Message.self, from: jsonData)
+                    if let messageValue = message.value as? [String: Any] {
+                        let jsonData = try JSONSerialization.data(withJSONObject: messageValue, options: [])
+                        let messageModel = try JSONDecoder().decode(Message.self, from: jsonData)
+                        
+                        if messageModel.senderId != AuthenticationHelper.shared.userId {
+                            self.otherSideMessageIds.append(message.key)
+                        }
 
-                        return message
+                        return messageModel
                     }
                     
                     return nil
@@ -58,6 +63,21 @@ class MessageRepository: ObservableObject {
             } catch {
                 
             }
+        }
+    }
+    
+    func markMessagesAsReaad(readerId: String, conversationId: String) {
+        if otherSideMessageIds.isEmpty {
+            return
+        }
+        
+        otherSideMessageIds.forEach { messageId in
+            let messagePath = "\(path)/\(conversationId)/\(messageId)"
+            let messageRef = ref.child(messagePath)
+            
+            messageRef.updateChildValues([
+                "isRead": true
+            ])
         }
     }
 }

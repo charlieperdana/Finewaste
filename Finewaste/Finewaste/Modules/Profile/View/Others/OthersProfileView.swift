@@ -14,9 +14,7 @@ struct OthersProfileView: View {
     @State var showSettingPage = false
     
     @State var isGuest = false
-    
-    
-    
+
     var body: some View {
         ScrollView(.vertical) {
             VStack(alignment: .leading, spacing: 8){

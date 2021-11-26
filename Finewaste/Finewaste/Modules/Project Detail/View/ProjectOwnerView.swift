@@ -24,9 +24,15 @@ struct ProjectOwnerView: View {
     
     var body: some View {
         HStack {
-            FinewasteSmallCirclePicture(fromUrl: profilePhotoUrl)
-            Text(posterUsername)
-                .font(Fonts.poppinsCallout())
+            Group {
+                FinewasteSmallCirclePicture(fromUrl: profilePhotoUrl)
+                Text(posterUsername)
+                    .font(Fonts.poppinsCallout())
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                
+            }
             Spacer()
             ChatButton(receiverId: posterId, receiverName: posterName, receiverPhotoUrl: profilePhotoUrl)
         }

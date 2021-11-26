@@ -15,7 +15,11 @@ class ChatDetailViewModel: ObservableObject {
     var currentUser = AuthenticationHelper.shared.userId
     
     private var cancellables: Set<AnyCancellable> = []
-    @Published var messages = [Message]()
+    @Published var messages = [Message]() {
+        didSet {
+            repository.markMessagesAsReaad(readerId: AuthenticationHelper.shared.userId, conversationId: conversationId)
+        }
+    }
     
     init(conversationId: String) {
         self.conversationId = conversationId
@@ -30,5 +34,9 @@ class ChatDetailViewModel: ObservableObject {
         let message = Message(senderId: currentUser, text: text)
         
         repository.add(message: message, toConversationId: conversationId)
+    }
+    
+    func markMessagesAsRead() {
+        repository.markMessagesAsReaad(readerId: currentUser, conversationId: conversationId)
     }
 }
