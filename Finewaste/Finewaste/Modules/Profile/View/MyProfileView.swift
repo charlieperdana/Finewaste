@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MyProfileView: View {
-    @StateObject var model = ProfileViewModel(userId: "8xayV4ivOsOSqUrNiD0kOHM7jih1")
+    @StateObject var model = ProfileViewModel(userId: AuthenticationHelper.shared.userId ?? "")
     
     @State var showEditPage = false
     @State var showSettingPage = false
