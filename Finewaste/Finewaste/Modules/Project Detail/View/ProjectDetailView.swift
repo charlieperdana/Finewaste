@@ -39,7 +39,7 @@ struct ProjectDetailView: View {
                             .aspectRatio(CGSize(width: 1, height: 1), contentMode: .fit)
                             .trackScrollPosition(coordinateSpace: .named("scrollPosition"))
                         
-                        ProjectOwnerView()
+                        ProjectOwnerView(project: project)
                         Divider()
                         
                         Text(project.projectName ?? "---")
@@ -88,7 +88,7 @@ struct ProjectDetailView: View {
                 VStack {
                     Spacer()
                     ZStack(alignment:. top) {
-                        Color.white
+                        Colors.White
                             .frame(height: 78)
                         FinewasteButtonFill(text: "Contribute", size: .fullWidth, isEnabled: true) {
                             if !AuthenticationHelper.shared.isLoggedIn {

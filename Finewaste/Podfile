@@ -21,6 +21,8 @@ target 'Finewaste' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Functions'
+  pod 'Firebase/Database'
+  pod 'Firebase/Messaging'
 
   # Pod for coding convention
   pod 'SwiftLint'

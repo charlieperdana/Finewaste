@@ -20,7 +20,7 @@ struct FinewasteMapPicker: View {
         VStack(spacing: 16) {
             HStack {
                 Text(currentAddress.isEmpty ? "Enter your address here" : currentAddress)
-                    .foregroundColor(currentAddress.isEmpty ? Colors.PlaceholderGray : Colors.Black)
+                    .foregroundColor(currentAddress.isEmpty ? Colors.PlaceholderGray : Colors.DarkGray)
                 Spacer()
                 if !isReadOnly {
                     Image(systemName: "map")

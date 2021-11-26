@@ -49,6 +49,7 @@ struct ProjectMaterialRequirementView: View {
                     .font(Fonts.poppinsFootnote())
             }
             Divider()
+                .background(Colors.Separator)
             
             ForEach(Array(specificRequirement.keys), id: \.self) { name in
                 Text(name)
@@ -56,6 +57,7 @@ struct ProjectMaterialRequirementView: View {
                 Text(specificRequirement[name]?.joined(separator: ", ") ?? "No material requirement")
                     .font(Fonts.poppinsFootnote())
                 Divider()
+                    .background(Colors.Separator)
             }
         }
     }

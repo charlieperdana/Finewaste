@@ -51,7 +51,7 @@ struct FinewasteImageGallery: View {
                                     
                                     Text("+\(images.count - maxImagesToDisplay) more")
                                         .font(Fonts.poppinsSubheadline())
-                                        .foregroundColor(Colors.White)
+                                        .foregroundColor(.white)
                                 }
                             }
                         }

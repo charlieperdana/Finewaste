@@ -8,10 +8,30 @@
 import SwiftUI
 
 struct ChatListView: View {
-    @EnvironmentObject var tabBarManager: TabBarManager
+    @StateObject private var viewModel = ChatListViewModel()
+    @State private var searchChatKeyword = ""
     
     var body: some View {
-        Text("Chat List View Under Construction")
+        VStack(spacing: 16) {
+            FinewasteSearchbar(placeholderText: "Search chat history", searchText: $searchChatKeyword)
+            
+            VStack(spacing: 0) {
+                ForEach(viewModel.conversations, id: \.id) { conversation in
+                    ChatItem(
+                        conversation: conversation,
+                        isPinned: false,
+                        onPinTapped: {
+                            
+                        },
+                        onDeleteTapped: {
+                            
+                        }
+                    )
+                }
+            }
+        }
+        .navigationTitle("Chat")
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 

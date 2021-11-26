@@ -180,6 +180,10 @@ class ProfileViewModel: ObservableObject {
     }
     
     func updateProfile(data: User){
+        AuthenticationHelper.shared.username = data.username ?? "---"
+        AuthenticationHelper.shared.displayName = data.name ?? "---"
+        AuthenticationHelper.shared.profilePhotoUrl = data.profilePhotoUrl ?? "---"
+        
         let updatedData = ["name":data.name ?? "",
                            "username":data.username ?? "",
                            "profilePhotoUrl":data.profilePhotoUrl ?? "",

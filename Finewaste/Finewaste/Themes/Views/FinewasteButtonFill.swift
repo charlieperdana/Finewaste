@@ -25,7 +25,7 @@ struct FinewasteButtonFill: View {
 
                 Text(text)
                     .font(Fonts.poppinsHeadline())
-                    .foregroundColor(Colors.White)
+                    .foregroundColor(.white)
             }
             .modifier(FinewasteButtonSize(size: size))
         }
