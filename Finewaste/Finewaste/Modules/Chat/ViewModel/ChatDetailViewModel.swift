@@ -17,9 +17,13 @@ class ChatDetailViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     @Published var messages = [Message]() {
         didSet {
-            repository.markMessagesAsReaad(readerId: AuthenticationHelper.shared.userId, conversationId: conversationId)
+            if !messages.isEmpty {
+                repository.markMessagesAsReaad(readerId: AuthenticationHelper.shared.userId, conversationId: conversationId)
+                self.groupMessages()
+            }
         }
     }
+    @Published var groupedMessages = [(date: String, messages: [Message])]()
     
     init(conversationId: String) {
         self.conversationId = conversationId
@@ -38,5 +42,18 @@ class ChatDetailViewModel: ObservableObject {
     
     func markMessagesAsRead() {
         repository.markMessagesAsReaad(readerId: currentUser, conversationId: conversationId)
+    }
+    
+    private func groupMessages() {
+        groupedMessages = []
+        
+        messages.forEach { message in
+            let messageDate = UnixTimestampHelper.shared.unixTimestampToString(seconds: message.createdDate ?? 0, format: .dayDate)
+            if let index = groupedMessages.firstIndex(where: {$0.date == messageDate}) {
+                groupedMessages[index].messages.append(message)
+            } else {
+                groupedMessages.append((date: messageDate, messages: [message]))
+            }
+        }
     }
 }

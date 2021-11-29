@@ -49,50 +49,55 @@ struct ChatDetailView: View {
             
             ScrollView {
                 VStack(spacing: 0) {
-                    ForEach(viewModel.messages, id: \.id) { message in
-                        let chatSide: MessageBubbleShape.Direction = message.senderId != viewModel.currentUser ? .left : .right
+                    ForEach(viewModel.groupedMessages, id: \.date) { group in
+                        Text(group.date)
+                            .font(Fonts.poppinsCaption2())
                         
-                        VStack(alignment: .trailing, spacing: 0) {
+                        ForEach(group.messages, id: \.id) { message in
+                            let chatSide: MessageBubbleShape.Direction = message.senderId != viewModel.currentUser ? .left : .right
                             
-                            ZStack {
-                                HStack {
-                                    Spacer()
-                                    Text(message.formattedTime)
-                                        .font(Fonts.poppinsCaption2())
-                                        .offset(x: 30)
-                                }
-                                .offset(x: dragOffset)
+                            VStack(alignment: .trailing, spacing: 0) {
                                 
-                                ChatBubble(direction: chatSide) {
-                                    Text(message.text)
-                                        .foregroundColor(Colors.ChatBubbleText)
-                                        .font(Fonts.poppinsBody())
-                                        .padding(.vertical, 8)
-                                        .padding(chatSide == .right ? .leading : .trailing, 12)
-                                        .padding(chatSide == .right ? .trailing : .leading)
-                                        .background(chatSide == .left ? Colors.OtherUserChatBubble : Colors.UserChatBubble)
+                                ZStack {
+                                    HStack {
+                                        Spacer()
+                                        Text(message.formattedTime)
+                                            .font(Fonts.poppinsCaption2())
+                                            .offset(x: 30)
+                                    }
+                                    .offset(x: dragOffset)
+                                    
+                                    ChatBubble(direction: chatSide) {
+                                        Text(message.text)
+                                            .foregroundColor(Colors.ChatBubbleText)
+                                            .font(Fonts.poppinsBody())
+                                            .padding(.vertical, 8)
+                                            .padding(chatSide == .right ? .leading : .trailing, 12)
+                                            .padding(chatSide == .right ? .trailing : .leading)
+                                            .background(chatSide == .left ? Colors.OtherUserChatBubble : Colors.UserChatBubble)
+                                    }
+                                    .modifier(SwipeableChatBubbble(side: chatSide, swipeOffset: dragOffset))
                                 }
-                                .modifier(SwipeableChatBubbble(side: chatSide, swipeOffset: dragOffset))
-                            }
-                            .animation(.linear)
-                            .contentShape(Rectangle())
-                            .gesture(
-                                DragGesture()
-                                    .onChanged { val in
-                                        if val.translation.width > -50 && val.translation.width < 0 {
-                                            self.dragOffset = val.translation.width
+                                .animation(.linear)
+                                .contentShape(Rectangle())
+                                .gesture(
+                                    DragGesture()
+                                        .onChanged { val in
+                                            if val.translation.width > -50 && val.translation.width < 0 {
+                                                self.dragOffset = val.translation.width
+                                            }
                                         }
-                                    }
-                                    .onEnded { val in
-                                        self.dragOffset = 0
-                                    }
-                            )
-                            
-                            if chatSide == .right && message.isRead {
-                                Text("Read")
-                                    .font(Fonts.poppinsCaption2())
-                                    .foregroundColor(Colors.Turqoise)
-                                    .offset(x: -20)
+                                        .onEnded { _ in
+                                            self.dragOffset = 0
+                                        }
+                                )
+                                
+                                if chatSide == .right && message.isRead {
+                                    Text("Read")
+                                        .font(Fonts.poppinsCaption2())
+                                        .foregroundColor(Colors.Turqoise)
+                                        .offset(x: -20)
+                                }
                             }
                         }
                     }
