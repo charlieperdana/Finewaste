@@ -77,7 +77,8 @@ class ProfileViewModel: ObservableObject {
                                          donatedWaste: userData?["donatedWaste"] as? Int ?? 0,
                                          location: userData?["location"] as? GeoPoint ?? GeoPoint(latitude: 0.0, longitude: 0.0),
                                          isBusiness: userData?["isBusiness"] as? Bool ?? false,
-                                         productImages: userData?["productPictures"] as? [String] ?? [""])
+                                         productImages: userData?["productPictures"] as? [String] ?? [""],
+                                         pcsSaved: userData?["pcsSaved"] as? Int)
                         
                         print("User: \(self.user )")
                         
