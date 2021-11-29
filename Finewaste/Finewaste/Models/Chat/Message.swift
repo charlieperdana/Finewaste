@@ -37,3 +37,15 @@ struct Message: Codable, Identifiable {
         self.text = text
     }
 }
+
+extension Message {
+    var formattedTime: String {
+        let date = Date(timeIntervalSince1970: TimeInterval(self.createdDate ?? 0))
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        
+        let formattedTime = formatter.string(from: date)
+        
+        return formattedTime
+    }
+}
