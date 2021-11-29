@@ -40,12 +40,7 @@ struct Message: Codable, Identifiable {
 
 extension Message {
     var formattedTime: String {
-        let date = Date(timeIntervalSince1970: TimeInterval(self.createdDate ?? 0))
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        
-        let formattedTime = formatter.string(from: date)
-        
-        return formattedTime
+        let seconds = self.createdDate ?? 0
+        return UnixTimestampHelper.shared.unixTimestampToString(seconds: seconds, format: .militaryTime)
     }
 }
