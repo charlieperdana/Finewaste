@@ -186,6 +186,8 @@
 		7DDD22FA2732C23600250B35 /* ProjectOwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22F92732C23600250B35 /* ProjectOwnerView.swift */; };
 		7DDD22FC2732C30900250B35 /* ProjectStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD22FB2732C30900250B35 /* ProjectStatusView.swift */; };
 		7DDD23012732CC4900250B35 /* ProjectUpdateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD23002732CC4900250B35 /* ProjectUpdateCard.swift */; };
+		7DF78F7727549692009DB0F7 /* UnixTimestampHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF78F7627549692009DB0F7 /* UnixTimestampHelper.swift */; };
+		7DF78F7927549752009DB0F7 /* FinewasteDateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF78F7827549752009DB0F7 /* FinewasteDateFormat.swift */; };
 		7DF81C9F273CB43A00D6A24A /* CLLocationCoordinate2D+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF81C9E273CB43A00D6A24A /* CLLocationCoordinate2D+Equatable.swift */; };
 		7DF81CA1273CDF5A00D6A24A /* ImageCompressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF81CA0273CDF5A00D6A24A /* ImageCompressor.swift */; };
 		7DF81CB7273E923900D6A24A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF81CB6273E923900D6A24A /* RootView.swift */; };
@@ -401,6 +403,8 @@
 		7DDD22F92732C23600250B35 /* ProjectOwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOwnerView.swift; sourceTree = "<group>"; };
 		7DDD22FB2732C30900250B35 /* ProjectStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatusView.swift; sourceTree = "<group>"; };
 		7DDD23002732CC4900250B35 /* ProjectUpdateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdateCard.swift; sourceTree = "<group>"; };
+		7DF78F7627549692009DB0F7 /* UnixTimestampHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnixTimestampHelper.swift; sourceTree = "<group>"; };
+		7DF78F7827549752009DB0F7 /* FinewasteDateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteDateFormat.swift; sourceTree = "<group>"; };
 		7DF81C9E273CB43A00D6A24A /* CLLocationCoordinate2D+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Equatable.swift"; sourceTree = "<group>"; };
 		7DF81CA0273CDF5A00D6A24A /* ImageCompressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCompressor.swift; sourceTree = "<group>"; };
 		7DF81CB6273E923900D6A24A /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -554,6 +558,7 @@
 				7D0200D92736D6B900D3BB44 /* TimestampHelper.swift */,
 				7DF81CA0273CDF5A00D6A24A /* ImageCompressor.swift */,
 				7DF81CBE273EB12300D6A24A /* AuthenticationHelper.swift */,
+				7DF78F7627549692009DB0F7 /* UnixTimestampHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1146,6 +1151,7 @@
 			children = (
 				7DB94F4A27495505000EDEE3 /* ContributionStatus.swift */,
 				7DB94F4B27495505000EDEE3 /* ContributionRejection.swift */,
+				7DF78F7827549752009DB0F7 /* FinewasteDateFormat.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1679,6 +1685,7 @@
 				552705542744254100868643 /* SettingItemView.swift in Sources */,
 				00BC26B4273D278700C0C7DB /* FinewasteContributionStatusCard.swift in Sources */,
 				7D0286EA274DFAAA00241266 /* ChatDetailNavigationBar.swift in Sources */,
+				7DF78F7727549692009DB0F7 /* UnixTimestampHelper.swift in Sources */,
 				7D6DD4B6273A75A50023E163 /* StepBullet.swift in Sources */,
 				5527054927412D6D00868643 /* EditProfileView.swift in Sources */,
 				5532C9DA274D4FFD00632ACF /* ProductImagesProfileView.swift in Sources */,
@@ -1712,6 +1719,7 @@
 				7DDD22F82732767800250B35 /* ImagePageIndicatorView.swift in Sources */,
 				008E4B582747AAE9005A793C /* HistoryView.swift in Sources */,
 				7D6DD4BD273A86EF0023E163 /* NewContributionModel.swift in Sources */,
+				7DF78F7927549752009DB0F7 /* FinewasteDateFormat.swift in Sources */,
 				7DB94F3F274954A3000EDEE3 /* ContributionStatusDetailViewModel.swift in Sources */,
 				00BC26AE273D126C00C0C7DB /* MyContributionsView.swift in Sources */,
 				7DDD22F427318CF900250B35 /* ProjectStoryView.swift in Sources */,
