@@ -175,6 +175,7 @@ struct EditProfileView: View {
                     }
                     
                 }
+                .padding()
                 .onChange(of: defaultCoordinate, perform: { coordinate in
                     model.getLocationName(latitude: coordinate.latitude, longitude: coordinate.longitude, completion: { value in
                         self.addressText = value
@@ -205,7 +206,6 @@ struct EditProfileView: View {
                 
                 
             }
-            .padding()
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading:
