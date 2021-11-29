@@ -28,20 +28,22 @@ struct ProjectStoryView: View {
                 .font(Fonts.poppinsSubheadline())
                 .lineLimit(lineLimit)
             
-            FinewasteRoundedOutlineButton(
-                text: buttonText,
-                size: .fullWidth) {
-                    
-                    withAnimation {
-                        if lineLimit == 3 {
-                            lineLimit = 100
-                        } else {
-                            lineLimit = 3
+            if projectDesc.count > 140 {
+                FinewasteRoundedOutlineButton(
+                    text: buttonText,
+                    size: .fullWidth) {
+                        
+                        withAnimation {
+                            if lineLimit == 3 {
+                                lineLimit = 100
+                            } else {
+                                lineLimit = 3
+                            }
                         }
                     }
-                }
-            
-            Divider()
+                
+                Divider()
+            }
         }
     }
 }
