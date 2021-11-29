@@ -165,10 +165,14 @@ class ProfileViewModel: ObservableObject {
                 location = "---"
             }
             
-            let locality = placemark?.locality ?? "---"
-            let subLocality = placemark?.subLocality ?? "---"
             
-            location = "\(locality), \(subLocality)"
+            let streetName = placemark?.name ?? ""
+            let subLocality = placemark?.subLocality ?? ""
+            let locality = placemark?.locality ?? ""
+            let administrativeArea = placemark?.administrativeArea ?? ""
+            
+            location = "\(streetName), \(locality), \(subLocality), \(administrativeArea)"
+            
             
             completion(location)
             
@@ -176,6 +180,10 @@ class ProfileViewModel: ObservableObject {
     }
     
     func updateProfile(data: User){
+        AuthenticationHelper.shared.username = data.username ?? "---"
+        AuthenticationHelper.shared.displayName = data.name ?? "---"
+        AuthenticationHelper.shared.profilePhotoUrl = data.profilePhotoUrl ?? "---"
+        
         let updatedData = ["name":data.name ?? "",
                            "username":data.username ?? "",
                            "profilePhotoUrl":data.profilePhotoUrl ?? "",

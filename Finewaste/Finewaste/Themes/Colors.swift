@@ -20,8 +20,15 @@ struct Colors {
     static let Red = Color("Red")
     static let RedOverlay = Color("RedOverlay")
     static let Turqoise = Color("Turquoise")
+    
     static let DropShadow = Color("DropShadow")
     
     static let SearchBarGray = Color("SearchBarGray")
     static let GrayList = Color("GrayList")
+    
+    static let Separator = Color("Separator")
+    
+    static let UserChatBubble = Color("UserChatBubble")
+    static let OtherUserChatBubble = Color("OtherUserChatBubble")
+    static let ChatBubbleText = Color("ChatBubbleText")
 }

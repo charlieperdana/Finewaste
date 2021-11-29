@@ -17,7 +17,7 @@ struct ContactUsView: View {
                 ToolbarItem(placement: .principal) {
                     VStack {
                         Text("Contact Us").font(Fonts.poppinsHeadline())
-                            .frame(width: 100)
+                            .frame(width: 200)
                     }
                 }
             }

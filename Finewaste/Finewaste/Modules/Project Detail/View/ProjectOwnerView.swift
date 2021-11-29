@@ -10,36 +10,40 @@ import SDWebImageSwiftUI
 import FirebaseAuth
 
 struct ProjectOwnerView: View {
-    @State private var isShowingLoginModal = false
+    private var posterId: String
+    private var posterName: String
+    private var posterUsername: String
+    private var profilePhotoUrl: String
+    
+    init(project: Project) {
+        self.posterId = project.poster ?? "---"
+        self.posterName = project.posterName ?? "---"
+        self.posterUsername = project.posterUsername ?? "---"
+        self.profilePhotoUrl = project.posterPhotoUrl ?? "---"
+    }
+    
+    @State var showOthersProfile = false
     
     var body: some View {
         HStack {
-            WebImage(url: URL(string: "https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"))
-                .resizable()
-                .frame(width: 44, height: 44)
-                .clipShape(Circle())
-            Text("DonateforCycle.id")
-                .font(Fonts.poppinsCallout())
-            Spacer()
-            FinewasteButtonFill(text: "Chat", size: .small, isEnabled: true) {
-//                if !AuthenticationHelper.shared.isLoggedIn {
-//                    isShowingLoginModal.toggle()
-//                    return
-//                }
-                try? Auth.auth().signOut()
-                print("Sign out!")
-                print(AuthenticationHelper.shared.isLoggedIn)
+            Group {
+                FinewasteSmallCirclePicture(fromUrl: profilePhotoUrl)
+                Text(posterUsername)
+                    .font(Fonts.poppinsCallout())
+            }.onTapGesture {
+                self.showOthersProfile = true
             }
+            Spacer()
+            ChatButton(receiverId: posterId, receiverName: posterName, receiverPhotoUrl: profilePhotoUrl)
+            
+            NavigationLink(destination: OthersProfileView(userId: self.posterId), isActive: $showOthersProfile) {}
         }
         .padding(.all, 16)
-        .sheet(isPresented: $isShowingLoginModal) {
-            LoginView(loginTrigger: .chat)
-        }
     }
 }
 
 struct ProjectOwnerView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectOwnerView()
+        ProjectOwnerView(project: Project())
     }
 }

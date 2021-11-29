@@ -17,7 +17,7 @@ struct SignOutView: View {
                 ToolbarItem(placement: .principal) {
                     VStack {
                         Text("Sign Out").font(Fonts.poppinsHeadline())
-                            .frame(width: 100)
+                            .frame(width: 200)
                     }
                 }
             }

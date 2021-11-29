@@ -31,6 +31,9 @@ struct EditProfileView: View {
     @State var defaultCoordinate: CLLocationCoordinate2D = .init(latitude: -6.175784, longitude: 106.827136){
         didSet{
             print("Lokaasinya")
+            model.getLocationName(latitude: defaultCoordinate.latitude, longitude: defaultCoordinate.longitude, completion: { value in
+                self.addressText = value
+            })
         }
     }
     
@@ -172,6 +175,11 @@ struct EditProfileView: View {
                     }
                     
                 }
+                .onChange(of: defaultCoordinate, perform: { coordinate in
+                    model.getLocationName(latitude: coordinate.latitude, longitude: coordinate.longitude, completion: { value in
+                        self.addressText = value
+                    })
+                })
                 .onReceive(self.model.$user) { user in
                     self.nameText = user.name ?? ""
                     self.usernameText = user.username ?? ""
