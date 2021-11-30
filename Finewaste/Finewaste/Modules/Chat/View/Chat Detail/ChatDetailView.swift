@@ -36,8 +36,8 @@ struct ChatDetailView: View {
     
     @State private var dragOffset: CGFloat = 0
     
-    init(conversationId: String, receiverDisplayName: String, receiverPhotoUrl: String) {
-        self._viewModel = StateObject(wrappedValue: ChatDetailViewModel(conversationId: conversationId))
+    init(conversationId: String, receiverId: String, receiverDisplayName: String, receiverPhotoUrl: String) {
+        self._viewModel = StateObject(wrappedValue: ChatDetailViewModel(conversationId: conversationId, receiverId: receiverId))
         
         self.receiverDisplayName = receiverDisplayName
         self.receiverPhotoUrl = receiverPhotoUrl
@@ -113,6 +113,6 @@ struct ChatDetailView: View {
 
 struct ChatDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatDetailView(conversationId: "", receiverDisplayName: "", receiverPhotoUrl: "")
+        ChatDetailView(conversationId: "", receiverId: "", receiverDisplayName: "", receiverPhotoUrl: "")
     }
 }

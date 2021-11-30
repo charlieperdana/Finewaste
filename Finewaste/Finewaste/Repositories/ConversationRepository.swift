@@ -22,7 +22,7 @@ final class ConversationRepository: ObservableObject {
     func getConversation(including id: String) {
         store.collection(path)
             .whereField("users", arrayContains: id)
-            .getDocuments { snapshot, _ in
+            .addSnapshotListener { snapshot, _ in
                 guard let docs = snapshot?.documents else {
                     return
                 }
@@ -69,5 +69,13 @@ final class ConversationRepository: ObservableObject {
                 
                 completion(filteredConversations.first)
             }
+    }
+    
+    func resetReadCount(conversationId: String, senderId: String) {
+        store.collection(path)
+            .document(conversationId)
+            .updateData([
+                "unreadMessages.\(senderId)": 0
+            ])
     }
 }

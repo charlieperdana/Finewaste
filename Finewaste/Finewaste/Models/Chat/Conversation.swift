@@ -19,10 +19,14 @@ struct Conversation: Codable, Identifiable {
     var secondUserPhotoUrl: String
     var users: [String]
     var lastMessage: String = ""
-    var unreadMessages: Int = 0
+    var unreadMessages: [String: Int] = [:]
     
     var otherUserName: String {
         return firstUserId == AuthenticationHelper.shared.userId ? secondUserName : firstUserName
+    }
+    
+    var otherUserId: String {
+        return firstUserId == AuthenticationHelper.shared.userId ? secondUserId : firstUserId
     }
     
     var otherProfilePhotoUrl: String {

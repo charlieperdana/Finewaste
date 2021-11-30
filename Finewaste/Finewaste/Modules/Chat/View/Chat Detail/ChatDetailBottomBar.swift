@@ -63,6 +63,6 @@ struct ChatDetailBottomBar: View {
 
 struct ChatDetailBottomBar_Previews: PreviewProvider {
     static var previews: some View {
-        ChatDetailBottomBar(viewModel: ChatDetailViewModel(conversationId: ""))
+        ChatDetailBottomBar(viewModel: ChatDetailViewModel(conversationId: "", receiverId: ""))
     }
 }

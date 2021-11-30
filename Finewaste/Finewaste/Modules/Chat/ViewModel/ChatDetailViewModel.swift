@@ -9,8 +9,10 @@ import Foundation
 import Combine
 
 class ChatDetailViewModel: ObservableObject {
-    private var repository = MessageRepository()
+    private var conversationRepository = ConversationRepository()
+    private var messageRepository = MessageRepository()
     private var conversationId: String
+    private var receiverId: String
     
     var currentUser = AuthenticationHelper.shared.userId
     
@@ -18,30 +20,32 @@ class ChatDetailViewModel: ObservableObject {
     @Published var messages = [Message]() {
         didSet {
             if !messages.isEmpty {
-                repository.markMessagesAsReaad(readerId: AuthenticationHelper.shared.userId, conversationId: conversationId)
+                messageRepository.markMessagesAsReaad(readerId: AuthenticationHelper.shared.userId, conversationId: conversationId)
                 self.groupMessages()
+                self.resetReadCount()
             }
         }
     }
     @Published var groupedMessages = [(date: String, messages: [Message])]()
     
-    init(conversationId: String) {
+    init(conversationId: String, receiverId: String) {
         self.conversationId = conversationId
+        self.receiverId = receiverId
         
-        repository.$messages
+        messageRepository.$messages
             .assign(to: \.messages, on: self)
             .store(in: &cancellables)
-        repository.getMessages(fromConversationId: conversationId)
+        messageRepository.getMessages(fromConversationId: conversationId)
     }
     
     func sendMessage(text: String) {
         let message = Message(senderId: currentUser, text: text)
         
-        repository.add(message: message, toConversationId: conversationId)
+        messageRepository.add(message: message, toConversationId: conversationId)
     }
     
     func markMessagesAsRead() {
-        repository.markMessagesAsReaad(readerId: currentUser, conversationId: conversationId)
+        messageRepository.markMessagesAsReaad(readerId: currentUser, conversationId: conversationId)
     }
     
     private func groupMessages() {
@@ -55,5 +59,9 @@ class ChatDetailViewModel: ObservableObject {
                 groupedMessages.append((date: messageDate, messages: [message]))
             }
         }
+    }
+    
+    private func resetReadCount() {
+        conversationRepository.resetReadCount(conversationId: conversationId, senderId: receiverId)
     }
 }

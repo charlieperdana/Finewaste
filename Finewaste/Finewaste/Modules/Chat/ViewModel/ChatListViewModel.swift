@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class ChatListViewModel: ObservableObject {
-    private var repository = ConversationRepository()
+    private var conversationRepository = ConversationRepository()
     
     private var currentUserId = AuthenticationHelper.shared.userId
     
@@ -17,10 +17,10 @@ class ChatListViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
-        repository.$conversations
+        conversationRepository.$conversations
             .assign(to: \.conversations, on: self)
             .store(in: &cancellables)
         
-        repository.getConversation(including: currentUserId)
+        conversationRepository.getConversation(including: currentUserId)
     }
 }
