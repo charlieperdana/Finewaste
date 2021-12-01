@@ -19,6 +19,9 @@ struct SettingView: View {
         "Sign Out",
     ]
     
+    @Environment(\.presentationMode) var presentationMode
+    @State private var showLogoutAlert = false
+    
     init() {
         UITableView.appearance().sectionFooterHeight = 0
     }
@@ -62,14 +65,23 @@ struct SettingView: View {
                         Text("Sign Out")
                         .font(Fonts.poppinsBody())
                         .onTapGesture {
-                            DispatchQueue.global(qos: .background).async {
-                                try? Auth.auth().signOut()
-                            }
+                            showLogoutAlert.toggle()
+//                            DispatchQueue.global(qos: .background).async {
+//                                try? Auth.auth().signOut()
+//                            }
                             
                             withAnimation(.easeInOut) {
 //                                logStatus = false
                                 RootView()
                             }
+                        }
+                        .alert(isPresented: $showLogoutAlert) {
+                            Alert(title: Text("Logout"), message: Text("You are about to logout"), primaryButton: .cancel(Text("Cancel")), secondaryButton: .destructive(Text("Logout"), action: {
+                                DispatchQueue.global(qos: .background).async {
+                                    try? Auth.auth().signOut()
+                                }
+                                presentationMode.wrappedValue.dismiss()
+                            }))
                         }
 //                    }
                     

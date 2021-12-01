@@ -9,10 +9,18 @@ import SwiftUI
 
 struct FaqItemView: View {
     let title : String
+    let content : [String]
     var body: some View {
-        VStack {
-            Text("Hello, World!")
+        VStack(alignment: .leading, spacing:15){
+            ForEach(content as [String], id: \.self){ item in
+                Text("\(item)")
+            }
+            
+            Spacer()
+            
         }
+        .font(Fonts.poppinsBody())
+        .padding()
         .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -28,6 +36,6 @@ struct FaqItemView: View {
 
 struct FaqItemView_Previews: PreviewProvider {
     static var previews: some View {
-        FaqItemView(title: "Item")
+        FaqItemView(title: "Item", content: [""])
     }
 }
