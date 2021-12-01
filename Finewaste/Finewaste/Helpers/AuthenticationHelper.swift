@@ -19,6 +19,8 @@ final class AuthenticationHelper {
     }
     
     var isLoggedIn: Bool {
+//        return true
+        
         if Auth.auth().currentUser != nil {
             return true
         } else {
@@ -27,6 +29,8 @@ final class AuthenticationHelper {
     }
     
     var userId: String {
+//        return "simulatorOwner"
+        
         if let user = Auth.auth().currentUser {
             return user.uid
         } else {
@@ -36,6 +40,7 @@ final class AuthenticationHelper {
     
     var username: String {
         get {
+//            return "simulatorOwner"
             UserDefaults.standard.string(forKey: usernameKey) ?? "---"
         }
         set {
@@ -45,6 +50,7 @@ final class AuthenticationHelper {
     
     var displayName: String {
         get {
+//            return "I am simulator"
             UserDefaults.standard.string(forKey: displayNameKey) ?? "---"
         }
         set {
@@ -54,6 +60,7 @@ final class AuthenticationHelper {
     
     var profilePhotoUrl: String {
         get {
+//            return "https://ggsc.s3.amazonaws.com/images/uploads/The_Science-Backed_Benefits_of_Being_a_Dog_Owner.jpg"
             UserDefaults.standard.string(forKey: profilePhotoKey) ?? "---"
         }
         set {

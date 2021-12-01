@@ -9,9 +9,14 @@ import SwiftUI
 
 struct ContactUsView: View {
     var body: some View {
-        VStack {
-            Text("Hello, World!")
+        VStack(alignment:.leading, spacing: 15) {
+            Text("Address: BSD Green Office Park 9, BSD City, Sampora, Kec. Cisauk, Tangerang, Banten 15345, Indonesia")
+            
+            Text("Email: wethex.wtx@gmail.com ").fontWeight(.medium)
+            
         }
+        .padding()
+        .font(Fonts.poppinsBody())
         .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {

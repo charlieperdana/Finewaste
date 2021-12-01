@@ -33,7 +33,6 @@ struct ProjectOwnerView: View {
             }.onTapGesture {
                 self.showOthersProfile = true
             }
-            
             Spacer()
             ChatButton(receiverId: posterId, receiverName: posterName, receiverPhotoUrl: profilePhotoUrl)
             
