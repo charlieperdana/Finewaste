@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class ChatDetailViewModel: ObservableObject {
     private var conversationRepository = ConversationRepository()
@@ -38,7 +39,7 @@ class ChatDetailViewModel: ObservableObject {
         messageRepository.getMessages(fromConversationId: conversationId)
     }
     
-    func sendMessage(text: String) {
+    func sendMessage(text: String, images: [UIImage]) {
         let message = Message(senderId: currentUser, text: text)
         
         messageRepository.add(message: message, toConversationId: conversationId)
