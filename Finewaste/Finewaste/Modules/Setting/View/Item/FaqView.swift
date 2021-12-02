@@ -13,7 +13,7 @@ struct FaqView: View {
             List(SettingContent.dataFaqSetting) { data in
                 Section(header: Text(data.section.title)) {
                     ForEach(data.data as [SettingDataFaq], id: \.self){ item in
-                        NavigationLink(destination: FaqItemView(title: item.title)) {
+                        NavigationLink(destination: FaqItemView(title: item.title, content: item.content)) {
                             Text(item.title)
                                 .font(Fonts.poppinsBody())
                                 .foregroundColor(Colors.DarkGray)
