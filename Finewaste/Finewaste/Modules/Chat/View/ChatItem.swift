@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChatItem: View {
     var lastMessage: String
+    var unreadMessages: Int
     var isPinned: Bool
     
     var onPinTapped: () -> Void
@@ -18,15 +19,18 @@ struct ChatItem: View {
     @State private var isShowingChatDetail = false
     
     private var conversationId: String
+    private var receiverId: String
     private var receiverDisplayName: String
     private var receiverPhotoUrl: String
     
     init(conversation: Conversation, isPinned: Bool, onPinTapped: @escaping () -> Void, onDeleteTapped: @escaping () -> Void) {
         self.conversationId = conversation.id ?? "---"
+        self.receiverId = conversation.otherUserId
         self.receiverDisplayName = conversation.otherUserName
         self.receiverPhotoUrl = conversation.otherProfilePhotoUrl
         
         self.lastMessage = conversation.lastMessage
+        self.unreadMessages = conversation.unreadMessages[conversation.otherUserId] ?? 0
         self.isPinned = isPinned
         self.onPinTapped = onPinTapped
         self.onDeleteTapped = onDeleteTapped
@@ -54,7 +58,7 @@ struct ChatItem: View {
         let simultaneousGesture = tapGesture.simultaneously(with: dragGesture)
         
         ZStack {
-            NavigationLink(destination: ChatDetailView(conversationId: conversationId, receiverDisplayName: receiverDisplayName, receiverPhotoUrl: receiverPhotoUrl), isActive: $isShowingChatDetail) {
+            NavigationLink(destination: ChatDetailView(conversationId: conversationId, receiverId: receiverId, receiverDisplayName: receiverDisplayName, receiverPhotoUrl: receiverPhotoUrl), isActive: $isShowingChatDetail) {
                 EmptyView()
             }
             
@@ -96,13 +100,15 @@ struct ChatItem: View {
                         Image(systemName: "pin")
                             .foregroundColor(.gray)
                     }
-                    ZStack {
-                        Circle()
-                            .frame(width: 22, height: 22)
-                            .foregroundColor(Colors.Red)
-                        Text("22")
-                            .font(Fonts.poppinsCaptionBold())
-                            .foregroundColor(.white)
+                    if unreadMessages != 0 {
+                        ZStack {
+                            Circle()
+                                .frame(width: 22, height: 22)
+                                .foregroundColor(Colors.Red)
+                            Text(String(unreadMessages))
+                                .font(Fonts.poppinsCaptionBold())
+                                .foregroundColor(.white)
+                        }
                     }
                 }
                 .padding(.horizontal)

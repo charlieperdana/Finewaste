@@ -16,6 +16,8 @@ class MessageRepository: ObservableObject {
     @Published var messages = [Message]()
     private var otherSideMessageIds = [String]()
     
+    private var uploader: CloudStorageUploader?
+    
     init() {
         ref = Database.database(url: self.url).reference()
     }
@@ -29,9 +31,27 @@ class MessageRepository: ObservableObject {
                 "text": message.text,
                 "isRead": false,
                 "isDelivered": false,
-                "attachmentUrls": message.attachmentUrls ?? [],
+                "attachmentUrls": message.attachmentUrls,
                 "createdDate": ServerValue.timestamp()
             ])
+    }
+    
+    func addAttachment(message: Message, attachments: [Data], toConversationId conversationId: String, onUpdate: @escaping () -> Void) {
+        let msgId = UUID().uuidString
+        uploader = CloudStorageUploader(toUpload: attachments, onUploadedHandler: onUpdate)
+        uploader?.startUpload(atPath: "\(path)/\(msgId)") { attachmentLinks in
+            self.ref.child(self.path)
+                .child(conversationId)
+                .child(msgId)
+                .setValue([
+                    "senderId": message.senderId,
+                    "text": "",
+                    "isRead": false,
+                    "isDelivered": false,
+                    "attachmentUrls": attachmentLinks,
+                    "createdDate": ServerValue.timestamp()
+                ])
+        }
     }
     
     func getMessages(fromConversationId id: String) {

@@ -16,13 +16,17 @@ struct ChatButton: View {
     @State private var displayName = ""
     @State private var photoUrl = ""
     
+    private var receiverId: String
+    
     init(receiverId: String, receiverName: String, receiverPhotoUrl: String) {
+        self.receiverId = receiverId
+        
         self._viewModel = StateObject(wrappedValue: ChatButtonViewModel(receiverId: receiverId, receiverName: receiverName, receiverPhotoUrl: receiverPhotoUrl))
     }
     
     var body: some View {
         Group {
-            NavigationLink(destination: ChatDetailView(conversationId: conversationId, receiverDisplayName: displayName, receiverPhotoUrl: photoUrl), isActive: $isShowingConversationPage) {
+            NavigationLink(destination: ChatDetailView(conversationId: conversationId, receiverId: receiverId, receiverDisplayName: displayName, receiverPhotoUrl: photoUrl), isActive: $isShowingConversationPage) {
                 EmptyView()
             }
             FinewasteButtonFill(text: "Chat", size: .small, isEnabled: true) {

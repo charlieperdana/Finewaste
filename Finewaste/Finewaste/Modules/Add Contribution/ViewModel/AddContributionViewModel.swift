@@ -24,13 +24,19 @@ class AddContributionViewModel: ObservableObject {
     }
     
     func postContribution() {
+        var totalQuantity = 0
+        contributionModel.materials.forEach {
+            totalQuantity += $0.quantity
+        }
+        
         let contribution = Contribution(
             contributorId: AuthenticationHelper.shared.userId,
             projectId: contributionModel.projectId,
             projectOwnerId: contributionModel.projectOwnerId,
             projectName: contributionModel.projectName,
             deliveryType: contributionModel.deliveryType,
-            location: GeoPoint(latitude: contributionModel.location.latitude, longitude: contributionModel.location.longitude))
+            location: GeoPoint(latitude: contributionModel.location.latitude, longitude: contributionModel.location.longitude),
+            totalMaterialsQuantity: totalQuantity)
         
         contributionRepository.postContribution(contribution: contribution) { docId in
             var materials = [ContributionMaterial]()

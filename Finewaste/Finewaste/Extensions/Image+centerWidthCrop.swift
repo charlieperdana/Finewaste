@@ -18,4 +18,11 @@ extension WebImage {
                 .frame(width: geo.size.width, height: geo.size.width)
         }
     }
+    
+    func cropToSize(width: CGFloat, height: CGFloat) -> some View {
+        self
+            .resizable()
+            .scaledToFill()
+            .frame(width: width, height: height)
+    }
 }

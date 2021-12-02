@@ -47,7 +47,7 @@ struct HeaderProfileView: View {
                             self.showOthersProfile = true
                         }) {
                             VStack {
-                                Text("0")
+                                Text(String(model.user.pcsSaved ?? 0))
                                     .font(Fonts.poppinsTitle())
                                 Text("pcs saved")
                                     .font(Fonts.poppinsFootnote())
