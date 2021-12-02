@@ -40,9 +40,16 @@ class ChatDetailViewModel: ObservableObject {
     }
     
     func sendMessage(text: String, images: [UIImage]) {
-        let message = Message(senderId: currentUser, text: text)
-        
-        messageRepository.add(message: message, toConversationId: conversationId)
+        if images.isEmpty {
+            let message = Message(senderId: currentUser, text: text)
+            messageRepository.add(message: message, toConversationId: conversationId)
+        } else {
+            let compressedImages = ImageCompressor.shared.compressImages(images: images)
+            let message = Message(senderId: currentUser, text: "")
+            messageRepository.addAttachment(message: message, attachments: compressedImages, toConversationId: conversationId) {
+                
+            }
+        }
     }
     
     func markMessagesAsRead() {

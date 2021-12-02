@@ -15,7 +15,7 @@ struct Message: Codable, Identifiable {
     var text: String
     var isRead: Bool = false
     var isDelivered: Bool = false
-    var attachmentUrls: [String]?
+    var attachmentUrls = [String]()
     var createdDate: Int64?
     
     enum CodingKeys: String, CodingKey {
@@ -42,5 +42,9 @@ extension Message {
     var formattedTime: String {
         let seconds = self.createdDate ?? 0
         return UnixTimestampHelper.shared.unixTimestampToString(seconds: seconds, format: .militaryTime)
+    }
+    
+    var attachmentUrlObjects: [URL] {
+        attachmentUrls.compactMap { URL(string: $0) }
     }
 }

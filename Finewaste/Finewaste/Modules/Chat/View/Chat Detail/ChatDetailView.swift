@@ -68,13 +68,22 @@ struct ChatDetailView: View {
                                     .offset(x: dragOffset)
                                     
                                     ChatBubble(direction: chatSide) {
-                                        Text(message.text)
-                                            .foregroundColor(Colors.ChatBubbleText)
-                                            .font(Fonts.poppinsBody())
-                                            .padding(.vertical, 8)
-                                            .padding(chatSide == .right ? .leading : .trailing, 12)
-                                            .padding(chatSide == .right ? .trailing : .leading)
-                                            .background(chatSide == .left ? Colors.OtherUserChatBubble : Colors.UserChatBubble)
+                                        Group {
+                                            if !message.attachmentUrls.isEmpty {
+                                                NavigationLink(destination: ImageGalleryView(updatePostedDate: "Images", images: message.attachmentUrlObjects, chosenIndex: 0)) {
+                                                    WebImage(url: URL(string: message.attachmentUrls[0]))
+                                                        .cropToSize(width: 246, height: 312)
+                                                }
+                                            } else {
+                                                Text(message.text)
+                                                    .foregroundColor(Colors.ChatBubbleText)
+                                                    .padding(.vertical, 8)
+                                            }
+                                        }
+                                        .font(Fonts.poppinsBody())
+                                        .padding(chatSide == .right ? .leading : .trailing, 12)
+                                        .padding(chatSide == .right ? .trailing : .leading)
+                                        .background(chatSide == .left ? Colors.OtherUserChatBubble : Colors.UserChatBubble)
                                     }
                                     .modifier(SwipeableChatBubbble(side: chatSide, swipeOffset: dragOffset))
                                 }
