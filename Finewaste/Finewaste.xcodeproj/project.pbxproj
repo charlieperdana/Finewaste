@@ -118,6 +118,7 @@
 		7D028701274E996F00241266 /* ChatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D028700274E996F00241266 /* ChatDetailViewModel.swift */; };
 		7D028703274F3A3900241266 /* MessageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D028702274F3A3900241266 /* MessageRepository.swift */; };
 		7D339EC92733D6240023BFDB /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D339EC82733D6240023BFDB /* NavigationBackButton.swift */; };
+		7D55933E275BB94B0073B039 /* ContributionOppositePartyInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D55933D275BB94B0073B039 /* ContributionOppositePartyInformation.swift */; };
 		7D6DD4AA273956590023E163 /* Image+centerWidthCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4A9273956590023E163 /* Image+centerWidthCrop.swift */; };
 		7D6DD4AC27396DE60023E163 /* PostUploadIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4AB27396DE60023E163 /* PostUploadIndicator.swift */; };
 		7D6DD4B1273A63500023E163 /* AddContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4B0273A63500023E163 /* AddContributionView.swift */; };
@@ -336,6 +337,7 @@
 		7D028702274F3A3900241266 /* MessageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRepository.swift; sourceTree = "<group>"; };
 		7D074D0A272846940010C4F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D339EC82733D6240023BFDB /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
+		7D55933D275BB94B0073B039 /* ContributionOppositePartyInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionOppositePartyInformation.swift; sourceTree = "<group>"; };
 		7D6DD4A9273956590023E163 /* Image+centerWidthCrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+centerWidthCrop.swift"; sourceTree = "<group>"; };
 		7D6DD4AB27396DE60023E163 /* PostUploadIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUploadIndicator.swift; sourceTree = "<group>"; };
 		7D6DD4B0273A63500023E163 /* AddContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContributionView.swift; sourceTree = "<group>"; };
@@ -1120,13 +1122,14 @@
 		7DB94F32274954A3000EDEE3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7DB94F33274954A3000EDEE3 /* ContributionMaterialItem.swift */,
-				7DB94F34274954A3000EDEE3 /* Reject Contribution */,
 				7DB94F37274954A3000EDEE3 /* ContributionCancelView.swift */,
-				7DB94F38274954A3000EDEE3 /* Contribution Timeline */,
 				7DB94F3C274954A3000EDEE3 /* ContributionDetail.swift */,
+				7DB94F33274954A3000EDEE3 /* ContributionMaterialItem.swift */,
 				7DB94F3D274954A3000EDEE3 /* ContributionStatusDetailView.swift */,
 				7D0286D7274A8D9600241266 /* WheelDatePicker.swift */,
+				7DB94F38274954A3000EDEE3 /* Contribution Timeline */,
+				7DB94F34274954A3000EDEE3 /* Reject Contribution */,
+				7D55933D275BB94B0073B039 /* ContributionOppositePartyInformation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1765,6 +1768,7 @@
 				006683642743ABE100D9BD80 /* DeliveryViewModel.swift in Sources */,
 				7D6DD4D1273B73910023E163 /* SetDeliveryViewModel.swift in Sources */,
 				7D0286D6274A150500241266 /* RejectContributionViewModel.swift in Sources */,
+				7D55933E275BB94B0073B039 /* ContributionOppositePartyInformation.swift in Sources */,
 				002A633C273E615000A0549B /* MyContributionsViewModel.swift in Sources */,
 				551DD88727329E7A00E550AF /* EncryptionHelper.swift in Sources */,
 				5527054B27417C4B00868643 /* UpcyclerActiveView.swift in Sources */,
