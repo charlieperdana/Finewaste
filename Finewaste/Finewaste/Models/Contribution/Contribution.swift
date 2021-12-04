@@ -13,8 +13,14 @@ struct Contribution: Codable, Identifiable {
     @DocumentID var id: String?
     var status: Int? = 0
     var contributorId: String?
+    var contributorName = ""
+    var contributorPhotoUrl = ""
+    
     var projectId: String?
     var projectOwnerId: String?
+    var projectOwnerUsername = ""
+    var projectOwnerPhotoUrl = ""
+    
     var projectName: String?
     var deliveryType: String?
     var location: GeoPoint?
