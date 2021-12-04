@@ -12,13 +12,17 @@ struct ChatButton: View {
     @State private var isShowingLoginModal = false
     @StateObject private var viewModel: ChatButtonViewModel
     
+    private var buttonStyle: FinewasteButtonStyle
+    
     @State private var conversationId = ""
     @State private var displayName = ""
     @State private var photoUrl = ""
     
     private var receiverId: String
     
-    init(receiverId: String, receiverName: String, receiverPhotoUrl: String) {
+    init(style: FinewasteButtonStyle, receiverId: String, receiverName: String, receiverPhotoUrl: String) {
+        self.buttonStyle = style
+        
         self.receiverId = receiverId
         
         self._viewModel = StateObject(wrappedValue: ChatButtonViewModel(receiverId: receiverId, receiverName: receiverName, receiverPhotoUrl: receiverPhotoUrl))
@@ -26,10 +30,14 @@ struct ChatButton: View {
     
     var body: some View {
         Group {
-            NavigationLink(destination: ChatDetailView(conversationId: conversationId, receiverId: receiverId, receiverDisplayName: displayName, receiverPhotoUrl: photoUrl), isActive: $isShowingConversationPage) {
+            NavigationLink(destination: ChatDetailView(conversationId: conversationId,
+                                                       receiverId: receiverId,
+                                                       receiverDisplayName: displayName,
+                                                       receiverPhotoUrl: photoUrl),
+                           isActive: $isShowingConversationPage) {
                 EmptyView()
             }
-            FinewasteButtonFill(text: "Chat", size: .small, isEnabled: true) {
+            FinewasteButtonFill(text: "Chat", size: buttonStyle, isEnabled: true) {
                 if !AuthenticationHelper.shared.isLoggedIn {
                     isShowingLoginModal.toggle()
                     return
@@ -52,6 +60,6 @@ struct ChatButton: View {
 
 struct ChatButton_Previews: PreviewProvider {
     static var previews: some View {
-        ChatButton(receiverId: "", receiverName: "", receiverPhotoUrl: "")
+        ChatButton(style: .fullWidth, receiverId: "", receiverName: "", receiverPhotoUrl: "")
     }
 }
