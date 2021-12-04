@@ -13,6 +13,7 @@ class NewContributionModel: ObservableObject {
     @Published var projectName = ""
     @Published var projectId = ""
     @Published var projectOwnerId = ""
+    @Published var projectOwnerDisplayName = ""
     @Published var projectOwnerUsername = ""
     @Published var projectOwnerPhotoUrl = ""
     @Published var deliveryAddress = ""

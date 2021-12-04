@@ -20,18 +20,7 @@ struct ContributionStatusDetailView: View {
             ZStack {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 32) {
-                        HStack {
-                            VStack(alignment: .leading, spacing: 8) {
-                                Text(viewModel.isProjectOwner ? "Contributor" : "Project Owner")
-                                    .font(Fonts.poppinsCallout())
-                                Text("DonateforCycle.id")
-                                    .font(Fonts.poppinsSubheadline())
-                            }
-                            Spacer()
-                            FinewasteButtonFill(text: "Chat", size: .small, isEnabled: true) {
-                                
-                            }
-                        }
+                        ContributionOppositePartyInformation(contribution: contribution)
                         ContributionTimeline(contribution: contribution)
                         Divider()
                         ContributionDetail(contribution: contribution, materials: viewModel.materials)

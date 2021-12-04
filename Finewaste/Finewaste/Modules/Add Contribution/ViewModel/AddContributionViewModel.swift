@@ -23,6 +23,7 @@ class AddContributionViewModel: ObservableObject {
         self.contributionModel.projectName = project.projectName ?? "---"
         self.contributionModel.projectOwnerUsername = project.posterUsername ?? "---"
         self.contributionModel.projectOwnerPhotoUrl = project.posterPhotoUrl ?? "---"
+        self.contributionModel.projectOwnerDisplayName = project.posterName ?? "---"
     }
     
     func postContribution() {
@@ -31,13 +32,17 @@ class AddContributionViewModel: ObservableObject {
             totalQuantity += $0.quantity
         }
         
+        print("FinewasteDebug: Heyho!")
+        
         let contribution = Contribution(
             contributorId: AuthenticationHelper.shared.userId,
-            contributorName: AuthenticationHelper.shared.username,
+            contributorUsername: AuthenticationHelper.shared.username,
+            contributorDisplayName: AuthenticationHelper.shared.displayName,
             contributorPhotoUrl: AuthenticationHelper.shared.profilePhotoUrl,
             projectId: contributionModel.projectId,
             projectOwnerId: contributionModel.projectOwnerId,
             projectOwnerUsername: contributionModel.projectOwnerUsername,
+            projectOwnerDisplayName: contributionModel.projectOwnerDisplayName,
             projectOwnerPhotoUrl: contributionModel.projectOwnerPhotoUrl,
             projectName: contributionModel.projectName,
             deliveryType: contributionModel.deliveryType,

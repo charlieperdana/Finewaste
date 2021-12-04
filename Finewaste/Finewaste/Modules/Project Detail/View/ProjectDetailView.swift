@@ -108,7 +108,7 @@ struct ProjectDetailView: View {
             .navigationBarHidden(true)
             
             .fullScreenCover(isPresented: $isPresentingAddContribution) {
-                AddContributionView(projectId: viewModel.projectId, projectOwnerId: viewModel.projectOwnerId, projectName: viewModel.projectName)
+                AddContributionView(project: project)
             }
             .sheet(isPresented: $isPresentingLoginSheet) {
                 LoginView(loginTrigger: .addContribution)
