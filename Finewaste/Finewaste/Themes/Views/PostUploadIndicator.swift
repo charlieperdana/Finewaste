@@ -19,6 +19,7 @@ struct PostUploadIndicator: View {
                 VStack(alignment: .leading, spacing: 20) {
                     Text("Posting...")
                         .font(Fonts.poppinsHeadline())
+                        .foregroundColor(.black)
                         .frame(height: 16)
                     ProgressView(value: currentProgress, total: 1)
                         .scaleEffect(x: 1, y: 2, anchor: .center)
