@@ -34,11 +34,11 @@ struct RootView: View {
                     case 2:
                         ContributionStatusView()
                     case 3:
-//                        if !AuthenticationHelper.shared.isLoggedIn {
-//                            GuestProfileView()
-//                        } else {
+                        if !AuthenticationHelper.shared.isLoggedIn {
+                            GuestProfileView()
+                        } else {
                             MyProfileView()
-//                        }
+                        }
                         
                     default:
                         EmptyView()

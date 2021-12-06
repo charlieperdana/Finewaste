@@ -82,7 +82,7 @@ struct HeaderProfileView: View {
                 }
                 NavigationLink(destination: MyProjectView(), isActive: $showMyProject) {}
                 NavigationLink(destination: MyContributeProjectView(), isActive: $showMyContrProject) {}
-//                NavigationLink(destination: OthersProfileView(), isActive: $showOthersProfile) {}
+//                NavigationLink(destination: OnboardingView(), isActive: $showOthersProfile) {}
                     
             }
             
