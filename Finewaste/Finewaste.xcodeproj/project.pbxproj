@@ -76,6 +76,7 @@
 		55B6040D272FEA6800631004 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B6040C272FEA6800631004 /* LoginViewModel.swift */; };
 		55B6040F273047FC00631004 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B6040E273047FC00631004 /* UserInfo.swift */; };
 		55B604572731302F00631004 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B604562731302F00631004 /* OnboardingView.swift */; };
+		55E434DE275E60E100576153 /* OnboardingNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E434DD275E60E000576153 /* OnboardingNameView.swift */; };
 		55FE15792738452700B24F2D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE15782738452700B24F2D /* DashboardView.swift */; };
 		55FE157B27384E1400B24F2D /* ProjectGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE157A27384E1400B24F2D /* ProjectGridView.swift */; };
 		55FE1580273919D900B24F2D /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE157F273919D900B24F2D /* RoundedCorner.swift */; };
@@ -293,6 +294,7 @@
 		55B6040E273047FC00631004 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		55B6045327305A0400631004 /* Finewaste.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Finewaste.entitlements; sourceTree = "<group>"; };
 		55B604562731302F00631004 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		55E434DD275E60E000576153 /* OnboardingNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNameView.swift; sourceTree = "<group>"; };
 		55FE15782738452700B24F2D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		55FE157A27384E1400B24F2D /* ProjectGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectGridView.swift; sourceTree = "<group>"; };
 		55FE157F273919D900B24F2D /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
@@ -1093,6 +1095,7 @@
 				555A280A274E5425001051F7 /* AppleButtonView.swift */,
 				55B604562731302F00631004 /* OnboardingView.swift */,
 				55B6040A272FEA4700631004 /* LoginView.swift */,
+				55E434DD275E60E000576153 /* OnboardingNameView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1669,6 +1672,7 @@
 				7D91434B2734FA9D00B89F98 /* Conversation.swift in Sources */,
 				7D6DD4B1273A63500023E163 /* AddContributionView.swift in Sources */,
 				5527055C27442D8E00868643 /* FaqView.swift in Sources */,
+				55E434DE275E60E100576153 /* OnboardingNameView.swift in Sources */,
 				7D0200CE2736708D00D3BB44 /* ProjectUpdate.swift in Sources */,
 				7DB94F44274954A3000EDEE3 /* TimelineConnector.swift in Sources */,
 				7DB94F43274954A3000EDEE3 /* ContributionCancelView.swift in Sources */,

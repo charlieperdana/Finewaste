@@ -51,7 +51,7 @@ struct HeaderProfileView: View {
                                     .font(Fonts.poppinsTitle())
                                 Text("pcs saved")
                                     .font(Fonts.poppinsFootnote())
-                            }.foregroundColor(Colors.Black)
+                            }
                         }
                         Spacer()
                         Button(action: {
@@ -62,7 +62,7 @@ struct HeaderProfileView: View {
                                     .font(Fonts.poppinsTitle())
                                 Text("projects")
                                     .font(Fonts.poppinsFootnote())
-                            }.foregroundColor(Colors.Black)
+                            }
                         }
                         Spacer()
                         Button(action: {
@@ -73,7 +73,7 @@ struct HeaderProfileView: View {
                                     .font(Fonts.poppinsTitle())
                                 Text("contributed")
                                     .font(Fonts.poppinsFootnote())
-                            }.foregroundColor(Colors.Black)
+                            }
                         }
                         
                     }
@@ -82,7 +82,7 @@ struct HeaderProfileView: View {
                 }
                 NavigationLink(destination: MyProjectView(), isActive: $showMyProject) {}
                 NavigationLink(destination: MyContributeProjectView(), isActive: $showMyContrProject) {}
-//                NavigationLink(destination: OthersProfileView(), isActive: $showOthersProfile) {}
+//                NavigationLink(destination: OnboardingView(), isActive: $showOthersProfile) {}
                     
             }
             

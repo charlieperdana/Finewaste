@@ -10,7 +10,7 @@ import SwiftUI
 struct OnboardingView: View {
     @State private var username: String = ""
     @State private var warningOne: String = "Username must be unique"
-    @State private var warningTwo: String = "Username cannot be longer than 15 characters"
+    @State private var warningTwo: String = "Username can be between 6-15 characters long"
     @State private var warningThree: String = "Username can only contain alphanumeric characters (letter a-z, numbers 0-9) with exception of underschores."
     
     @State private var isWarningOne = 0
@@ -29,6 +29,8 @@ struct OnboardingView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
+    @State var showOnBoardName = false
+    
     var body: some View {
         VStack(spacing: 20) {
             
@@ -36,9 +38,11 @@ struct OnboardingView: View {
             Text("What can we call you?")
                 .font(Fonts.poppinsTitle())
                 .foregroundColor(Colors.Turqoise)
-            Text("Set your unique username")
-                .font(Fonts.poppinsBody())
+            Text("Set your unique username, you can always change it later")
+                .font(Fonts.poppinsFootnote())
                 .foregroundColor(Colors.DarkGray)
+                .multilineTextAlignment(.center)
+                .frame(width: 200)
             VStack(alignment: .leading) {
                 TextField("Username", text: $username)
                     .onChange(of: username) {
@@ -65,7 +69,7 @@ struct OnboardingView: View {
                                 
                             }
                             
-                            if $0.count > 15 {
+                            if $0.count > 15 || $0.count < 6 {
                                 self.isWarningTwo = 1
                                 imageNameTwo = "xmark.circle"
                             } else {
@@ -129,12 +133,15 @@ struct OnboardingView: View {
             
             Spacer()
             
-            FinewasteButtonFill(text: "Start", size: .fullWidth, isEnabled: !username.isEmpty) {
-                let newUser = Users(id: self.uuidUser, name: "", username: self.username, description: "", productService: [""], createdProduct: 0, donatedWaste: 0, location: Location(latitude: 0.0, longitude: 0.0), isBusiness: false)
-                
-                userModel.addData(newUser: newUser)
-                self.presentationMode.wrappedValue.dismiss()
+            FinewasteButtonFill(text: "Next", size: .fullWidth, isEnabled: !username.isEmpty) {
+//                let newUser = Users(id: self.uuidUser, name: "", username: self.username, description: "", productService: [""], createdProduct: 0, donatedWaste: 0, location: Location(latitude: 0.0, longitude: 0.0), isBusiness: false)
+//
+//                userModel.addData(newUser: newUser)
+//                self.presentationMode.wrappedValue.dismiss()
+                self.showOnBoardName = true
             }
+            
+            NavigationLink(destination: OnboardingNameView(username: self.username), isActive: $showOnBoardName) {}
         }
         .padding()
     }
