@@ -61,7 +61,7 @@ struct ProjectDetailView: View {
                                 case .about:
                                     ProjectAboutView(viewModel: viewModel)
                                 case .update:
-                                    ProjectUpdateView(projectId: viewModel.projectId)
+                                    ProjectUpdateView(projectId: viewModel.projectId, ownerId: viewModel.projectOwnerId)
                                 default:
                                     EmptyView()
                                 }
