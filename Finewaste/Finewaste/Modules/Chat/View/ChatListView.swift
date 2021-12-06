@@ -29,6 +29,8 @@ struct ChatListView: View {
                     )
                 }
             }
+            
+            Spacer()
         }
         .navigationTitle("Chat")
         .navigationBarTitleDisplayMode(.large)
