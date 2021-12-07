@@ -17,10 +17,13 @@ class AddContributionViewModel: ObservableObject {
     @Published var uploadedImages = 0
     @Published var totalImages = 0
     
-    init(projectId: String, projectOwnerId: String, projectName: String) {
-        self.contributionModel.projectId = projectId
-        self.contributionModel.projectOwnerId = projectOwnerId
-        self.contributionModel.projectName = projectName
+    init(project: Project) {
+        self.contributionModel.projectId = project.id ?? "---"
+        self.contributionModel.projectOwnerId = project.poster ?? "---"
+        self.contributionModel.projectName = project.projectName ?? "---"
+        self.contributionModel.projectOwnerUsername = project.posterUsername ?? "---"
+        self.contributionModel.projectOwnerPhotoUrl = project.posterPhotoUrl ?? "---"
+        self.contributionModel.projectOwnerDisplayName = project.posterName ?? "---"
     }
     
     func postContribution() {
@@ -29,10 +32,18 @@ class AddContributionViewModel: ObservableObject {
             totalQuantity += $0.quantity
         }
         
+        print("FinewasteDebug: Heyho!")
+        
         let contribution = Contribution(
             contributorId: AuthenticationHelper.shared.userId,
+            contributorUsername: AuthenticationHelper.shared.username,
+            contributorDisplayName: AuthenticationHelper.shared.displayName,
+            contributorPhotoUrl: AuthenticationHelper.shared.profilePhotoUrl,
             projectId: contributionModel.projectId,
             projectOwnerId: contributionModel.projectOwnerId,
+            projectOwnerUsername: contributionModel.projectOwnerUsername,
+            projectOwnerDisplayName: contributionModel.projectOwnerDisplayName,
+            projectOwnerPhotoUrl: contributionModel.projectOwnerPhotoUrl,
             projectName: contributionModel.projectName,
             deliveryType: contributionModel.deliveryType,
             location: GeoPoint(latitude: contributionModel.location.latitude, longitude: contributionModel.location.longitude),

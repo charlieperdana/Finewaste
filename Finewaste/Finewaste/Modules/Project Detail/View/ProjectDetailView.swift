@@ -61,7 +61,7 @@ struct ProjectDetailView: View {
                                 case .about:
                                     ProjectAboutView(viewModel: viewModel)
                                 case .update:
-                                    ProjectUpdateView(projectId: viewModel.projectId)
+                                    ProjectUpdateView(projectId: viewModel.projectId, ownerId: viewModel.projectOwnerId)
                                 default:
                                     EmptyView()
                                 }
@@ -108,7 +108,7 @@ struct ProjectDetailView: View {
             .navigationBarHidden(true)
             
             .fullScreenCover(isPresented: $isPresentingAddContribution) {
-                AddContributionView(projectId: viewModel.projectId, projectOwnerId: viewModel.projectOwnerId, projectName: viewModel.projectName)
+                AddContributionView(project: project)
             }
             .sheet(isPresented: $isPresentingLoginSheet) {
                 LoginView(loginTrigger: .addContribution)

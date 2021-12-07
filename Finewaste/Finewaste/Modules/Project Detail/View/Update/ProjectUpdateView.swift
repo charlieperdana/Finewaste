@@ -10,15 +10,19 @@ import SwiftUI
 struct ProjectUpdateView: View {
     @StateObject private var viewModel: ProjectUpdateViewModel
     @State private var isShowingPostUpdateModal = false
+    private var projectOwnerId: String
     
-    init(projectId: String) {
+    init(projectId: String, ownerId: String) {
         _viewModel = StateObject(wrappedValue: ProjectUpdateViewModel(projectId: projectId))
+        self.projectOwnerId = ownerId
     }
     
     var body: some View {
         VStack(spacing: 16) {
-            FinewasteButtonOutline(text: "Post Update", size: .fullWidth, isEnabled: true) {
-                isShowingPostUpdateModal = true
+            if AuthenticationHelper.shared.userId == projectOwnerId {
+                FinewasteButtonOutline(text: "Post Update", size: .fullWidth, isEnabled: true) {
+                    isShowingPostUpdateModal = true
+                }
             }
             
             ForEach(viewModel.projectUpdates, id: \.id) { update in
@@ -35,6 +39,6 @@ struct ProjectUpdateView: View {
 
 struct ProjectUpdateView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectUpdateView(projectId: "")
+        ProjectUpdateView(projectId: "", ownerId: "")
     }
 }

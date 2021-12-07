@@ -31,6 +31,7 @@ struct EditContributionMaterialView: View {
                         .font(Fonts.poppinsCallout())
                     Text(materialModel.requirements.joined(separator: ", "))
                         .font(Fonts.poppinsSubheadline())
+                        .fixedSize(horizontal: false, vertical: true)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 

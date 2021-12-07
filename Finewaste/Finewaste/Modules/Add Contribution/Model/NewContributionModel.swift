@@ -13,6 +13,9 @@ class NewContributionModel: ObservableObject {
     @Published var projectName = ""
     @Published var projectId = ""
     @Published var projectOwnerId = ""
+    @Published var projectOwnerDisplayName = ""
+    @Published var projectOwnerUsername = ""
+    @Published var projectOwnerPhotoUrl = ""
     @Published var deliveryAddress = ""
     @Published var deliveryType = ""
     @Published var location = CLLocationCoordinate2D(latitude: 0, longitude: 0)

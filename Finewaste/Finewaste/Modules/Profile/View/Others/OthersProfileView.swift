@@ -30,6 +30,12 @@ struct OthersProfileView: View {
                     self.showChatPage = false
                 }
                 
+                ChatButton(style: .fullWidth,
+                           receiverId: model.user.id ?? "---",
+                           receiverName: model.user.name ?? "---",
+                           receiverPhotoUrl: model.user.profilePhotoUrl ?? "---"
+                )
+                
                 
                 DescriptionProfileView(model: model)
                 

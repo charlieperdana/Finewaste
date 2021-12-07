@@ -23,36 +23,19 @@ struct RootView: View {
     @State private var selectedTab = 0
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                VStack {
-                    switch selectedTab {
-                    case 0:
-                        MainProjectView()
-                    case 1:
-                        ChatListView()
-                    case 2:
-                        ContributionStatusView()
-                    case 3:
-                        if !AuthenticationHelper.shared.isLoggedIn {
-                            GuestProfileView()
-                        } else {
-                            MyProfileView()
-                        }
-                        
-                    default:
-                        EmptyView()
-                    }
-                    Spacer()
-                }
-                
-                VStack {
-                    Spacer()
-                    FloatingTabBarView(selected: $selectedTab)
-                }
+        Group {
+            switch selectedTab {
+            case 0:
+                TabBarItemView(tabBarView: AnyView(MainProjectView()), navBarStyle: .large, selectedTab: $selectedTab)
+            case 1:
+                TabBarItemView(tabBarView: AnyView(ChatListView()), navBarStyle: .large, selectedTab: $selectedTab)
+            case 2:
+                TabBarItemView(tabBarView: AnyView(ContributionStatusView()), navBarStyle: .large, selectedTab: $selectedTab)
+            case 3:
+                TabBarItemView(tabBarView: AnyView(MyProfileView()), navBarStyle: .large, selectedTab: $selectedTab)
+            default:
+                TabBarItemView(tabBarView: AnyView(EmptyView()), navBarStyle: .inline, selectedTab: $selectedTab)
             }
-            .navigationViewStyle(.stack)
-            .edgesIgnoringSafeArea(.bottom)
         }
     }
 }

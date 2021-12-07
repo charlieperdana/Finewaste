@@ -34,7 +34,11 @@ struct ProjectOwnerView: View {
                 self.showOthersProfile = true
             }
             Spacer()
-            ChatButton(receiverId: posterId, receiverName: posterName, receiverPhotoUrl: profilePhotoUrl)
+            ChatButton(style: .small,
+                       receiverId: posterId,
+                       receiverName: posterName,
+                       receiverPhotoUrl: profilePhotoUrl
+            )
             
             NavigationLink(destination: OthersProfileView(userId: self.posterId), isActive: $showOthersProfile) {}
         }
