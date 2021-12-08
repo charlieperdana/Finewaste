@@ -71,6 +71,12 @@ final class ConversationRepository: ObservableObject {
             }
     }
     
+    func deleteChat(conversationId: String, deleteData: [AnyHashable: Any]) {
+        store.collection(path)
+            .document(conversationId)
+            .updateData(deleteData)
+    }
+    
     func resetReadCount(conversationId: String, senderId: String) {
         store.collection(path)
             .document(conversationId)

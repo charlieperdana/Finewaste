@@ -16,15 +16,15 @@ struct ChatListView: View {
             FinewasteSearchbar(placeholderText: "Search chat history", searchText: $searchChatKeyword)
             
             VStack(spacing: 0) {
-                ForEach(viewModel.conversations, id: \.id) { conversation in
+                ForEach(viewModel.sortedConversations, id: \.id) { conversation in
                     ChatItem(
                         conversation: conversation,
-                        isPinned: false,
+                        isPinned: viewModel.isCurrentChatPinned(conversation: conversation),
                         onPinTapped: {
-                            
+                            viewModel.changePinState(for: conversation)
                         },
                         onDeleteTapped: {
-                            
+                            viewModel.deleteConversation(for: conversation)
                         }
                     )
                 }
