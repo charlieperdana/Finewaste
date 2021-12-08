@@ -88,6 +88,7 @@ class ChatListViewModel: ObservableObject {
         }
     
         let id = conversation.id ?? "---"
+        LocalChatData.shared.removePinStatus(id: id)
         conversationRepository.deleteChat(conversationId: id, deleteData: newData)
     }
 }
