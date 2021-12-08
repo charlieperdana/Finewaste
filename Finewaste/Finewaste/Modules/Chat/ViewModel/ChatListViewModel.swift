@@ -58,15 +58,12 @@ class ChatListViewModel: ObservableObject {
     func changePinState(for conversation: Conversation) {
         let conversationId = conversation.id ?? "---"
         if pinnedChatIds.contains(conversationId) {
-            guard let index = pinnedChatIds.firstIndex(of: conversationId) else {
-                return
-            }
-            pinnedChatIds.remove(at: index)
+            LocalChatData.shared.removePinStatus(id: conversationId)
         } else {
-            pinnedChatIds.append(conversationId)
+            LocalChatData.shared.pinChat(id: conversationId)
         }
         
-        LocalChatData.shared.pinnedChatIds = pinnedChatIds
+        self.pinnedChatIds = LocalChatData.shared.pinnedChatIds
         sortConversationBypinState()
     }
     

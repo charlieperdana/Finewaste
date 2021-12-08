@@ -27,4 +27,21 @@ final class LocalChatData {
             UserDefaults.standard.set(newValue, forKey: pinnedChatKey)
         }
     }
+    
+    func removePinStatus(id: String) {
+        var pinnedChat = pinnedChatIds
+        guard let index = pinnedChat.firstIndex(of: id) else {
+            return
+        }
+        pinnedChat.remove(at: index)
+        
+        self.pinnedChatIds = pinnedChat
+    }
+    
+    func pinChat(id: String) {
+        var pinnedChat = pinnedChatIds
+        pinnedChat.append(id)
+        
+        self.pinnedChatIds = pinnedChat
+    }
 }
