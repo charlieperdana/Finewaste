@@ -14,9 +14,11 @@ struct Conversation: Codable, Identifiable {
     var firstUserId: String
     var firstUserName: String
     var firstUserPhotoUrl: String
+    var firstUserDeletedChat: Bool = false
     var secondUserId: String
     var secondUserName: String
     var secondUserPhotoUrl: String
+    var secondUserDeletedChat: Bool = false
     var users: [String]
     var lastMessage: String = ""
     var unreadMessages: [String: Int] = [:]

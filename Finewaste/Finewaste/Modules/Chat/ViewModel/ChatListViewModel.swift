@@ -15,9 +15,7 @@ class ChatListViewModel: ObservableObject {
     
     private var conversations = [Conversation]() {
         didSet {
-            if !conversations.isEmpty {
-                sortConversationBypinState()
-            }
+            sortConversationBypinState()
         }
     }
     @Published var sortedConversations = [Conversation]()
@@ -27,6 +25,11 @@ class ChatListViewModel: ObservableObject {
     
     init() {
         conversationRepository.$conversations
+            .compactMap { convs in
+                convs.filter {
+                    !self.currentConversationIsDeleted(conversation: $0)
+                }
+            }
             .assign(to: \.conversations, on: self)
             .store(in: &cancellables)
         
@@ -51,6 +54,15 @@ class ChatListViewModel: ObservableObject {
         sortedConversations.append(contentsOf: tempConversation)
     }
     
+    private func currentConversationIsDeleted(conversation: Conversation) -> Bool {
+        let isFirstUser = conversation.firstUserId == currentUserId
+        if isFirstUser {
+            return conversation.firstUserDeletedChat
+        } else {
+            return conversation.secondUserDeletedChat
+        }
+    }
+    
     func isCurrentChatPinned(conversation: Conversation) -> Bool {
         return pinnedChatIds.contains(conversation.id ?? "---")
     }
@@ -68,6 +80,14 @@ class ChatListViewModel: ObservableObject {
     }
     
     func deleteConversation(for conversation: Conversation) {
-        
+        var newData: [AnyHashable: Any] = [:]
+        if conversation.firstUserId == currentUserId {
+            newData["firstUserDeletedChat"] = true
+        } else {
+            newData["secondUserDeletedChat"] = true
+        }
+    
+        let id = conversation.id ?? "---"
+        conversationRepository.deleteChat(conversationId: id, deleteData: newData)
     }
 }
