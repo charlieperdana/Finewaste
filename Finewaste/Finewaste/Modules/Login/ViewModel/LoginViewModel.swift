@@ -17,6 +17,8 @@ class LoginViewModel: ObservableObject {
     
     let auth = Auth.auth()
     
+    let db = Firestore.firestore()
+    
     var isSignedIn : Bool{
         return auth.currentUser != nil
     }
@@ -56,6 +58,21 @@ class LoginViewModel: ObservableObject {
             print(self.uuidUser)
             withAnimation(.easeInOut) {
                 self.logStatus = true
+            }
+        }
+    }
+    
+    func checkIfUuidExists(completion: @escaping (Bool) -> Void ) {
+        
+        let collectionUser = db.collection("users")
+        
+        collectionUser.document(Auth.auth().currentUser?.uid ?? "").getDocument { (snapshot, error ) in
+            if  (snapshot?.exists)! {
+                 print("User Document exist")
+                completion(true)
+            } else {
+                 print("User Document does not exist")
+                completion(false)
             }
         }
     }

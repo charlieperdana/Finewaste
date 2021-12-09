@@ -139,9 +139,18 @@ struct OnboardingView: View {
 //                userModel.addData(newUser: newUser)
 //                self.presentationMode.wrappedValue.dismiss()
                 self.showOnBoardName = true
+//                self.presentationMode.wrappedValue.dismiss()
             }
             
-            NavigationLink(destination: OnboardingNameView(username: self.username), isActive: $showOnBoardName) {}
+            NavigationLink(destination: OnboardingNameView(username: self.username), isActive: $showOnBoardName) {
+                EmptyView()
+            }
+            .sheet(isPresented: $showOnBoardName, onDismiss: {
+                self.presentationMode.wrappedValue.dismiss()
+            }) {
+                OnboardingNameView(username: self.username)
+            }
+            
         }
         .padding()
     }

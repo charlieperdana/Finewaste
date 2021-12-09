@@ -288,7 +288,12 @@ struct EditProfileView: View {
                         
                         
                     } label: {
-                        Text("Done").font(Fonts.poppinsBody()).foregroundColor(Colors.Gray)
+                        if nameText.count > 0 || usernameText.count > 0 {
+                            Text("Done").font(Fonts.poppinsBody()).foregroundColor(Colors.Turqoise)
+                        } else {
+                            Text("Done").font(Fonts.poppinsBody()).foregroundColor(Colors.Gray)
+                        }
+                       
                     }
                     
                     

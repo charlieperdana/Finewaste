@@ -51,13 +51,13 @@ struct OnboardingNameView: View {
 //                let newUser = User(id: self.uuidUser, profilePhotoUrl: "", name: self.name, username: self.username, description: "", productServices: [""], createdProducts: 0, donatedWaste: 0, location: GeoPoint(latitude: 0.0, longitude: 0.0), isBusiness: false, productImages: [""], pcsSaved: 0)
 
                 userModel.addData(newUser: newUser)
-//                self.presentationMode.wrappedValue.dismiss()
+                self.presentationMode.wrappedValue.dismiss()
                 
-                self.showDashboard = true
+//                self.showDashboard = true
                 
             }
             
-            NavigationLink(destination: RootView(), isActive: $showDashboard) {}
+//            NavigationLink(destination: RootView(), isActive: $showDashboard) {}
             
         }
         .padding()
