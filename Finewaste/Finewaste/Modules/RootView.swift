@@ -32,7 +32,11 @@ struct RootView: View {
             case 2:
                 TabBarItemView(tabBarView: AnyView(ContributionStatusView()), navBarStyle: .large, selectedTab: $selectedTab)
             case 3:
-                TabBarItemView(tabBarView: AnyView(MyProfileView()), navBarStyle: .large, selectedTab: $selectedTab)
+                if !AuthenticationHelper.shared.isLoggedIn {
+                    TabBarItemView(tabBarView: AnyView(GuestProfileView()), navBarStyle: .large, selectedTab: $selectedTab)
+                } else {
+                    TabBarItemView(tabBarView: AnyView(MyProfileView()), navBarStyle: .large, selectedTab: $selectedTab)
+                }
             default:
                 TabBarItemView(tabBarView: AnyView(EmptyView()), navBarStyle: .inline, selectedTab: $selectedTab)
             }

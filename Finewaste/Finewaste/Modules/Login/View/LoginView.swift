@@ -51,19 +51,27 @@ struct LoginView: View {
                 
                 //                getting error or success
                 switch result {
-                    case .success(let user):
-                        print("success")
-                        //                    do login with firebase
-                        guard let credential = user.credential as? ASAuthorizationAppleIDCredential else {
-                            print("error with firebase")
-                            return
-                        }
-                        loginData.authenticate(credential: credential)
-                        
-                        self.showLoginOnboarding = true
-                        
-                    case .failure(let error):
-                        print(error.localizedDescription)
+                case .success(let user):
+                    print("success")
+                    //                    do login with firebase
+                    guard let credential = user.credential as? ASAuthorizationAppleIDCredential else {
+                        print("error with firebase")
+                        return
+                    }
+                    loginData.authenticate(credential: credential)
+                    
+//                    loginData.checkIfUuidExists { result in
+//                        if result {
+//                            self.presentationMode.wrappedValue.dismiss()
+//                        } else {
+//                            self.showLoginOnboarding = true
+//                        }
+//                    }
+                    
+                    self.showLoginOnboarding = true
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
             }
             .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
