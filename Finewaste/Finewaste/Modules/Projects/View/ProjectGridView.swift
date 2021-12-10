@@ -47,6 +47,7 @@ struct ProjectGridView: View {
                                     .foregroundColor(Colors.DarkGray)
                                     .fixedSize(horizontal: false, vertical: true)
                                     .lineLimit(2)
+                                    .multilineTextAlignment(.leading)
                                     .padding(5)
                                     .offset(y: 5)
                                     .frame(alignment: .leading)
@@ -70,6 +71,7 @@ struct ProjectGridView: View {
                                     Text("\(progress) pcs more in \(deadline) days")
                                         .foregroundColor(Colors.Red)
                                         .font(Fonts.poppinsCaption())
+                                        .multilineTextAlignment(.leading)
                                     
                                     ProgressView(value: (Double(contribution)/Double(target)).isNaN ? 0 : Double(contribution)/Double(target), total: 1)
                                         .scaleEffect(x: 1, y: 1, anchor: .center)

@@ -31,8 +31,7 @@ struct ProjectUpdateCard: View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
                 .fill(Colors.White)
-                .shadow(color: Colors.Gray.opacity(0.4), radius: 1, x: 2, y: 2)
-                .shadow(color: Colors.Gray.opacity(0.4), radius: 1, x: -2, y: -2)
+                .shadow(color: Colors.DropShadow, radius: 2, x: 2, y: 1)
             
             VStack(alignment: .leading, spacing: 16) {
                 Text(updateDate)
