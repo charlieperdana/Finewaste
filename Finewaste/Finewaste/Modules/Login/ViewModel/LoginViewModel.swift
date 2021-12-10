@@ -62,11 +62,13 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-    func checkIfUuidExists(completion: @escaping (Bool) -> Void ) {
+    func checkIfUuidExists(uuid :String, completion: @escaping (Bool) -> Void ) {
         
         let collectionUser = db.collection("users")
         
-        collectionUser.document(Auth.auth().currentUser?.uid ?? "").getDocument { (snapshot, error ) in
+        let uuidSample = "8xayV4ivOsOSqUrNiD0kOHM7jih1"
+//        collectionUser.document(Auth.auth().currentUser?.uid ?? "").getDocument { (snapshot, error ) in
+        collectionUser.document(uuid).getDocument { (snapshot, error ) in
             if  (snapshot?.exists)! {
                  print("User Document exist")
                 completion(true)
