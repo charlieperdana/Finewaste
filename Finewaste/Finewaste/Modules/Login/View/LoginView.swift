@@ -60,15 +60,19 @@ struct LoginView: View {
                     }
                     loginData.authenticate(credential: credential)
                     
-//                    loginData.checkIfUuidExists { result in
-//                        if result {
-//                            self.presentationMode.wrappedValue.dismiss()
-//                        } else {
-//                            self.showLoginOnboarding = true
-//                        }
-//                    }
+            
+                    print("uuidModel : \(loginData.uuidUser)")
                     
-                    self.showLoginOnboarding = true
+                    
+                    loginData.checkIfUuidExists(uuid: loginData.uuidUser) { result in
+                        if result {
+                            self.presentationMode.wrappedValue.dismiss()
+                        } else {
+                            self.showLoginOnboarding = true
+                        }
+                    }
+                    
+//                    self.showLoginOnboarding = true
                     
                 case .failure(let error):
                     print(error.localizedDescription)
