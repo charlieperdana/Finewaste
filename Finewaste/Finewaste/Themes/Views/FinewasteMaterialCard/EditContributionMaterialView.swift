@@ -39,6 +39,7 @@ struct EditContributionMaterialView: View {
                     Text("Material Quantity")
                         .font(Fonts.poppinsCallout())
                     FinewasteTextField(placeholder: "0 pcs", text: $quantityTextField)
+                        .keyboardType(.numberPad)
                 }
                 
                 VStack(alignment: .leading, spacing: 8) {
