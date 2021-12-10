@@ -20,7 +20,7 @@ class HistoryProjectsViewModel: ObservableObject {
         contributionRepository.$contributions
             .map { contributions in
                 contributions.filter {
-                    !($0.archived ?? false) || ($0.status ?? -3) != ContributionStatus.projectOwnerReject.rawValue || ($0.status ?? -3) != ContributionStatus.finished.rawValue
+                    !($0.archived ?? false) || ($0.status ?? -3) == ContributionStatus.projectOwnerReject.rawValue || ($0.status ?? -3) == ContributionStatus.finished.rawValue
                 }
             }
             .assign(to: \.contributions, on: self)
