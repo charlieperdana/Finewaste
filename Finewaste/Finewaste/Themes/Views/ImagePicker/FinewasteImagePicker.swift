@@ -45,9 +45,7 @@ struct FinewasteImagePicker: View {
             }
         }
         .sheet(isPresented: $showImagePicker) {
-            NativeImagePicker(imageSource: self.imageSource) { selectedImage in
-                self.selectedImages.insert(selectedImage, at: 0)
-            }
+            MultiPhotoPicker(pickerResult: $selectedImages)
         }
         .actionSheet(isPresented: $showActionSheet) {
             ActionSheet(title: Text("Choose your image source"), buttons: [
