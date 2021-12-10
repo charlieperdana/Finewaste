@@ -10,10 +10,11 @@ import SwiftUI
 struct ChatListView: View {
     @StateObject private var viewModel = ChatListViewModel()
     @State private var searchChatKeyword = ""
+    @State private var isSearching = false
     
     var body: some View {
         VStack(spacing: 16) {
-            FinewasteSearchbar(placeholderText: "Search chat history", searchText: $searchChatKeyword)
+            SearchBarView(searchText: $searchChatKeyword, isSearching: $isSearching, placeholderText: "Search chat history")
             
             VStack(spacing: 0) {
                 ForEach(viewModel.sortedConversations, id: \.id) { conversation in

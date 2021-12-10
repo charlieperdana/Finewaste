@@ -67,6 +67,9 @@ class UserViewModel: ObservableObject {
             if error == nil {
                 
                 self.getData()
+                AuthenticationHelper.shared.username = newUser.username
+                AuthenticationHelper.shared.displayName = newUser.name
+                AuthenticationHelper.shared.profilePhotoUrl = ""
             }
             else {
                 print(error)

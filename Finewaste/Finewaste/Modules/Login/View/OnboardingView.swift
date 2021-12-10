@@ -96,7 +96,7 @@ struct OnboardingView: View {
             }
             
             VStack(alignment:.leading, spacing: 3) {
-                HStack {
+                HStack(alignment: .firstTextBaseline, spacing: 10) {
                     Image(systemName: self.imageNameOne)
                         .resizable()
                         .scaledToFill()
@@ -107,7 +107,7 @@ struct OnboardingView: View {
                         .modifier(WarningTextModifier(isSet: isWarningOne))
                     
                 }
-                HStack(spacing:10) {
+                HStack(alignment: .firstTextBaseline, spacing: 10) {
                     Image(systemName: self.imageNameTwo)
                         .resizable()
                         .scaledToFill()
@@ -118,7 +118,7 @@ struct OnboardingView: View {
                         .modifier(WarningTextModifier(isSet: isWarningTwo))
                     
                 }
-                HStack(spacing:10) {
+                HStack(alignment: .firstTextBaseline, spacing: 10) {
                     Image(systemName: self.imageNameThree)
                         .resizable()
                         .scaledToFill()
@@ -171,7 +171,7 @@ struct WarningTextModifier: ViewModifier {
             } else if self.isSet == 1 {
                 content.foregroundColor(Color.red)
             } else {
-                content.foregroundColor(Color.black)
+                content.foregroundColor(Colors.DarkGray)
             }
         }
     }
@@ -188,7 +188,7 @@ struct WarningImageModifier: ViewModifier {
             } else if self.isSet == 1 {
                 content.foregroundColor(Color.red)
             } else {
-                content.foregroundColor(Color.black)
+                content.foregroundColor(Colors.DarkGray)
             }
         }
     }

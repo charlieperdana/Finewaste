@@ -34,7 +34,7 @@ struct MyContributeProjectView: View {
             ScrollView {
                 VStack {
                     
-                    SearchBarView(searchText: $searchText, isSearching: $isSearching)
+                    SearchBarView(searchText: $searchText, isSearching: $isSearching, placeholderText: "Project, material, lokasi...")
                     
                     if(model.listProject.count <= 0 )
                     {

@@ -33,13 +33,16 @@ struct HistoryView: View {
                         }
                     }
                     .pickerStyle(.segmented)
-                    switch ContributionHistoryContentType(rawValue: selectedContentView) {
-                    case .contributions:
-                        HistoryContributionView()
-                    case .projects:
-                        HistoryProjectView()
-                    default:
-                        EmptyView()
+                    
+                    ScrollView {
+                        switch ContributionHistoryContentType(rawValue: selectedContentView) {
+                        case .contributions:
+                            HistoryContributionView()
+                        case .projects:
+                            HistoryProjectView()
+                        default:
+                            EmptyView()
+                        }
                     }
                 }
                 Spacer()

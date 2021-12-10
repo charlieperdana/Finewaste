@@ -35,7 +35,7 @@ struct MainProjectView: View {
         ScrollView {
             VStack {
                 
-                SearchBarView(searchText: $searchText, isSearching: $isSearching)
+                SearchBarView(searchText: $searchText, isSearching: $isSearching, placeholderText: "Project, material, lokasi...")
                 
                 ProjectGridView(model: model,searchText: $searchText)
                 

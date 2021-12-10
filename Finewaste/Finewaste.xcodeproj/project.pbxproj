@@ -103,7 +103,6 @@
 		7D0286D6274A150500241266 /* RejectContributionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0286D5274A150500241266 /* RejectContributionViewModel.swift */; };
 		7D0286D8274A8D9600241266 /* WheelDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0286D7274A8D9600241266 /* WheelDatePicker.swift */; };
 		7D0286DA274BAD6A00241266 /* ContributionCancelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0286D9274BAD6A00241266 /* ContributionCancelViewModel.swift */; };
-		7D0286DE274D379F00241266 /* FinewasteSearchbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0286DD274D379F00241266 /* FinewasteSearchbar.swift */; };
 		7D0286E0274DD1EE00241266 /* ChatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0286DF274DD1ED00241266 /* ChatItem.swift */; };
 		7D0286E3274DE90A00241266 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0286E2274DE90A00241266 /* ChatListViewModel.swift */; };
 		7D0286E5274DE93900241266 /* ConversationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0286E4274DE93900241266 /* ConversationRepository.swift */; };
@@ -323,7 +322,6 @@
 		7D0286D5274A150500241266 /* RejectContributionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RejectContributionViewModel.swift; sourceTree = "<group>"; };
 		7D0286D7274A8D9600241266 /* WheelDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelDatePicker.swift; sourceTree = "<group>"; };
 		7D0286D9274BAD6A00241266 /* ContributionCancelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionCancelViewModel.swift; sourceTree = "<group>"; };
-		7D0286DD274D379F00241266 /* FinewasteSearchbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteSearchbar.swift; sourceTree = "<group>"; };
 		7D0286DF274DD1ED00241266 /* ChatItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatItem.swift; sourceTree = "<group>"; };
 		7D0286E2274DE90A00241266 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		7D0286E4274DE93900241266 /* ConversationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationRepository.swift; sourceTree = "<group>"; };
@@ -598,7 +596,6 @@
 				5527052C273D79B700868643 /* Contribute */,
 				55270527273D66F800868643 /* MyProject */,
 				551DD88F2733037E00E550AF /* MainProjectView.swift */,
-				559B6E9D2736D29A003FD6AC /* SearchBarView.swift */,
 				559B6E9F2737B6D3003FD6AC /* FloatingTabBarView.swift */,
 				55FE157A27384E1400B24F2D /* ProjectGridView.swift */,
 			);
@@ -1297,13 +1294,13 @@
 		7DDD22DD2730EC5500250B35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				559B6E9D2736D29A003FD6AC /* SearchBarView.swift */,
 				7DDD22E22731136F00250B35 /* FinewasteButtonFill.swift */,
 				7D0200E62737838000D3BB44 /* FinewasteButtonOutline.swift */,
 				00BD9767274B905E00725DDD /* FinewasteContributionHistoryCard.swift */,
 				00BC26B3273D278700C0C7DB /* FinewasteContributionStatusCard.swift */,
 				7DB94F50274955AD000EDEE3 /* FinewasteLimitTextField.swift */,
 				7DDD22EF27313E1F00250B35 /* FinewasteRoundedOutlineButton.swift */,
-				7D0286DD274D379F00241266 /* FinewasteSearchbar.swift */,
 				7D0286EB274DFB0000241266 /* FinewasteSmallCirclePicture.swift */,
 				7DB94F4E2749552A000EDEE3 /* FinewasteTapHoldButton.swift */,
 				7D0200ED273790A900D3BB44 /* FinewasteTextField.swift */,
@@ -1744,7 +1741,6 @@
 				7D0E9562275E603400EFD497 /* TabBarItemView.swift in Sources */,
 				7DDD22EC273137A700250B35 /* ProjectAboutView.swift in Sources */,
 				7DDD2293272FD53500250B35 /* Project.swift in Sources */,
-				7D0286DE274D379F00241266 /* FinewasteSearchbar.swift in Sources */,
 				7D6DD4CE273ADB4B0023E163 /* PickerDataList.swift in Sources */,
 				7D0200D52736C74500D3BB44 /* ContributionMaterialRepository.swift in Sources */,
 				7D0200CC2736707600D3BB44 /* ProjectMaterial.swift in Sources */,

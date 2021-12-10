@@ -11,6 +11,7 @@ import CoreLocation
 struct MapPinPointView: View {
     @StateObject private var viewModel: MapPinPointViewModel
     @State private var searchText = ""
+    @State private var isSearching = false
     @Binding private var lastSavedCoordinate: CLLocationCoordinate2D
     
     init(currentCoordinate: Binding<CLLocationCoordinate2D>) {
@@ -49,6 +50,7 @@ struct MapPinPointView: View {
                 }
                 
                 VStack(spacing: 0) {
+                    SearchBarView(searchText: $viewModel.searchQuery, isSearching: $isSearching, placeholderText: "Search address or location")
                     ZStack {
                         Rectangle()
                             .foregroundColor(Colors.SearchBarGray)
@@ -75,6 +77,10 @@ struct MapPinPointView: View {
                                         .font(Fonts.poppinsFootnote())
                                 }
                                 Spacer()
+                            }
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                viewModel.currentMapCenter = data.coordinate
                             }
                         }
                     }
