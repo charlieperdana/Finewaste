@@ -32,13 +32,16 @@ struct ContributionStatusView: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                switch ContributionStatusContentType(rawValue: selectedContentView) {
-                case .contributions:
-                    MyContributionsView()
-                case .projects:
-                    MyProjectsView()
-                default:
-                    EmptyView()
+                
+                ScrollView {
+                    switch ContributionStatusContentType(rawValue: selectedContentView) {
+                    case .contributions:
+                        MyContributionsView()
+                    case .projects:
+                        MyProjectsView()
+                    default:
+                        EmptyView()
+                    }
                 }
             }
             Spacer()
