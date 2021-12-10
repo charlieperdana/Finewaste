@@ -76,6 +76,10 @@ struct MapPinPointView: View {
                                 }
                                 Spacer()
                             }
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                viewModel.currentMapCenter = data.coordinate
+                            }
                         }
                     }
                     .listStyle(.plain)
