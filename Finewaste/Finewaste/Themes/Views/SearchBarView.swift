@@ -10,11 +10,12 @@ import SwiftUI
 struct SearchBarView: View {
     @Binding var searchText : String
     @Binding var isSearching : Bool
+    var placeholderText: String
     
     var body: some View {
         HStack {
             HStack {
-                TextField("Project, material, lokasi...", text: $searchText)
+                TextField(placeholderText, text: $searchText)
                     .font(Fonts.poppinsSubheadline())
                     .padding(.leading, 24)
             }
@@ -44,7 +45,6 @@ struct SearchBarView: View {
                     .foregroundColor(Colors.Gray)
             )
             .transition(.move(edge: .trailing))
-            .animation(.spring())
             
             if isSearching {
                 Button(action: {
@@ -71,6 +71,6 @@ struct SearchBarView_Previews: PreviewProvider {
     @State static var isSearching = false
     
     static var previews: some View {
-        SearchBarView(searchText: $searchText, isSearching: $isSearching)
+        SearchBarView(searchText: $searchText, isSearching: $isSearching, placeholderText: "")
     }
 }
