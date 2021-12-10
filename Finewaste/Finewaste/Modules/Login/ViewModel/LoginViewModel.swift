@@ -71,6 +71,10 @@ class LoginViewModel: ObservableObject {
         collectionUser.document(uuid).getDocument { (snapshot, error ) in
             if  (snapshot?.exists)! {
                  print("User Document exist")
+                let user = try? snapshot?.data(as: User.self)
+                AuthenticationHelper.shared.username = user?.username ?? "---"
+                AuthenticationHelper.shared.displayName = user?.name ?? "---"
+                AuthenticationHelper.shared.profilePhotoUrl = user?.profilePhotoUrl ?? "---"
                 completion(true)
             } else {
                  print("User Document does not exist")
