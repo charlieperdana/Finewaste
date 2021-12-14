@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ChatListView: View {
     @StateObject private var viewModel = ChatListViewModel()
-    @State private var searchChatKeyword = ""
+    @State private var searchChatKeyword = "" {
+        willSet {
+            searchChatKeyword = newValue.lowercased()
+        }
+    }
     @State private var isSearching = false
     
     var body: some View {
@@ -18,16 +22,19 @@ struct ChatListView: View {
             
             VStack(spacing: 0) {
                 ForEach(viewModel.sortedConversations, id: \.id) { conversation in
-                    ChatItem(
-                        conversation: conversation,
-                        isPinned: viewModel.isCurrentChatPinned(conversation: conversation),
-                        onPinTapped: {
-                            viewModel.changePinState(for: conversation)
-                        },
-                        onDeleteTapped: {
-                            viewModel.deleteConversation(for: conversation)
-                        }
-                    )
+                    if searchChatKeyword.isEmpty ||
+                        conversation.otherUserName.contains(searchChatKeyword) {
+                        ChatItem(
+                            conversation: conversation,
+                            isPinned: viewModel.isCurrentChatPinned(conversation: conversation),
+                            onPinTapped: {
+                                viewModel.changePinState(for: conversation)
+                            },
+                            onDeleteTapped: {
+                                viewModel.deleteConversation(for: conversation)
+                            }
+                        )
+                    }
                 }
             }
             
