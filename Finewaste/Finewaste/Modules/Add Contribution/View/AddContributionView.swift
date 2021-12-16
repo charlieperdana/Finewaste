@@ -51,6 +51,12 @@ struct AddContributionView: View {
                 }
                 .padding()
                 
+                if viewModel.isShowingContributionIncompleteDialog {
+                    FinewasteDialog(text: viewModel.contributionIncompletePrompt) {
+                        viewModel.isShowingContributionIncompleteDialog = false
+                    }
+                }
+                
                 if viewModel.postingContribution {
                     PostUploadIndicator(currentProgress: Double(viewModel.uploadedImages) / Double(viewModel.totalImages)) {
                         viewModel.cancelPostContribution()

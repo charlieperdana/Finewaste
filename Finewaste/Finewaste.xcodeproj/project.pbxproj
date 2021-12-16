@@ -80,6 +80,7 @@
 		55FE15792738452700B24F2D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE15782738452700B24F2D /* DashboardView.swift */; };
 		55FE157B27384E1400B24F2D /* ProjectGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE157A27384E1400B24F2D /* ProjectGridView.swift */; };
 		55FE1580273919D900B24F2D /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE157F273919D900B24F2D /* RoundedCorner.swift */; };
+		7D01E806276B1091003FFA67 /* FinewasteDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01E805276B1091003FFA67 /* FinewasteDialog.swift */; };
 		7D0200C22736356500D3BB44 /* CLLocation+fetchShortLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200C12736356500D3BB44 /* CLLocation+fetchShortLocation.swift */; };
 		7D0200C627366EF900D3BB44 /* ContributionMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200C527366EF900D3BB44 /* ContributionMaterial.swift */; };
 		7D0200C82736703D00D3BB44 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200C72736703D00D3BB44 /* Message.swift */; };
@@ -299,6 +300,7 @@
 		55FE15782738452700B24F2D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		55FE157A27384E1400B24F2D /* ProjectGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectGridView.swift; sourceTree = "<group>"; };
 		55FE157F273919D900B24F2D /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		7D01E805276B1091003FFA67 /* FinewasteDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteDialog.swift; sourceTree = "<group>"; };
 		7D0200C12736356500D3BB44 /* CLLocation+fetchShortLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+fetchShortLocation.swift"; sourceTree = "<group>"; };
 		7D0200C527366EF900D3BB44 /* ContributionMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionMaterial.swift; sourceTree = "<group>"; };
 		7D0200C72736703D00D3BB44 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -1316,6 +1318,7 @@
 				7D0200F12737A75D00D3BB44 /* ImagePicker */,
 				7D6DD4B4273A758E0023E163 /* StepIndicator */,
 				7D0E9561275E603400EFD497 /* TabBarItemView.swift */,
+				7D01E805276B1091003FFA67 /* FinewasteDialog.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1659,6 +1662,7 @@
 				7D0200C82736703D00D3BB44 /* Message.swift in Sources */,
 				7D6DD4AA273956590023E163 /* Image+centerWidthCrop.swift in Sources */,
 				00BC26B2273D190300C0C7DB /* ContributionStatusView.swift in Sources */,
+				7D01E806276B1091003FFA67 /* FinewasteDialog.swift in Sources */,
 				7DF78F7B2756001E009DB0F7 /* MultiPhotoPicker.swift in Sources */,
 				7DB94F46274954A3000EDEE3 /* TimelineItem.swift in Sources */,
 				552705422740162E00868643 /* DescriptionProfileView.swift in Sources */,
@@ -1964,7 +1968,7 @@
 				CODE_SIGN_ENTITLEMENTS = Finewaste/Finewaste.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"Finewaste/Preview Content\"";
 				DEVELOPMENT_TEAM = 6QH35NFSG6;
 				ENABLE_PREVIEWS = YES;
@@ -2003,7 +2007,7 @@
 				CODE_SIGN_ENTITLEMENTS = Finewaste/Finewaste.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"Finewaste/Preview Content\"";
 				DEVELOPMENT_TEAM = 6QH35NFSG6;
 				ENABLE_PREVIEWS = YES;

@@ -17,6 +17,9 @@ class AddContributionViewModel: ObservableObject {
     @Published var uploadedImages = 0
     @Published var totalImages = 0
     
+    @Published var isShowingContributionIncompleteDialog = false
+    var contributionIncompletePrompt = ""
+    
     init(project: Project) {
         self.contributionModel.projectId = project.id ?? "---"
         self.contributionModel.projectOwnerId = project.poster ?? "---"
@@ -26,48 +29,74 @@ class AddContributionViewModel: ObservableObject {
         self.contributionModel.projectOwnerDisplayName = project.posterName ?? "---"
     }
     
-    func postContribution() {
-        var totalQuantity = 0
-        contributionModel.materials.forEach {
-            totalQuantity += $0.quantity
+    private func checkContributionCompletion() -> Bool {
+        var isContributionCompleted = true
+        
+        contributionIncompletePrompt = "Please fill the following section:\n"
+        if contributionModel.deliveryType.isEmpty {
+            contributionIncompletePrompt += "- Delivery type\n"
+            isContributionCompleted = false
         }
         
-        print("FinewasteDebug: Heyho!")
+        var filledContributionMaterialExists = false
+        for material in contributionModel.materials {
+            if !material.images.isEmpty && material.quantity != 0 {
+                filledContributionMaterialExists = true
+            }
+        }
         
-        let contribution = Contribution(
-            contributorId: AuthenticationHelper.shared.userId,
-            contributorUsername: AuthenticationHelper.shared.username,
-            contributorDisplayName: AuthenticationHelper.shared.displayName,
-            contributorPhotoUrl: AuthenticationHelper.shared.profilePhotoUrl,
-            projectId: contributionModel.projectId,
-            projectOwnerId: contributionModel.projectOwnerId,
-            projectOwnerUsername: contributionModel.projectOwnerUsername,
-            projectOwnerDisplayName: contributionModel.projectOwnerDisplayName,
-            projectOwnerPhotoUrl: contributionModel.projectOwnerPhotoUrl,
-            projectName: contributionModel.projectName,
-            deliveryType: contributionModel.deliveryType,
-            location: GeoPoint(latitude: contributionModel.location.latitude, longitude: contributionModel.location.longitude),
-            totalMaterialsQuantity: totalQuantity)
+        if !filledContributionMaterialExists {
+            contributionIncompletePrompt += "- Material(s) you want to contribute including quantity & images"
+            isContributionCompleted = false
+        }
         
-        contributionRepository.postContribution(contribution: contribution) { docId in
-            var materials = [ContributionMaterial]()
-            for material in self.contributionModel.materials where material.quantity != -1 {
-                materials.append(
-                    ContributionMaterial(contributionId: docId, name: material.materialName, quantity: material.quantity, images: [])
-                )
-                self.totalImages += material.images.count
+        self.isShowingContributionIncompleteDialog = !isContributionCompleted
+        
+        return isContributionCompleted
+    }
+    
+    func postContribution() {
+        if self.checkContributionCompletion() {
+            var totalQuantity = 0
+            contributionModel.materials.forEach {
+                totalQuantity += $0.quantity
             }
             
-            self.postingContribution = true
-            for index in materials.indices {
-                let compressedImage = ImageCompressor.shared.compressImages(images: self.contributionModel.materials[index].images)
+            let contribution = Contribution(
+                contributorId: AuthenticationHelper.shared.userId,
+                contributorUsername: AuthenticationHelper.shared.username,
+                contributorDisplayName: AuthenticationHelper.shared.displayName,
+                contributorPhotoUrl: AuthenticationHelper.shared.profilePhotoUrl,
+                projectId: contributionModel.projectId,
+                projectOwnerId: contributionModel.projectOwnerId,
+                projectOwnerUsername: contributionModel.projectOwnerUsername,
+                projectOwnerDisplayName: contributionModel.projectOwnerDisplayName,
+                projectOwnerPhotoUrl: contributionModel.projectOwnerPhotoUrl,
+                projectName: contributionModel.projectName,
+                deliveryType: contributionModel.deliveryType,
+                location: GeoPoint(latitude: contributionModel.location.latitude, longitude: contributionModel.location.longitude),
+                totalMaterialsQuantity: totalQuantity)
+            
+            contributionRepository.postContribution(contribution: contribution) { docId in
+                var materials = [ContributionMaterial]()
+                for material in self.contributionModel.materials where material.quantity != 0 {
+                    materials.append(
+                        ContributionMaterial(contributionId: docId, name: material.materialName, quantity: material.quantity, images: [])
+                    )
+                    self.totalImages += material.images.count
+                }
                 
-                self.contributionMaterialRepository.postContributionMaterial(material: materials[index], images: compressedImage) {
-                    self.uploadedImages += 1
+                self.postingContribution = true
+                for index in materials.indices {
+                    let compressedImage = ImageCompressor.shared.compressImages(images: self.contributionModel.materials[index].images)
                     
-                    if self.uploadedImages == self.totalImages {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            self.postingContribution = false
+                    self.contributionMaterialRepository.postContributionMaterial(material: materials[index], images: compressedImage) {
+                        self.uploadedImages += 1
+                        
+                        if self.uploadedImages == self.totalImages {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                self.postingContribution = false
+                            }
                         }
                     }
                 }
