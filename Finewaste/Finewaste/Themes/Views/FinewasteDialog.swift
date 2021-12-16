@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct FinewasteDialog: View {
-    var text: String
+    var headerText: String
+    var dialogText: String
     var onButtonTap: () -> Void
     
     var body: some View {
@@ -16,11 +17,15 @@ struct FinewasteDialog: View {
             Color.black
                 .opacity(0.4)
             ZStack {
-                VStack(alignment: .leading, spacing: 20) {
-                    Text(text)
+                VStack(alignment: .center, spacing: 20) {
+                    Text(headerText)
+                        .font(Fonts.poppinsHeadline())
+                        .foregroundColor(Colors.Red)
+                    Text(dialogText)
                         .font(Fonts.poppinsFootnote())
                         .fixedSize(horizontal: false, vertical: true)
                         .foregroundColor(.black)
+                        .multilineTextAlignment(.center)
 
                     FinewasteButtonOutline(text: "Ok", size: .fullWidth, isEnabled: true, onButtonTap: onButtonTap)
                 }
@@ -38,6 +43,6 @@ struct FinewasteDialog: View {
 
 struct FinewasteDialog_Previews: PreviewProvider {
     static var previews: some View {
-        FinewasteDialog(text: "", onButtonTap: {})
+        FinewasteDialog(headerText: "", dialogText: "", onButtonTap: {})
     }
 }

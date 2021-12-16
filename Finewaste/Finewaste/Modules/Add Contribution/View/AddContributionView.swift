@@ -40,19 +40,29 @@ struct AddContributionView: View {
                     
                     Spacer()
                     FinewasteButtonFill(text: bottomButtonText[currentStep - 1], size: .fullWidth, isEnabled: true) {
-                        if currentStep < maxStep {
-                            withAnimation {
-                                currentStep += 1
+                        withAnimation {
+                            if currentStep < maxStep {
+                                if viewModel.contributionMaterialIsFilled() {
+                                    currentStep += 1
+                                }
+                            } else {
+                                viewModel.postContribution()
                             }
-                        } else {
-                            viewModel.postContribution()
                         }
                     }
                 }
                 .padding()
                 
+                if viewModel.isShowingContributionMaterialIncompleteDialog {
+                    FinewasteDialog(headerText: "There’s something missing..",
+                                    dialogText: "Please pick the material(s) and fill in the material quantity and picture") {
+                        viewModel.isShowingContributionMaterialIncompleteDialog = false
+                    }
+                }
+                
                 if viewModel.isShowingContributionIncompleteDialog {
-                    FinewasteDialog(text: viewModel.contributionIncompletePrompt) {
+                    FinewasteDialog(headerText: "There’s something missing..",
+                                    dialogText: "Pick your delivery option") {
                         viewModel.isShowingContributionIncompleteDialog = false
                     }
                 }

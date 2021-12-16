@@ -18,7 +18,7 @@ class AddContributionViewModel: ObservableObject {
     @Published var totalImages = 0
     
     @Published var isShowingContributionIncompleteDialog = false
-    var contributionIncompletePrompt = ""
+    @Published var isShowingContributionMaterialIncompleteDialog = false
     
     init(project: Project) {
         self.contributionModel.projectId = project.id ?? "---"
@@ -32,12 +32,15 @@ class AddContributionViewModel: ObservableObject {
     private func checkContributionCompletion() -> Bool {
         var isContributionCompleted = true
         
-        contributionIncompletePrompt = "Please fill the following section:\n"
         if contributionModel.deliveryType.isEmpty {
-            contributionIncompletePrompt += "- Delivery type\n"
             isContributionCompleted = false
+            self.isShowingContributionIncompleteDialog = true
         }
         
+        return isContributionCompleted
+    }
+    
+    func contributionMaterialIsFilled() -> Bool {
         var filledContributionMaterialExists = false
         for material in contributionModel.materials {
             if !material.images.isEmpty && material.quantity != 0 {
@@ -45,14 +48,9 @@ class AddContributionViewModel: ObservableObject {
             }
         }
         
-        if !filledContributionMaterialExists {
-            contributionIncompletePrompt += "- Material(s) you want to contribute including quantity & images"
-            isContributionCompleted = false
-        }
+        self.isShowingContributionMaterialIncompleteDialog = !filledContributionMaterialExists
         
-        self.isShowingContributionIncompleteDialog = !isContributionCompleted
-        
-        return isContributionCompleted
+        return filledContributionMaterialExists
     }
     
     func postContribution() {
