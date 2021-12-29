@@ -90,6 +90,7 @@ struct AddContributionView: View {
                             }
                         }) {
                             Image(systemName: "chevron.left")
+                                .font(.system(size: 17, weight: .semibold, design: .default))
                                 .foregroundColor(Colors.Turqoise)
                         }
                     } else {
@@ -97,6 +98,7 @@ struct AddContributionView: View {
                             self.presentationMode.wrappedValue.dismiss()
                         } label: {
                             Image(systemName: "xmark")
+                                .font(.system(size: 17, weight: .semibold, design: .default))
                                 .foregroundColor(Colors.Turqoise)
                         }
                     }

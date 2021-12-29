@@ -113,6 +113,7 @@ struct MaterialView: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "chevron.left")
+                        .font(.system(size: 17, weight: .semibold, design: .default))
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(Colors.Turqoise)
                 })
