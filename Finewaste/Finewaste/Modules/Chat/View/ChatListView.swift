@@ -20,20 +20,22 @@ struct ChatListView: View {
         VStack(spacing: 16) {
             SearchBarView(searchText: $searchChatKeyword, isSearching: $isSearching, placeholderText: "Search chat history")
             
-            VStack(spacing: 0) {
-                ForEach(viewModel.sortedConversations, id: \.id) { conversation in
-                    if searchChatKeyword.isEmpty ||
-                        conversation.otherUserName.contains(searchChatKeyword) {
-                        ChatItem(
-                            conversation: conversation,
-                            isPinned: viewModel.isCurrentChatPinned(conversation: conversation),
-                            onPinTapped: {
-                                viewModel.changePinState(for: conversation)
-                            },
-                            onDeleteTapped: {
-                                viewModel.deleteConversation(for: conversation)
-                            }
-                        )
+            ScrollView {
+                VStack(spacing: 0) {
+                    ForEach(viewModel.sortedConversations, id: \.id) { conversation in
+                        if searchChatKeyword.isEmpty ||
+                            conversation.otherUserName.contains(searchChatKeyword) {
+                            ChatItem(
+                                conversation: conversation,
+                                isPinned: viewModel.isCurrentChatPinned(conversation: conversation),
+                                onPinTapped: {
+                                    viewModel.changePinState(for: conversation)
+                                },
+                                onDeleteTapped: {
+                                    viewModel.deleteConversation(for: conversation)
+                                }
+                            )
+                        }
                     }
                 }
             }
