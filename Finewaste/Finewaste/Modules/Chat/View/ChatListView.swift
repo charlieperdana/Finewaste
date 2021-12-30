@@ -38,6 +38,12 @@ struct ChatListView: View {
                         }
                     }
                 }
+                
+                if viewModel.sortedConversations.isEmpty {
+                    Text("No conversations yet.")
+                        .font(Fonts.poppinsCallout())
+                        .foregroundColor(Colors.Gray)
+                }
             }
             
             Spacer()
