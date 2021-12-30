@@ -47,14 +47,7 @@ struct OthersProfileView: View {
             }
             .padding()
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    VStack {
-                        Text("\(model.user.username ?? "xxx")").font(Fonts.poppinsHeadline())
-                            .frame(width: 100)
-                    }
-                }
-            }
+            .navigationTitle(model.user.username ?? "---")
             
         }
         
