@@ -85,7 +85,7 @@ struct ProjectDetailView: View {
                     Spacer()
                 }
                 
-                if !AuthenticationHelper.shared.userId == project.poster ?? "---" {
+                if !(AuthenticationHelper.shared.userId == project.poster ?? "---") {
                     VStack {
                         Spacer()
                         ZStack(alignment:. top) {

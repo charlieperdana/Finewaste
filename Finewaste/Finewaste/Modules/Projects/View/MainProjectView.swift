@@ -53,6 +53,7 @@ struct MainProjectView: View {
                         self.isPresentingAddProjectSheet = true
                     }label: {
                         Image(systemName: "plus")
+                            .font(.system(size: 17, weight: .semibold, design: .default))
                             .foregroundColor(Colors.Turqoise)
                     }
                 }
