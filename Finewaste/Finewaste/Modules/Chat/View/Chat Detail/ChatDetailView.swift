@@ -33,6 +33,7 @@ struct ChatDetailView: View {
     
     private var receiverDisplayName: String
     private var receiverPhotoUrl: String
+    private var receiverId: String
     
     @State private var dragOffset: CGFloat = 0
     
@@ -41,11 +42,12 @@ struct ChatDetailView: View {
         
         self.receiverDisplayName = receiverDisplayName
         self.receiverPhotoUrl = receiverPhotoUrl
+        self.receiverId = receiverId
     }
     
     var body: some View {
         VStack {
-            ChatDetailNavigationBar(displayName: receiverDisplayName, photoUrl: receiverPhotoUrl)
+            ChatDetailNavigationBar(displayName: receiverDisplayName, photoUrl: receiverPhotoUrl, receiverId: receiverId)
             
             ScrollView {
                 VStack(spacing: 0) {

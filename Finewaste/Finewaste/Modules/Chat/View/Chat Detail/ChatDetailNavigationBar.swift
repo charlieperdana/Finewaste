@@ -13,10 +13,12 @@ struct ChatDetailNavigationBar: View {
     
     private var displayName: String
     private var photoUrl: String
+    private var receiverId: String
     
-    init(displayName: String, photoUrl: String) {
+    init(displayName: String, photoUrl: String, receiverId: String) {
         self.displayName = displayName
         self.photoUrl = photoUrl
+        self.receiverId = receiverId
     }
     
     var body: some View {
@@ -32,22 +34,26 @@ struct ChatDetailNavigationBar: View {
             
             HStack {
                 Spacer()
-                VStack(spacing: 8) {
-                    Text(displayName)
-                        .font(Fonts.poppinsHeadline())
-                    FinewasteSmallCirclePicture(fromUrl: photoUrl)
-                    Rectangle()
-                        .frame(height: 1)
-                        .foregroundColor(Colors.Separator)
+                NavigationLink(destination: OthersProfileView(userId: self.receiverId)) {
+                    VStack(spacing: 8) {
+                        Text(displayName)
+                            .font(Fonts.poppinsHeadline())
+                        FinewasteSmallCirclePicture(fromUrl: photoUrl)
+                        Rectangle()
+                            .frame(height: 1)
+                            .foregroundColor(Colors.Separator)
+                    }
                 }
                 Spacer()
             }
+            
+
         }
     }
 }
 
 struct ChatDetailNavigationBar_Previews: PreviewProvider {
     static var previews: some View {
-        ChatDetailNavigationBar(displayName: "", photoUrl: "")
+        ChatDetailNavigationBar(displayName: "", photoUrl: "", receiverId: "")
     }
 }
