@@ -31,6 +31,8 @@ struct MyProfileView: View {
                 NavigationLink(destination: SettingView(), isActive: $showSettingPage) {}
                 
                 DescriptionProfileView(model: model)
+                
+                ProductInfoProfileView(model: model)
             }
             
             
