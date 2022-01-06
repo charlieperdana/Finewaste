@@ -18,7 +18,9 @@ struct FloatingTabBarView: View {
                         self.selected = 0
                         
                     }){
-                        Image(systemName: "scissors").foregroundColor(self.selected == 0 ? Colors.Turqoise : Colors.DarkGray).padding(.horizontal)
+                        Image(systemName: "scissors")
+                            .font(.system(size: 17, weight: .bold, design: .default))
+                            .foregroundColor(self.selected == 0 ? Colors.Turqoise : Colors.DarkGray).padding(.horizontal)
                     }
                     Text("Projects").font(Fonts.poppinsCaption2()).foregroundColor(self.selected == 0 ? Colors.Turqoise : Colors.DarkGray)
                     
@@ -32,7 +34,9 @@ struct FloatingTabBarView: View {
                         self.selected = 1
                         
                     }){
-                        Image(systemName: "bubble.left.and.bubble.right").foregroundColor(self.selected == 1 ? Colors.Turqoise : Colors.DarkGray).padding(.horizontal)
+                        Image(systemName: "bubble.left.and.bubble.right")
+                            .font(.system(size: 17, weight: .bold, design: .default))
+                            .foregroundColor(self.selected == 1 ? Colors.Turqoise : Colors.DarkGray).padding(.horizontal)
                     }
                     Text("Chat").font(Fonts.poppinsCaption2()).foregroundColor(self.selected == 1 ? Colors.Turqoise : Colors.DarkGray)
                 }
@@ -45,7 +49,9 @@ struct FloatingTabBarView: View {
                         
                         self.selected = 2
                     }){
-                        Image(systemName: "clock.arrow.circlepath").foregroundColor(self.selected == 2 ? Colors.Turqoise : Colors.DarkGray).padding(.horizontal)
+                        Image(systemName: "clock.arrow.circlepath")
+                            .font(.system(size: 17, weight: .bold, design: .default))
+                            .foregroundColor(self.selected == 2 ? Colors.Turqoise : Colors.DarkGray).padding(.horizontal)
                     }
                     Text("Status").font(Fonts.poppinsCaption2()).foregroundColor(self.selected == 2 ? Colors.Turqoise : Colors.DarkGray)
                 }
@@ -58,7 +64,9 @@ struct FloatingTabBarView: View {
                         
                         self.selected = 3
                     }){
-                        Image(systemName: "person.crop.circle").foregroundColor(self.selected == 3 ? Colors.Turqoise : Colors.DarkGray).padding(.horizontal)
+                        Image(systemName: "person.crop.circle")
+                            .font(.system(size: 17, weight: .bold, design: .default))
+                            .foregroundColor(self.selected == 3 ? Colors.Turqoise : Colors.DarkGray).padding(.horizontal)
                     }
                     Text("Profile").font(Fonts.poppinsCaption2()).foregroundColor(self.selected == 3 ? Colors.Turqoise : Colors.DarkGray)
                 }
