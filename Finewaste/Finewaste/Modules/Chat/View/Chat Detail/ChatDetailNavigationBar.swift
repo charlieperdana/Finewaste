@@ -23,15 +23,6 @@ struct ChatDetailNavigationBar: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            Button {
-                self.presentationMode.wrappedValue.dismiss()
-            } label: {
-                Image(systemName: "chevron.left")
-                    .font(.system(size: 23).weight(.medium))
-                    .foregroundColor(Colors.Turqoise)
-                    .padding()
-            }
-            
             HStack {
                 Spacer()
                 NavigationLink(destination: OthersProfileView(userId: self.receiverId)) {
@@ -47,7 +38,14 @@ struct ChatDetailNavigationBar: View {
                 Spacer()
             }
             
-
+            Button {
+                self.presentationMode.wrappedValue.dismiss()
+            } label: {
+                Image(systemName: "chevron.left")
+                    .font(.system(size: 23).weight(.medium))
+                    .foregroundColor(Colors.Turqoise)
+                    .padding()
+            }
         }
     }
 }
