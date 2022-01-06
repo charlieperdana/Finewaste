@@ -22,7 +22,7 @@ struct ChatDetailBottomBar: View {
                 HStack {
                     ChatTemplate(text: "Ready dropoff?")
                         .onTapGesture {
-                            self.messageToSend = "Ready dropoff"
+                            self.messageToSend = "Ready dropoff?"
                         }
                     ChatTemplate(text: "Masih open?")
                         .onTapGesture {
