@@ -54,8 +54,9 @@ struct ChatDetailBottomBar: View {
                 Button(action: sendMessage) {
                     Image(systemName: "paperplane")
                         .font(.system(size: 22))
-                        .foregroundColor(Colors.Red)
+                        .foregroundColor((messageToSend.isEmpty && selectedImages.isEmpty) ? Colors.Gray : Colors.Red)
                 }
+                .disabled(messageToSend.isEmpty && selectedImages.isEmpty)
             }
         }
         .sheet(isPresented: $isShowingCamera) {
