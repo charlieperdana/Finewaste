@@ -87,7 +87,9 @@ struct LoginView: View {
                 EmptyView()
             }
             .sheet(isPresented: $showLoginOnboarding, onDismiss: {
-                self.presentationMode.wrappedValue.dismiss()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
             }) {
                 OnboardingView()
             }
