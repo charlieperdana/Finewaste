@@ -152,6 +152,7 @@
 		7D91434D273507DA00B89F98 /* Contribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91434C273507DA00B89F98 /* Contribution.swift */; };
 		7D91434F273590C700B89F98 /* ProjectMaterialRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91434E273590C700B89F98 /* ProjectMaterialRepository.swift */; };
 		7D914351273596E100B89F98 /* ProjectStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D914350273596E100B89F98 /* ProjectStatusViewModel.swift */; };
+		7DB3882D278EEE7900049FB9 /* CardShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB3882C278EEE7900049FB9 /* CardShadow.swift */; };
 		7DB94F2027492621000EDEE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DB94F1F27492621000EDEE3 /* GoogleService-Info.plist */; };
 		7DB94F3E274954A3000EDEE3 /* ContributionTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F30274954A3000EDEE3 /* ContributionTimelineViewModel.swift */; };
 		7DB94F3F274954A3000EDEE3 /* ContributionStatusDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F31274954A3000EDEE3 /* ContributionStatusDetailViewModel.swift */; };
@@ -374,6 +375,7 @@
 		7D91434C273507DA00B89F98 /* Contribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contribution.swift; sourceTree = "<group>"; };
 		7D91434E273590C700B89F98 /* ProjectMaterialRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMaterialRepository.swift; sourceTree = "<group>"; };
 		7D914350273596E100B89F98 /* ProjectStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatusViewModel.swift; sourceTree = "<group>"; };
+		7DB3882C278EEE7900049FB9 /* CardShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardShadow.swift; sourceTree = "<group>"; };
 		7DB94F1F27492621000EDEE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7DB94F30274954A3000EDEE3 /* ContributionTimelineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionTimelineViewModel.swift; sourceTree = "<group>"; };
 		7DB94F31274954A3000EDEE3 /* ContributionStatusDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionStatusDetailViewModel.swift; sourceTree = "<group>"; };
@@ -1332,6 +1334,7 @@
 				00CF45AD274F86790019773C /* KeyboardAdaptive.swift */,
 				7DDD22E52731140C00250B35 /* FinewasteButtonSize.swift */,
 				7D6DD4C0273AB2680023E163 /* StepBulletColor.swift */,
+				7DB3882C278EEE7900049FB9 /* CardShadow.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -1638,6 +1641,7 @@
 				551BAAE12746B5C20061093A /* ProfileImagePicker.swift in Sources */,
 				7DB94F40274954A3000EDEE3 /* ContributionMaterialItem.swift in Sources */,
 				7D0200DE2736DD5200D3BB44 /* ProjectUpdateViewModel.swift in Sources */,
+				7DB3882D278EEE7900049FB9 /* CardShadow.swift in Sources */,
 				7DDD22DC2730EBC300250B35 /* ProjectDetailViewModel.swift in Sources */,
 				7D6DD4DE273B974E0023E163 /* CircleNavigationBackButton.swift in Sources */,
 				7DF81CA1273CDF5A00D6A24A /* ImageCompressor.swift in Sources */,

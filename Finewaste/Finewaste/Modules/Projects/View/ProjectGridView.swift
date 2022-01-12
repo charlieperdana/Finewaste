@@ -28,7 +28,6 @@ struct ProjectGridView: View {
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
                                 .fill(Colors.White)
                                 .frame(width: 170, height: 260)
-                                .shadow(color: Colors.DropShadow, radius: 2, x: 2, y: 1)
                             
                             
                             
@@ -85,6 +84,7 @@ struct ProjectGridView: View {
                             
                         }
                         .frame(width: 50, height: 50)
+                        .modifier(CardShadow())
                         .padding(.vertical, 110)
                         .padding(.horizontal, 55)
                     }
