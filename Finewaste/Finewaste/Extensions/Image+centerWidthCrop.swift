@@ -10,12 +10,12 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 extension WebImage {
-    func centerWidthCrop() -> some View {
+    func centerWidthCrop(width: CGFloat = -1, height: CGFloat = -1) -> some View {
         GeometryReader { geo in
             self
                 .resizable()
                 .scaledToFill()
-                .frame(width: geo.size.width, height: geo.size.width)
+                .frame(width: width == -1 ? geo.size.width : width, height: height == -1 ? geo.size.height : height)
         }
     }
     
