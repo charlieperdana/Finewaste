@@ -28,11 +28,11 @@ struct FinewasteMaterialCard: View {
     }
     
     private var callToActionText: String {
-        return materialModel.quantity == -1 ? "Add" : "Edit"
+        return materialModel.quantity == 0 ? "Add" : "Edit"
     }
     
     private var strokeColor: Color {
-        return materialModel.quantity == -1 ? Colors.Gray : Colors.Turqoise
+        return materialModel.quantity == 0 ? Colors.Gray : Colors.Turqoise
     }
     
     var body: some View {

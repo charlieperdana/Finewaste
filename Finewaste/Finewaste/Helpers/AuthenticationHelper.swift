@@ -19,7 +19,7 @@ final class AuthenticationHelper {
     }
     
     var isLoggedIn: Bool {
-//        return true 
+//        return true
         
         if Auth.auth().currentUser != nil {
             return true

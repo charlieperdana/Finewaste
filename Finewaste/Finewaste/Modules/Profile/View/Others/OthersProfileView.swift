@@ -26,10 +26,6 @@ struct OthersProfileView: View {
                 
                 InfoProfileView(model: model)
                 
-                FinewasteButtonFill(text: "Chat", size: .fullWidth, isEnabled: true) {
-                    self.showChatPage = false
-                }
-                
                 ChatButton(style: .fullWidth,
                            receiverId: model.user.id ?? "---",
                            receiverName: model.user.name ?? "---",
@@ -51,14 +47,7 @@ struct OthersProfileView: View {
             }
             .padding()
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    VStack {
-                        Text("\(model.user.username ?? "xxx")").font(Fonts.poppinsHeadline())
-                            .frame(width: 100)
-                    }
-                }
-            }
+            .navigationTitle(model.user.username ?? "---")
             
         }
         

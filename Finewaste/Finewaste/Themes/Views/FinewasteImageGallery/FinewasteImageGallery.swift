@@ -29,8 +29,7 @@ struct FinewasteImageGallery: View {
                 NavigationLink(
                     destination: ImageGalleryView(updatePostedDate: galleryTitle, images: images, chosenIndex: index)) {
                         WebImage(url: images[index])
-                            .resizable()
-                            .frame(width: 100, height: 100)
+                            .centerWidthCrop(width: 100, height: 100)
                             .cornerRadius(10)
                     }
             }
@@ -39,8 +38,7 @@ struct FinewasteImageGallery: View {
                     destination: ImageGalleryView(updatePostedDate: galleryTitle, images: images, chosenIndex: 0)) {
                         ZStack {
                             WebImage(url: images[maxImagesToDisplay])
-                                .resizable()
-                                .frame(width: 100, height: 100)
+                                .centerWidthCrop(width: 100, height: 100)
                                 .cornerRadius(10)
                             
                             if images.count > maxImagesToDisplay {

@@ -85,23 +85,25 @@ struct ProjectDetailView: View {
                     Spacer()
                 }
                 
-                VStack {
-                    Spacer()
-                    ZStack(alignment:. top) {
-                        Colors.White
-                            .frame(height: 78)
-                        FinewasteButtonFill(text: "Contribute", size: .fullWidth, isEnabled: true) {
-                            if !AuthenticationHelper.shared.isLoggedIn {
-                                self.isPresentingLoginSheet.toggle()
-                                return
+                if !(AuthenticationHelper.shared.userId == project.poster ?? "---") {
+                    VStack {
+                        Spacer()
+                        ZStack(alignment:. top) {
+                            Colors.White
+                                .frame(height: 78)
+                            FinewasteButtonFill(text: "Contribute", size: .fullWidth, isEnabled: true) {
+                                if !AuthenticationHelper.shared.isLoggedIn {
+                                    self.isPresentingLoginSheet.toggle()
+                                    return
+                                }
+                                
+                                isPresentingAddContribution = true
                             }
-                            
-                            isPresentingAddContribution = true
+                            .padding([.leading, .trailing])
                         }
-                        .padding([.leading, .trailing])
                     }
+                    .edgesIgnoringSafeArea(.all)
                 }
-                .edgesIgnoringSafeArea(.all)
             }
             .edgesIgnoringSafeArea(.top)
             .navigationBarBackButtonHidden(true)

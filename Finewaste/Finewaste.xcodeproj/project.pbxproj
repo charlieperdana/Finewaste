@@ -80,6 +80,7 @@
 		55FE15792738452700B24F2D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE15782738452700B24F2D /* DashboardView.swift */; };
 		55FE157B27384E1400B24F2D /* ProjectGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE157A27384E1400B24F2D /* ProjectGridView.swift */; };
 		55FE1580273919D900B24F2D /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE157F273919D900B24F2D /* RoundedCorner.swift */; };
+		7D01E806276B1091003FFA67 /* FinewasteDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01E805276B1091003FFA67 /* FinewasteDialog.swift */; };
 		7D0200C22736356500D3BB44 /* CLLocation+fetchShortLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200C12736356500D3BB44 /* CLLocation+fetchShortLocation.swift */; };
 		7D0200C627366EF900D3BB44 /* ContributionMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200C527366EF900D3BB44 /* ContributionMaterial.swift */; };
 		7D0200C82736703D00D3BB44 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0200C72736703D00D3BB44 /* Message.swift */; };
@@ -120,6 +121,7 @@
 		7D0E9562275E603400EFD497 /* TabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0E9561275E603400EFD497 /* TabBarItemView.swift */; };
 		7D339EC92733D6240023BFDB /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D339EC82733D6240023BFDB /* NavigationBackButton.swift */; };
 		7D43E27E27607D4200520C2C /* LocalChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D43E27D27607D4200520C2C /* LocalChatData.swift */; };
+		7D5438B627830D0900FD3AEB /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5438B527830D0900FD3AEB /* NavigationHelper.swift */; };
 		7D55933E275BB94B0073B039 /* ContributionOppositePartyInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D55933D275BB94B0073B039 /* ContributionOppositePartyInformation.swift */; };
 		7D6DD4AA273956590023E163 /* Image+centerWidthCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4A9273956590023E163 /* Image+centerWidthCrop.swift */; };
 		7D6DD4AC27396DE60023E163 /* PostUploadIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4AB27396DE60023E163 /* PostUploadIndicator.swift */; };
@@ -150,6 +152,7 @@
 		7D91434D273507DA00B89F98 /* Contribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91434C273507DA00B89F98 /* Contribution.swift */; };
 		7D91434F273590C700B89F98 /* ProjectMaterialRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91434E273590C700B89F98 /* ProjectMaterialRepository.swift */; };
 		7D914351273596E100B89F98 /* ProjectStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D914350273596E100B89F98 /* ProjectStatusViewModel.swift */; };
+		7DB3882D278EEE7900049FB9 /* CardShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB3882C278EEE7900049FB9 /* CardShadow.swift */; };
 		7DB94F2027492621000EDEE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DB94F1F27492621000EDEE3 /* GoogleService-Info.plist */; };
 		7DB94F3E274954A3000EDEE3 /* ContributionTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F30274954A3000EDEE3 /* ContributionTimelineViewModel.swift */; };
 		7DB94F3F274954A3000EDEE3 /* ContributionStatusDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94F31274954A3000EDEE3 /* ContributionStatusDetailViewModel.swift */; };
@@ -299,6 +302,7 @@
 		55FE15782738452700B24F2D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		55FE157A27384E1400B24F2D /* ProjectGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectGridView.swift; sourceTree = "<group>"; };
 		55FE157F273919D900B24F2D /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		7D01E805276B1091003FFA67 /* FinewasteDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinewasteDialog.swift; sourceTree = "<group>"; };
 		7D0200C12736356500D3BB44 /* CLLocation+fetchShortLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+fetchShortLocation.swift"; sourceTree = "<group>"; };
 		7D0200C527366EF900D3BB44 /* ContributionMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionMaterial.swift; sourceTree = "<group>"; };
 		7D0200C72736703D00D3BB44 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -340,6 +344,7 @@
 		7D0E9561275E603400EFD497 /* TabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemView.swift; sourceTree = "<group>"; };
 		7D339EC82733D6240023BFDB /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
 		7D43E27D27607D4200520C2C /* LocalChatData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalChatData.swift; sourceTree = "<group>"; };
+		7D5438B527830D0900FD3AEB /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		7D55933D275BB94B0073B039 /* ContributionOppositePartyInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionOppositePartyInformation.swift; sourceTree = "<group>"; };
 		7D6DD4A9273956590023E163 /* Image+centerWidthCrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+centerWidthCrop.swift"; sourceTree = "<group>"; };
 		7D6DD4AB27396DE60023E163 /* PostUploadIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUploadIndicator.swift; sourceTree = "<group>"; };
@@ -370,6 +375,7 @@
 		7D91434C273507DA00B89F98 /* Contribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contribution.swift; sourceTree = "<group>"; };
 		7D91434E273590C700B89F98 /* ProjectMaterialRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMaterialRepository.swift; sourceTree = "<group>"; };
 		7D914350273596E100B89F98 /* ProjectStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatusViewModel.swift; sourceTree = "<group>"; };
+		7DB3882C278EEE7900049FB9 /* CardShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardShadow.swift; sourceTree = "<group>"; };
 		7DB94F1F27492621000EDEE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7DB94F30274954A3000EDEE3 /* ContributionTimelineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionTimelineViewModel.swift; sourceTree = "<group>"; };
 		7DB94F31274954A3000EDEE3 /* ContributionStatusDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionStatusDetailViewModel.swift; sourceTree = "<group>"; };
@@ -567,6 +573,7 @@
 				7DF81CA0273CDF5A00D6A24A /* ImageCompressor.swift */,
 				7DF81CBE273EB12300D6A24A /* AuthenticationHelper.swift */,
 				7DF78F7627549692009DB0F7 /* UnixTimestampHelper.swift */,
+				7D5438B527830D0900FD3AEB /* NavigationHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1316,6 +1323,7 @@
 				7D0200F12737A75D00D3BB44 /* ImagePicker */,
 				7D6DD4B4273A758E0023E163 /* StepIndicator */,
 				7D0E9561275E603400EFD497 /* TabBarItemView.swift */,
+				7D01E805276B1091003FFA67 /* FinewasteDialog.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1326,6 +1334,7 @@
 				00CF45AD274F86790019773C /* KeyboardAdaptive.swift */,
 				7DDD22E52731140C00250B35 /* FinewasteButtonSize.swift */,
 				7D6DD4C0273AB2680023E163 /* StepBulletColor.swift */,
+				7DB3882C278EEE7900049FB9 /* CardShadow.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -1632,6 +1641,7 @@
 				551BAAE12746B5C20061093A /* ProfileImagePicker.swift in Sources */,
 				7DB94F40274954A3000EDEE3 /* ContributionMaterialItem.swift in Sources */,
 				7D0200DE2736DD5200D3BB44 /* ProjectUpdateViewModel.swift in Sources */,
+				7DB3882D278EEE7900049FB9 /* CardShadow.swift in Sources */,
 				7DDD22DC2730EBC300250B35 /* ProjectDetailViewModel.swift in Sources */,
 				7D6DD4DE273B974E0023E163 /* CircleNavigationBackButton.swift in Sources */,
 				7DF81CA1273CDF5A00D6A24A /* ImageCompressor.swift in Sources */,
@@ -1659,6 +1669,7 @@
 				7D0200C82736703D00D3BB44 /* Message.swift in Sources */,
 				7D6DD4AA273956590023E163 /* Image+centerWidthCrop.swift in Sources */,
 				00BC26B2273D190300C0C7DB /* ContributionStatusView.swift in Sources */,
+				7D01E806276B1091003FFA67 /* FinewasteDialog.swift in Sources */,
 				7DF78F7B2756001E009DB0F7 /* MultiPhotoPicker.swift in Sources */,
 				7DB94F46274954A3000EDEE3 /* TimelineItem.swift in Sources */,
 				552705422740162E00868643 /* DescriptionProfileView.swift in Sources */,
@@ -1798,6 +1809,7 @@
 				7D028703274F3A3900241266 /* MessageRepository.swift in Sources */,
 				00BD976D274B913500725DDD /* ImageGalleryView.swift in Sources */,
 				00FE22CA2733DBEB00EF306A /* AddMaterialView.swift in Sources */,
+				7D5438B627830D0900FD3AEB /* NavigationHelper.swift in Sources */,
 				00E7704A27327AC300C9C299 /* showImagePicker.swift in Sources */,
 				559B6EA02737B6D3003FD6AC /* FloatingTabBarView.swift in Sources */,
 				00C18B57273298C5000C1103 /* MaterialView.swift in Sources */,
@@ -1964,7 +1976,7 @@
 				CODE_SIGN_ENTITLEMENTS = Finewaste/Finewaste.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_ASSET_PATHS = "\"Finewaste/Preview Content\"";
 				DEVELOPMENT_TEAM = 6QH35NFSG6;
 				ENABLE_PREVIEWS = YES;
@@ -2003,7 +2015,7 @@
 				CODE_SIGN_ENTITLEMENTS = Finewaste/Finewaste.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_ASSET_PATHS = "\"Finewaste/Preview Content\"";
 				DEVELOPMENT_TEAM = 6QH35NFSG6;
 				ENABLE_PREVIEWS = YES;

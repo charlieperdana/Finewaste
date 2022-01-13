@@ -36,6 +36,8 @@ class DeliveryViewModel: ObservableObject {
     func postProject(newProject: NewProjectModel) {
         let project = Project(
             poster: AuthenticationHelper.shared.userId,
+            posterUsername: AuthenticationHelper.shared.username,
+            posterPhotoUrl: AuthenticationHelper.shared.profilePhotoUrl,
             projectName: newProject.projectName,
             description: newProject.projectDesc,
             deadline: newProject.deadline,
@@ -43,7 +45,6 @@ class DeliveryViewModel: ObservableObject {
             location: newProject.location)
         
         let compressedImage = ImageCompressor.shared.compressImages(images: newProject.images)
-        print("compressed \(compressedImage)")
         self.projectRepository.postProject(project: project, images: compressedImage) {
             self.publishedImage += 1
             

@@ -9,25 +9,40 @@ import SwiftUI
 
 struct ChatListView: View {
     @StateObject private var viewModel = ChatListViewModel()
-    @State private var searchChatKeyword = ""
+    @State private var searchChatKeyword = "" {
+        willSet {
+            searchChatKeyword = newValue.lowercased()
+        }
+    }
     @State private var isSearching = false
     
     var body: some View {
         VStack(spacing: 16) {
             SearchBarView(searchText: $searchChatKeyword, isSearching: $isSearching, placeholderText: "Search chat history")
             
-            VStack(spacing: 0) {
-                ForEach(viewModel.sortedConversations, id: \.id) { conversation in
-                    ChatItem(
-                        conversation: conversation,
-                        isPinned: viewModel.isCurrentChatPinned(conversation: conversation),
-                        onPinTapped: {
-                            viewModel.changePinState(for: conversation)
-                        },
-                        onDeleteTapped: {
-                            viewModel.deleteConversation(for: conversation)
+            ScrollView {
+                VStack(spacing: 0) {
+                    ForEach(viewModel.sortedConversations, id: \.id) { conversation in
+                        if searchChatKeyword.isEmpty ||
+                            conversation.otherUserName.contains(searchChatKeyword) {
+                            ChatItem(
+                                conversation: conversation,
+                                isPinned: viewModel.isCurrentChatPinned(conversation: conversation),
+                                onPinTapped: {
+                                    viewModel.changePinState(for: conversation)
+                                },
+                                onDeleteTapped: {
+                                    viewModel.deleteConversation(for: conversation)
+                                }
+                            )
                         }
-                    )
+                    }
+                }
+                
+                if viewModel.sortedConversations.isEmpty {
+                    Text("No conversations yet.")
+                        .font(Fonts.poppinsCallout())
+                        .foregroundColor(Colors.Gray)
                 }
             }
             

@@ -26,7 +26,7 @@ class NewContributionMaterialModel: ObservableObject {
     @Published var contributionId = ""
     @Published var materialId = ""
     @Published var materialName = ""
-    @Published var quantity = -1
+    @Published var quantity = 0
     @Published var requirements = [String]()
     @Published var images = [UIImage]()
 }

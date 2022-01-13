@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductInfoProfileView: View {
     @ObservedObject var model: ProfileViewModel
+    
     var body: some View {
         VStack(alignment:.leading, spacing: 8) {
             VStack(alignment:.leading) {

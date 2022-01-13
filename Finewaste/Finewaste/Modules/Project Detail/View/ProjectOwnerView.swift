@@ -36,7 +36,7 @@ struct ProjectOwnerView: View {
             Spacer()
             ChatButton(style: .small,
                        receiverId: posterId,
-                       receiverName: posterName,
+                       receiverName: posterUsername,
                        receiverPhotoUrl: profilePhotoUrl
             )
             

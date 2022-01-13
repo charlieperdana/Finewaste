@@ -31,6 +31,8 @@ struct MyProfileView: View {
                 NavigationLink(destination: SettingView(), isActive: $showSettingPage) {}
                 
                 DescriptionProfileView(model: model)
+                
+                ProductInfoProfileView(model: model)
             }
             
             
@@ -49,7 +51,9 @@ struct MyProfileView: View {
                     self.showSettingPage = true
                     print("Setting tap")
                 } label: {
-                    Image(systemName: "gearshape").foregroundColor(Colors.Turqoise)
+                    Image(systemName: "gearshape")
+                        .font(.system(size: 17, weight: .bold, design: .default))
+                        .foregroundColor(Colors.Turqoise)
                 }
                 
                 

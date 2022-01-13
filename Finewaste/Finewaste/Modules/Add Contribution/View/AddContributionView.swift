@@ -40,16 +40,32 @@ struct AddContributionView: View {
                     
                     Spacer()
                     FinewasteButtonFill(text: bottomButtonText[currentStep - 1], size: .fullWidth, isEnabled: true) {
-                        if currentStep < maxStep {
-                            withAnimation {
-                                currentStep += 1
+                        withAnimation {
+                            if currentStep < maxStep {
+                                if viewModel.contributionMaterialIsFilled() {
+                                    currentStep += 1
+                                }
+                            } else {
+                                viewModel.postContribution()
                             }
-                        } else {
-                            viewModel.postContribution()
                         }
                     }
                 }
                 .padding()
+                
+                if viewModel.isShowingContributionMaterialIncompleteDialog {
+                    FinewasteDialog(headerText: "There’s something missing..",
+                                    dialogText: "Please pick the material(s) and fill in the material quantity and picture") {
+                        viewModel.isShowingContributionMaterialIncompleteDialog = false
+                    }
+                }
+                
+                if viewModel.isShowingContributionIncompleteDialog {
+                    FinewasteDialog(headerText: "There’s something missing..",
+                                    dialogText: "Pick your delivery option") {
+                        viewModel.isShowingContributionIncompleteDialog = false
+                    }
+                }
                 
                 if viewModel.postingContribution {
                     PostUploadIndicator(currentProgress: Double(viewModel.uploadedImages) / Double(viewModel.totalImages)) {
@@ -74,6 +90,7 @@ struct AddContributionView: View {
                             }
                         }) {
                             Image(systemName: "chevron.left")
+                                .font(.system(size: 17, weight: .semibold, design: .default))
                                 .foregroundColor(Colors.Turqoise)
                         }
                     } else {
@@ -81,6 +98,7 @@ struct AddContributionView: View {
                             self.presentationMode.wrappedValue.dismiss()
                         } label: {
                             Image(systemName: "xmark")
+                                .font(.system(size: 17, weight: .semibold, design: .default))
                                 .foregroundColor(Colors.Turqoise)
                         }
                     }

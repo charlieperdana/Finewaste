@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "settingWaste2.svg",
-      "idiom" : "universal"
+      "filename" : "2. Contribute waste.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "2.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "2-1.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

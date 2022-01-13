@@ -135,6 +135,7 @@ struct AboutView: View {
                 self.showAlert = true
             }) {
                 Image(systemName: "xmark")
+                    .font(.system(size: 17, weight: .semibold, design: .default))
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(Colors.Turqoise)
             })

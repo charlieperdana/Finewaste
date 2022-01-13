@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "settingUpcycler5.svg",
-      "idiom" : "universal"
+      "filename" : "5. Update Your Progress.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "5.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "5-1.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
