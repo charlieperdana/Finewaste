@@ -1,6 +1,6 @@
 ![Banner](https://user-images.githubusercontent.com/50937000/149319260-5d19d1ad-0f26-4a2f-9191-b4bc823579e0.png)
 
-# Finewaste — Uniting Communication
+# Finewaste — Convenience, Collaborate, Circular
 Finewaste is an iOS app that helps upcycle enthusiast raise sustainability awareness by integrating end to end channels to connects upcycle enthusiast to share ideas, exchange materials, and make collaborations.. Currently, Finewaste is available at the Test Flight app as an iOS app which can be accessed [here](https://testflight.apple.com/join/VLACETIt)
 
 
