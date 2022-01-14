@@ -1,3 +1,4 @@
+
 ![Banner](https://user-images.githubusercontent.com/50937000/149319260-5d19d1ad-0f26-4a2f-9191-b4bc823579e0.png)
 
 # Finewaste — Convenience, Collaborate, Circular
@@ -47,3 +48,4 @@ Finewaste is an iOS app that helps upcycle enthusiast raise sustainability aware
 Copyright © 2022 We The X. Released under the GNU GPLv3 License.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
