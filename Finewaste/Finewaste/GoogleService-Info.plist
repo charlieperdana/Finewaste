@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>678207028102-91b1rpus3t6r6romc8pup26oj61dd34k.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.678207028102-91b1rpus3t6r6romc8pup26oj61dd34k</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAD7Ncfj9mEBoYUQHy7Ntr3ugR8R_uUp28</string>
+	<key>GCM_SENDER_ID</key>
+	<string>678207028102</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.wethex.finewaste.ios</string>
+	<key>PROJECT_ID</key>
+	<string>finewaste</string>
+	<key>STORAGE_BUCKET</key>
+	<string>finewaste.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:678207028102:ios:1c71c0e3e16af2acad4a07</string>
+</dict>
+</plist>

@@ -1,0 +1,63 @@
+//
+//  OthersProfileView.swift
+//  Finewaste
+//
+//  Created by charlie siagian on 23/11/21.
+//
+
+import SwiftUI
+
+struct OthersProfileView: View {
+    @StateObject var model = ProfileViewModel(userId: "8xayV4ivOsOSqUrNiD0kOHM7jih1")
+    
+    @State var showChatPage = false
+    @State var showSettingPage = false
+    
+    @State var isGuest = false
+    
+    init(userId:String){
+        self._model = StateObject(wrappedValue: ProfileViewModel(userId: userId))
+    }
+
+    var body: some View {
+        ScrollView(.vertical) {
+            VStack(alignment: .leading, spacing: 8){
+                HeaderProfileView(model: model, isGuest: $isGuest)
+                
+                InfoProfileView(model: model)
+                
+                ChatButton(style: .fullWidth,
+                           receiverId: model.user.id ?? "---",
+                           receiverName: model.user.name ?? "---",
+                           receiverPhotoUrl: model.user.profilePhotoUrl ?? "---"
+                )
+                
+                
+                DescriptionProfileView(model: model)
+                
+
+                ProductInfoProfileView(model: model)
+                
+                
+                NavigationLink(destination: EditProfileView(model: model), isActive: $showChatPage) {}
+                
+                NavigationLink(destination: SettingView(), isActive: $showSettingPage) {}
+                
+                
+            }
+            .padding()
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle(model.user.username ?? "---")
+            
+        }
+        
+        
+        
+    }
+}
+
+struct OthersProfileView_Previews: PreviewProvider {
+    static var previews: some View {
+        OthersProfileView(userId: "8xayV4ivOsOSqUrNiD0kOHM7jih1")
+    }
+}
