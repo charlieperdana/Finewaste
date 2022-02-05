@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
@@ -32,7 +32,7 @@ struct MyContributeProjectGridView: View {
                     
                     VStack(alignment: .leading, spacing: 4) {
                         
-                        WebImage(url: URL(string: (project.images?[0]) ?? ""))
+                        KFImage(URL(string: (project.images?[0]) ?? ""))
                             .resizable()
                             .frame(width: 170, height: 170)
                             .scaledToFill()

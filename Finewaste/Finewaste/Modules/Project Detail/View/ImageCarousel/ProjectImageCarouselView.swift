@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
 
 struct ProjectImageCarouselView: View {
     var images: [String]
@@ -17,7 +17,7 @@ struct ProjectImageCarouselView: View {
         ZStack {
             TabView(selection: $currentPage) {
                 ForEach(0..<images.count, id: \.self) { index in
-                    WebImage(url: URL(string: images[index]))
+                    KFImage(URL(string: images[index]))
                         .centerWidthCrop()
                 }
             }

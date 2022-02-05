@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
 
 struct ImageGalleryView: View {
     var updatePostedDate: String
@@ -24,7 +24,7 @@ struct ImageGalleryView: View {
     var body: some View {
         NavigationView {
             VStack {
-                WebImage(url: self.currentImage)
+                KFImage(self.currentImage)
                     .centerWidthCrop()
                     .aspectRatio(CGSize(width: 1, height: 1), contentMode: .fit)
                 Spacer()
@@ -32,7 +32,7 @@ struct ImageGalleryView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 4) {
                         ForEach(images, id: \.self) { imageUrl in
-                            WebImage(url: imageUrl)
+                            KFImage(imageUrl)
                                 .centerWidthCrop()
                                 .frame(width: 67, height: 67)
                                 .onTapGesture {

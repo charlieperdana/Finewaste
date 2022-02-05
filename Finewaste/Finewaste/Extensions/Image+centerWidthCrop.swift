@@ -7,15 +7,16 @@
 
 import Foundation
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
 
-extension WebImage {
+extension KFImage {
     func centerWidthCrop(width: CGFloat = -1, height: CGFloat = -1) -> some View {
         GeometryReader { geo in
             self
                 .resizable()
                 .scaledToFill()
                 .frame(width: width == -1 ? geo.size.width : width, height: height == -1 ? geo.size.height : height)
+                .clipped()
         }
     }
     

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
 
 struct ChatDetailNavigationBar: View {
     @Environment(\.presentationMode) var presentationMode

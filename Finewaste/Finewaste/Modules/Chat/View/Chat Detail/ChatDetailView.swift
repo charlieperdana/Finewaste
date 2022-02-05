@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
 
 struct SwipeableChatBubbble: ViewModifier {
     var side: MessageBubbleShape.Direction
@@ -73,7 +73,7 @@ struct ChatDetailView: View {
                                         Group {
                                             if !message.attachmentUrls.isEmpty {
                                                 NavigationLink(destination: ImageGalleryView(updatePostedDate: "Images", images: message.attachmentUrlObjects, chosenIndex: 0)) {
-                                                    WebImage(url: URL(string: message.attachmentUrls[0]))
+                                                    KFImage(URL(string: message.attachmentUrls[0]))
                                                         .cropToSize(width: 246, height: 312)
                                                 }
                                             } else {
