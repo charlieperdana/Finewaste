@@ -29,6 +29,10 @@ struct FinewasteImageGallery: View {
                 NavigationLink(
                     destination: ImageGalleryView(updatePostedDate: galleryTitle, images: images, chosenIndex: index)) {
                         KFImage(images[index])
+                            .placeholder {
+                                Rectangle()
+                                    .modifier(Shimmering(configuration: .default))
+                            }
                             .centerWidthCrop(width: 100, height: 100)
                             .cornerRadius(10)
                     }
@@ -38,6 +42,10 @@ struct FinewasteImageGallery: View {
                     destination: ImageGalleryView(updatePostedDate: galleryTitle, images: images, chosenIndex: 0)) {
                         ZStack {
                             KFImage(images[maxImagesToDisplay])
+                                .placeholder {
+                                    Rectangle()
+                                        .modifier(Shimmering(configuration: .default))
+                                }
                                 .centerWidthCrop(width: 100, height: 100)
                                 .cornerRadius(10)
                             

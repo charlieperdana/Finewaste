@@ -17,6 +17,10 @@ struct FinewasteSmallCirclePicture: View {
     
     var body: some View {
         KFImage(URL(string: url))
+            .placeholder {
+                Circle()
+                    .modifier(Shimmering(configuration: .default))
+            }
             .resizable()
             .frame(width: 44, height: 44)
             .clipShape(Circle())

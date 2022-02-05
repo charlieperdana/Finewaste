@@ -25,6 +25,11 @@ struct ProjectCard: View {
             
             VStack(spacing: 8) {
                 KFImage(URL(string: (project.images?[0]) ?? ""))
+                    .placeholder {
+                        Rectangle()
+                            .cornerRadius(10, corners: [.topLeft, .topRight])
+                            .modifier(Shimmering(configuration: .default))
+                    }
                     .downsampling(size: CGSize(width: 250, height: 250))
                     .centerWidthCrop(width: 159, height: 159)
                     .frame(width: 159, height: 159)

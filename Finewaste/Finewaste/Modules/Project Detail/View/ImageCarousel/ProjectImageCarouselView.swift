@@ -18,6 +18,11 @@ struct ProjectImageCarouselView: View {
             TabView(selection: $currentPage) {
                 ForEach(0..<images.count, id: \.self) { index in
                     KFImage(URL(string: images[index]))
+                        .placeholder {
+                            Rectangle()
+                                .cornerRadius(10, corners: [.topLeft, .topRight])
+                                .modifier(Shimmering(configuration: .default))
+                        }
                         .centerWidthCrop()
                 }
             }

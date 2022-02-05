@@ -25,7 +25,7 @@ struct ProductImagesProfileView: View {
                             .frame(width: 100, height: 100)
                             .scaledToFill()
                             .clipped()
-                        .cornerRadius(10)
+                            .cornerRadius(10)
                     }
 
                     

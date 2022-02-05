@@ -25,6 +25,10 @@ struct ImageGalleryView: View {
         NavigationView {
             VStack {
                 KFImage(self.currentImage)
+                    .placeholder {
+                        Rectangle()
+                            .modifier(Shimmering(configuration: .default))
+                    }
                     .centerWidthCrop()
                     .aspectRatio(CGSize(width: 1, height: 1), contentMode: .fit)
                 Spacer()
