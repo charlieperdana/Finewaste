@@ -15,10 +15,10 @@ struct ProjectGridView: View {
     var body: some View {
         Group {
             LazyVGrid(columns: [
-                GridItem(.flexible(minimum: 100, maximum: 200), spacing: 10, alignment: .top),
+                GridItem(.flexible(minimum: 100, maximum: 200), spacing: 0, alignment: .top),
                 GridItem(.flexible(minimum: 100, maximum: 200))
 
-            ], alignment: .leading, spacing: 10, content: {
+            ], alignment: .leading, spacing: 15, content: {
                 ForEach((model.listProject).filter({"\($0)".contains(searchText) || searchText.isEmpty})){ project in
                     NavigationLink(destination: ProjectDetailView(projectId: project.id ?? "---")) {
                         ProjectCard(project: project, viewModel: model)
@@ -27,7 +27,7 @@ struct ProjectGridView: View {
 
 
             })
-            .padding(.horizontal)
+//            .padding(.horizontal)
             
             Spacer()
                 .frame(height: 100)
