@@ -7,6 +7,7 @@
 
 import FirebaseFirestore
 import CoreLocation
+import UIKit
 
 class NewContributionModel: ObservableObject {
     @Published var contributorId = ""
