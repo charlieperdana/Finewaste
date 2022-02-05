@@ -148,6 +148,7 @@
 		7D6DD4EB273C0B590023E163 /* MapPinPointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD4EA273C0B590023E163 /* MapPinPointViewModel.swift */; };
 		7D90B3B327AEC0A5000E9EB8 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D90B3B227AEC0A1000E9EB8 /* Poppins-Medium.ttf */; };
 		7D90B3B627AEC406000E9EB8 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D90B3B527AEC406000E9EB8 /* TabItem.swift */; };
+		7D90B3BA27AEC722000E9EB8 /* Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D90B3B927AEC722000E9EB8 /* Shimmering.swift */; };
 		7D9143492734F9A700B89F98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9143482734F9A700B89F98 /* User.swift */; };
 		7D91434B2734FA9D00B89F98 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91434A2734FA9D00B89F98 /* Conversation.swift */; };
 		7D91434D273507DA00B89F98 /* Contribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91434C273507DA00B89F98 /* Contribution.swift */; };
@@ -379,6 +380,7 @@
 		7D6DD4EA273C0B590023E163 /* MapPinPointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinPointViewModel.swift; sourceTree = "<group>"; };
 		7D90B3B227AEC0A1000E9EB8 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		7D90B3B527AEC406000E9EB8 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		7D90B3B927AEC722000E9EB8 /* Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmering.swift; sourceTree = "<group>"; };
 		7D9143482734F9A700B89F98 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7D91434A2734FA9D00B89F98 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		7D91434C273507DA00B89F98 /* Contribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contribution.swift; sourceTree = "<group>"; };
@@ -1332,6 +1334,7 @@
 				7DDD22E52731140C00250B35 /* FinewasteButtonSize.swift */,
 				7D6DD4C0273AB2680023E163 /* StepBulletColor.swift */,
 				7DB3882C278EEE7900049FB9 /* CardShadow.swift */,
+				7D90B3B927AEC722000E9EB8 /* Shimmering.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -1639,6 +1642,7 @@
 				55B6040B272FEA4700631004 /* LoginView.swift in Sources */,
 				55270532273D8B4100868643 /* MyContributeProjectView.swift in Sources */,
 				551DD88D273302C300E550AF /* ProjectViewModel.swift in Sources */,
+				7D90B3BA27AEC722000E9EB8 /* Shimmering.swift in Sources */,
 				7D91434B2734FA9D00B89F98 /* Conversation.swift in Sources */,
 				7D6DD4B1273A63500023E163 /* AddContributionView.swift in Sources */,
 				5527055C27442D8E00868643 /* FaqView.swift in Sources */,
