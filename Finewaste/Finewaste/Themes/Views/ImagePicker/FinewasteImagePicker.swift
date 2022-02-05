@@ -28,8 +28,7 @@ struct FinewasteImagePicker: View {
                 } else {
                     ZStack(alignment: .topTrailing) {
                         Image(uiImage: selectedImages[index - 1])
-                            .resizable()
-                            .frame(width: 100, height: 100)
+                            .centerWidthCrop()
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                         Button {
                             self.removeImage(at: index - 1)
@@ -41,6 +40,7 @@ struct FinewasteImagePicker: View {
                         }
                         .offset(x: 7, y: -5)
                     }
+                    .frame(width: 100, height: 100)
                 }
             }
         }
