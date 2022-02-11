@@ -33,15 +33,14 @@ struct MainProjectView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
-                
+            VStack(spacing: 24) {
                 SearchBarView(searchText: $searchText, isSearching: $isSearching, placeholderText: "Project, material, lokasi...")
                 
                 ProjectGridView(model: model,searchText: $searchText)
-                
-                
             }
-            .navigationBarTitle(Text("Projects").font(Fonts.poppinsTitle()))
+            
+//            .navigationBarTitle(Text("Projects"))
+            .navigationTitle("Projects")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -65,12 +64,6 @@ struct MainProjectView: View {
                 AboutView(isPresentingAddProjectSheet: $isPresentingAddProjectSheet)
             }
         }
-    }
-    
-    init() {
-//        model.getProjectData()
-
-        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Poppins-SemiBold", size: 28)!]
     }
 }
 

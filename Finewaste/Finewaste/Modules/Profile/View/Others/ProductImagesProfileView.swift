@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
 
 struct ProductImagesProfileView: View {
     @ObservedObject var model: ProfileViewModel
@@ -20,12 +20,12 @@ struct ProductImagesProfileView: View {
 
                     
                     NavigationLink(destination: ImageGalleryView(updatePostedDate: "Product Images", images: model.user.productImagesUrl, chosenIndex: index)) {
-                        WebImage(url: image)
+                        KFImage(image)
                             .centerWidthCrop()
                             .frame(width: 100, height: 100)
                             .scaledToFill()
                             .clipped()
-                        .cornerRadius(10)
+                            .cornerRadius(10)
                     }
 
                     

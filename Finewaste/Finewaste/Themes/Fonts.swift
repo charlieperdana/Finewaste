@@ -64,4 +64,7 @@ struct Fonts {
         return .custom("Poppins-Regular", size: 11, relativeTo: .caption2)
     }
 
+    static func poppinsTabBar() -> Font {
+        return .custom("Poppins-Medium", size: 10)
+    }
 }

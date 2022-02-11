@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
 
 struct ProjectUpdateCard: View {
     private var updateDate = "---"

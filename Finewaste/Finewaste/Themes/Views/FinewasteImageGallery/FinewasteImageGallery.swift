@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
 
 enum GalleryAlignment {
     case left
@@ -28,7 +28,11 @@ struct FinewasteImageGallery: View {
             ForEach(0..<maxImagesToDisplay) { index in
                 NavigationLink(
                     destination: ImageGalleryView(updatePostedDate: galleryTitle, images: images, chosenIndex: index)) {
-                        WebImage(url: images[index])
+                        KFImage(images[index])
+                            .placeholder {
+                                Rectangle()
+                                    .modifier(Shimmering(configuration: .default))
+                            }
                             .centerWidthCrop(width: 100, height: 100)
                             .cornerRadius(10)
                     }
@@ -37,7 +41,11 @@ struct FinewasteImageGallery: View {
                 NavigationLink(
                     destination: ImageGalleryView(updatePostedDate: galleryTitle, images: images, chosenIndex: 0)) {
                         ZStack {
-                            WebImage(url: images[maxImagesToDisplay])
+                            KFImage(images[maxImagesToDisplay])
+                                .placeholder {
+                                    Rectangle()
+                                        .modifier(Shimmering(configuration: .default))
+                                }
                                 .centerWidthCrop(width: 100, height: 100)
                                 .cornerRadius(10)
                             

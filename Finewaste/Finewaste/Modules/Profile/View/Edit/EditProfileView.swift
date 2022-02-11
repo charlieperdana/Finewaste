@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
 import Combine
 import CoreLocation
 import Firebase
@@ -63,7 +63,7 @@ struct EditProfileView: View {
                         }
                     }
                     else {
-                        WebImage(url: URL(string: (model.user.profilePhotoUrl ?? "")))
+                        KFImage(URL(string: (model.user.profilePhotoUrl ?? "")))
                             .resizable()
                             .scaledToFill()
                             .frame(width: 100, height: 100)

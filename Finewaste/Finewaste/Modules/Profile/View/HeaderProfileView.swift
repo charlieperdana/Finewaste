@@ -5,9 +5,8 @@
 //  Created by charlie siagian on 13/11/21.
 //
 
-import SDWebImageSwiftUI
-
 import SwiftUI
+import Kingfisher
 
 struct HeaderProfileView: View {
     
@@ -31,7 +30,7 @@ struct HeaderProfileView: View {
                         .clipShape(Circle())
 //                        .overlay(Circle().strokeBorder(Color.orange, lineWidth: 2))
                 } else {
-                    WebImage(url: URL(string: (model.user.profilePhotoUrl ?? "")))
+                    KFImage(URL(string: (model.user.profilePhotoUrl ?? "")))
                         .resizable()
                         .scaledToFill()
                         .frame(width: 100, height: 100)

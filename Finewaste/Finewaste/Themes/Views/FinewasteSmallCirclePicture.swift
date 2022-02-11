@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
 
 struct FinewasteSmallCirclePicture: View {
     var url: String
@@ -16,7 +16,11 @@ struct FinewasteSmallCirclePicture: View {
     }
     
     var body: some View {
-        WebImage(url: URL(string: url))
+        KFImage(URL(string: url))
+            .placeholder {
+                Circle()
+                    .modifier(Shimmering(configuration: .default))
+            }
             .resizable()
             .frame(width: 44, height: 44)
             .clipShape(Circle())

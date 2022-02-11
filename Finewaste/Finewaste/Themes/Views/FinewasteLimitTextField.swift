@@ -23,7 +23,7 @@ struct FinewasteLimitTextField: View {
                     .padding([.top, .bottom], 12)
                     .onChange(of: text) { newValue in
                         if newValue.count > maximumCharacter {
-                            self.text = String(newValue.dropLast())
+                            self.text = String(String(newValue).prefix(maximumCharacter))
                         }
                     }
             }

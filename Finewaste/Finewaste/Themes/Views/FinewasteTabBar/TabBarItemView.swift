@@ -10,7 +10,7 @@ import SwiftUI
 struct TabBarItemView: View {
     var tabBarView: AnyView
     var navBarStyle: NavigationBarItem.TitleDisplayMode
-    @Binding var selectedTab: Int
+    @Binding var selectedTab: SelectedTab
     
     var body: some View {
         NavigationView {
@@ -19,7 +19,7 @@ struct TabBarItemView: View {
                 
                 VStack {
                     Spacer()
-                    FloatingTabBarView(selected: $selectedTab)
+                    FinewasteTabBar(currentSelectedTab: $selectedTab)
                 }
             }
             .edgesIgnoringSafeArea(.bottom)
@@ -30,6 +30,6 @@ struct TabBarItemView: View {
 
 struct TabBarItemView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarItemView(tabBarView: AnyView(EmptyView()), navBarStyle: .large, selectedTab: .constant(0))
+        TabBarItemView(tabBarView: AnyView(EmptyView()), navBarStyle: .large, selectedTab: .constant(.profile))
     }
 }
